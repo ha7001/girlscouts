@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} - Embraced Project</title>
+
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" type="image/x-icon" href="/assets/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/assets/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/assets/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/assets/img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- Mobile Specific Metas -->
+    {#<meta name="viewport" content="width=device-width, user-scalable=no">#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-title" content="Embraced" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- CSS -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" >
+    <link href="/assets/css/socialize-bookmarks.css" rel="stylesheet">
+    <link href="/assets/js/fancybox/source/jquery.fancybox.css?v=2.1.4" rel="stylesheet">
+    <link href="/assets/check_radio/skins/square/aero.css" rel="stylesheet">
+
+    <!-- Toggle Switch -->
+    <link rel="stylesheet" href="/assets/css/jquery.switch.css">
+
+    <!-- Owl Carousel Assets -->
+    <link href="/assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="/assets/css/owl.theme.css" rel="stylesheet">
+
+    <!-- Google web font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+
+    {% block css %}{% endblock %}
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Jquery -->
+    <script src="/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="/assets/js/jquery-ui-1.8.22.min.js"></script>
+
+    <!-- Wizard-->
+    <script src="/assets/js/jquery.wizard.js"></script>
+
+    <!-- Radio and checkbox styles -->
+    <script src="/assets/check_radio/jquery.icheck.js"></script>
+
+    <!-- HTML5 and CSS3-in older browsers-->
+    <script src="/assets/js/modernizr.custom.17475.js"></script>
+
+    <!-- Support media queries for IE8 -->
+    <script src="/assets/js/respond.min.js"></script>
+
+</head>
+
+<body>
+
+{% block content %}{% endblock %}
+
+<div id="toTop">Back to Top</div>
+
+{% block extra %}{% endblock %}
+
+
+
+<script src="/assets/js/jquery.validate.js"></script>
+<script src="/assets/js/jquery.placeholder.js"></script>
+<script src="/assets/js/jquery.bxslider.min.js"></script>
+<script src="/assets/js/quantity-bt.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+{#<script src="/assets/js/retina.js"></script>#}
+<script src="/assets/js/functions.js"></script>
+
+
+<!-- FANCYBOX -->
+<script  src="/assets/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4" type="text/javascript"></script>
+<script src="/assets/js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5" type="text/javascript"></script>
+<script src="/assets/js/fancy_func.js" type="text/javascript"></script>
+
+{% block script %}{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'admin_base.twig' %}
+
+{% block title %}Create User{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <header class="page-header">
+        <h3>Create User</h3>
+    </header>
+
+    <div class="tile">
+        <div class="t-body tb-padding">
+            <form role="form" method="post" action="/create_user.php">
+                <span class="error">{{ error_message }}</span>
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" name="fname" class="form-control" id="fname" placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" name="lname" class="form-control" id="lname" placeholder="Enter last name">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Confirm password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}{% endblock %}

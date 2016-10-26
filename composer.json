@@ -1,0 +1,16 @@
+{
+  "name": "School/GirlScout",
+  "description": "GirlScout Project",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Domonique Dixon",
+      "email": "drocdix7@gmail.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "1.6.5",
+    "stormpath/sdk": "1.13.0"
+  }
+}

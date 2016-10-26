@@ -1,0 +1,247 @@
+{% extends 'base.twig' %}
+
+{% block title %}CPT{% endblock %}
+{% block css %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            <!--
+            <div id="top-wizard">
+                <strong>{{ progress }} <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div>
+            end top-wizard -->
+
+            <form name="cptTest" id="wrapped">
+                <div id="middle-wizard">
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12"  style="text-align: center">
+                                <h4>{{ instructions|raw }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <canvas id="test" class="center-block" width="400" height="350"></canvas><br/>
+                                <button type="button" class="btn center-block" id="start">Start</button>
+                            </div><!-- end col-md-6 -->
+                        </div><!-- end row -->
+                    </div><!-- end step-->
+
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Test complete!</h3>
+                        <p>On to the next test</p>
+                        <button type="button" name="process" class="submit">Submit</button>
+                    </div><!-- end submit step -->
+
+                </div><!-- end middle-wizard -->
+
+                <div id="bottom-wizard">
+                    <button type="button" name="backward" class="backward" disabled>Backward</button>
+                    <button type="button" name="forward" class="forward">Forward </button>
+                </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.timer.js"></script>
+    <script>
+        function timedDisplay() {
+            if (count == stimuli) {
+                clearInterval(intervalId);
+                if (blocks == 0) {
+                    $('canvas').setLayer('text', {
+                        text: 'Done'
+                    }).drawLayers();
+
+                    // Send data off to the database
+                    $.post('cpt_submission.php', {record: JSON.stringify(record)}, function (data, status) {
+                    });
+
+                    $('button[name="forward"]').prop('disabled', false);
+                } else {
+                    clearInterval(intervalId);
+                    $('canvas').setLayer('text', {
+                        text: ' '
+                    }).drawLayers();
+                    count = 0;
+                    blocks--;
+
+                    // Send data off to the database
+                    $.post('cpt_submission.php', {record: JSON.stringify(record)}, function (data, status) {
+                    });
+
+                    record.hits = [];
+                    record.commissions = 0;
+                    record.omissions = 0;
+
+                    setTimeout(function () {
+                        init_game(stimuli, stimuli_timeout, target_percent);
+                    }, 1500);
+                }
+            } else {
+
+                if (is_target) {
+                    record.omissions = record.omissions + 1;
+                }
+
+                is_target = false;
+                display_time = new Date().getTime();
+
+                $('canvas').setLayer('text', {
+                    text: sti[count]
+                }).drawLayers();
+
+                setTimeout(function() {
+                    $('canvas').setLayer('text', {
+                        text: ''
+                    }).drawLayers();
+                }, letter_length);
+
+                if (sti[count - 1] == 'X' && sti[count] == 'A') {
+                    is_target = true;
+                }
+
+                count++;
+            }
+        }
+
+        function stringGen(count) {
+            var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var rv = [];
+
+            for (var i = 0;i < count; i++) {
+                rv.push(charset.charAt(Math.floor(Math.random() * charset.length)));
+            }
+
+            return rv;
+        }
+
+        function add_targets(chars, percent) {
+            var target_amount = chars.length * (percent / 100);
+            var count = 0;
+
+            // Check and take out targets
+            for (var i = 0; i < chars.length; i++) {
+                if (chars[i] == 'X' && chars[i+1] == 'A') {
+                    count++;
+                    if (count > target_amount) {
+                        console.log('too many');
+                        chars[i] = 'I';
+                    }
+                }
+            }
+
+            var selected_positions = [];
+
+            for (var i = 0; i < target_amount; i++) {
+                var position = Math.floor(Math.random() * chars.length);
+
+                while (selected_positions.indexOf(position) > -1) {
+                    position = Math.floor(Math.random() * chars.length);
+                }
+
+                selected_positions.push(position);
+                chars[position] = 'X';
+                chars[position + 1] = 'A';
+            }
+
+            return chars;
+        }
+
+        function init_game(stimuli, length, percent) {
+            var chars = stringGen(stimuli);
+
+            sti = add_targets(chars, percent);
+
+            $('canvas').drawText({
+                layer: true,
+                name: 'text',
+                fillStyle: '#000000',
+                x: 200, y: 175,
+                fontSize: 150,
+                fontFamily: 'Verdana, sans-serif',
+                click: function() {
+                    //On click turn this letter red.
+                    $(this).animateLayer(layer, {
+                        fillStyle: 'rgb( 255,0,0 )'
+                    },0);
+                    var now = new Date().getTime();
+                    if (sti[count - 2] == 'X' && sti[count - 1] == 'A') {
+                        record.hits.push(now - display_time);
+                        is_target = false;
+                    } else {
+                        record.commissions = record.commissions + 1;
+                    }
+                }
+            });
+            intervalId = setInterval(timedDisplay, length);
+        }
+
+        var blocks = 3;
+        var stimuli = 10;
+        var stimuli_timeout = 1500;
+        var letter_length = 750;
+        var target_percent = 20;
+        var commission = 0;
+        var omission = 0;
+        var count = 0;
+        var sti = [];
+        var intervalId;
+        var display_time = '';
+        var is_target = false;
+        var hits = [];
+
+        var record = {
+            hits: hits,
+            commissions: 0,
+            omissions: 0
+        };
+
+        var $start = $('#start');
+
+        $(document).ready(function() {
+            $forward = $('button[name="forward"]');
+
+            $forward.html('Start');
+
+            $forward.click(function() {
+                if ($forward.html() == "Start") {
+                    $forward.html('Forward');
+                    $forward.prop('disabled', true);
+                }
+                $('button[name="backward"]').prop('disabled', true);
+            });
+
+            $start.click(function() {
+                $(this).hide();
+
+                init_game(stimuli, stimuli_timeout, target_percent);
+
+                blocks--;
+            });
+
+            $('button[name="process"]').click(function() {
+                location.href = '/cancellationTest.php';
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+{% block title %}Thank you{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>Thank You</h1>
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            <form name="cancellationTest" id="wrapped" action="" method="POST">
+                <!-- Eye Test start -->
+                <div id="middle-wizard">
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Your assessment has been completed!</h3>
+                    </div><!-- end submit step -->
+                </div>
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}{% endblock %}

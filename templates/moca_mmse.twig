@@ -1,0 +1,277 @@
+{% extends 'base.twig' %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h2>{{ MoCA_MMSE_Title }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            {#<div id="top-wizard">#}
+                {#<strong>Progress <span id="location"></span></strong>#}
+                {#<div id="progressbar"></div>#}
+                {#<div class="shadow"></div>#}
+            {#</div><!-- end top-wizard -->#}
+
+            <form name="MoCA_MMSEForm" id="wrapped" action="" method="POST">
+
+                <div class="step row">
+                    <div class="col-md-12" style="text-align: center">
+                        <br>
+                        <br>
+                        <h4> {{ MoCA_MMSE_Question_Briefing | raw }} </h4>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="step row">
+                    <div class="col-md-11">
+                        <br>
+                        <div class="form-group">
+                            <label for="MoCA_MMSE_question1">{{ MoCA_MMSE_Question1 }}</label>
+                            <input type="number" min="4" max="4" class="form-control" id="MoCA_MMSE_Ans1">
+                        </div>
+                        <ul class="data-list">
+                            <li><label>{{ MoCA_MMSE_Question2 }}</label>
+                                <div class="styled-select">
+                                    <select class="form-control" name="MoCA_MMSE_Ans2">
+                                        <option value="" selected>Select one</option>
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="data-list">
+                            <li><label>{{ MoCA_MMSE_Question3 }}</label>
+                                <div class="styled-select">
+                                    <select class="form-control" name="MoCA_MMSE_Ans3">
+                                        <option value="" selected>Select one</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="data-list">
+                            <li><label>{{ MoCA_MMSE_Question4 }}</label>
+                                <div class="styled-select">
+                                    <select class="form-control" name="MoCA_MMSE_Ans4">
+                                        <option value="" selected>Select one</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+
+
+                        <div class="container-fluid">
+                            <label for="usr">{{ MoCA_MMSE_Question5 }}</label>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select class="form-control" name="MoCA_MMSE_Ans5H">
+                                        <option value="" selected>Select one</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <select class="form-control" name="MoCA_MMSE_Ans5M">
+                                        <option value="" selected>Select one</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                        <option value="40">40</option>
+                                        <option value="41">41</option>
+                                        <option value="42">42</option>
+                                        <option value="43">43</option>
+                                        <option value="44">44</option>
+                                        <option value="45">45</option>
+                                        <option value="46">46</option>
+                                        <option value="47">47</option>
+                                        <option value="48">48</option>
+                                        <option value="49">49</option>
+                                        <option value="50">50</option>
+                                        <option value="51">51</option>
+                                        <option value="52">52</option>
+                                        <option value="53">53</option>
+                                        <option value="54">54</option>
+                                        <option value="55">55</option>
+                                        <option value="56">56</option>
+                                        <option value="57">57</option>
+                                        <option value="58">58</option>
+                                        <option value="59">59</option>
+                                    </select>
+                                    <select class="form-control" name="MoCA_MMSE_Ans5AM">
+                                        <option value="" selected>Select one</option>
+                                        <option value="AM">AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step row">
+                    <div class="col-md-12" style="text-align: center">
+                        <br>
+                        <br>
+                        <h4> {{ MoCA_MMSE_Question_Briefing2 | raw }} </h4>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="step row">
+                    <div class="col-md-11">
+                        <br>
+                        <div class="form-group">
+                            <label for="MoCA_MMSE_question6">{{ MoCA_MMSE_Question6 }}</label>
+                            <input type="text" class="form-control" id="MoCA_MMSE_Ans6">
+                        </div>
+                        <div class="form-group">
+                            <label for="MoCA_MMSE_question7">{{ MoCA_MMSE_Question7 }}</label>
+                            <input type="text" class="form-control" id="MoCA_MMSE_Ans7">
+                        </div>
+                        <div class="form-group">
+                            <label for="MoCA_MMSE_question8">{{ MoCA_MMSE_Question8 }}</label>
+                            <input type="text" class="form-control" id="MoCA_MMSE_Ans8">
+                        </div>
+                        <div class="form-group">
+                            <label for="MoCA_MMSE_question9">{{ MoCA_MMSE_Question9 }}</label>
+                            <input type="text" class="form-control" id="MoCA_MMSE_Ans9">
+                        </div>
+                        <div class="form-group">
+                            <label for="MoCA_MMSE_question10">{{ MoCA_MMSE_Question10 }}</label>
+                            <input type="text" class="form-control" id="MoCA_MMSE_Ans10">
+                        </div>
+                    </div>
+                </div>
+                <div class="submit step" id="complete">
+                    <i class="icon-check"></i>
+                    <h3>Personal assessment complete!</h3>
+                    <p>Now time for the test to begin</p>
+                    <button type="submit" name="process" class="submit">Submit</button>
+                </div><!-- end submit step -->
+
+
+                <!-- Eye Test start -->
+                <div id="bottom-wizard">
+                    <button type="button" name="backward" class="backward">Backward</button>
+                    <button type="button" name="forward" class="forward">Forward</button>
+                </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jTimer.js"></script>
+    <script>
+
+    </script>
+{% endblock %}

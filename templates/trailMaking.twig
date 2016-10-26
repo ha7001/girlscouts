@@ -1,0 +1,272 @@
+{% extends 'base.twig' %}
+
+{% block title %}Trail Making Test{% endblock %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!--
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>{{ TrailMakingTest }}</h1>
+            </div>
+        </div>
+    </div>
+    -->
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            <!--
+            <div id="top-wizard">
+                <strong>Progress <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div>
+            end top-wizard -->
+
+            <form name="trailMaking" id="wrapped" action="" method="POST">
+                <!-- RCFT1 -->
+                <div id="middle-wizard">
+
+                    <div class="step row">
+                        <div class="col-md-12" style="text-align: center">
+                            <h4>
+                                {{ TrailMakingInstructions | raw }}
+                            </h4>
+                        </div>
+                    </div>
+
+
+                    <div class="step row">
+
+                        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/tdIzLAPhOsY" frameborder="0" allowfullscreen></iframe> -->
+                        <video width="640" height="480" controls>
+                            <source src="/assets/vid/TMT_1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <!-- Trail Making Part 1 -->
+                    <div class="step row">
+
+                        <h4>{{ TrailMakingInstructionsDone | raw }}</h4>
+
+                        <br>
+                        <div id="canvas-drawing">
+                            <canvas id="canvasP" class="center-block" width="605" height="753" style="border:1px solid #000000;"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <h4>
+                                {{ TrailMakingInstructions1 | raw }}
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <p>
+                                <video width="640" height="480" controls>
+                                    <source src="/assets/vid/TMT_2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Trail Making Part 2 -->
+                    <div class="step row">
+                        <h4>{{ TrailMakingInstructionsDone | raw }}</h4>
+
+                        <br>
+                        <div id="canvas-drawing">
+                            <canvas id="canvasTM" class="center-block" width="620" height="745" style="border:1px solid #000000;"></canvas>
+                        </div>
+                    </div>
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Nice!</h3>
+                        <button type="submit" name="process" class="submit">Submit</button>
+                    </div><!-- end submit step -->
+                </div>
+
+                <div id="bottom-wizard">
+                    <button type="button" name="backward" class="backward">Backward</button>
+                    <button type="button" name="forward" class="forward">Forward</button>
+                </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jTimer.js"></script>
+    <script>
+
+        //automatically scroll down to center drawing board.
+        function pageScroll() {
+            window.scrollBy(0,50); // horizontal and vertical scroll increments
+        }
+
+
+        $(document).ready(function () {
+            var $canvasP = $("#canvasP"); //Practice Canvas
+            var $canvasTM = $("#canvasTM"); //Practice Canvas
+            var pts = [];
+            var ptsTM = [];
+            var lines = [];
+            var linesTM = [];
+            var line_obj = {};
+            var line_objTM = {};
+            var isDown = false;
+            var isDownTM = false;
+
+            //Place Trail Image onto board.
+            $canvasP.drawImage({
+                layer: true,
+                x: 0, y: 0,
+                index: 0,
+                source: "/assets/img/trail_Making/TrailPartA.png",
+                fromCenter: false
+            }).drawLayers();
+            $canvasTM.drawImage({
+                layer: true,
+                x: 0, y: 0,
+                index: 0,
+                source: "/assets/img/trail_Making/TrailPartB.png",
+                fromCenter: false
+            }).drawLayers();
+
+            $canvasP.drawRect({
+                layer: true,
+                x: 0, y: 0,
+                width: 610, height: 753,
+                fromCenter: false,
+                mousedown: function (layer) {
+                    line_obj = {
+                        strokeStyle: "#000",
+                        strokeWidth: 2,
+                        data: {
+                            joints: 1
+                        }
+                    };
+
+                    isDown = true;
+                    pts.push([layer.eventX, layer.eventY]);
+                },
+                mousemove: function (layer) {
+                    if (isDown) {
+                        pts.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < pts.length; p += 1) {
+                            line_obj['x' + (p + 1)] = pts[p][0];
+                            line_obj['y' + (p + 1)] = pts[p][1];
+                        }
+                        $canvasP.drawLine(line_obj);
+                    }
+                    for (var i = 0; i < lines.length; i++) {
+                        $canvasP.drawLine(lines[i]);
+                    }
+                },
+                mouseup: function (layer) {
+                    lines.push(line_obj);
+
+                    for (var i = 0; i < lines.length; i++) {
+                        $canvasP.drawLine(lines[i]);
+                    }
+
+                    line_obj = {};
+                    pts = [];
+                    isDown = false;
+                },
+                mouseout: function (layer) {
+                    console.log(lines);
+
+                    for (var i = 0; i < lines.length; i++) {
+                        $canvasP.drawLine(lines[i]);
+                    }
+                }
+            }).drawLayers();
+
+            $canvasTM.drawRect({
+                layer: true,
+                x: 0, y: 0,
+                width: 620, height: 747,
+                fromCenter: false,
+                mousedown: function (layer) {
+                    line_objTM = {
+                        strokeStyle: "#000",
+                        strokeWidth: 2,
+                        data: {
+                            joints: 1
+                        }
+                    };
+
+                    isDownTM = true;
+                    ptsTM.push([layer.eventX, layer.eventY]);
+                },
+                mousemove: function (layer) {
+                    if (isDownTM) {
+                        ptsTM.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < ptsTM.length; p += 1) {
+                            line_objTM['x' + (p + 1)] = ptsTM[p][0];
+                            line_objTM['y' + (p + 1)] = ptsTM[p][1];
+                        }
+                        $canvasTM.drawLine(line_objTM);
+                    }
+                    for (var i = 0; i < linesTM.length; i++) {
+                        $canvasTM.drawLine(linesTM[i]);
+                    }
+                },
+                mouseup: function (layer) {
+                    linesTM.push(line_objTM);
+
+                    for (var i = 0; i < linesTM.length; i++) {
+                        $canvasTM.drawLine(linesTM[i]);
+                    }
+
+                    line_objTM = {};
+                    ptsTM = [];
+                    isDownTM = false;
+                },
+                mouseout: function (layer) {
+                    console.log(linesTM);
+
+                    for (var i = 0; i < linesTM.length; i++) {
+                        $canvasTM.drawLine(linesTM[i]);
+                    }
+                }
+            }).drawLayers();
+
+            var $save = $('#trailMakingSave');
+            //After user clicks saves, save whatever is on the canvas
+            $save.click(function () {
+                var c = document.getElementById("canvasTM");
+                var dataURL = c.toDataURL("image/png");
+
+                $.ajax({
+                    type: "POST",
+                    url: "saveImage.php",
+                    data: {
+                        imgBase64: dataURL
+                    }
+                }).done(function (o) {
+                    console.log('saved');
+                    document.getElementById("ForwardButton").click();
+                });
+            });
+        });
+    </script>
+{% endblock %}

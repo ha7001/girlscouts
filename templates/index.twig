@@ -1,0 +1,2035 @@
+{% extends 'base.twig' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block css %}
+<style type="text/css">
+    #other, #married, #partner, #widow, #separated, #unemployed, .employed, .earn, #kids_count {
+        display: none;
+    }
+    #married input.form-control, #partner input.form-control, #widow input.form-control, #separated input.form-control, #unemployed input.form-control {
+        margin-bottom: 0;
+    }
+    ul.data-list-2 li label.switch-light {
+        margin-left: 0;
+    }
+    ul.data-list-2 li.children label {
+        margin-left: 0;
+    }
+    ul.data-list-2 li label.subtitle {
+        font-size: 12px;
+        margin: 0;
+    }
+    .step h3.popover-title {
+        margin-bottom: 0;
+    }
+    .stretch {
+        min-height: 44px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>{{ welcome }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+
+            <div id="top-wizard">
+                <strong>{{ progress }} <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div><!-- end top-wizard -->
+
+            <form name="example-1" id="wrapped" action="/questionnaire.php" method="POST">
+                <div id="middle-wizard">
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>{{ para_1 }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="/initial.php?lang=en-us" class="btn btn-primary pull-right">English</a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a href="/initial.php?lang=sp" class="btn btn-primary pull-left">Spanish</a>
+                            </div>
+                        </div>
+                    </div><!-- end step-->
+
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="data-list">
+                                    <li>
+                                        <label>{{ question_1_title }}:</label>
+                                        <input type="date" name="dob" id="dob"  class="required form-control" placeholder="Date of Birth" ></li>
+                                    <input id="website" name="website" type="text" value="" ><!-- Leave for security protection, read docs for details -->
+                                </ul>
+                            </div><!-- end col-md-6 -->
+                            <div class="col-md-6">
+                                <ul class="data-list">
+                                    <li><label>{{ question_2_title }}:</label>
+                                        <div class="styled-select">
+                                            <select class="form-control required" name="gender">
+                                                <option value="" selected>{{ question_2_option_1 }}</option>
+                                                <option value="m">{{ question_2_option_2 }}</option>
+                                                <option value="f">{{ question_2_option_3 }}</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- end col-md-6 -->
+                        </div><!-- end row -->
+                    </div><!-- end step-->
+
+                    <!-- Dominate Hand -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <h3>Please indicate your preferences in the use of hands in the following activities. Please try to answer all the questions:</h3>
+                            <div class="row">
+                                <div class="col-xs-2 col-xs-offset-8">
+                                    <label>Left</label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <label>Right</label>
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Writing</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="writinghand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="writinghand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Drawing</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="drawinghand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="drawinghand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Throwing a ball</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="throwinghand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="throwinghand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Using scissors</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="scissorshand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="scissorshand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Using a Toothbrush</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="toothbrushhand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="toothbrushhand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Cutting with a knife</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="knifehand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="knifehand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Eating with a spoon</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="spoonhand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="spoonhand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Using a Broom (upper hand)</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="broomhand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="broomhand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Striking a match (hand with the match)</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="matchhand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="matchhand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>Opening the lid of a box</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="openinghand" type="radio" class="check_radio" value="l">
+                                </div>
+                                <div class="col-xs-2">
+                                    <input name="openinghand" type="radio" class="check_radio" value="r">
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!-- Race -->
+                    <div class="step row" data-state="race">
+                        <div class="col-md-12">
+                            <h4>Do you consider yourself Hispanic/Latino?</h4>
+                            <ul class="data-list-2 race">
+                                <li><input name="race" type="radio" class="check_radio" value="No"><label>No, not Hispanic/Latino</label></li>
+                                <li><input name="race" type="radio" class="check_radio" value="mexican"><label>Yes, Mexican, Mexican American, Chicano</label></li>
+                                <li><input name="race" type="radio" class="check_radio" value="puertorican"><label>Yes, Puerto Rican</label></li>
+                                <li><input name="race" type="radio" class="check_radio" value="cuban"><label>Yes, Cuban</label></li>
+                                <li><input name="race" type="radio" class="check_radio" value="centralamerican"><label>Yes, Central America</label></li>
+                                <li><input type="radio" name="race" value="otherrace" class="check_radio" /><label>Yes, other Hispanic/Latino</label></li>
+                                <li><input type="text" name="other" id="other"  class="form-control" placeholder="Specify"></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>What race do you consider yourself to be according to your parentage, ancestry or roots? (You can choose more than one):</h4>
+                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="indian"><label>American Indian or Alaska Native (original from North and South America native populations)</label></li>
+                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="asian"><label>Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label></li>
+                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="black"><label>Black or African American</label></li>
+                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="hawaii"><label>Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific Islands)</label></li>
+                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="white"><label>White (Europe, Middle East or North Africa)</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!-- Immigrants -->
+                    <div class="branch" id="mexican">
+                        <div class="step row" data-state="No">
+                        <div class="col-md-12">
+                            <ul class="data-list-2">
+                                <h4>What occupation did you have in your home country before you moved here?</h4>
+                                <li><input type="text" name="immigrant_job" class="form-control" placeholder=""></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Where were you born?</h4>
+                                <li><input type="text" name="immigrant_born" class="form-control" placeholder="City, Country"></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>What's the size of your town of origin?</h4>
+                                <li><input type="radio" name="immigrant_town_size" class="check_radio" value="<5000" /><label>Less than 5,000</label></li>
+                                <li><input type="radio" name="immigrant_town_size" class="check_radio" value="5000-50000" /><label>Between 5,000 and 50,000</label></li>
+                                <li><input type="radio" name="immigrant_town_size" class="check_radio" value=">50000" /><label>More than 50,000</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>How can you best describe the place where you were born/lived before you moved?</h4>
+                                <li><input type="radio" name="immigrant_live_place" class="check_radio" value="rural" /><label>Rural</label></li>
+                                <li><input type="radio" name="immigrant_live_place" class="check_radio" value="intermediate" /><label>Intermediate</label></li>
+                                <li><input type="radio" name="immigrant_live_place" class="check_radio" value="urban" /><label>Urban</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>What is your nationality?</h4>
+                                <li><input type="text" name="immigrant_nationality" class="form-control" placeholder=""></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>How long ago did you move here?</h4>
+                                <li><input type="number" name="immigrants_move_years" class="form-control" placeholder="Years" min="0" /></li>
+                                <li><input type="number" name="immigrants_move_months" class="form-control" placeholder="Months" min="0" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>What kind of job do you have?</h4>
+                                <li><input type="radio" name="immigrant_job_type" class="check_radio" value="work_for_someone" /><label>You work for somebody else</label></li>
+                                <li><input type="radio" name="immigrant_job_type" class="check_radio" value="selfemployed" /><label>You are self-employed</label></li>
+                                <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own<10" /><label>You own a company with less than 10 employees</label></li>
+                                <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own>10" /><label>You own a company with more than 10 employees</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>How would you best describe your current position?</h4>
+                                <li><input type="radio" name="immigrant_current_position" class="check_radio" value="manuallabor" /><label>Manual labor (both high and low-skilled work)</label></li>
+                                <li><input type="radio" name="immigrant_current_position" class="check_radio" value="non-manuallabor" /><label>Non-Manual labor (Managerial position, positions associated to college/university degrees, technicians, artist, sportsman/sportswoman, clerical, self-employees, supervisors of manual workers)</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Which of these best describes your current position?</h4>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="management" /><label>Management</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="businessfinancial" /><label>Business and Financial Operations</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="computer" /><label>Computer and Mathematical</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="architecture" /><label>Architecture and Engineering</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="life" /><label>Life, Physical, and Social Science</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="community" /><label>Community and Social Service</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="legal" /><label>Legal</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="education" /><label>Education, Training, and Library</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="arts" /><label>Arts, Design, Entertainment, Sports, and Media</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="health" /><label>Healthcare Practitioners and Technical</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="healthcare" /><label>Healthcare Support</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="protective" /><label>Protective Service</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="food" /><label>Food Preparation and Serving Related</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="building" /><label>Building and Grounds Cleaning and Maintenance</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="personalcare" /><label>Personal Care and Service</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="sales" /><label>Sales and Related</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="office" /><label>Office and Administrative Support</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="farming" /><label>Farming, Fishing, and Forestry</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="construction" /><label>Construction and Extraction</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="repair" /><label>Installation, Maintenance, and Repair</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="production" /><label>Production</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="transportation" /><label>Transportation and Material Moving</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="military" /><label>Military</label></li>
+                                <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="other" /><label>Other</label></li>
+                                <li><input type="text" name="immigrant_other_current_position_desc" class="form-control" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>In your current position, which condition describes your situation best?</h4>
+                                <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="stable" /><label>Stable</label></li>
+                                <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="temporary" /><label>Temporary</label></li>
+                                <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="work_no_contract" /><label>Working without a contract</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Do you participate in decisions in your current position?</h4>
+                                <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Do you supervise others in your current position?</h4>
+                                <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="branch" id="puertorican">
+                        <div class="step row" data-state="No">
+                            <div class="col-md-12">
+                                <ul class="data-list-2">
+                                    <h4>What occupation did you have in your home country before you moved here?</h4>
+                                    <li><input type="text" name="immigrant_job" class="form-control" placeholder=""></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Where were you born?</h4>
+                                    <li><input type="text" name="immigrant_born" class="form-control" placeholder="City, Country"></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What's the size of your town of origin?</h4>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value="<5000" /><label>Less than 5,000</label></li>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value="5000-50000" /><label>Between 5,000 and 50,000</label></li>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value=">50000" /><label>More than 50,000</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How can you best describe the place where you were born/lived before you moved?</h4>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="rural" /><label>Rural</label></li>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="intermediate" /><label>Intermediate</label></li>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="urban" /><label>Urban</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What is your nationality?</h4>
+                                    <li><input type="text" name="immigrant_nationality" class="form-control" placeholder=""></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How long ago did you move here?</h4>
+                                    <li><input type="number" name="immigrants_move_years" class="form-control" placeholder="Years" min="0" /></li>
+                                    <li><input type="number" name="immigrants_move_months" class="form-control" placeholder="Months" min="0" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What kind of job do you have?</h4>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="work_for_someone" /><label>You work for somebody else</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="selfemployed" /><label>You are self-employed</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own<10" /><label>You own a company with less than 10 employees</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own>10" /><label>You own a company with more than 10 employees</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How would you best describe your current position?</h4>
+                                    <li><input type="radio" name="immigrant_current_position" class="check_radio" value="manuallabor" /><label>Manual labor (both high and low-skilled work)</label></li>
+                                    <li><input type="radio" name="immigrant_current_position" class="check_radio" value="non-manuallabor" /><label>Non-Manual labor (Managerial position, positions associated to college/university degrees, technicians, artist, sportsman/sportswoman, clerical, self-employees, supervisors of manual workers)</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Which of these best describes your current position?</h4>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="management" /><label>Management</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="businessfinancial" /><label>Business and Financial Operations</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="computer" /><label>Computer and Mathematical</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="architecture" /><label>Architecture and Engineering</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="life" /><label>Life, Physical, and Social Science</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="community" /><label>Community and Social Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="legal" /><label>Legal</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="education" /><label>Education, Training, and Library</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="arts" /><label>Arts, Design, Entertainment, Sports, and Media</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="health" /><label>Healthcare Practitioners and Technical</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="healthcare" /><label>Healthcare Support</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="protective" /><label>Protective Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="food" /><label>Food Preparation and Serving Related</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="building" /><label>Building and Grounds Cleaning and Maintenance</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="personalcare" /><label>Personal Care and Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="sales" /><label>Sales and Related</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="office" /><label>Office and Administrative Support</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="farming" /><label>Farming, Fishing, and Forestry</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="construction" /><label>Construction and Extraction</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="repair" /><label>Installation, Maintenance, and Repair</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="production" /><label>Production</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="transportation" /><label>Transportation and Material Moving</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="military" /><label>Military</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="other" /><label>Other</label></li>
+                                    <li><input type="text" name="immigrant_other_current_position_desc" class="form-control" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>In your current position, which condition describes your situation best?</h4>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="stable" /><label>Stable</label></li>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="temporary" /><label>Temporary</label></li>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="work_no_contract" /><label>Working without a contract</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you participate in decisions in your current position?</h4>
+                                    <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you supervise others in your current position?</h4>
+                                    <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="branch" id="cuban">
+                        <div class="step row" data-state="No">
+                            <div class="col-md-12">
+                                <ul class="data-list-2">
+                                    <h4>What occupation did you have in your home country before you moved here?</h4>
+                                    <li><input type="text" name="immigrant_job" class="form-control" placeholder=""></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Where were you born?</h4>
+                                    <li><input type="text" name="immigrant_born" class="form-control" placeholder="City, Country"></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What's the size of your town of origin?</h4>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value="<5000" /><label>Less than 5,000</label></li>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value="5000-50000" /><label>Between 5,000 and 50,000</label></li>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value=">50000" /><label>More than 50,000</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How can you best describe the place where you were born/lived before you moved?</h4>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="rural" /><label>Rural</label></li>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="intermediate" /><label>Intermediate</label></li>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="urban" /><label>Urban</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What is your nationality?</h4>
+                                    <li><input type="text" name="immigrant_nationality" class="form-control" placeholder=""></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How long ago did you move here?</h4>
+                                    <li><input type="number" name="immigrants_move_years" class="form-control" placeholder="Years" min="0" /></li>
+                                    <li><input type="number" name="immigrants_move_months" class="form-control" placeholder="Months" min="0" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What kind of job do you have?</h4>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="work_for_someone" /><label>You work for somebody else</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="selfemployed" /><label>You are self-employed</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own<10" /><label>You own a company with less than 10 employees</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own>10" /><label>You own a company with more than 10 employees</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How would you best describe your current position?</h4>
+                                    <li><input type="radio" name="immigrant_current_position" class="check_radio" value="manuallabor" /><label>Manual labor (both high and low-skilled work)</label></li>
+                                    <li><input type="radio" name="immigrant_current_position" class="check_radio" value="non-manuallabor" /><label>Non-Manual labor (Managerial position, positions associated to college/university degrees, technicians, artist, sportsman/sportswoman, clerical, self-employees, supervisors of manual workers)</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Which of these best describes your current position?</h4>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="management" /><label>Management</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="businessfinancial" /><label>Business and Financial Operations</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="computer" /><label>Computer and Mathematical</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="architecture" /><label>Architecture and Engineering</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="life" /><label>Life, Physical, and Social Science</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="community" /><label>Community and Social Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="legal" /><label>Legal</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="education" /><label>Education, Training, and Library</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="arts" /><label>Arts, Design, Entertainment, Sports, and Media</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="health" /><label>Healthcare Practitioners and Technical</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="healthcare" /><label>Healthcare Support</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="protective" /><label>Protective Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="food" /><label>Food Preparation and Serving Related</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="building" /><label>Building and Grounds Cleaning and Maintenance</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="personalcare" /><label>Personal Care and Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="sales" /><label>Sales and Related</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="office" /><label>Office and Administrative Support</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="farming" /><label>Farming, Fishing, and Forestry</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="construction" /><label>Construction and Extraction</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="repair" /><label>Installation, Maintenance, and Repair</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="production" /><label>Production</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="transportation" /><label>Transportation and Material Moving</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="military" /><label>Military</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="other" /><label>Other</label></li>
+                                    <li><input type="text" name="immigrant_other_current_position_desc" class="form-control" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>In your current position, which condition describes your situation best?</h4>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="stable" /><label>Stable</label></li>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="temporary" /><label>Temporary</label></li>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="work_no_contract" /><label>Working without a contract</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you participate in decisions in your current position?</h4>
+                                    <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you supervise others in your current position?</h4>
+                                    <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="branch" id="centralamerican">
+                        <div class="step row" data-state="No">
+                            <div class="col-md-12">
+                                <ul class="data-list-2">
+                                    <h4>What occupation did you have in your home country before you moved here?</h4>
+                                    <li><input type="text" name="immigrant_job" class="form-control" placeholder=""></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Where were you born?</h4>
+                                    <li><input type="text" name="immigrant_born" class="form-control" placeholder="City, Country"></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What's the size of your town of origin?</h4>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value="<5000" /><label>Less than 5,000</label></li>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value="5000-50000" /><label>Between 5,000 and 50,000</label></li>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value=">50000" /><label>More than 50,000</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How can you best describe the place where you were born/lived before you moved?</h4>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="rural" /><label>Rural</label></li>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="intermediate" /><label>Intermediate</label></li>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="urban" /><label>Urban</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What is your nationality?</h4>
+                                    <li><input type="text" name="immigrant_nationality" class="form-control" placeholder=""></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How long ago did you move here?</h4>
+                                    <li><input type="number" name="immigrants_move_years" class="form-control" placeholder="Years" min="0" /></li>
+                                    <li><input type="number" name="immigrants_move_months" class="form-control" placeholder="Months" min="0" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What kind of job do you have?</h4>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="work_for_someone" /><label>You work for somebody else</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="selfemployed" /><label>You are self-employed</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own<10" /><label>You own a company with less than 10 employees</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own>10" /><label>You own a company with more than 10 employees</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How would you best describe your current position?</h4>
+                                    <li><input type="radio" name="immigrant_current_position" class="check_radio" value="manuallabor" /><label>Manual labor (both high and low-skilled work)</label></li>
+                                    <li><input type="radio" name="immigrant_current_position" class="check_radio" value="non-manuallabor" /><label>Non-Manual labor (Managerial position, positions associated to college/university degrees, technicians, artist, sportsman/sportswoman, clerical, self-employees, supervisors of manual workers)</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Which of these best describes your current position?</h4>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="management" /><label>Management</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="businessfinancial" /><label>Business and Financial Operations</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="computer" /><label>Computer and Mathematical</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="architecture" /><label>Architecture and Engineering</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="life" /><label>Life, Physical, and Social Science</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="community" /><label>Community and Social Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="legal" /><label>Legal</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="education" /><label>Education, Training, and Library</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="arts" /><label>Arts, Design, Entertainment, Sports, and Media</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="health" /><label>Healthcare Practitioners and Technical</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="healthcare" /><label>Healthcare Support</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="protective" /><label>Protective Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="food" /><label>Food Preparation and Serving Related</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="building" /><label>Building and Grounds Cleaning and Maintenance</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="personalcare" /><label>Personal Care and Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="sales" /><label>Sales and Related</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="office" /><label>Office and Administrative Support</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="farming" /><label>Farming, Fishing, and Forestry</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="construction" /><label>Construction and Extraction</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="repair" /><label>Installation, Maintenance, and Repair</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="production" /><label>Production</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="transportation" /><label>Transportation and Material Moving</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="military" /><label>Military</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="other" /><label>Other</label></li>
+                                    <li><input type="text" name="immigrant_other_current_position_desc" class="form-control" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>In your current position, which condition describes your situation best?</h4>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="stable" /><label>Stable</label></li>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="temporary" /><label>Temporary</label></li>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="work_no_contract" /><label>Working without a contract</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you participate in decisions in your current position?</h4>
+                                    <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you supervise others in your current position?</h4>
+                                    <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="branch" id="otherrace">
+                        <div class="step row" data-state="No">
+                            <div class="col-md-12">
+                                <ul class="data-list-2">
+                                    <h4>What occupation did you have in your home country before you moved here?</h4>
+                                    <li><input type="text" name="immigrant_job" class="form-control" placeholder=""></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Where were you born?</h4>
+                                    <li><input type="text" name="immigrant_born" class="form-control" placeholder="City, Country"></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What's the size of your town of origin?</h4>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value="<5000" /><label>Less than 5,000</label></li>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value="5000-50000" /><label>Between 5,000 and 50,000</label></li>
+                                    <li><input type="radio" name="immigrant_town_size" class="check_radio" value=">50000" /><label>More than 50,000</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How can you best describe the place where you were born/lived before you moved?</h4>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="rural" /><label>Rural</label></li>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="intermediate" /><label>Intermediate</label></li>
+                                    <li><input type="radio" name="immigrant_live_place" class="check_radio" value="urban" /><label>Urban</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What is your nationality?</h4>
+                                    <li><input type="text" name="immigrant_nationality" class="form-control" placeholder=""></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How long ago did you move here?</h4>
+                                    <li><input type="number" name="immigrants_move_years" class="form-control" placeholder="Years" min="0" /></li>
+                                    <li><input type="number" name="immigrants_move_months" class="form-control" placeholder="Months" min="0" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>What kind of job do you have?</h4>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="work_for_someone" /><label>You work for somebody else</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="selfemployed" /><label>You are self-employed</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own<10" /><label>You own a company with less than 10 employees</label></li>
+                                    <li><input type="radio" name="immigrant_job_type" class="check_radio" value="own>10" /><label>You own a company with more than 10 employees</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How would you best describe your current position?</h4>
+                                    <li><input type="radio" name="immigrant_current_position" class="check_radio" value="manuallabor" /><label>Manual labor (both high and low-skilled work)</label></li>
+                                    <li><input type="radio" name="immigrant_current_position" class="check_radio" value="non-manuallabor" /><label>Non-Manual labor (Managerial position, positions associated to college/university degrees, technicians, artist, sportsman/sportswoman, clerical, self-employees, supervisors of manual workers)</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Which of these best describes your current position?</h4>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="management" /><label>Management</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="businessfinancial" /><label>Business and Financial Operations</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="computer" /><label>Computer and Mathematical</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="architecture" /><label>Architecture and Engineering</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="life" /><label>Life, Physical, and Social Science</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="community" /><label>Community and Social Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="legal" /><label>Legal</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="education" /><label>Education, Training, and Library</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="arts" /><label>Arts, Design, Entertainment, Sports, and Media</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="health" /><label>Healthcare Practitioners and Technical</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="healthcare" /><label>Healthcare Support</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="protective" /><label>Protective Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="food" /><label>Food Preparation and Serving Related</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="building" /><label>Building and Grounds Cleaning and Maintenance</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="personalcare" /><label>Personal Care and Service</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="sales" /><label>Sales and Related</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="office" /><label>Office and Administrative Support</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="farming" /><label>Farming, Fishing, and Forestry</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="construction" /><label>Construction and Extraction</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="repair" /><label>Installation, Maintenance, and Repair</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="production" /><label>Production</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="transportation" /><label>Transportation and Material Moving</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="military" /><label>Military</label></li>
+                                    <li><input type="radio" name="immigrant_current_position_desc" class="check_radio" value="other" /><label>Other</label></li>
+                                    <li><input type="text" name="immigrant_other_current_position_desc" class="form-control" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>In your current position, which condition describes your situation best?</h4>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="stable" /><label>Stable</label></li>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="temporary" /><label>Temporary</label></li>
+                                    <li><input type="radio" name="immigrant_condition_desc" class="check_radio" value="work_no_contract" /><label>Working without a contract</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you participate in decisions in your current position?</h4>
+                                    <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="immigrant_participate_descisions" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you supervise others in your current position?</h4>
+                                    <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="immigrant_supervise_others" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marital Status -->
+                    <div id="No" class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list-2 status clearfix">
+                                <h4>What is your marital Status?</h4>
+                                <li><input name="status" type="radio" class="check_radio" value="single"><label>Single</label></li>
+                                <li><input name="status" type="radio" class="check_radio" value="married"><label>Married</label></li>
+                                <li id="married">
+                                    <div class="col-xs-6">
+                                        <label class="subtitle">How long have you been married?</label>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="married_years" id="married_years"  class="form-control" placeholder="Years" min="0" />
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="married_months" id="married_months"  class="form-control" placeholder="Months" min="0" />
+                                    </div>
+                                </li>
+                                <li><input name="status" type="radio" class="check_radio" value="partner"><label>Living with partner</label></li>
+                                <li id="partner">
+                                    <div class="col-xs-6">
+                                        <label class="subtitle">How long have you been together with your partner?</label>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="partner_years" id="partner_years"  class="form-control" placeholder="Years" min="0" />
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="partner_months" id="partner_months"  class="form-control" placeholder="Months" min="0" />
+                                    </div>
+                                </li>
+                                <li><input name="status" type="radio" class="check_radio" value="widow"><label>Widow(ed)</label></li>
+                                <li id="widow">
+                                    <div class="col-xs-6">
+                                        <label class="subtitle">How long ago did you become a widow(ed)?</label>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="widow_years" id="widow_years"  class="form-control" placeholder="Years" min="0" />
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="widow_months" id="widow_months"  class="form-control" placeholder="Months" min="0" />
+                                    </div>
+                                </li>
+                                <li><input name="status" type="radio" class="check_radio" value="divorced"><label>Separated/Divorced</label></li>
+                                <li id="separated">
+                                    <div class="col-xs-6">
+                                        <label class="subtitle">How long ago did you divorce/separate from your partner?</label>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="separated_years" id="separated_years"  class="form-control" placeholder="Years" min="0" />
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="separated_months" id="separated_months"  class="form-control" placeholder="Months" min="0" />
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="data-list-2 child">
+                                <h4>Do you have children?</h4>
+                                <li><input type="radio" name="kids" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="kids" class="check_radio" value="no" /><label>No</label></li>
+                                <li id="kids_count">
+                                    <div class="qty-buttons">
+                                        <input type="button" value="-" class="qtyminus" name="quantity">
+                                        <input type="text" name="quantity" value="0" class="qty form-control">
+                                        <input type="button" value="+" class="qtyplus" name="quantity"><span>How many children do you have?</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end step -->
+
+                    <!-- Place of residence -->
+                    <div id="residence" class="step row">
+                        <div class="col-md-10">
+                            <ul class="data-list-2">
+                                <h4>Where do you live?</h4>
+                                <li><input name="city" type="text" class="form-control" placeholder="City"></li>
+                                <li><input name="state" type="text" class="form-control" placeholder="State"></li>
+                                <li><input name="country" type="text" class="form-control" placeholder="Country"></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>How many inhabitants does your place of residence have?</h4>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="<5000" /><label>Less than 5,000</label></li>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="5000=50000" /><label>Between 5,000 and 50,000</label></li>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value=">50000" /><label>More than 50,000</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>How can you best describe the place where you live?</h4>
+                                <li><input type="radio" name="geography" class="check_radio" value="rural" /><label>Rural</label></li>
+                                <li><input type="radio" name="geography" class="check_radio" value="intermediate" /><label>Intermediate</label></li>
+                                <li><input type="radio" name="geography" class="check_radio" value="urban" /><label>Urban</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!-- Occupation -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list-2 clearfix occupation">
+                                <h4>Which of the following best describes your current main daily activities and/or responsibilities?</h4>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="fulltime" /><label>Working full time</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="parttime" /><label>Working part-time</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="contract" /><label>Seasonal/Contract worker</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="unemployed" /><label>Unemployed or laid off</label></li>
+                                <li id="unemployed">
+                                    <div class="col-xs-6">
+                                        <label class="subtitle">How long have you been unemployed?</label>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="unemployed_years" class="form-control" placeholder="Years" min="0" />
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="unemployed_months" class="form-control" placeholder="Months" min="0" max="11" />
+                                    </div>
+                                </li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="looking" /><label>Looking for work</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="keepinghouse" /><label>Keeping house or raising children full time</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="retired" /><label>Retired</label></li>
+                            </ul>
+                            <div class="employed">
+                                <ul class="data-list-2">
+                                    <h4>What kind of job do you have?</h4>
+                                    <li><input type="radio" name="job_type" class="check_radio" value="work_for_someone" /><label>You work for somebody else</label></li>
+                                    <li><input type="radio" name="job_type" class="check_radio" value="selfemployed" /><label>You are self-employed</label></li>
+                                    <li><input type="radio" name="job_type" class="check_radio" value="own<10" /><label>You own a company with less than 10 employees</label></li>
+                                    <li><input type="radio" name="job_type" class="check_radio" value="own>10" /><label>You own a company with more than 10 employees</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>How would you best describe your current position?</h4>
+                                    <li><input type="radio" name="current_position" class="check_radio" value="manuallabor" /><label>Manual labor</label>
+                                        <a data-toggle="popoverManualLabor"><i class="fa fa-info-circle"></i></a></li>
+                                    <li><input type="radio" name="current_position" class="check_radio" value="non-manuallabor" /><label>Non-Manual labor</label>
+                                        <a data-toggle="popoverNonmanualLabor"><i class="fa fa-info-circle"></i></a></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Which of these best describes your current position?</h4>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="management" /><label>Management</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="businessfinancial" /><label>Business and Financial Operations</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="computer" /><label>Computer and Mathematical</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="architecture" /><label>Architecture and Engineering</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="life" /><label>Life, Physical, and Social Science</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="community" /><label>Community and Social Service</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="legal" /><label>Legal</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="education" /><label>Education, Training, and Library</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="arts" /><label>Arts, Design, Entertainment, Sports, and Media</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="health" /><label>Healthcare Practitioners and Technical</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="healthcare" /><label>Healthcare Support</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="protective" /><label>Protective Service</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="food" /><label>Food Preparation and Serving Related</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="building" /><label>Building and Grounds Cleaning and Maintenance</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="personalcare" /><label>Personal Care and Service</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="sales" /><label>Sales and Related</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="office" /><label>Office and Administrative Support</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="farming" /><label>Farming, Fishing, and Forestry</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="construction" /><label>Construction and Extraction</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="repair" /><label>Installation, Maintenance, and Repair</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="production" /><label>Production</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="transportation" /><label>Transportation and Material Moving</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="military" /><label>Military</label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="other" /><label>Other</label></li>
+                                    <li><input type="text" name="other_current_position_desc" class="form-control" /></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>In your current position, which condition describes your situation best?</h4>
+                                    <li><input type="radio" name="condition_desc" class="check_radio" value="stable" /><label>Stable</label></li>
+                                    <li><input type="radio" name="condition_desc" class="check_radio" value="temporary" /><label>Temporary</label></li>
+                                    <li><input type="radio" name="condition_desc" class="check_radio" value="work_no_contract" /><label>Working without a contract</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you participate in decisions in your current position?</h4>
+                                    <li><input type="radio" name="participate_descisions" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="participate_descisions" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                                <ul class="data-list-2">
+                                    <h4>Do you supervise others in your current position?</h4>
+                                    <li><input type="radio" name="supervise_others" class="check_radio" value="yes" /><label>Yes</label></li>
+                                    <li><input type="radio" name="supervise_others" class="check_radio" value="no" /><label>No</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!-- Income -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list-2 income">
+                                <h4>Are you financially dependent of any other person?</h4>
+                                <li><input type="radio" name="financially_dependent" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="financially_dependent" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <div class="earn">
+                                <ul class="data-list-2">
+                                    <h4>How much did you earn, before taxes and other deductions, during the past 12 months?</h4>
+                                    <li><input type="radio" name="earnings" class="check_radio" value="<5000" /><label>Less than $5,000</label></li>
+                                    <li><input type="radio" name="earnings" class="check_radio" value="5000-11999" /><label>$5,000- $11,999</label></li>
+                                    <li><input type="radio" name="earnings" class="check_radio" value="12000-15999" /><label>$12,000 - $15,999</label></li>
+                                    <li><input type="radio" name="earnings" class="check_radio" value="16000-24999" /><label>$16,000 - $24,999</label></li>
+                                    <li><input type="radio" name="earnings" class="check_radio" value="25000-34999" /><label>$25,000 - $34,999</label></li>
+                                    <li><input type="radio" name="earnings" class="check_radio" value="35000-49999" /><label>$35,000 - $49,999</label></li>
+                                    <li><input type="radio" name="earnings" class="check_radio" value="50000-74999" /><label>$50,000 - $74,999</label></li>
+                                    <li><input type="radio" name="earnings" class="check_radio" value="75000-99999" /><label>$75,000 - $99,999</label></li>
+                                    <li><input type="radio" name="earnings" class="check_radio" value=">100000" /><label>$100,000 or more</label></li>
+                                </ul>
+                            </div>
+                            <ul class="data-list-2">
+                                <h4>How many people are living in your household, including yourself?</h4>
+                                <li><input type="number" name="people_in_household" class="form-control" placeholder="1" min="0" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Of these people, how many are children?</h4>
+                                <li><input type="number" name="children_in_household" class="form-control" placeholder="0" min="0" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Of these people, how many are adults?</h4>
+                                <li><input type="number" name="adults_in_household" class="form-control" placeholder="1" min="0" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Of the adults, how many bring income into the household?</h4>
+                                <li><input type="number" name="adults_income_in_household" class="form-control" placeholder="1" min="0" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Is the home where you live:</h4>
+                                <li><input type="radio" name="home_status" class="check_radio" value="owned" /><label>Owned or being bought by you (or someone in the household)?</label></li>
+                                <li><input type="radio" name="home_status" class="check_radio" value="rent" /><label>Rented for money?</label></li>
+                                <li><input type="radio" name="home_status" class="check_radio" value="nonrent" /><label>Occupied without payment of money or rent?</label></li>
+                                <li><input type="radio" name="home_status" class="check_radio" value="other" /><label>Other (specify)</label></li>
+                                <li><input type="text" name="other_home_status" class="form-control" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Which of these categories best describes your total combined family income for the past 12 months? <small>This should include income (before taxes) from all sources, wages, rent from properties, social security, disability and/or veteran's benefits, unemployment benefits, workman's compensation, help from relatives (including child payments and alimony), and so on.</small></h4>
+                                <li><input type="radio" name="total_income" class="check_radio" value="<5000" /><label>Less than $5,000</label></li>
+                                <li><input type="radio" name="total_income" class="check_radio" value="5000-11999" /><label>$5,000- $11,999</label></li>
+                                <li><input type="radio" name="total_income" class="check_radio" value="12000-15999" /><label>$12,000 - $15,999</label></li>
+                                <li><input type="radio" name="total_income" class="check_radio" value="16000-24999" /><label>$16,000 - $24,999</label></li>
+                                <li><input type="radio" name="total_income" class="check_radio" value="25000-34999" /><label>$25,000 - $34,999</label></li>
+                                <li><input type="radio" name="total_income" class="check_radio" value="35000-49999" /><label>$35,000 - $49,999</label></li>
+                                <li><input type="radio" name="total_income" class="check_radio" value="50000-74999" /><label>$50,000 - $74,999</label></li>
+                                <li><input type="radio" name="total_income" class="check_radio" value="75000-99999" /><label>$75,000 - $99,999</label></li>
+                                <li><input type="radio" name="total_income" class="check_radio" value=">100000" /><label>$100,000 or more</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!-- Subjective Social Status -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <h4>Think of this ladder as representing where people stand in their communities.</h4>
+                            <p>People define community in different ways; please define it in whatever way is most meaningful to you. At the <strong>top</strong> of the ladder are the people who have the highest standing in their community. At the <strong>bottom</strong> are the people who have the lowest standing in their community.</p>
+                            <h4>Where would you place yourself on this ladder?</h4>
+                            <p>Please place a large "<strong>X</strong>" on the rung where you think you stand at this time in your life, relative to other people in your community.</p>
+
+                            <h2>[Giant Ladder]</h2>
+                        </div>
+                    </div>
+
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <h4>Think of this ladder as representing where people stand in the United States.</h4>
+                            <p>At the <strong>top</strong> of the ladder are the people who are the best off - those who have the most money, the most education and the most respected jobs. At the <strong>bottom</strong> are the people who are the worst off - who have the least money, least education and the least respected jobs or no job. The higher up you are on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom</p>
+                            <h4>Where would you place yourself on this ladder?</h4>
+                            <p>Please place a large "<strong>X</strong>" on the rung where you think you stand at this time in your life, relative to other people in the United States.</p>
+                            <h2>[Giant Ladder]</h2>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list-2">
+                                <h4>How many years did you study?</h4>
+                                <li><input type="number" name="years_study" class="form-control" placeholder="0" min="0" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>How old were you when you finished studying?</h4>
+                                <li><input type="number" name="age_study" class="form-control" placeholder="" min="0" /></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>What is the highest grade (or year) of regular school you have completed?</h4>
+                                <li><input type="radio" name="highest_grade" class="check_radio" value="elementary" /><label>Elementary School (grades 1-8)</label></li>
+                                <li><input type="radio" name="highest_grade" class="check_radio" value="highschool" /><label>High School (grades 9-12)</label></li>
+                                <li><input type="radio" name="highest_grade" class="check_radio" value="college" /><label>College (13-16)</label></li>
+                                <li><input type="radio" name="highest_grade" class="check_radio" value="grad" /><label>Graduate School (18-20)</label></li>
+                            </ul>
+                            <ul class="data-list-2 degree">
+                                <h4>What is the highest degree you earned?</h4>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="diploma" /><label>High school diploma or equivalency (GED)</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="associate" /><label>Associate degree (junior college)</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="bachelor" /><label>Bachelor's degree</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="master" /><label>Master's degree</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="doctorate" /><label>Doctorate</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional" /><label>Professional (MD, JD, DDS, etc)</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="other" /><label>Other</label></li>
+                                <li><input type="text" name="other_highest_degree" class="form-control" disabled/></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="none" /><label>None of the above (less than high school)</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Do you know how to use a computer/tablet?</h4>
+                                <li><input type="radio" name="computer_usage" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="computer_usage" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Have you ever used internet?</h4>
+                                <li><input type="radio" name="internet_usage" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="internet_usage" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!-- Religion -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list">
+                                <li><label>Do you consider yourself religious or spiritual?</label>
+                                    <div class="styled-select">
+                                        <select class="form-control" name="beliefs">
+                                            <option value="" selected>Select one</option>
+                                            <option value="religious">Religious</option>
+                                            <option value="spiritual">Spiritual</option>
+                                            <option value="neither">Neither</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="data-list-2 reg">
+                                <h4>If so, with which religion do you affiliate?</h4>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="diploma" /><label>Christianity</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="associate" /><label>Judaism</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="bachelor" /><label>Islam</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="master" /><label>Hinduism</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="doctorate" /><label>Buddhism</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional" /><label>Sikhism</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional" /><label>Baha'ism</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional" /><label>Indigenous</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional" /><label>Irreligious/Agnostic/Atheist</label></li>
+                                <li><input type="radio" name="highest_degree" class="check_radio" value="other" /><label>Other</label></li>
+                                <li><input type="text" name="other_highest_degree" class="form-control" disabled/></li>
+                            </ul>
+                            <ul class="data-list-2 reg">
+                                <h4>How often do you practice?</h4>
+                                <li>
+                                    <div class="input-group">
+                                        <input type="number" name="practice_month" class="form-control" placeholder="0" min="0" /><span class="input-group-addon" id="basic-addon2">/month</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Gender roles -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list">
+                                <li><label>Who was in charge of housekeeping when you were a child?</label>
+                                    <div class="styled-select">
+                                        <select class="form-control" name="housekeeping_as_child">
+                                            <option value="" selected>Select one</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="father">Father</option>
+                                            <option value="grandmother">Grandmother</option>
+                                            <option value="grandfather">Grandfather</option>
+                                            <option value="aunt">Aunt</option>
+                                            <option value="uncle">Uncle</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="male_cousin">Cousin (male)</option>
+                                            <option value="female_cousin">Cousin (female)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="data-list">
+                                <li><label>Who is in charge of housekeeping in your current home?</label>
+                                    <div class="styled-select">
+                                        <select class="form-control " name="housekeeping_as_current">
+                                            <option value="" selected>Select one</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="father">Father</option>
+                                            <option value="grandmother">Grandmother</option>
+                                            <option value="grandfather">Grandfather</option>
+                                            <option value="aunt">Aunt</option>
+                                            <option value="uncle">Uncle</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="male_cousin">Cousin (male)</option>
+                                            <option value="female_cousin">Cousin (female)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="data-list">
+                                <li><label>Who took care of you when you were a child?</label>
+                                    <div class="styled-select">
+                                        <select class="form-control " name="caretaker_as_child">
+                                            <option value="" selected>Select one</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="father">Father</option>
+                                            <option value="grandmother">Grandmother</option>
+                                            <option value="grandfather">Grandfather</option>
+                                            <option value="aunt">Aunt</option>
+                                            <option value="uncle">Uncle</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="male_cousin">Cousin (male)</option>
+                                            <option value="female_cousin">Cousin (female)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="data-list">
+                                <li><label>Who takes care of children, sick relatives or elderly relatives?</label>
+                                    <div class="styled-select">
+                                        <select class="form-control " name="caretaker">
+                                            <option value="" selected>Select one</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="father">Father</option>
+                                            <option value="grandmother">Grandmother</option>
+                                            <option value="grandfather">Grandfather</option>
+                                            <option value="aunt">Aunt</option>
+                                            <option value="uncle">Uncle</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="male_cousin">Cousin (male)</option>
+                                            <option value="female_cousin">Cousin (female)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="data-list">
+                                <li><label>If you have children, who makes the decisions relative to their upbringing?</label>
+                                    <div class="styled-select">
+                                        <select class="form-control " name="child_upbringing">
+                                            <option value="" selected>Select one</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="father">Father</option>
+                                            <option value="grandmother">Grandmother</option>
+                                            <option value="grandfather">Grandfather</option>
+                                            <option value="aunt">Aunt</option>
+                                            <option value="uncle">Uncle</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="male_cousin">Cousin (male)</option>
+                                            <option value="female_cousin">Cousin (female)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="data-list">
+                                <li><label>Who makes the important decisions in your current home?</label>
+                                    <div class="styled-select">
+                                        <select class="form-control " name="important_decisions_current">
+                                            <option value="" selected>Select one</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="father">Father</option>
+                                            <option value="grandmother">Grandmother</option>
+                                            <option value="grandfather">Grandfather</option>
+                                            <option value="aunt">Aunt</option>
+                                            <option value="uncle">Uncle</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="male_cousin">Cousin (male)</option>
+                                            <option value="female_cousin">Cousin (female)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Cultural values -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list-2">
+                                <h4>Do you feel uncomfortable if someone is in your intimate or personal space?</h4>
+                                <li><input type="radio" name="personal_space" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="personal_space" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>When you are successful, is it because of your capabilities?</h4>
+                                <li><input type="radio" name="capabilities" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="capabilities" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Do you enjoy being unique and different from the others?</h4>
+                                <li><input type="radio" name="unique" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="unique" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Do you believe that competing is law of nature?</h4>
+                                <li><input type="radio" name="law_of_nature" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="law_of_nature" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Are you comfortable in situations involving competition?</h4>
+                                <li><input type="radio" name="competition" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="competition" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Would you sacrifice an activity you enjoy if your family would not accept it?</h4>
+                                <li><input type="radio" name="sacrifice_activity" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="sacrifice_activity" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Would you do something that you detest just because it pleases your family?</h4>
+                                <li><input type="radio" name="detest" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="detest" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>Would you sacrifice your own interest for the benefit of the group?</h4>
+                                <li><input type="radio" name="sacrifice_interest" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="sacrifice_interest" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>When performing a task, would you do it fast although you make mistakes?</h4>
+                                <li><input type="radio" name="fast_task" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="fast_task" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2">
+                                <h4>When performing a task, would you use all the time necessary to ensure success?</h4>
+                                <li><input type="radio" name="slow_task" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="slow_task" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Social Support -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list-2 status">
+                                <h4>Is there anybody around me that I can count on to help me if I really needed it? Who (indicate relationship)?</h4>
+                                <li>
+                                    <select name="count_on" class="form-control">
+                                        <option value="" selected>Select One</option>
+                                        <option value="friend">Friend</option>
+                                        <option value="partner">Partner</option>
+                                        <option value="relative">Relative</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul class="data-list-2 status">
+                                <h4>Is there anybody that relies on me to help him/her? Who (indicate relationship)?</h4>
+                                <li>
+                                    <select name="relies_on" class="form-control">
+                                        <option value="" selected>Select One</option>
+                                        <option value="friend">Friend</option>
+                                        <option value="partner">Partner</option>
+                                        <option value="relative">Relative</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul class="data-list-2 status">
+                                <h4>Is there people around me who enjoy the same social activities that I enjoy? Who (indicate relationship)?</h4>
+                                <li><select name="enjoy_same"class="form-control">
+                                        <option value="" selected>Select One</option>
+                                        <option value="friend">Friend</option>
+                                        <option value="partner">Partner</option>
+                                        <option value="relative">Relative</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul class="data-list-2 status">
+                                <h4>If something goes wrong, nobody would help me</h4>
+                                <li><input type="radio" name="no_help" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="no_help" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2 status">
+                                <h4>I feel a strong emotional link with at least one person. Who (indicate relationship)?</h4>
+                                <li><select name="emotional_link" class="form-control">
+                                        <option value="" selected>Select One</option>
+                                        <option value="friend">Friend</option>
+                                        <option value="partner">Partner</option>
+                                        <option value="relative">Relative</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <ul class="data-list-2 status">
+                                <h4>I don't feel comfortable talking about my problems with anybody</h4>
+                                <li><input type="radio" name="comfortable" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="comfortable" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience with psychological testing -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list-2 status">
+                                <h4>Have you ever been administered a psychological test?</h4>
+                                <li><input type="radio" name="administered_psychological_test" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="administered_psychological_test" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2 status">
+                                <h4>Have you ever been timed for psychological testing?</h4>
+                                <li><input type="radio" name="timed_psychological_test" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="timed_psychological_test" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2 status">
+                                <h4>Do you feel comfortable when you are administered psychological tests?</h4>
+                                <li><input type="radio" name="comfortable_psychological_test" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="comfortable_psychological_test" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Acculturation -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <h3>Please indicate your preferences in the use of hands in the following activities. Please try to answer all the questions:</h3>
+                            <div class="row">
+                                <div class="col-xs-1 col-xs-offset-8">
+                                    <label>False</label>
+                                </div>
+                                <div class="col-xs-1">
+                                    <label>Partly False</label>
+                                </div>
+                                <div class="col-xs-1">
+                                    <label>Partly True</label>
+                                </div>
+                                <div class="col-xs-1">
+                                    <label>True</label>
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I understand English, but I'm not fluent in English</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="not_fluent_english" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="not_fluent_english" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="not_fluent_english" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="not_fluent_english" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I am informed about current affairs in the United States</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="current_affairs_US" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="current_affairs_US" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="current_affairs_US" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="current_affairs_US" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I speak my native language with my friends and acquaintances from my country of origin</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native_with_friends" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native_with_friends" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native_with_friends" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native_with_friends" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I have never learned to speak the language of my native country</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="never_speak_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="never_speak_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="never_speak_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="never_speak_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I feel totally comfortable with (Anglo) American people</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_americans" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_americans" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_americans" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_americans" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I eat traditional foods from my native culture</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_traditional_foods" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_traditional_foods" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_traditional_foods" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_traditional_foods" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I have many (Anglo) American acquaintances</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="many_american_friends" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="many_american_friends" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="many_american_friends" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="many_american_friends" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I feel comfortable speaking my native language</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I am informed about current affairs in my native country</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="current_affairs_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="current_affairs_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="current_affairs_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="current_affairs_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I know how to read and write in my native language</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="read_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="read_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="read_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="read_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I feel at home in the United States</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="home_in_US" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="home_in_US" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="home_in_US" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="home_in_US" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I attend social functions with people from my native country</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="social_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="social_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="social_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="social_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I feel accepted by (Anglo) Americans</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="accepted_by_americans" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="accepted_by_americans" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="accepted_by_americans" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="accepted_by_americans" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I speak my native language at home</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_home" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_home" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_home" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_home" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I regularly read magazines of my ethnic group</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="magazines_ethnic" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="magazines_ethnic" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="magazines_ethnic" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="magazines_ethnic" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I know how to speak my native language</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native_language" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native_language" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native_language" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native_language" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I know how to prepare (Anglo) American foods</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="cook_american_food" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="cook_american_food" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="cook_american_food" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="cook_american_food" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I am familiar with the history of my native country</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_history" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_history" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_history" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_history" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I regularly read an American newspaper</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="housekeeping_as_child" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="housekeeping_as_child" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="housekeeping_as_child" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="housekeeping_as_child" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I like to listen to music of my ethnic group</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="music_ethnic" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="music_ethnic" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="music_ethnic" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="music_ethnic" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I like to speak my native language</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="speak_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I feel comfortable speaking English</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_english" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_english" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_english" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="comfortable_english" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I speak English at home</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="english_home" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="english_home" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="english_home" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="english_home" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I speak my native language with my spouse or partner</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_partner" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_partner" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_partner" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="native_partner" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>When I pray, I use my native language</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="pray_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="pray_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="pray_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="pray_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I attend social functions with (Anglo) American people</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="social_americans" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="social_americans" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="social_americans" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="social_americans" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I think in my native language</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="think_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="think_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="think_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="think_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I stay in close contact with family members and relatives in my native country</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="close_with_native" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="close_with_native" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="close_with_native" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="close_with_native" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I am familiar with important people in American history</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="american_history" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="american_history" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="american_history" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="american_history" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I think in English</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="think_english" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="think_english" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="think_english" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="think_english" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I speak English with my spouse or partner</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="english_partner" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="english_partner" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="english_partner" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="english_partner" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                            <div class="row stretch">
+                                <div class="col-xs-8">
+                                    <h4>I like to eat American foods</h4>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="american_foods" type="radio" class="check_radio" value="false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="american_foods" type="radio" class="check_radio" value="partly false">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="american_foods" type="radio" class="check_radio" value="partly true">
+                                </div>
+                                <div class="col-xs-1">
+                                    <input name="american_foods" type="radio" class="check_radio" value="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Personal assessment complete!</h3>
+                        <p>Now time for the test to begin</p>
+                        <button type="submit" name="process" class="submit">Submit</button>
+                    </div><!-- end submit step -->
+
+                </div><!-- end middle-wizard -->
+
+                <div id="bottom-wizard">
+                    <button type="button" name="backward" class="backward">{{ backward }}</button>
+                    <button type="button" name="forward" class="forward">{{ forward }} </button>
+                </div><!-- end bottom-wizard -->
+            </form>
+
+        </div><!-- end Survey container -->
+
+
+    </section>
+{% endblock %}
+
+{% block extra %}
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var $other = $('#other');
+            var $married = $('#married');
+            var $partner = $('#partner');
+            var $widow = $('#widow');
+            var $separated = $('#separated');
+            var $unemployed = $('#unemployed');
+            var $employed = $('.employed');
+            var $earn = $('.earn');
+            var $children = $('#kids_count');
+            var kids_count = 0;
+            var $degree = $('input[name="other_highest_degree"]');
+
+            $.validator.setDefaults({
+                ignore: []
+            });
+
+            $('[data-toggle="popoverManualLabor"]').popover({
+                title: '<strong>Manual Labor</strong>',
+                content: '<div>positions requiring physical work, “blue-collar” work, both high and low-skilled work</div>',
+                html: true,
+                placement: 'right'
+            });
+            $('[data-toggle="popoverNonmanualLabor"]').popover({
+                title: '<strong>Non-manual Labor</strong>',
+                content: '<div>positions requiring mental work, “white-collar” work, positions associated to college/university degrees, managerial positions, supervisors of manual workers</div>',
+                html: true,
+                placement: 'right'
+            });
+
+            $('.race li div ins').click(function() {
+               if ($(this).prev().val() == 'otherrace') {
+                   $other.slideDown();
+               } else {
+                   $other.val('');
+                   $other.hide();
+               }
+            });
+
+            $('.status li div ins').click(function() {
+                if ($(this).prev().val() == 'married') {
+                    $married.slideDown();
+                } else {
+                    $married.val('');
+                    $married.hide();
+                }
+
+                if ($(this).prev().val() == 'partner') {
+                    $partner.slideDown();
+                } else {
+                    $partner.val('');
+                    $partner.hide();
+                }
+
+                if ($(this).prev().val() == 'widow') {
+                    $widow.slideDown();
+                } else {
+                    $widow.val('');
+                    $widow.hide();
+                }
+
+                if ($(this).prev().val() == 'divorced') {
+                    $separated.slideDown();
+                } else {
+                    $separated.val('');
+                    $separated.hide();
+                }
+            });
+
+
+            $('.child li div ins').click(function() {
+                if ($(this).prev().val() == 'yes') {
+                    $children.slideDown();
+                } else {
+                    $('input[name="quantity"]', $children).val(0);
+                    $('li.children').remove();
+                    kids_count = 0;
+                    $children.hide();
+                }
+            });
+
+            $('input[name="quantity"]').click(function() {
+                var count = $(this).val();
+
+                if (count >= kids_count) {
+                    $('.child').append('<li class="children"><div class="col-xs-2"><label>Child ' + count + ':</label></div><div class="col-xs-5"><input type="number" name="age_' + count + '" class="form-control" placeholder="Age" min="0" /></div><div class="col-xs-5"><select class="form-control required" name="gender_' + count + '"><option value="" selected>Select your gender</option><option value="male">Male</option><option value="female">Female</option>/select></div></li>');
+                } else {
+                    $('.child li:last').remove();
+                }
+                kids_count = $(this).val();
+            });
+
+            $('.occupation li div ins').click(function() {
+                if ($(this).prev().val() == 'unemployed') {
+                    $unemployed.slideDown();
+                } else {
+                    $unemployed.hide();
+                }
+
+                if ($(this).prev().val() == 'fulltime' || $(this).prev().val() == 'parttime') {
+                    $employed.slideDown();
+                } else {
+                    $employed.slideUp();
+                }
+            });
+
+            $('.income li div ins').click(function() {
+                if ($(this).prev().val() == 'yes') {
+                    $earn.slideDown();
+                } else {
+                    $earn.hide();
+                }
+            });
+
+            $('.degree li div ins').click(function() {
+                if ($(this).prev().val() == 'other') {
+                    $degree.prop('disabled', false);
+                } else {
+                    $degree.val('');
+                    $degree.prop('disabled', true);
+
+                }
+            });
+
+            $('select[name="beliefs"]').change(function() {
+                if ($(this).val() == 'neither') {
+                    $('.reg').hide();
+                } else {
+                    $('.reg').slideDown();
+                }
+            });
+
+            // Form submit
+//            $('form').on('submit', function(e) {
+//                alert($(this).serialize());
+//                e.preventDefault();
+//            });
+        });
+    </script>
+{% endblock %}

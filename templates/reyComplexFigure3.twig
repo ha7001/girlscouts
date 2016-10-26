@@ -1,0 +1,142 @@
+{% extends 'base.twig' %}
+
+{% block title %}Rey Complex Figure task{% endblock %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!--
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>{{ RCFT }}</h1>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <section class="container" id="main">
+        <div id="survey_container">
+            <!--
+            <div id="top-wizard">
+                <strong>Progress <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div>
+            end top-wizard -->
+
+            <form name="reyComplexFigure1" id="wrapped" action="" method="POST">
+                <!-- RCFT1 -->
+                <div id="middle-wizard">
+
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <h4>
+                                {{ RCFTInsructions3 | raw }}
+                            </h4>
+                        </div>
+                    </div>
+
+
+                    <div class="step row">
+                        <!-- <h4>Rey Complex Figure Part 3 (30 Min Mark)</h4> -->
+                        <div id="canvas-drawing">
+                            <canvas id='RCFT3' class="center-block" width="600" height="470" style="border:1px solid #000000;"></canvas>
+                        </div>
+                        <br>
+                        <button type="button" class="btn center-block" id="part3Submit" onclick="part3Submit()">Done</button>
+                    </div>
+                    <br>
+
+
+                <div id="bottom-wizard">
+                    <button id="backwardButton" type="button" name="backward" class="backward">Backward</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+
+                </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jTimer.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $canvas3 = $("#RCFT3");
+            var pts3 = [];
+            var lines3 = [];
+            var line_obj3 = {};
+            var isDown3 = false;
+
+
+            //Setup Drawing Surfaces for test
+            $canvas3.drawRect({
+                layer: true,
+                x: 0, y: 0,
+                width: 600, height: 470,
+                fromCenter: false,
+                mousedown: function (layer) {
+                    line_obj3 = {
+                        strokeStyle: "#000",
+                        strokeWidth: 2,
+                        data: {
+                            joints: 1
+                        }
+                    };
+
+                    isDown3 = true;
+                    pts3.push([layer.eventX, layer.eventY]);
+                },
+                mousemove: function (layer) {
+                    if (isDown3) {
+                        pts3.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < pts3.length; p += 1) {
+                            line_obj3['x' + (p + 1)] = pts3[p][0];
+                            line_obj3['y' + (p + 1)] = pts3[p][1];
+                        }
+                        $canvas3.drawLine(line_obj3);
+                    }
+                    for (var i = 0; i < lines3.length; i++) {
+                        $canvas3.drawLine(lines3[i]);
+                    }
+                },
+                mouseup: function (layer) {
+                    lines3.push(line_obj3);
+
+                    for (var i = 0; i < lines3.length; i++) {
+                        $canvas3.drawLine(lines3[i]);
+                    }
+
+                    line_obj3 = {};
+                    pts3 = [];
+                    isDown3 = false;
+                },
+                mouseout: function (layer) {
+                    console.log(lines3);
+
+                    for (var i = 0; i < lines3.length; i++) {
+                        $canvas3.drawLine(lines3[i]);
+                    }
+                }
+            });
+
+            function part3Submit(){
+                document.getElementById("ForwardButton").click();
+
+            };
+
+
+        });
+
+    </script>
+{% endblock %}

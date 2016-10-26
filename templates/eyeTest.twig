@@ -1,0 +1,1252 @@
+{% extends 'base.twig' %}
+
+{% block title %}Eye Test{% endblock %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+        ul.data-list-2 li {
+            position: relative;
+            height: 42px;
+            margin-bottom: 15px;
+            display: block;
+            width: auto;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!--
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>Eye Test</h1>
+            </div>
+        </div>
+    </div>
+    -->
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            <!--
+            <div id="top-wizard">
+                <strong>{{ progress }} <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div><!-- end top-wizard -->
+
+            <form name="example-1" id="wrapped" action="/eyeTestSubmit.php" method="POST">
+                <div id="middle-wizard">
+                    <div class="step row">
+                        <div class="col-md-12"  style="text-align: center">
+                            <h4>{{ eyeTest_Instructions|raw }}
+                                <a href="#" data-toggle="popoverHateful"><i class="fa fa-info-circle"></i></a>
+                            </h4>
+                        </div>
+                        <input id="website" name="website" type="text" value="">
+                    </div><!-- end step-->
+                    {#</div><!--Instructions-->#}
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- <h4>Practice Eye Question:</h4> -->
+                                <img src="/assets/img/eyeTestImages/0.jpg" class="img-responsive"/>
+                                <br><br>
+                                <ul class="data-list-2">
+                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Hateful" required><label>Hateful <a data-toggle="popoverHateful"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Jealous" required><label>Jealous <a href="#" data-toggle="popoverJealous"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Arrogant" required><label>Arrogant <a href="#" data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Panicked" required><label>Panicked <a href="#" data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a> </label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- Practice Question -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- <h4>Practice Eye Question:</h4>-->
+                                <img src="/assets/img/eyeTestImages/1.jpg" class="img-responsive"/>
+                                <br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question1" type="radio" class="check_radio" value="Playful" required><label>Playful  <a data-toggle="popoverPlayful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question1" type="radio" class="check_radio" value="Comforting" required><label>Comforting  <a data-toggle="popoverComforting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question1" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question1" type="radio" class="check_radio" value="Bored" required><label>Bored <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a> </label> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Question One -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/2.jpg" class="img-responsive"/>
+                                <ul class="data-list-2">
+                                    <br><br>
+                                        <li><input name="question2" type="radio" class="check_radio" value="Arrogant" required><label>Arrogant  <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a> </label> </li>
+                                        <li><input name="question2" type="radio" class="check_radio" value="Annoyed" required><label>Annoyed  <a data-toggle="popoverAnnoyed"><i class="fa fa-info-circle"></i></a> </label></li>
+                                        <li><input name="question2" type="radio" class="check_radio" value="Upset" required><label>Upset  <a data-toggle="popoverUpset"><i class="fa fa-info-circle"></i></a></label> </li>
+                                        <li><input name="question2" type="radio" class="check_radio" value="Terrified" required><label>Terrified  <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a> </label> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/3.jpg" class="img-responsive"/>
+                                <ul class="data-list-2">
+                                    <br><br>
+                                    <li><input name="question3" type="radio" class="check_radio" value="Convinced" required><label>Convinced  <a data-toggle="popoverConvinced"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question3" type="radio" class="check_radio" value="Flustered" required><label>Flustered  <a data-toggle="popoverFlustered"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question3" type="radio" class="check_radio" value="Desire" required><label>Desire  <a data-toggle="popoverDesire"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question3" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Three -->
+                    <div class="step">
+                        <div class="row">
+                        <div class="col-md-12">
+                            <img src="/assets/img/eyeTestImages/4.jpg" class="img-responsive"/>
+                            <br/><br/>
+                            <ul class="data-list-2">
+                                <li><input name="question4" type="radio" class="check_radio" value="Amused" required><label>Amused  <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
+                                <li><input name="question4" type="radio" class="check_radio" value="Relaxed" required><label>Relaxed  <a data-toggle="popoverRelaxed"><i class="fa fa-info-circle"></i></a></label></li>
+                                <li><input name="question4" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                <li><input name="question4" type="radio" class="check_radio" value="Insisting" required><label>Insisting  <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
+                            </ul>
+                        </div>
+                            </div>
+                    </div><!-- Question Four -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/5.jpg" class="img-responsive"/>
+                                <br><br>
+                                <ul class="data-list-2">
+                                    <li><input name="question5" type="radio" class="check_radio" value="Friendly" required><label>Friendly  <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question5" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question5" type="radio" class="check_radio" value="Worried" required><label>Worried  <a data-toggle="popoverWorried"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question5" type="radio" class="check_radio" value="Sarcastic" required><label>Sarcastic  <a data-toggle="popoverSarcastic"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div><!-- Question Five -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/6.jpg" class="img-responsive"/>
+                                <br><br>
+                                <ul class="data-list-2">
+                                    <li><input name="question6" type="radio" class="check_radio" value="Fantasizing" required><label>Fantasizing  <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question6" type="radio" class="check_radio" value="Alarmed" required><label>Alarmed  <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question6" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question6" type="radio" class="check_radio" value="Impatient" required><label>Impatient  <a data-toggle="popoverImpatient"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div><!-- Question Six -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/7.jpg" class="img-responsive"/>
+                                <br><br>
+                                <ul class="data-list-2">
+                                    <li><input name="question7" type="radio" class="check_radio" value="Uneasy" required><label>Uneasy  <a data-toggle="popoverUneasy"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question7" type="radio" class="check_radio" value="Friendly" required><label>Friendly  <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question7" type="radio" class="check_radio" value="Apologetic" required><label>Apologetic  <a data-toggle="popoverApologetic"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question7" type="radio" class="check_radio" value="Dispirited" required><label>Dispirited  <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Seven -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/8.jpg" class="img-responsive"/>
+                                <br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question8" type="radio" class="check_radio" value="Excited" required><label>Excited  <a data-toggle="popoverExcited"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question8" type="radio" class="check_radio" value="Relieved" required><label>Relieved  <a data-toggle="popoverRelieved"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question8" type="radio" class="check_radio" value="Shy" required><label>Shy  <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question8" type="radio" class="check_radio" value="Despondent" required><label>Despondent  <a data-toggle="popoverDespondent"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Eight -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/9.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question9" type="radio" class="check_radio" value="Annoyed" required><label>Annoyed  <a data-toggle="popoverAnnoyed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question9" type="radio" class="check_radio" value="Hostile" required><label>Hostile  <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question9" type="radio" class="check_radio" value="Horrified" required><label>Horrified  <a data-toggle="popoverHorrified"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question9" type="radio" class="check_radio" value="Preoccupied" required><label>Preoccupied  <a data-toggle="popoverPreoccupied"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Nine -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/10.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question10" type="radio" class="check_radio" value="Cautious" required><label>Cautious  <a data-toggle="popoverCautious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question10" type="radio" class="check_radio" value="Bored" required><label>Bored  <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question10" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question10" type="radio" class="check_radio" value="Insisting" required><label>Insisting  <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Ten -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/11.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question11" type="radio" class="check_radio" value="Terrified" required><label>Terrified  <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question11" type="radio" class="check_radio" value="Flirtatious" required><label>Flirtatious  <a data-toggle="popoverFlirtatious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question11" type="radio" class="check_radio" value="Amused" required><label>Amused  <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question11" type="radio" class="check_radio" value="Regretful" required><label>Regretful  <a data-toggle="popoverRegretful"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Eleven -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/12.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                    <li><input name="question12" type="radio" class="check_radio" value="Skeptical" required><label>Skeptical  <a data-toggle="popoverSkeptical"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question12" type="radio" class="check_radio" value="Embarrassed" required><label>Embarrassed  <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question12" type="radio" class="check_radio" value="Dispirited" required><label>Dispirited  <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question12" type="radio" class="check_radio" value="Indifferent" required><label>Indifferent  <a data-toggle="popoverIndifferent"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Twelve -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/13.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question13" type="radio" class="check_radio" value="Shy" required><label>Shy  <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question13" type="radio" class="check_radio" value="Decisive" required><label>Decisive  <a data-toggle="popoverDecisive"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question13" type="radio" class="check_radio" value="Threatening" required><label>Threatening  <a data-toggle="popoverThreatening"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question13" type="radio" class="check_radio" value="Anticipating" required><label>Anticipating  <a data-toggle="popoverAnticipating"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Thirteen -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/14.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question14" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question14" type="radio" class="check_radio" value="Disappointed" required><label>Disappointed  <a data-toggle="popoverDisappointed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question14" type="radio" class="check_radio" value="Depressed" required><label>Depressed  <a data-toggle="popoverDepressed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question14" type="radio" class="check_radio" value="Accusing" required><label>Accusing  <a data-toggle="popoverAccusing"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Fourteen -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/15.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question15" type="radio" class="check_radio" value="Encouraging" required><label>Encouraging  <a data-toggle="popoverEncouraging"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question15" type="radio" class="check_radio" value="Amused" required><label>Amused  <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question15" type="radio" class="check_radio" value="Flustered" required><label>Flustered  <a data-toggle="popoverFlustered"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question15" type="radio" class="check_radio" value="Contemplative" required><label>Contemplative  <a data-toggle="popoverContemplative"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Fifteen -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/16.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question16" type="radio" class="check_radio" value="Thoughtful" required><label>Thoughtful  <a data-toggle="popoverThoughtful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question16" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question16" type="radio" class="check_radio" value="Encouraging" required><label>Encouraging  <a data-toggle="popoverEncouraging"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question16" type="radio" class="check_radio" value="Sympathetic" required><label>Sympathetic  <a data-toggle="popoverSympathetic"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Sixteen -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <img src="/assets/img/eyeTestImages/17.jpg" class="img-responsive"/><br><br>
+                            <ul class="data-list-2">
+                                    <li><input name="question17" type="radio" class="check_radio" value="Playful" required><label>Playful  <a data-toggle="popoverPlayful"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question17" type="radio" class="check_radio" value="Affectionate" required><label>Affectionate  <a data-toggle="popoverAffectionate"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question17" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question17" type="radio" class="check_radio" value="Doubtful" required><label>Doubtful  <a data-toggle="popoverDoubtful"><i class="fa fa-info-circle"></i></a></label></li>
+                            </ul>
+                        </div>
+                    </div><!-- Question Seventeen -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/18.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question18" type="radio" class="check_radio" value="Amused" required><label>Amused  <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question18" type="radio" class="check_radio" value="Bored" required><label>Bored  <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question18" type="radio" class="check_radio" value="Decisive" required><label>Decisive  <a data-toggle="popoverDecisive"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question18" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Eighteen -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/19.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question19" type="radio" class="check_radio" value="Arrogant" required><label>Arrogant  <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question19" type="radio" class="check_radio" value="Grateful" required><label>Grateful  <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question19" type="radio" class="check_radio" value="Tentative" required><label>Tentative  <a data-toggle="popoverTentative"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question19" type="radio" class="check_radio" value="Sarcastic" required><label>Sarcastic  <a data-toggle="popoverSarcastic"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Nineteen -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/20.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question20" type="radio" class="check_radio" value="Friendly" required><label>Friendly  <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question20" type="radio" class="check_radio" value="Horrified" required><label>Horrified  <a data-toggle="popoverHorrified"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question20" type="radio" class="check_radio" value="Guilty" required><label>Guilty  <a data-toggle="popoverGuilty"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question20" type="radio" class="check_radio" value="Dominant" required><label>Dominant  <a data-toggle="popoverDominant"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Twenty -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/21.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question21" type="radio" class="check_radio" value="Panicked" required><label>Panicked  <a data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question21" type="radio" class="check_radio" value="Fantasizing" required><label>Fantasizing  <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question21" type="radio" class="check_radio" value="Confused" required><label>Confused  <a data-toggle="popoverConfused"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question21" type="radio" class="check_radio" value="Embarrassed" required><label>Embarrassed  <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentyOne -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/22.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question22" type="radio" class="check_radio" value="Preoccupied" required><label>Preoccupied  <a data-toggle="popoverPreoccupied"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question22" type="radio" class="check_radio" value="Insisting" required><label>Insisting  <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question22" type="radio" class="check_radio" value="Imploring" required><label>Imploring  <a data-toggle="popoverImploring"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question22" type="radio" class="check_radio" value="Grateful" required><label>Grateful  <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentyTwo -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/23.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question23" type="radio" class="check_radio" value="Curious" required><label>Curious  <a data-toggle="popoverCurious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question23" type="radio" class="check_radio" value="Apologetic" required><label>Apologetic  <a data-toggle="popoverApologetic"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question23" type="radio" class="check_radio" value="Contended" required><label>Contended  <a data-toggle="popoverContented"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question23" type="radio" class="check_radio" value="Defiant" required><label>Defiant  <a data-toggle="popoverDefiant"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentyThree -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/24.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question24" type="radio" class="check_radio" value="Pensive" required><label>Pensive  <a data-toggle="popoverPensive"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question24" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question24" type="radio" class="check_radio" value="Excited" required><label>Excited  <a data-toggle="popoverExcited"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question24" type="radio" class="check_radio" value="Hostile" required><label>Hostile  <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentyFour -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/25.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question25" type="radio" class="check_radio" value="Incredulous" required><label>Incredulous  <a data-toggle="popoverIncredulous"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question25" type="radio" class="check_radio" value="Panicked" required><label>Panicked  <a data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question25" type="radio" class="check_radio" value="Interested" required><label>Interested  <a data-toggle="popoverInteresting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question25" type="radio" class="check_radio" value="Despondent" required><label>Despondent  <a data-toggle="popoverDespondent"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentyFive -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/26.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question26" type="radio" class="check_radio" value="Alarmed" required><label>Alarmed  <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question26" type="radio" class="check_radio" value="Anxious" required><label>Anxious <a data-toggle="popoverAnxious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question26" type="radio" class="check_radio" value="Shy" required><label>Shy   <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question26" type="radio" class="check_radio" value="Hostile" required><label>Hostile  <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentySix -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/27.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question27" type="radio" class="check_radio" value="Arrogant" required><label>Arrogant  <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question27" type="radio" class="check_radio" value="Cautious" required><label>Cautious  <a data-toggle="popoverCautious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question27" type="radio" class="check_radio" value="Reassuring" required><label>Reassuring  <a data-toggle="popoverReassuring"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question27" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentySeven -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/28.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question28" type="radio" class="check_radio" value="Affectionate" required><label>Affectionate  <a data-toggle="popoverAffectionate"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question28" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question28" type="radio" class="check_radio" value="Interested" required><label>Interested  <a data-toggle="popoverInteresting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question28" type="radio" class="check_radio" value="Contented" required><label>Contented  <a data-toggle="popoverContented"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentyEight -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/29.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question29" type="radio" class="check_radio" value="Impatient" required><label>Impatient  <a data-toggle="popoverImpatient"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question29" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question29" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question29" type="radio" class="check_radio" value="Reflective" required><label>Reflective  <a data-toggle="popoverReflective"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question TwentyNine -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/30.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question30" type="radio" class="check_radio" value="Flirtatious" required><label>Flirtatious  <a data-toggle="popoverFlirtatious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question30" type="radio" class="check_radio" value="Disappointed" required><label>Disappointed  <a data-toggle="popoverDisappointed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question30" type="radio" class="check_radio" value="Hostile" required><label>Hostile  <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question30" type="radio" class="check_radio" value="Grateful" required><label>Grateful  <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question Thirty -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/31.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question31" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question31" type="radio" class="check_radio" value="Ashamed" required><label>Ashamed  <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question31" type="radio" class="check_radio" value="Confident" required><label>Confident  <a data-toggle="popoverConfident"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question31" type="radio" class="check_radio" value="Dispirited" required><label>Dispirited  <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question ThirtyOne -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/32.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question32" type="radio" class="check_radio" value="Ashamed" required><label>Ashamed  <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question32" type="radio" class="check_radio" value="Bewildered" required><label>Bewildered  <a data-toggle="popoverBewildered"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question32" type="radio" class="check_radio" value="Alarmed" required><label>Alarmed  <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question32" type="radio" class="check_radio" value="Serious" required><label>Serious  <a data-toggle="popoverSerious"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question ThirtyTwo -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/33.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question33" type="radio" class="check_radio" value="Concerned" required><label>Concerned  <a data-toggle="popoverConcerned"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question33" type="radio" class="check_radio" value="Embarrassed" required><label>Embarrassed  <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question33" type="radio" class="check_radio" value="Guilty" required><label>Guilty  <a data-toggle="popoverGuilty"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question33" type="radio" class="check_radio" value="Fantasizing" required><label>Fantasizing  <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question ThirtyThree -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/34.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question34" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question34" type="radio" class="check_radio" value="Baffled" required><label>Baffled  <a data-toggle="popoverBaffled"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question34" type="radio" class="check_radio" value="Terrified" required><label>Terrified  <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question34" type="radio" class="check_radio" value="Distrustful" required><label>Distrustful  <a data-toggle="popoverDistrustful"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question ThirtyFour -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/35.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question35" type="radio" class="check_radio" value="Nervous" required><label>Nervous  <a data-toggle="popoverNervous"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question35" type="radio" class="check_radio" value="Contemplative" required><label>Contemplative  <a data-toggle="popoverContemplative"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question35" type="radio" class="check_radio" value="Insisting" required><label>Insisting  <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question35" type="radio" class="check_radio" value="Puzzled" required><label>Puzzled  <a data-toggle="popoverPuzzled"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                            </div>
+                    </div><!-- Question ThirtyFive -->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="/assets/img/eyeTestImages/36.jpg" class="img-responsive"/><br><br>
+                                <ul class="data-list-2">
+                                        <li><input name="question36" type="radio" class="check_radio" value="Suspicious" required><label>Suspicious  <a data-toggle="popoverSuspicious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question36" type="radio" class="check_radio" value="Nervous" required><label>Nervous  <a data-toggle="popoverNervous"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question36" type="radio" class="check_radio" value="Ashamed" required><label>Ashamed  <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question36" type="radio" class="check_radio" value="Indecisive" required><label>Indecisive  <a data-toggle="popoverIndecisive"><i class="fa fa-info-circle"></i></a></label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- Question ThirtySix -->
+
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Personal assessment complete!</h3>
+                        <p>Now time for the test to begin</p>
+                        <button type="submit" name="process" class="submit">Submit</button>
+                    </div><!-- end submit step -->
+</div>
+                    <div id="bottom-wizard">
+                        <button type="button" name="backward" class="backward">Backward</button>
+                        <button type="button" name="forward" class="forward">Forward</button>
+                    </div><!-- end bottom-wizard -->
+
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            $.validator.setDefaults({
+                ignore: []
+            });
+
+            //ToolTips used in the eye test
+            $('[data-toggle="popoverSample"]').popover({
+                title: '<strong>Word</strong>',
+                content: '<strong>Definition of word </strong><div>Example of the word used in a sentence.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAccusing"]').popover({
+                title: '<strong>Accusing</strong>',
+                content: '<strong>blaming </strong><div>The policeman was accusing the man of stealing a wallet.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAffectionate"]').popover({
+                title: '<strong>Affectionate</strong>',
+                content: '<strong>showing fondness towards someone </strong><div>Most mothers are affectionate to their babies by giving them lots of kisses and cuddles.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAghast"]').popover({
+                title: '<strong>Aghast</strong>',
+                content: '<strong>horrified, astonished, alarmed </strong><div>Jane was aghast when she discovered her house had been burgled</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAlarmed"]').popover({
+                title: '<strong>Alarmed</strong>',
+                content: '<strong>fearful, worried, filled with anxiety </strong><div>Claire was alarmed when she thought she was being followed home.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAmused"]').popover({
+                title: '<strong>Amused</strong>',
+                content: '<strong>finding something funny </strong><div>I was amused by a funny joke someone told me.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAnnoyed"]').popover({
+                title: '<strong>Annoyed </strong>',
+                content: '<strong>irritated, displeased </strong><div>Jack was annoyed when he found out he had missed the last bus home </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAnticipating"]').popover({
+                title: '<strong>Anticipating </strong>',
+                content: '<strong>expecting </strong><div>At the start of the football mat h, the fans were anticipating a quick goal  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAnxious"]').popover({
+                title: '<strong>Anxious </strong>',
+                content: '<strong>worried, tense, uneasy </strong><div>The student was feeling anxious before taking her final exams.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverApologetic"]').popover({
+                title: '<strong>Apologetic </strong>',
+                content: '<strong>feeling sorry </strong><div> The waiter was ver apologetic when he spilt soup all over the customer </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverArrogant"]').popover({
+                title: '<strong>Arrogant',
+                content: '<strong>conceited, self-important, having a big opinion of oneself </strong><div>The arrogant man thought he knew more about politics than everyone else in the room.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAshamed"]').popover({
+                title: '<strong>Ashamed </strong>',
+                content: '<strong>overcome with same or guilt </strong><div>The boy felt ashamed when his mother discovered him stealing money from her purse.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverAssertive"]').popover({
+                title: '<strong>Assertive </strong>',
+                content: '<strong>confident, dominant, sure of oneself </strong><div>The assertive woman demanded that the shop give her a refund.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverBaffled"]').popover({
+                title: '<strong>Baffled </strong>',
+                content: '<strong>confused, puzzled, dumbfounded </strong><div>The detectives were completely baffled by the murder case.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverBewildered"]').popover({
+                title: '<strong>Bewildered </strong>',
+                content: '<strong>utterly confused, puzzled, dazed </strong><div>The child was bewildered when visiting the big city for the first time.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverBored"]').popover({
+                title: '<strong>Bored </strong>',
+                content: '<strong>feeling weary because one is unoccupied or lacks interest in ones current activity </strong><div> She got bored with staring out of the window.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverCautious"]').popover({
+                title: '<strong>Cautious </strong>',
+                content: '<strong>careful, wary </strong><div>Sarah was always a bit cautious when talking to someone she did not know.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverComforting"]').popover({
+                title: '<strong>Comforting </strong>',
+                content: '<strong>consoling, compassionate </strong><div>The nurse was conforting the wounded soldier  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverConcerned"]').popover({
+                title: '<strong>Concerned </strong>',
+                content: '<strong>worried, troubled </strong><div>The doctor was concerned when his patient took a turn for the worse. </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverConfident"]').popover({
+                title: '<strong>Confident </strong>',
+                content: '<strong>self-assured, believing in oneself </strong><div>The tennis player was feeling very confident about winning his match.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverConfused"]').popover({
+                title: '<strong>Confused </strong>',
+                content: '<strong>puzzled, perplexed </strong><div>Lizze was so confused by the directions given to her, she got lost.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverContemplative"]').popover({
+                title: '<strong>Contemplative </strong>',
+                content: '<strong>reflective, thoughtful, considering </strong><div>John was in a contemplative mood on the eve of his 60th birthday.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverContented"]').popover({
+                title: '<strong>Contented </strong>',
+                content: '<strong>satisfied </strong><div>After a nice walk and a good meal, David felt very contented.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverConvinced"]').popover({
+                title: '<strong>Convinced </strong>',
+                content: '<strong>certain, absolutely positive </strong><div>Richard was convinced he had come to the right decision  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverCurious"]').popover({
+                title: '<strong>Curious </strong>',
+                content: '<strong>inquisitive, inquiring, prying </strong><div>Louise was curious about the strange shaped parcel  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDeciding"]').popover({
+                title: '<strong>Deciding </strong>',
+                content: '<strong>making your mind up </strong><div>The man was deciding whom to vote for in the election  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDecisive"]').popover({
+                title: '<strong>Decisive </strong>',
+                content: '<strong>already made your mind up </strong><div>Jane looked very decisive as she walked into the polling station  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDefiant"]').popover({
+                title: '<strong>Defiant </strong>',
+                content: '<strong>insolent, bold, don\'t care what anyone else thinks </strong><div>The animal protester remained defiant even after being sent to the prision.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDepressed"]').popover({
+                title: '<strong>Depressed </strong>',
+                content: '<strong>miserable </strong><div>George was depressed when he didn\'t receive any birthday cards.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDesire"]').popover({
+                title: '<strong>Desire </strong>',
+                content: '<strong>passion, lust, longing for </strong><div>Kate had a strong desire for chocolate.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDespondent"]').popover({
+                title: '<strong>Despondent </strong>',
+                content: '<strong>gloomy, despairing, without hope </strong><div>Gary was despondent when he did not get the job he wanted.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDisappointed"]').popover({
+                title: '<strong>Disappointed </strong>',
+                content: '<strong>displease, disgruntled </strong><div>Manchester United fans were disappointed to not win the Championship.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDispirited"]').popover({
+                title: '<strong>Dispirited </strong>',
+                content: '<strong>glum, miserable, low </strong><div>Adam was dispirited when he failed his exams.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDistrustful"]').popover({
+                title: '<strong>Distrustful </strong>',
+                content: '<strong>suspicious, doubtful, ware </strong><div>The old woman was distrustful of the stranger at her door.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDominant"]').popover({
+                title: '<strong>Dominant </strong>',
+                content: '<strong>commanding, bossy </strong><div>The sergeant major looked dominant as he inspected the new recruits.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDoubtful"]').popover({
+                title: '<strong>Doubtful </strong>',
+                content: '<strong>dubious, suspicious, not really believing </strong><div>Mary was doubtful that her son was telling the truth.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverDubious"]').popover({
+                title: '<strong>Dubious </strong>',
+                content: '<strong>doubtful, suspicious </strong><div>Peter was dubious when offered a surprisingly cheap television in a pub. </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverEager"]').popover({
+                title: '<strong>Eager </strong>',
+                content: '<strong>keen </strong><div>On Christmas morning, the children were eager to open their presents.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverEarnest"]').popover({
+                title: '<strong>Earnest </strong>',
+                content: '<strong>having a serious intention </strong><div>Harry was very earnest about his religious beliefs.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverEmbarrassed"]').popover({
+                title: '<strong>Embarrassed </strong>',
+                content: '<strong>ashamed </strong><div>After forgetting a colleagues\'s name, Jenny felt very embarrassed.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverEncouraging"]').popover({
+                title: '<strong>Encouraging </strong>',
+                content: '<strong>hopeful, heartening, supporting </strong><div>All the parents were encouraging their children in the school sports day.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverEntertained"]').popover({
+                title: '<strong>Entertained </strong>',
+                content: '<strong>absorbed and amused or pleased by something  </strong><div>I was very entertained by the magician.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverEnthusiastic"]').popover({
+                title: '<strong>Enthusiastic </strong>',
+                content: '<strong>very eager, keen </strong><div>Susan felt very enthusiastic about her new fitness plan.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverExcited"]').popover({
+                title: '<strong>Excited </strong>',
+                content: '<strong>to cause feelings of enthusiasm </strong><div>Our announcement excited the children  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverFantasizing"]').popover({
+                title: '<strong>Fantasizing  </strong>',
+                content: '<strong>daydreaming </strong><div>Emma was fantasizing about being a film star.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverFascinated"]').popover({
+                title: '<strong>Fascinated </strong>',
+                content: '<strong>captivated, really interested </strong><div>At the seaside, the children were fascinated by the creatures in the rock pools.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverFearful"]').popover({
+                title: '<strong>Fearful </strong>',
+                content: '<strong>terrified, worried </strong><div>In the dark streets, the women felt fearful. </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverFlirtatious"]').popover({
+                title: '<strong>Flirtatious </strong>',
+                content: '<strong>brazen, saucy, teasing, playful </strong><div>Connie was accused of being flirtatious when she winked at a stranger at a party.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverFlustered"]').popover({
+                title: '<strong>Flustered </strong>',
+                content: '<strong>confused, nervous, and upset </strong><div>Sarah felt a bit flustered when she realised how late she was for the meeting and that she had forgotten an importan document.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverFriendly"]').popover({
+                title: '<strong>Friendly </strong>',
+                content: '<strong>sociable, amiable </strong><div>The friendly girl showed the tourists the way to the town centre.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverGrateful"]').popover({
+                title: '<strong>Grateful </strong>',
+                content: '<strong>thankful </strong><div>Kelly was very grateful for the kindness shown by the stranger.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverGuilty"]').popover({
+                title: '<strong>Guilty </strong>',
+                content: '<strong>feeling sorry for doing something wrong </strong><div>Charlie felt guilty about having an affair.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverHateful"]').popover({
+                title: '<strong>Hateful</strong>',
+                content: '<strong>showing intense dislike </strong><div>The two sisters were hateful to each other and always fighting.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverHopeful"]').popover({
+                title: '<strong>Hopeful </strong>',
+                content: '<strong>optimistic </strong><div>Larry was hopeful that the post would bring good news.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverHorrified"]').popover({
+                title: '<strong>Horrified </strong>',
+                content: '<strong>terrified, appalled </strong><div>The man was horrified to discover that his new wife was already married.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverHostile"]').popover({
+                title: '<strong>Hostile </strong>',
+                content: '<strong>unfriendly </strong><div>The two neighbours were hostile towards each other because of an argument about loud music.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverImpatient"]').popover({
+                title: '<strong>Impatient </strong>',
+                content: '<strong>restless, wanting something to happen soon </strong><div>Jane grew increasingly impatient as she waited for her friend who was already 20 minutes late.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverImploring"]').popover({
+                title: '<strong>Imploring </strong>',
+                content: '<strong>begging, pleading </strong><div>Nicola looked imploring as she tried to persuade her dad to lend her the car.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverIncredulous"]').popover({
+                title: '<strong>Incredulous </strong>',
+                content: '<strong>not believing </strong><div>Simon was incredulous when he heard that he had won the lottery.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverIndecisive"]').popover({
+                title: '<strong>Indecisive </strong>',
+                content: '<strong>unsure, hesitant, unable to make your mind up  </strong><div>Tammy was so indecisive that she couldn\'t even decide what to have for lunch.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverIndifferent"]').popover({
+                title: '<strong>Indifferent </strong>',
+                content: '<strong>disinterested, unresponsive, don\'t care </strong><div>Terry was completely indifferent as to whether they went to the cinema or the pub.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverInsisting"]').popover({
+                title: '<strong>Insisting </strong>',
+                content: '<strong>demanding, persisting, maintaining </strong><div>After a work outing, Frank was insisting he paid the bill for everyone.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverInsulting"]').popover({
+                title: '<strong>Insulting </strong>',
+                content: '<strong>rude, offensive </strong><div>The football crowd was insulting the referee after he gave a penalty.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverInteresting"]').popover({
+                title: '<strong>Interesting </strong>',
+                content: '<strong>inquiring, curious </strong><div>After seeing Jurassic Park, Hugh grew very interesting in dinosaurs.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverIntrigued"]').popover({
+                title: '<strong>Intrigued </strong>',
+                content: '<strong>very curious, very interested </strong><div>A mystery phone call intrigued Zoe.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverIrritated"]').popover({
+                title: '<strong>Irritated </strong>',
+                content: '<strong>exasperated, annoyed </strong><div>Frances was irritated by all the junk mail she received.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverJealous"]').popover({
+                title: '<strong>Jealous</strong>',
+                content: '<strong>envious </strong><div>Tony was jealous of all the taller, better-looking boys in his class.</div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverJoking"]').popover({
+                title: '<strong>Joking </strong>',
+                content: '<strong>being funny, playful </strong><div>Gary was always joking with his friends.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverNervous"]').popover({
+                title: '<strong>Nervous </strong>',
+                content: '<strong>apprehensive, tense, worried </strong><div>Just before her job interview, Alice felt very nervous.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverOffended"]').popover({
+                title: '<strong>Offended </strong>',
+                content: '<strong>insulted, wounded, having hurt feelings </strong><div>When someone made a joke about her weight, Martha felt very offended.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverPanicked"]').popover({
+                title: '<strong>Panicked </strong>',
+                content: '<strong>distraught, feeling of terror or anxiety </strong><div>On waking to find the house on fire, the whole family was panicked.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverPensive"]').popover({
+                title: '<strong>Pensive </strong>',
+                content: '<strong>thinking about something slightly worrying </strong><div>Susie looked pensive on the way to meeting her boyfriend\'s parents for the first time.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverPerplexed"]').popover({
+                title: '<strong>Perplexed </strong>',
+                content: '<strong>bewildered, puzzled, confused </strong><div>Frank was perplexed by the disappearance of his garden gnomes.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverPlayful"]').popover({
+                title: '<strong>Playful </strong>',
+                content: '<strong>full of high spirits and fun </strong><div>Neil was feeling playful at his birthday party  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverPreoccupied"]').popover({
+                title: '<strong>Preoccupied </strong>',
+                content: '<strong>absorbed, engrossed in one\'s own thoughts </strong><div>Worrying about her mother\'s illness made Debbie preoccupied at work.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverPuzzled"]').popover({
+                title: '<strong>Puzzled </strong>',
+                content: '<strong>perplexed, bewildered, confused </strong><div>After doing the crossword for an hour, June was still puzzled by one clue.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverReassuring"]').popover({
+                title: '<strong>Reassuring </strong>',
+                content: '<strong>supporting, encouraging, giving someone confidence </strong><div>Andy tried to look reassuring as he told his wife that her new dress did suit her.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverReflective"]').popover({
+                title: '<strong>Reflective </strong>',
+                content: '<strong>contemplative, thoughtful </strong><div>George was in a reflective mood as he thought about what he\'d done with his life. </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverRegretful"]').popover({
+                title: '<strong>Regretful </strong>',
+                content: '<strong>sorry </strong><div>Lee was always regretful that he had never travelled when he was younger.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverRelaxed"]').popover({
+                title: '<strong>Relaxed </strong>',
+                content: '<strong>taking it easy, calm, carefree </strong><div>On holiday, Pam felt happy and relaxed  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverRelieved"]').popover({
+                title: '<strong>Relieved </strong>',
+                content: '<strong>freed from worry or anxiety </strong><div>At the restaurant, Ray was relieved to find that he had not forgotten his wallet.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverResentful"]').popover({
+                title: '<strong>Resentful </strong>',
+                content: '<strong>bitter, hostile </strong><div>The businessman felt very resentful towards his younger colleague who had been promoted above him.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverSarcastic"]').popover({
+                title: '<strong>Sarcastic </strong>',
+                content: '<strong>cynical, mocking, scornful </strong><div>The comedian made a sarcastic comment when someone came into the theatre late.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverSatisfied"]').popover({
+                title: '<strong>Satisfied </strong>',
+                content: '<strong>content, fulfilled </strong><div>Steve felt very satisfied after he had got his new flat just how he wanted it.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverShy"]').popover({
+                title: '<strong>Shy </strong>',
+                content: '<strong>being reserved or having or showing nervousness or timidity in the company of other people </strong><div>I was pretty shy at school. </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverSkeptical"]').popover({
+                title: '<strong>Skeptical </strong>',
+                content: '<strong>doubtful, suspicious, mistrusting </strong><div>Patrick looked skeptical as someone read out his horoscope to him.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverSerious"]').popover({
+                title: '<strong>Serious </strong>',
+                content: '<strong>solemn, grave </strong><div>The bank manager looked serious as he refused Nigel an overdraft.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverStern"]').popover({
+                title: '<strong>Stern </strong>',
+                content: '<strong>severe, strict, firm </strong><div>The teacher looked very stern as he told the class off.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverSuspicious"]').popover({
+                title: '<strong>Suspicious </strong>',
+                content: '<strong>disbelieving, suspecting, doubting </strong><div>After Sam had lost his wallet for the second time at work, he grew suspicious of one of his colleagues.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverSympathetic"]').popover({
+                title: '<strong>Sympathetic </strong>',
+                content: '<strong>kind, compassionate </strong><div>The nurse looked sympathetic as she told the patient the bad news.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverTentative"]').popover({
+                title: '<strong>Tentative </strong>',
+                content: '<strong>hesitant, uncertain, cautious </strong><div>Andrew felt a bit tentative as he went into the room full of strangers.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverTerrified"]').popover({
+                title: '<strong>Terrified </strong>',
+                content: '<strong>alarmed, fearful </strong><div>The boy was terrified when he thought he saw a ghost.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverThoughtful"]').popover({
+                title: '<strong>Thoughtful </strong>',
+                content: '<strong>thinking about something </strong><div>Phil looked thoughtful as he sat waiting for the girlfriend he was about to finish with.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverThreatening"]').popover({
+                title: '<strong>Threatening </strong>',
+                content: '<strong>menacing, intimidating </strong><div>The large, drunken man was acting in a very threatening way.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverUneasy"]').popover({
+                title: '<strong>Uneasy </strong>',
+                content: '<strong>unsettled, apprehensive, troubled </strong><div>Karen felt slightly uneasy about accepting a lift from the man she had only met that day.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverUpset"]').popover({
+                title: '<strong>Upset </strong>',
+                content: '<strong>agitated, worried, uneasy </strong><div>The man was very upset when his mother died.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+            $('[data-toggle="popoverWorried"]').popover({
+                title: '<strong>Worried </strong>',
+                content: '<strong>anxious, fretful, trouble </strong><div>When her cat went missing, the girl was very worried.  </div>',
+                html: true,
+                placement: 'right',
+                trigger: 'hover'
+            });
+        });
+    </script>
+{% endblock %}

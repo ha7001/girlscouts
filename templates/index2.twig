@@ -1,0 +1,515 @@
+{% extends 'base.twig' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block css %}
+    <style type="text/css">
+        /*#married input.form-control, #partner input.form-control, #widow input.form-control, #separated input.form-control, #unemployed input.form-control {*/
+            /*margin-bottom: 0;*/
+        /*}*/
+        /*ul.data-list-2 li label.switch-light {*/
+            /*margin-left: 0;*/
+        /*}*/
+        /*ul.data-list-2 li.children label {*/
+            /*margin-left: 0;*/
+        /*}*/
+        /*ul.data-list-2 li label.subtitle {*/
+            /*font-size: 12px;*/
+            /*margin: 0;*/
+        /*}*/
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>Welcome to EMBRACED Project</h1>
+            </div>
+            <div class="col-md-12">
+                <p>We are going to be asking you some questions about yourself. Please remember that you are free to skip any question that may bother you, although we kindly ask you to complete as much of this questionnaire as possible. Thank you for your participation.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+
+            <div id="top-wizard">
+                <strong>Progress <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div><!-- end top-wizard -->
+
+            <form name="example-1" id="wrapped" action="" method="POST" >
+                <div id="middle-wizard">
+                    <div class="step">
+                        <div class="row">
+                            <h3 class="col-md-10">Enter your personal info</h3>
+                            <div class="col-md-6">
+                                <ul class="data-list">
+                                    <li>
+                                        <label>Date of Birth:</label>
+                                        <input type="date" name="dob" id="dob"  class=" form-control" placeholder="Date of Birth"></li>
+                                    <input id="website" name="website" type="text" value="" ><!-- Leave for security protection, read docs for details -->
+                                </ul>
+                            </div><!-- end col-md-6 -->
+                            <div class="col-md-6">
+                                <ul class="data-list">
+                                    <li><label>Gender:</label>
+                                        <div class="styled-select">
+                                            <select class="form-control " name="gender">
+                                                <option value="" selected>Select your gender</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- end col-md-6 -->
+                        </div><!-- end row -->
+                    </div><!-- end step-->
+
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Ethnicity/Race</h3>
+                            <ul class="data-list-2 race">
+                                <h4>Do you consider yourself Spanish/Hispanic/Latino?</h4>
+                                <li><input name="race" type="radio" class="check_radio" value="No"><label>No, not Spanish/Hispanic/Latino</label></li>
+                                <li><input name="race" type="radio" class="check_radio" value="mexican"><label>Yes, Mexican, Mexican American, Chicano</label></li>
+                                <li><input name="race" type="radio" class="check_radio" value="puerto rican"><label>Yes, Puerto Rican</label></li>
+                                <li><input name="race" type="radio" class="check_radio" value="cuban"><label>Yes, Cuban</label></li>
+                                <li><input name="race" type="radio" class="check_radio" value="other"><label>Yes, other Spanish/Hispanic/Latino</label></li>
+                                <li><input type="text" name="other" id="other"  class="form-control" placeholder="Specify"></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Ethnicity/Race</h3>
+                            <ul class="data-list-2">
+                                <h4>What race do you consider yourself to be according to your parentage, ancestry or roots? (You can choose more than one):</h4>
+                                <li><input name="ethnicity" type="radio" class="check_radio" value="indian"><label>American Indian or Alaska Native (original from North and South America native populations)</label></li>
+                                <li><input name="ethnicity" type="radio" class="check_radio" value="asian"><label>Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label></li>
+                                <li><input name="ethnicity" type="radio" class="check_radio" value="black"><label>Black or African American</label></li>
+                                <li><input name="ethnicity" type="radio" class="check_radio" value="hawaii"><label>Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific Islands)</label></li>
+                                <li><input name="ethnicity" type="radio" class="check_radio" value="white"><label>White (Europe, Middle East or North Africa)</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!--//////////// Marital Status //////////////-->
+                    <div class="step row" data-state="branchtype">
+                        <div class="col-md-10">
+                            <h3>Marital Status</h3>
+                            <ul class="data-list-2">
+                                <h4>What is your marital Status?</h4>
+                                <li><input name="branchtype" type="radio" class="check_radio" value="single"><label>Single</label></li>
+                                <li><input name="branchtype" type="radio" class="check_radio" value="married"><label>Married</label></li>
+                                <li><input name="branchtype" type="radio" class="check_radio" value="partner"><label>Living with partner</label></li>
+                                <li><input name="branchtype" type="radio" class="check_radio" value="widow"><label>Widow(ed)</label></li>
+                                <li><input name="branchtype" type="radio" class="check_radio" value="divorced"><label>Separated/Divorced</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="branch" id="married">
+                        <div class="step row" data-state="single">
+                            <div class="col-md-10">
+                                <h3>Marital Status</h3>
+                                <ul class="data-list-2">
+                                    <h4>How long have you been together with your partner?</h4>
+                                    <li><input type="number" name="married_years" class="form-control" placeholder="Years" /></li>
+                                    <li><input type="number" name="married_months" class="form-control" placeholder="Months" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="branch" id="partner">
+                        <div class="step row"  data-state="single">
+                            <div class="col-md-10">
+                                <h3>Marital Status</h3>
+                                <ul class="data-list-2">
+                                    <h4>How long have you been together with your partner?</h4>
+                                    <li><input type="number" name="partner_years" class="form-control" placeholder="Years" /></li>
+                                    <li><input type="number" name="partner_years" class="form-control" placeholder="Months" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="branch" id="widow">
+                        <div class="step row"  data-state="single">
+                            <div class="col-md-10">
+                                <h3>Marital Status</h3>
+                                <ul class="data-list-2">
+                                    <h4>How long ago did you become a widow(ed)?</h4>
+                                    <li><input type="number" name="widow_years" id="widow_years"  class="form-control" placeholder="Years" /></li>
+                                    <li><input type="number" name="widow_months" id="widow_months"  class="form-control" placeholder="Months" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="branch" id="divorced">
+                        <div class="step row" data-state="single">
+                            <div class="col-md-10">
+                                <h3>Marital Status</h3>
+                                <ul class="data-list-2">
+                                    <h4>How long ago did you divorce/separate from your partner?</h4>
+                                    <li><input type="number" name="separated_years" id="separated_years"  class="form-control" placeholder="Years" /></li>
+                                    <li><input type="number" name="separated_months" id="separated_months"  class="form-control" placeholder="Months" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="branch" id="single">
+                        <div class="step row" data-state="branchtype">
+                            <div class="col-md-10">
+                                <h3>Marital Status</h3>
+                                <ul class="data-list-2">
+                                    <h4>Do you have children?</h4>
+                                    <li><input type="radio" name="branchtype" class="check_radio" value="yes_children" /><label>Yes</label></li>
+                                    <li><input type="radio" name="branchtype" class="check_radio" value="no_children" /><label>No</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="branch" id="yes_children">
+                        <div class="step row" data-state="complete">
+                            <div class="col-md-10">
+                                <h3>Marital Status</h3>
+                                <ul class="data-list-2">
+                                    <h4>How many children do you have?</h4>
+                                    <li>
+                                        <div class="qty-buttons">
+                                            <input type="button" value="-" class="qtyminus" name="quantity">
+                                            <input type="text" name="kid_quantity" value="1" class="qty form-control">
+                                            <input type="button" value="+" class="qtyplus" name="quantity">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!--//////////// Place of residence //////////////-->
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Place of residence</h3>
+                            <ul class="data-list-2 clearfix">
+                                <h4>Where do you live?</h4>
+                                <li><input name="city" type="text" class="form-control" placeholder="City"></li>
+                                <li><input name="state" type="text" class="form-control" placeholder="State"></li>
+                                <li><input name="country" type="text" class="form-control" placeholder="Country"></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Place of residence</h3>
+                            <ul class="data-list-2 clearfix">
+                                <h4>How many inhabitants does your place of residence have?</h4>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="<5000" /><label>Less than 5,000</label></li>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="5000=50000" /><label>Between 5,000 and 50,000</label></li>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value=">50000" /><label>More than 50,000</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Place of residence</h3>
+                            <ul class="data-list-2 clearfix">
+                                <h4>How can you best describe the place where you live?</h4>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="rural" /><label>Rural</label></li>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="intermediate" /><label>Intermediate</label></li>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="urban" /><label>Urban</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Place of residence</h3>
+                            <ul class="data-list-2 clearfix">
+                                <h4>Environmental stressors crime (percepción de seguridad/crimen en su área), life stressor, neighborhood conditions, traffic (how much you were bothered within the last month by traffic, auto maintenance, accidents)</h4>
+                                <li><input type="number" name="stressors" class="form-control" value="0" /></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <!--//////////// Occupation //////////////-->
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Occupation</h3>
+                            <ul class="data-list-2 clearfix occupation">
+                                <h4>Which of the following best describes your current main daily activities and/or responsibilities?</h4>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="fulltime" /><label>Working full time</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="parttime" /><label>Working part-time</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="contract" /><label>Seasonal/Contract worker</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="unemployed" /><label>Unemployed or laid off</label></li>
+                                <li id="unemployed">
+                                    <div class="col-xs-6">
+                                        <label class="subtitle">How long have you been unemployed?</label>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="unemployed_years" id="married_years"  class="form-control" placeholder="Years" />
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="unemployed_months" id="married_months"  class="form-control" placeholder="Months" />
+                                    </div>
+                                </li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="looking" /><label>Looking for work</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="keepinghouse" /><label>Keeping house or raising children full time</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="retired" /><label>Retired</label></li>
+                            </ul>
+                            <ul class="data-list-2 clearfix employed">
+                                <h4>What kind of job do you have?</h4>
+                                <li><input type="radio" name="job_type" class="check_radio" value="fulltime" /><label>You work for somebody else</label></li>
+                                <li><input type="radio" name="job_type" class="check_radio" value="parttime" /><label>You are self-employed</label></li>
+                                <li><input type="radio" name="job_type" class="check_radio" value="contract" /><label>You own a company with less than 10 employees</label></li>
+                                <li><input type="radio" name="job_type" class="check_radio" value="unemployed" /><label>You own a company with more than 10 employees</label></li>
+                            </ul>
+                            <ul class="data-list-2 clearfix employed">
+                            <h4>How would you best describe your current position?</h4>
+                            <li><input type="radio" name="current_position" class="check_radio" value="manuallabor" /><label>Manual labor (both high and low-skilled work)</label></li>
+                            <li><input type="radio" name="current_position" class="check_radio" value="non-manuallabor" /><label>Non-Manual labor (Managerial position, positions associated to college/university degrees, technicians, artist, sportsman/sportswoman, clerical, self-employees, supervisors of manual workers)</label></li>
+                            </ul>
+                            <ul class="data-list-2 clearfix employed">
+                            <h4>Which of these best describes your current position?</h4>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="management" /><label>Management</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="businessfinancial" /><label>Business and Financial Operations</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="computer" /><label>Computer and Mathematical</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="architecture" /><label>Architecture and Engineering</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="life" /><label>Life, Physical, and Social Science</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="community" /><label>Community and Social Service</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="legal" /><label>Legal</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="education" /><label>Education, Training, and Library</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="arts" /><label>Arts, Design, Entertainment, Sports, and Media</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="health" /><label>Healthcare Practitioners and Technical</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="healthcare" /><label>Healthcare Support</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="protective" /><label>Protective Service</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="food" /><label>Food Preparation and Serving Related</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="building" /><label>Building and Grounds Cleaning and Maintenance</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="personalcare" /><label>Personal Care and Service</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="sales" /><label>Sales and Related</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="office" /><label>Office and Administrative Support</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="farming" /><label>Farming, Fishing, and Forestry</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="construction" /><label>Construction and Extraction</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="repair" /><label>Installation, Maintenance, and Repair</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="production" /><label>Production</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="transportation" /><label>Transportation and Material Moving</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="military" /><label>Military</label></li>
+                            <li><input type="radio" name="current_position_desc" class="check_radio" value="other" /><label>Other</label></li>
+                            <li><input type="text" name="other_current_position_desc" class="form-control" /></li>
+                            </ul>
+                            <ul class="data-list-2 clearfix employed">
+                            <h4>In your current position, which condition describes your situation best?</h4>
+                            <li><input type="radio" name="condition_desc" class="check_radio" value="stable" /><label>Stable</label></li>
+                            <li><input type="radio" name="condition_desc" class="check_radio" value="temporary" /><label>Temporary</label></li>
+                            <li><input type="radio" name="condition_desc" class="check_radio" value="work_no_contract" /><label>Working without a contract</label></li>
+                            </ul>
+                            <ul class="data-list-2 clearfix employed">
+                            <h4>Do you participate in decisions in your current position?</h4>
+                            <li><input type="radio" name="participate_descisions" class="check_radio" value="yes" /><label>Yes</label></li>
+                            <li><input type="radio" name="participate_descisions" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                            <ul class="data-list-2 clearfix employed">
+                            <h4>Do you supervise others in your current position?</h4>
+                            <li><input type="radio" name="supervise_others" class="check_radio" value="yes" /><label>Yes</label></li>
+                            <li><input type="radio" name="supervise_others" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+
+                    <!--//////////// Income //////////////-->
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Income</h3>
+                            <ul class="data-list-2 clearfix">
+                                <h4>Are you financially dependent of any other person?</h4>
+                                <li><input type="radio" name="financially_dependent" class="check_radio" value="yes" /><label>Yes</label></li>
+                                <li><input type="radio" name="financially_dependent" class="check_radio" value="no" /><label>No</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="step row">
+                        <div class="col-md-10">
+                            <h3>Income</h3>
+                            <ul class="data-list-2 clearfix earn">
+                                <h4>How much did you earn, before taxes and other deductions, during the past 12 months?</h4>
+                                <li><input type="radio" name="earnings" class="check_radio" value="<5000" /><label>Less than $5,000</label></li>
+                                <li><input type="radio" name="earnings" class="check_radio" value="5000-11999" /><label>$5,000- $11,999</label></li>
+                                <li><input type="radio" name="earnings" class="check_radio" value="12000-15999" /><label>$12,000 - $15,999</label></li>
+                                <li><input type="radio" name="earnings" class="check_radio" value="16000-24999" /><label>$16,000 - $24,999</label></li>
+                                <li><input type="radio" name="earnings" class="check_radio" value="25000-34999" /><label>$25,000 - $34,999</label></li>
+                                <li><input type="radio" name="earnings" class="check_radio" value="35000-49999" /><label>$35,000 - $49,999</label></li>
+                                <li><input type="radio" name="earnings" class="check_radio" value="50000-74999" /><label>$50,000 - $74,999</label></li>
+                                <li><input type="radio" name="earnings" class="check_radio" value="75000-99999" /><label>$75,000 - $99,999</label></li>
+                                <li><input type="radio" name="earnings" class="check_radio" value=">100000" /><label>$100,000 or more</label></li>
+                            </ul>
+                        </div>
+                    </div><!-- end step -->
+
+                    <div class="submit step complete" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Survey complete! Thank you for you time.</h3>
+                        <button type="submit" name="process" class="submit">Submit the survey</button>
+                    </div><!-- end submit step -->
+
+                </div><!-- end middle-wizard -->
+
+                <div id="bottom-wizard">
+                    <button type="button" name="backward" class="backward">Backward</button>
+                    <button type="button" name="forward" class="forward">Forward </button>
+                </div><!-- end bottom-wizard -->
+            </form>
+
+        </div><!-- end Survey container -->
+
+
+    </section>
+{% endblock %}
+
+{% block extra %}
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">About us</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+                        sanctus, pro ne quod dicunt sensibus.</p>
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+                        sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+                        sanctus, pro ne quod dicunt sensibus.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Modal About -->
+    <div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+                        sanctus, pro ne quod dicunt sensibus.</p>
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+                        sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+                        sanctus, pro ne quod dicunt sensibus.</p>
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+                        sanctus, pro ne quod dicunt sensibus.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+//            var $other = $('#other');
+//            var $married = $('#married');
+//            var $partner = $('#partner');
+//            var $widow = $('#widow');
+//            var $separated = $('#separated');
+//            var $unemployed = $('#unemployed');
+//            var $employed = $('.employed');
+
+
+
+//            $('.race li div ins').click(function() {
+//                if ($(this).prev().val() == 'other') {
+//                    $other.slideDown();
+//                } else {
+//                    $other.val('');
+//                    $other.hide();
+//                }
+//            });
+
+//            $('.status li div ins').click(function() {
+//                if ($(this).prev().val() == 'married') {
+//                    $married.slideDown();
+//                } else {
+//                    $married.val('');
+//                    $married.hide();
+//                }
+//
+//                if ($(this).prev().val() == 'partner') {
+//                    $partner.slideDown();
+//                } else {
+//                    $partner.val('');
+//                    $partner.hide();
+//                }
+//
+//                if ($(this).prev().val() == 'widow') {
+//                    $widow.slideDown();
+//                } else {
+//                    $widow.val('');
+//                    $widow.hide();
+//                }
+//
+//                if ($(this).prev().val() == 'divorced') {
+//                    $separated.slideDown();
+//                } else {
+//                    $separated.val('');
+//                    $separated.hide();
+//                }
+//            });
+
+            var kids_count = 0;
+
+            $('input[name="kid_quantity"]').click(function() {
+                var count = $(this).val();
+
+                if (count > kids_count) {
+                    $('.child').append('<li class="children"><div class="col-xs-2"><label>Child ' + count + ':</label></div><div class="col-xs-5"><input type="number" name="age_' + count + '" class="form-control" placeholder="Age" /></div><div class="col-xs-5"><select class="form-control required" name="gender_' + count + '"><option value="" selected>Select your gender</option><option value="male">Male</option><option value="female">Female</option>/select></div></li>');
+                } else {
+                    $('.child li:last').remove();
+                }
+                kids_count = $(this).val();
+            });
+
+//            $('.occupation li div ins').click(function() {
+//                if ($(this).prev().val() == 'unemployed') {
+//                    $unemployed.slideDown();
+//                } else {
+//                    $unemployed.hide();
+//                }
+//
+//                if ($(this).prev().val() == 'fulltime' || $(this).prev().val() == 'parttime') {
+//                    $employed.slideDown();
+//                } else {
+//                    $employed.hide();
+//                }
+//            });
+//
+//            $employed.hide();
+
+        });
+    </script>
+{% endblock %}

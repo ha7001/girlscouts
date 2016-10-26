@@ -1,0 +1,275 @@
+{% extends 'base.twig' %}
+
+{% block title %}Rey Complex Figure task{% endblock %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+     <!--
+     <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>{{ RCFT }}</h1>
+            </div>
+        </div>
+    </div>
+    -->
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            <!--
+            <div id="top-wizard">
+                <strong>Progress <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div>
+            <!-- end top-wizard -->
+
+            <form name="reyComplexFigure1" id="wrapped" action="" method="POST">
+                <!-- RCFT1 -->
+                <div id="middle-wizard">
+                    <div class="step row">
+                        <div class="col-md-12" style="text-align: center">
+                            <h4>
+                                {{ RCFTInstructions | raw }}
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="step row">
+
+                        <div id="canvas-drawing">
+                            <canvas id='RCFTPractice' class="center-block" width="600" height="500" style="border:1px solid #000000;"></canvas>
+                        </div>
+                        <br>
+                        <h4>Click Forward Once you are done practicing.</h4>
+                    </div>
+                    <div class="step row">
+                        <div class="col-md-12" style="text-align: center">
+                            <h4>
+                                {{ RCFTInsructions1 | raw }}
+                            </h4>
+                        </div>
+                    </div>
+
+                    <!-- Split screen RCFT -->
+                    <div class="step row">
+                            <div class="container-fluid">
+                                <div class="columns">
+                                        <div class="col-sm-5">
+                                            <img src="/assets/img/RCFT/RCFT%20Copy%20Figure.png" alt="Smiley face" width="493" height="370" class="center-block">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <canvas id='RCFT1' class="center-block"  width="600" height="470"  style="border:1px solid #000000;"></canvas>
+                                        </div>
+                                </div>
+                            </div>
+                        <br>
+                        <!-- <button type="button" class="btn center-block" id="par1Submit" onClick="RCFsubmitOne" >Done</button> -->
+                    </div>
+
+
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Test complete!</h3>
+                        <button type="submit" name="process" class="submit">Submit</button>
+                    </div><!-- end submit step -->
+                    </div>
+
+                    <div id="bottom-wizard">
+                        <!-- <button id="backwardButton" type="button" name="backward" class="backward" disabled >Backward</button> -->
+                        <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                    </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jTimer.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Disable the ability to go backwards.
+            $('#backwardButton').prop('disabled', true);
+            var $canvasPractice = $("#RCFTPractice");
+            var ptsPractice = [];
+            var linesPractice = [];
+            var line_objPractice = {};
+            var isDownPractice = false;
+            var $canvas1 = $("#RCFT1");
+            var pts1 = [];
+            var lines1 = [];
+            var line_obj1 = {};
+            var isDown1 = false;
+
+            //Setup Drawing Surfaces for Test
+            $canvasPractice.drawRect({
+                layer: true,
+                x: 0, y: 0,
+                width: 600, height: 500,
+                fromCenter: false,
+                mousedown: function (layer) {
+                    line_objPractice = {
+                        strokeStyle: "#000",
+                        strokeWidth: 2,
+                        data: {
+                            joints: 1
+                        }
+                    };
+
+                    isDownPractice = true;
+                    ptsPractice.push([layer.eventX, layer.eventY]);
+                },
+                mousemove: function (layer) {
+                    if (isDownPractice) {
+                        ptsPractice.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < ptsPractice.length; p += 1) {
+                            line_objPractice['x' + (p + 1)] = ptsPractice[p][0];
+                            line_objPractice['y' + (p + 1)] = ptsPractice[p][1];
+                        }
+                        $canvasPractice.drawLine(line_objPractice);
+                    }
+                    for (var i = 0; i < linesPractice.length; i++) {
+                        $canvasPractice.drawLine(linesPractice[i]);
+                    }
+                },
+                mouseup: function (layer) {
+                    linesPractice.push(line_objPractice);
+
+                    for (var i = 0; i < linesPractice.length; i++) {
+                        $canvasPractice.drawLine(linesPractice[i]);
+                    }
+
+                    line_objPractice = {};
+                    ptsPractice = [];
+                    isDownPractice = false;
+                },
+                mouseout: function (layer) {
+                    console.log(linesPractice);
+
+                    for (var i = 0; i < linesPractice.length; i++) {
+                        $canvasPractice.drawLine(linesPractice[i]);
+                    }
+                }
+            });
+            $canvas1.drawRect({
+                layer: true,
+                x: 0, y: 0,
+                width: 600, height: 470,
+                fromCenter: false,
+                mousedown: function (layer) {
+                    line_obj1 = {
+                        strokeStyle: "#000",
+                        strokeWidth: 2,
+                        data: {
+                            joints: 1
+                        }
+                    };
+
+                    isDown1 = true;
+                    pts1.push([layer.eventX, layer.eventY]);
+                },
+                mousemove: function (layer) {
+                    if (isDown1) {
+                        pts1.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < pts1.length; p += 1) {
+                            line_obj1['x' + (p + 1)] = pts1[p][0];
+                            line_obj1['y' + (p + 1)] = pts1[p][1];
+                        }
+                        $canvas1.drawLine(line_obj1);
+                    }
+                    for (var i = 0; i < lines1.length; i++) {
+                        $canvas1.drawLine(lines1[i]);
+                    }
+                },
+                mouseup: function (layer) {
+                    lines1.push(line_obj1);
+
+                    for (var i = 0; i < lines1.length; i++) {
+                        $canvas1.drawLine(lines1[i]);
+                    }
+
+                    line_obj1 = {};
+                    pts1 = [];
+                    isDown1 = false;
+                },
+                mouseout: function (layer) {
+                    console.log(lines1);
+
+                    for (var i = 0; i < lines1.length; i++) {
+                        $canvas2.drawLine(lines1[i]);
+                    }
+                }
+            });
+
+            //Save Part one
+            var $save1 = $('#part1Submit');
+
+            //After user clicks saves, save whatever is on the canvas
+            $save1.click(function () {
+
+                console.log('Submitted ');
+                var c = document.getElementById("RCFT1");
+                var dataURL = c.toDataURL("image/png");
+
+                $.ajax({
+                    type: "POST",
+                    url: "saveImage.php",
+                    data: {
+                        imgBase64: dataURL
+                    }
+                }).done(function (o) {
+                    console.log('saved');
+                    document.getElementById("ForwardButton").click();
+                });
+            });
+
+            //Scroll down to the bottom of the page.
+            var objDiv = document.getElementById("forwardButton");
+            objDiv.scrollTop = objDiv.scrollHeight;
+        });
+
+        function RCFsubmitOne(){
+            console.log("Submitted \n");
+
+            var c = document.getElementById("RCFT1");
+            var dataURL = c.toDataURL("image/png");
+
+            $.ajax({
+                type: "POST",
+                url: "saveImage.php",
+                data: {
+                    imgBase64: dataURL
+                }
+            }).done(function (o) {
+                console.log('saved');
+                document.getElementById("ForwardButton").click();
+            });
+        };
+
+
+
+
+        //After the user is done practicing, clear the canvas and move to the next screen.
+        function practiceSubmit() {
+            $('canvas').removeLayers($('canvas').getLayers()).drawLayers();
+            $('#backwardButton').prop('disabled', true);
+            $('#forwardButton').trigger('click');
+
+        }
+
+
+
+
+    </script>
+{% endblock %}

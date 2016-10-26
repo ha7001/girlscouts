@@ -1,0 +1,168 @@
+{% extends 'base.twig' %}
+
+{% block title %}Rey Complex Figure task{% endblock %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!--
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>{{ RCFT }}</h1>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            <!--
+            <div id="top-wizard">
+                <strong>Progress <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div>
+            end top-wizard -->
+
+            <form name="reyComplexFigure1" id="wrapped" action="" method="POST">
+                <!-- RCFT1 -->
+                <div id="middle-wizard">
+
+                    <div class="step row">
+                        <div class="col-md-12" style="text-align: center">
+                            <h4>
+                                {{ RCFTInsructions2 | raw }}
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- Drawing Part 2 -->
+                    <div class="step row">
+
+                        <div id="canvas-drawing">
+                            <canvas id='RCFT2' class="center-block" width="600" height="470" style="border:1px solid #000000;"></canvas>
+                        </div>
+                        <br>
+                        <!--<button type="button" class="btn center-block" id="part2Submit" onclick="part2Submit()">Done</button> -->
+                    </div>
+
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Test complete!</h3>
+                        <button type="submit" name="process" class="submit">Submit</button>
+                    </div><!-- end submit step -->
+                </div>
+
+                <div id="bottom-wizard">
+                    <button id="backwardButton" type="button" name="backward" class="backward">Backward</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jTimer.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $canvas2 = $("#RCFT2");
+            var pts2 = [];
+            var lines2 = [];
+            var line_obj2 = {};
+            var isDown2 = false;
+
+            //Setup Drawing Surfaces for test
+            $canvas2.drawRect({
+                layer: true,
+                x: 0, y: 0,
+                width: 600, height: 470,
+                fromCenter: false,
+                mousedown: function (layer) {
+                    line_obj2 = {
+                        strokeStyle: "#000",
+                        strokeWidth: 2,
+                        data: {
+                            joints: 1
+                        }
+                    };
+
+                    isDown2 = true;
+                    pts2.push([layer.eventX, layer.eventY]);
+                },
+                mousemove: function (layer) {
+                    if (isDown2) {
+                        pts2.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < pts2.length; p += 1) {
+                            line_obj2['x' + (p + 1)] = pts2[p][0];
+                            line_obj2['y' + (p + 1)] = pts2[p][1];
+                        }
+                        $canvas2.drawLine(line_obj2);
+                    }
+                    for (var i = 0; i < lines2.length; i++) {
+                        $canvas2.drawLine(lines2[i]);
+                    }
+                },
+                mouseup: function (layer) {
+                    lines2.push(line_obj2);
+
+                    for (var i = 0; i < lines2.length; i++) {
+                        $canvas2.drawLine(lines2[i]);
+                    }
+
+                    line_obj2 = {};
+                    pts2 = [];
+                    isDown2 = false;
+                },
+                mouseout: function (layer) {
+                    console.log(lines2);
+
+                    for (var i = 0; i < lines2.length; i++) {
+                        $canvas2.drawLine(lines2[i]);
+                    }
+                }
+            });
+
+
+            //Save Part one
+
+            var $save2 = $('#part2Submit');
+            //After user clicks saves, save whatever is on the canvas
+            $save2.click(function () {
+                var c = document.getElementById("RCFT2");
+                var dataURL = c.toDataURL("image/png");
+
+                $.ajax({
+                    type: "POST",
+                    url: "saveImage.php",
+                    data: {
+                        imgBase64: dataURL
+                    }
+                }).done(function (o) {
+                    console.log('saved');
+                });
+            });
+
+        });
+        // Will push the page down so that the drawing portion is centered.
+        // Test test
+        function scrollIntoView() {
+            document.getElementById( 'RCFT1' ).scrollIntoView();
+        };
+
+
+
+
+    </script>
+{% endblock %}

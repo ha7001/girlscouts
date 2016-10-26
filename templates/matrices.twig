@@ -1,0 +1,670 @@
+{% extends 'base.twig' %}
+
+{% block title %}Matrices Test{% endblock %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!--
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>{{Matrices_Title}}</h1>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            <!--
+            <div id="top-wizard">
+                <strong>Progress <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+            </div>
+            end top-wizard -->
+
+
+            <form name="matricesTest" id="wrapped" action="" method="POST">
+                <!-- Eye Test start -->
+                <div id="middle-wizard">
+
+                    <div class="step" style="text-align: center">
+                            <h4>
+                                    {{Matrices_Practice_Instructions | raw}}
+                            </h4>
+                    </div>
+
+                    <!-- Matrices question through javascript example -->
+
+                    <div class="step">
+                        <div class="col-xs-12"  style="text-align: center">
+                            <canvas id="matriceA1" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA1" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="matriceA2" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA2" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="matriceA3" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA3" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA4" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA4" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA5" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA5" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA6" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA6" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA7" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA7" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA8" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA8" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA9" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA9" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA10" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA10" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA11" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA11" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceA12" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceA12" />
+                        </div>
+                    </div>
+                    <!-- Part B of Matrices -->
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB1" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB1" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB2" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB2" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB3" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB3" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB4" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB4" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB5" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB5" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB6" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB6" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB7" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB7" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB8" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB8" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB9" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB9" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB10" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB10" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB11" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB11" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceB12" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceB12" />
+                        </div>
+                    </div>
+
+                    <!-- Part C of Matrices -->
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC1" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC1" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC2" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC2" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC3" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC3" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC4" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC4" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC5" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC5" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC6" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC6" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC7" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC7" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC8" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC8" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC9" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC9" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC10" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC10" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC11" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC11" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceC12" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceC12" />
+                        </div>
+                    </div>
+                    <!-- Part D of Matrices -->
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD1" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD1" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD2" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD2" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD3" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD3" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD4" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD4" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD5" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD5" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD6" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD6" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD7" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD7" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD8" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD8" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD9" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD9" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD10" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD10" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD11" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD11" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceD12" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceD12" />
+                        </div>
+                    </div>
+                    <!-- Part E of Matrices -->
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE1" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE1" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE2" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE2" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE3" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE3" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE4" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE4" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE5" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE5" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE6" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE6" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE7" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE7" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE8" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE8" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE9" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE9" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE10" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE10" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE11" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE11" />
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12">
+                            <canvas id="matriceE12" width="600" height="600" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="matriceE12" />
+                        </div>
+                    </div>
+
+
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Cancellation practice assessment complete!</h3>
+                        <button type="button" name="process" class="submit">Complete!</button>
+                    </div><!-- end submit step -->
+                </div>
+
+                <div id="bottom-wizard">
+                    <button id="backwardButton" type="button" name="backward" class="backward">Backward</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script type="text/javascript">
+        //Each type of test has the ans choices in different places so a different method for each type of test: a,b,c,d,e
+
+        //Choice placement for Images in the A catetory, these are preset since they don't change in the first set of images.
+        var startingXA = 115;
+        var startingYA = 370;
+        var xSpacingA = 125;
+        var ySpacingA = 115;
+        var widthA = 115;
+        var heightA = 110;
+        var rowA = 2;
+        var columnA = 3;
+        function setBoardA($canvas, input, imagePath) {
+            $canvas.drawImage({
+                layer: true,
+                x: 0, y: 0,
+                index: 0,
+                source: imagePath,
+                width: 600, height: 600
+
+            }).drawLayers();
+
+            var count = 1;
+
+            for (var y = 0; y < rowA; y++) {
+                for (var x = 0; x < columnA; x++) {
+                    $canvas.addLayer({
+                        type: 'rectangle',
+                        groups: ['questions'],
+                        name: 'step' + count++,
+                        strokeStyle: 'red',
+                        strokeWidth: 0,
+                        x: startingXA + (xSpacingA * x), y: startingYA + (ySpacingA * y),
+                        width: widthA,
+                        height: heightA,
+                        click: function (layer) {
+                            $('input[name="' + input + '"]').val(layer.name.replace('step', ''));
+
+                            $canvas.setLayerGroup('questions', {
+                                strokeWidth: 0
+                            }).drawLayers();
+
+                            $canvas.setLayer(layer.name, {
+                                strokeWidth: 4
+                            }).drawLayers();
+                        }
+                    }).drawLayers();
+                }
+            }
+        }
+
+
+        // One function where the different variables are just passed in.
+        function setBoard($canvas, input, imagePath, startingX, startingY, xSpacing, ySpacing, width, height, row, column) {
+            //Choice placement for Images in the B category, 6-9
+            var startingX = startingX;
+            var startingY = startingY;
+            var xSpacing = xSpacing;
+            var ySpacing = ySpacing;
+            var width = width;
+            var height = height;
+            var row = row;
+            var column = column;
+            $canvas.drawImage({
+                layer: true,
+                x: 0, y: 0,
+                index: 0,
+                source: imagePath,
+                width: 600, height: 600
+            }).drawLayers();
+
+            var count = 1;
+
+            for (var y = 0; y < row; y++) {
+                for (var x = 0; x < column; x++) {
+                    $canvas.addLayer({
+                        type: 'rectangle',
+                        groups: ['questions'],
+                        name: 'step' + count++,
+                        strokeStyle: 'red',
+                        strokeWidth: 0,
+                        x: startingX + (xSpacing * x), y: startingY + (ySpacing * y),
+                        width: width,
+                        height: height,
+                        click: function (layer) {
+                            $('input[name="' + input + '"]').val(layer.name.replace('step', ''));
+
+                            $canvas.setLayerGroup('questions', {
+                                strokeWidth: 0
+                            }).drawLayers();
+
+                            $canvas.setLayer(layer.name, {
+                                strokeWidth: 4
+                            }).drawLayers();
+                        }
+                    }).drawLayers();
+                }
+            }
+        }
+
+        $(document).ready(function() {
+            var $matriceA1 = $('#matriceA1');
+            var $matriceA2 = $('#matriceA2');
+            var $matriceA3 = $('#matriceA3');
+            var $matriceA4 = $('#matriceA4');
+            var $matriceA5 = $('#matriceA5');
+            var $matriceA6 = $('#matriceA6');
+            var $matriceA7 = $('#matriceA7');
+            var $matriceA8 = $('#matriceA8');
+            var $matriceA9 = $('#matriceA9');
+            var $matriceA10 = $('#matriceA10');
+            var $matriceA11 = $('#matriceA11');
+            var $matriceA12 = $('#matriceA12');
+            var $matriceB1 = $('#matriceB1');
+            var $matriceB2 = $('#matriceB2');
+            var $matriceB3 = $('#matriceB3');
+            var $matriceB4 = $('#matriceB4');
+            var $matriceB5 = $('#matriceB5');
+            var $matriceB6 = $('#matriceB6');
+            var $matriceB7 = $('#matriceB7');
+            var $matriceB8 = $('#matriceB8');
+            var $matriceB9 = $('#matriceB9');
+            var $matriceB10 = $('#matriceB10');
+            var $matriceB11 = $('#matriceB11');
+            var $matriceB12 = $('#matriceB12');
+            var $matriceC1 = $('#matriceC1');
+            var $matriceC2 = $('#matriceC2');
+            var $matriceC3 = $('#matriceC3');
+            var $matriceC4 = $('#matriceC4');
+            var $matriceC5 = $('#matriceC5');
+            var $matriceC6 = $('#matriceC6');
+            var $matriceC7 = $('#matriceC7');
+            var $matriceC8 = $('#matriceC8');
+            var $matriceC9 = $('#matriceC9');
+            var $matriceC10 = $('#matriceC10');
+            var $matriceC11 = $('#matriceC11');
+            var $matriceC12 = $('#matriceC12');
+            var $matriceD1 = $('#matriceD1');
+            var $matriceD2 = $('#matriceD2');
+            var $matriceD3 = $('#matriceD3');
+            var $matriceD4 = $('#matriceD4');
+            var $matriceD5 = $('#matriceD5');
+            var $matriceD6 = $('#matriceD6');
+            var $matriceD7 = $('#matriceD7');
+            var $matriceD8 = $('#matriceD8');
+            var $matriceD9 = $('#matriceD9');
+            var $matriceD10 = $('#matriceD10');
+            var $matriceD11 = $('#matriceD11');
+            var $matriceD12 = $('#matriceD12');
+            var $matriceE1 = $('#matriceE1');
+            var $matriceE2 = $('#matriceE2');
+            var $matriceE3 = $('#matriceE3');
+            var $matriceE4 = $('#matriceE4');
+            var $matriceE5 = $('#matriceE5');
+            var $matriceE6 = $('#matriceE6');
+            var $matriceE7 = $('#matriceE7');
+            var $matriceE8 = $('#matriceE8');
+            var $matriceE9 = $('#matriceE9');
+            var $matriceE10 = $('#matriceE10');
+            var $matriceE11 = $('#matriceE11');
+            var $matriceE12 = $('#matriceE12');
+
+            $.jCanvas.defaults.fromCenter = false;
+
+
+            //Set all the A boards with the same parameters.
+            setBoardA($matriceA1, 'matriceA1', '/assets/img/Matrices_stimuli/A1.jpg');
+            setBoardA($matriceA2, 'matriceA2', '/assets/img/Matrices_stimuli/A2.jpg');
+            setBoardA($matriceA3, 'matriceA3', '/assets/img/Matrices_stimuli/A3.jpg');
+            setBoardA($matriceA4, 'matriceA4', '/assets/img/Matrices_stimuli/A4.jpg');
+            setBoardA($matriceA5, 'matriceA5', '/assets/img/Matrices_stimuli/A5.jpg');
+            setBoardA($matriceA6, 'matriceA6', '/assets/img/Matrices_stimuli/A6.jpg');
+            setBoardA($matriceA7, 'matriceA7', '/assets/img/Matrices_stimuli/A7.jpg');
+            setBoardA($matriceA8, 'matriceA8', '/assets/img/Matrices_stimuli/A8.jpg');
+            setBoardA($matriceA9, 'matriceA9', '/assets/img/Matrices_stimuli/A9.jpg');
+            setBoardA($matriceA10, 'matriceA10', '/assets/img/Matrices_stimuli/A10.jpg');
+            setBoardA($matriceA11, 'matriceA11', '/assets/img/Matrices_stimuli/A11.jpg');
+            setBoardA($matriceA12, 'matriceA12', '/assets/img/Matrices_stimuli/A12.jpg');
+
+            //Boards starting with B will have different parameters.
+            //($canvas, input, imagePath, startingX, startingY, xSpacing, ySpacing, width, height, row, column)
+            setBoard($matriceB1, 'matriceB1', '/assets/img/Matrices_stimuli/B1.jpg', 85, 340, 160, 130, 110, 115, 2, 3);            //1-3
+            setBoard($matriceB2, 'matriceB2', '/assets/img/Matrices_stimuli/B2.jpg', 85, 340, 160, 130, 110, 115, 2, 3);
+            setBoard($matriceB3, 'matriceB3', '/assets/img/Matrices_stimuli/B3.jpg', 85, 340, 160, 130, 110, 115, 2, 3);
+            setBoard($matriceB4, 'matriceB4', '/assets/img/Matrices_stimuli/B4.jpg', 80, 300, 145, 150, 145, 150, 2, 3);            //4-5
+            setBoard($matriceB5, 'matriceB5', '/assets/img/Matrices_stimuli/B5.jpg', 80, 300, 145, 150, 145, 150, 2, 3);
+            setBoard($matriceB6, 'matriceB6', '/assets/img/Matrices_stimuli/B6.jpg', 87, 335, 150, 150, 127, 80, 2, 3);            //6
+            setBoard($matriceB7, 'matriceB7', '/assets/img/Matrices_stimuli/B7.jpg', 100, 325, 145, 145, 110, 110, 2, 3);            //7
+            setBoard($matriceB8, 'matriceB8', '/assets/img/Matrices_stimuli/B8.jpg', 90, 310, 150, 150, 127, 120, 2, 3);            //8-12
+            setBoard($matriceB9, 'matriceB9', '/assets/img/Matrices_stimuli/B9.jpg', 90, 310, 150, 150, 127, 120, 2, 3);
+            setBoard($matriceB10, 'matriceB10', '/assets/img/Matrices_stimuli/B10.jpg', 90, 310, 150, 150, 127, 120, 2, 3);
+            setBoard($matriceB11, 'matriceB11', '/assets/img/Matrices_stimuli/B11.jpg', 90, 310, 150, 150, 127, 120, 2, 3);
+            setBoard($matriceB12, 'matriceB12', '/assets/img/Matrices_stimuli/B12.jpg', 90, 310, 150, 150, 127, 120, 2, 3);
+            //C Board stuff
+            setBoard($matriceC1, 'matriceC1', '/assets/img/Matrices_stimuli/C1.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC2, 'matriceC2', '/assets/img/Matrices_stimuli/C2.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC3, 'matriceC3', '/assets/img/Matrices_stimuli/C3.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC4, 'matriceC4', '/assets/img/Matrices_stimuli/C4.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC5, 'matriceC5', '/assets/img/Matrices_stimuli/C5.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC6, 'matriceC6', '/assets/img/Matrices_stimuli/C6.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC7, 'matriceC7', '/assets/img/Matrices_stimuli/C7.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC8, 'matriceC8', '/assets/img/Matrices_stimuli/C8.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC9, 'matriceC9', '/assets/img/Matrices_stimuli/C9.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC10, 'matriceC10', '/assets/img/Matrices_stimuli/C10.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC11, 'matriceC11', '/assets/img/Matrices_stimuli/C11.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceC12, 'matriceC12', '/assets/img/Matrices_stimuli/C12.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            //D Board stuff
+            setBoard($matriceD1, 'matriceD1', '/assets/img/Matrices_stimuli/D1.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD2, 'matriceD2', '/assets/img/Matrices_stimuli/D2.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD3, 'matriceD3', '/assets/img/Matrices_stimuli/D3.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD4, 'matriceD4', '/assets/img/Matrices_stimuli/D4.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD5, 'matriceD5', '/assets/img/Matrices_stimuli/D5.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD6, 'matriceD6', '/assets/img/Matrices_stimuli/D6.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD7, 'matriceD7', '/assets/img/Matrices_stimuli/D7.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD8, 'matriceD8', '/assets/img/Matrices_stimuli/D8.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD9, 'matriceD9', '/assets/img/Matrices_stimuli/D9.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD10, 'matriceD10', '/assets/img/Matrices_stimuli/D10.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD11, 'matriceD11', '/assets/img/Matrices_stimuli/D11.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceD12, 'matriceD12', '/assets/img/Matrices_stimuli/D12.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            // E Board stuff
+            setBoard($matriceE1, 'matriceE1', '/assets/img/Matrices_stimuli/E1.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE2, 'matriceE2', '/assets/img/Matrices_stimuli/E2.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE3, 'matriceE3', '/assets/img/Matrices_stimuli/E3.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE4, 'matriceE4', '/assets/img/Matrices_stimuli/E4.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE5, 'matriceE5', '/assets/img/Matrices_stimuli/E5.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE6, 'matriceE6', '/assets/img/Matrices_stimuli/E6.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE7, 'matriceE7', '/assets/img/Matrices_stimuli/E7.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE8, 'matriceE8', '/assets/img/Matrices_stimuli/E8.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE9, 'matriceE9', '/assets/img/Matrices_stimuli/E9.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE10, 'matriceE10', '/assets/img/Matrices_stimuli/E10.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE11, 'matriceE11', '/assets/img/Matrices_stimuli/E11.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+            setBoard($matriceE12, 'matriceE12', '/assets/img/Matrices_stimuli/E12.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
+
+        });
+    </script>
+{% endblock %}

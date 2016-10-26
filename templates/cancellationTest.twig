@@ -1,0 +1,381 @@
+{% extends 'base.twig' %}
+
+{% block title %}Cancellation Test{% endblock %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+            {#<div id="top-wizard">#}
+                {#<strong>Progress <span id="location"></span></strong>#}
+                {#<div id="progressbar"></div>#}
+                {#<div class="shadow"></div>#}
+            {#</div><!-- end top-wizard -->#}
+
+
+            <form name="cancellationTest" id="wrapped" action="" method="POST">
+                <!-- Eye Test start -->
+                <div id="middle-wizard">
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-14" style="text-align: center">
+                                <h4>{{cancellationTestInstructions1|raw }}</h4>
+                            </div>
+                        </div>
+                    </div><!--Instructions-->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-14" style="text-align: center">
+                                <h4>{{cancellationTestInstructions2|raw }}</h4>
+                            </div>
+                        </div>
+                    </div><!--Instructions-->
+                    <div class="step">
+                        <div class="row">
+                            <div class="col-md-14" style="text-align: center">
+                                <h4>{{cancellationTestInstructions3|raw }}</h4>
+                            </div>
+                        </div>
+                    </div><!--Instructions-->
+
+                    <!-- Practice Block Test -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <h4>Practice Cancellation:</h4>
+                            <canvas id="cancelCanvasPractice1" class="center-block" width="800" height="300" style="border:1px solid #000000;"></canvas><br/>
+                            <button id="startCancellationPracticeButton" type="button" class="btn center-block">{{ cancellationTestStartPracticeTest }}</button>
+                        </div>
+                    </div>
+
+                    <!--Actual Testing -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <h4>Cancellation Testing</h4>
+                            <canvas id="cancelCanvas" class="center-block" width="800" height="300" style="border:1px solid #000000;"></canvas><br/>
+                            <button id="startCancellation" type="button" class="btn center-block" id="startCancellation">{{ cancellationTestStartTest }}</button>
+                        </div>
+                    </div>
+
+
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Cancellation practice assessment complete!</h3>
+                        <button type="button" name="process" class="submit">Complete!</button>
+                    </div><!-- end submit step -->
+                </div>
+
+                <div id="bottom-wizard">
+                    <button id="backwardButton" type="button" name="backward" class="backward">Backward</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script>
+        var testStartTime = 0;
+
+        //Test Blocks
+        var blk0 =  [['A','5','W','G','2','5','U','T','L','E','9','N','C','5','P','H','Z','9','Y','F'],
+                        ['I','K','1','9','Y','R','T','5','B','L','D','9','T','Y','E','3','1','K','9','5'],
+                        ['9','H','N','P','S','5','V','D','J','9','Q','F','R','9','W','P','L','W','G','S']];
+        var blk1 =   [['X','9','O','K','5','J','I','B','L','Z','5','N','1','Z','9','R','G','D','9','B'],
+                        ['Y','H','9','N','2','B','5','5','E','R','N','5','T','B','M','R','9','Q','K','H'],
+                        ['K','P','J','N','5','A','F','U','V','5','9','H','H','Z','5','N','8','9','U','O']];
+        var blk2 =   [['P','5','9','R','C','A','D','5','V','K','P','5','V','P','V','O','Y','S','B','9'],
+                        ['9','N','L','5','W','L','I','F','G','5','W','2','S','H','9','9','E','1','Q','Q'],
+                        ['E','Y','D','9','Q','I','L','9','M','E','9','C','3','F','5','Z','Z','9','N','K']];
+        var blk3 =   [['9','9','5','G','A','E','Z','A','9','J','A','F','R','W','5','C','A','S','A','I'],
+                        ['N','5','F','V','2','X','F','X','V','9','5','Q','K','9','L','M','U','L','G','5'],
+                        ['M','9','B','1','9','O','N','9','W','V','T','9','E','H','8','S','9','R','Z','G']];
+        var blk4 =   [['P','D','5','V','9','F','I','9','R','5','K','5','H','Q','E','P','N','U','K','S'],
+                        ['R','F','9','C','D','W','F','5','J','P','N','5','7','C','Q','C','B','9','Y','9'],
+                        ['M','G','5','H','9','O','5','D','1','G','2','T','G','9','H','V','Y','5','Q','B']];
+        var blk5 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
+                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
+                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
+        var blk6 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
+                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
+                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
+        var blk7 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
+                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
+                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
+        var blk8 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
+                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
+                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
+        var blk9 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
+                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
+                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
+        var blk10 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
+                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
+                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
+
+        var testBlocks = [blk0, blk1, blk2, blk3, blk4, blk5, blk6, blk7, blk8, blk9, blk10];
+
+        //Display start button for practice test
+        $(document).ready(function() {
+            var $select = $('#startCancellationPracticeButton');
+            $select.click(function() {
+                startPracticeTesting1();
+            });
+            //Display start button for actual testing
+            var $select = $('#startCancellation');
+            $select.click(function() {
+                startTesting();
+                $('#forwardButton').prop('disabled', true);
+                $('#backwardButton').prop('disabled', true);
+            });
+
+            $('button[name="process"]').click(function() {
+                location.href = "/eyeTest.php";
+            });
+        });
+
+        //Practice Test kickoff Method
+        function startPracticeTesting1(){
+            $('#forwardButton').prop('disabled', false);
+            $('#backwardButton').prop('disabled', false);
+            $('#startCancellationPracticeButton').html('Click Here for the Second Practice Test'); //Change text in button
+            createBlkTestPractice(testBlocks[0], '0');
+            $('#startCancellationPracticeButton').click(startPracticeTesting2);
+        }
+        function startPracticeTesting2(){
+            $('#startCancellationPracticeButton').html('I am done practicing'); //Change text in button
+            createBlkTestPractice(testBlocks[1], '0');
+            $('#startCancellationPracticeButton').click(practiceTestComplete);
+            //$('#startCancellationPracticeButton').prop('disabled', true); //Disable Start button
+        }
+        //Clear canvas for actual testing and tigger forward button
+        function practiceTestComplete(){
+            $('canvas').removeLayers($('canvas').getLayers()).drawLayers(); //remove all layers
+            $('#forwardButton').prop('disabled', true);
+            $('#backwardButton').prop('disabled', true);
+            $('#forwardButton').trigger('click');
+        }
+
+        //Actual Testing kickoff
+        function startTesting(){
+            //The timeing for this method is preset. Once the test begins, all the test blocks will automatically display
+            $('#startCancellation').remove();
+            createBlkTest(testBlocks[1], '1');
+            resultsCompleteVar = setTimeout(completeMessage, 15000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[2], '2');}, 18000);
+            resultsCompleteVar = setTimeout(completeMessage, 33000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[3], '3');}, 36000);
+            resultsCompleteVar = setTimeout(completeMessage, 51000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[4], '4');}, 54000);
+            resultsCompleteVar = setTimeout(completeMessage, 69000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[5], '5');}, 72000);
+            resultsCompleteVar = setTimeout(completeMessage, 87000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[6], '6');}, 90000);
+            resultsCompleteVar = setTimeout(completeMessage, 105000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[7], '7');}, 108000);
+            resultsCompleteVar = setTimeout(completeMessage, 123000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[8], '8');}, 126000);
+            resultsCompleteVar = setTimeout(completeMessage, 141000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[9], '9');}, 144000);
+            resultsCompleteVar = setTimeout(completeMessage, 159000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[10], '10');}, 162000);
+            resultsCompleteVar = setTimeout(testComplete, 177000);
+
+        }
+
+        //Main function that will create TestBlocks
+        function createBlkTest(TestBlock, testBlockNumber){
+            console.log("Create test called " + testBlockNumber + " , clearing block");
+            $('canvas').removeLayers($('canvas').getLayers()).drawLayers(); //remove all layers
+            var x = 75; var y = 50;
+            for (var row = 0; row < TestBlock.length; row++) {
+                for (var i = 0; i < TestBlock[row].length; i++) {
+                    //console.log('Drawing it ' + TestBlock[row][i]);
+                    $('canvas').drawText({
+                        layer: true,
+                        name: 'TestBlock_' + row + '_' + i,
+                        fillStyle: 'black',
+                        x: x, y: y,
+                        data:{
+                            block: 'practice',
+                            locationX: x,
+                            locationY: y,
+                            testBlockRow: row,
+                            testBlockCol: i
+                        },
+                        fontSize: 40,
+                        fontFamily: 'Courier',
+                        text: TestBlock[row][i],
+                        click: function (layer) {
+                            if(layer.fillStyle != 'rgb( 255,0,0 )') {
+                                console.log("Fill style is " + layer.fillStyle);
+                                storeClick(testBlockNumber.toString(), layer.data.testBlockRow, layer.data.testBlockCol, layer.text, 0, "Harry", Math.abs(testStartTime - (new Date).getTime()))
+                            }
+
+                            $(this).animateLayer(layer, {
+                                fillStyle: 'rgb( 255,0,0 )',
+                                scale: 1.5
+                            },0);
+                        }
+                    });
+                    x = x + 35;//Space it out a little bit more
+                }
+                x = 75;
+                y = y + 100;
+            }
+            //Start Timer
+            testStartTime = (new Date).getTime();
+            //resultsCompleteVar = setTimeout(function() {gatherResults0()}, 5000);
+            //resultsCompleteVar = setTimeout(completeMessagePractice, 15000);
+        }
+        //Practice Test block is like a normal test block but doesn't record data
+        function createBlkTestPractice(TestBlock, testBlockNumber){
+            console.log("Create test called " + testBlockNumber + " , clearing block");
+            $('canvas').removeLayers($('canvas').getLayers()).drawLayers(); //remove all layers
+            var x = 75; var y = 50;
+            for (var row = 0; row < TestBlock.length; row++) {
+                for (var i = 0; i < TestBlock[row].length; i++) {
+                    //console.log('Drawing it ' + TestBlock[row][i]);
+                    $('canvas').drawText({
+                        layer: true,
+                        name: 'TestBlock_' + row + '_' + i,
+                        fillStyle: 'black',
+                        x: x, y: y,
+                        data:{
+                            block: 'practice',
+                            locationX: x,
+                            locationY: y,
+                            testBlockRow: row,
+                            testBlockCol: i
+                        },
+                        fontSize: 40,
+                        fontFamily: 'Courier',
+                        text: TestBlock[row][i],
+                        click: function (layer) {
+                            $(this).animateLayer(layer, {
+                                fillStyle: 'red',
+                                scale: 1.5
+                            }), 0;
+                        }
+                    });
+                    x = x + 35;//Space it out a little bit more
+                }
+                x = 75;
+                y = y + 100;
+            }
+            //Start Timer
+            testStartTime = (new Date).getTime();
+        }
+        //Message Methods
+        function completeMessagePractice(){
+            $('canvas').removeLayers($('canvas').getLayers()).drawLayers(); //remove all layers
+            $('canvas').drawText({
+                layer: true,
+                name: 'TestCompleteP0',
+                fillStyle: '#000000',
+                x: 400, y: 120,
+                fontSize: 40,
+                fontFamily: 'Ariel',
+                text: 'Congrats on finishing the Practice test!'
+            });
+            $('canvas').drawText({
+                layer: true,
+                name: 'TestCompleteP1',
+                fillStyle: '#000000',
+                x: 400, y: 170,
+                fontSize: 40,
+                fontFamily: 'Ariel',
+                text: 'Click "Start Test" to being the test.'
+            });
+            $('canvas').drawLayers();
+            //Click the forward button to move to the next test.
+            testComplete();
+        }
+        function completeMessage(){
+            $('canvas').removeLayers($('canvas').getLayers()).drawLayers(); //remove all layers
+            $('canvas').drawText({
+                layer: true,
+                name: 'TestComplete0',
+                fillStyle: '#000000',
+                x: 400, y: 120,
+                fontSize: 40,
+                fontFamily: 'Ariel',
+                text: 'Block Complete.'
+            });
+            $('canvas').drawText({
+                layer: true,
+                name: 'TestComplete1',
+                fillStyle: '#000000',
+                x: 400, y: 170,
+                fontSize: 40,
+                fontFamily: 'Ariel',
+                text: 'The next Block will begin in   seconds.'
+            });
+            $('canvas').drawText({
+                layer: true,
+                name: 'TestComplete3',
+                fillStyle: '#000000',
+                x: 562, y: 170,
+                fontSize: 40,
+                fontFamily: 'Ariel',
+                text: '3'
+            });
+            setTimeout(function(){$('canvas').setLayer('TestComplete3', {text: '2'}).drawLayers();}, 1000);
+            setTimeout(function(){$('canvas').setLayer('TestComplete3', {text: '1'}).drawLayers();}, 2000);
+        }
+
+        function changeLayer(textToChange){
+            $('canvas').setLayer('TestComplete3', {text: textToChange}).drawLayers();
+        }
+        function testComplete() {
+            console.log("testCompleteCalled");
+            $('#forwardButton').trigger('click');
+        }
+
+        function storeClick(block, blockRow, blockCol, blockValue, testNumber, participantId, timeV )
+        {
+            console.log('attempting to store data  + The time is : ' + timeV.toString());
+            var submissionData = {
+                block: block,
+                blockRow: blockRow,
+                blockCol: blockCol,
+                blockValue: blockValue,
+                testNumber: testNumber,
+                participantId: participantId,
+                timeV: timeV
+            };
+
+            $.post('cancellationSubmit.php', { block: JSON.stringify(submissionData)}, function(data, status) {
+                //alert(data);
+            });
+        }
+
+        function returnCodeFromDBstore(data, textStatus, jqXHRobject){
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHRobject);
+        }
+
+        function clearCanvas(){
+            $('canvas').removeLayers($('canvas').getLayers()).drawLayers(); //remove all layers
+        }
+
+    </script>
+{% endblock %}
