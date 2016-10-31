@@ -37,7 +37,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <canvas id="test" class="center-block" width="400" height="350"></canvas><br/>
-                                <button type="button" class="btn center-block" id="start">Start</button>
+                                <button type="button" class="btn center-block" id="start"><b>Start</b></button>
                             </div><!-- end col-md-6 -->
                         </div><!-- end row -->
                     </div><!-- end step-->
@@ -69,6 +69,7 @@
                 clearInterval(intervalId);
                 if (blocks == 0) {
                     $('canvas').setLayer('text', {
+                        fillStyle: 'black',
                         text: 'Done'
                     }).drawLayers();
 
@@ -80,6 +81,7 @@
                 } else {
                     clearInterval(intervalId);
                     $('canvas').setLayer('text', {
+                        fillStyle: 'black',
                         text: ' '
                     }).drawLayers();
                     count = 0;
@@ -107,11 +109,13 @@
                 display_time = new Date().getTime();
 
                 $('canvas').setLayer('text', {
+                    fillStyle: 'black',
                     text: sti[count]
                 }).drawLayers();
 
                 setTimeout(function() {
                     $('canvas').setLayer('text', {
+                        fillStyle: 'black',
                         text: ''
                     }).drawLayers();
                 }, letter_length);
@@ -179,7 +183,7 @@
                 x: 200, y: 175,
                 fontSize: 150,
                 fontFamily: 'Verdana, sans-serif',
-                click: function() {
+                click: function(layer) {
                     //On click turn this letter red.
                     $(this).animateLayer(layer, {
                         fillStyle: 'rgb( 255,0,0 )'

@@ -100,6 +100,9 @@
 
                     isDown2 = true;
                     pts2.push([layer.eventX, layer.eventY]);
+                    for (var i = 0; i < lines2.length; i++) {
+                        $(this).drawLine(lines2[i]);
+                    }
                 },
                 mousemove: function (layer) {
                     if (isDown2) {
@@ -108,29 +111,29 @@
                             line_obj2['x' + (p + 1)] = pts2[p][0];
                             line_obj2['y' + (p + 1)] = pts2[p][1];
                         }
-                        $canvas2.drawLine(line_obj2);
+                        $(this).drawLine(line_obj2);
                     }
                     for (var i = 0; i < lines2.length; i++) {
-                        $canvas2.drawLine(lines2[i]);
+                        $(this).drawLine(lines2[i]);
                     }
                 },
                 mouseup: function (layer) {
                     lines2.push(line_obj2);
 
                     for (var i = 0; i < lines2.length; i++) {
-                        $canvas2.drawLine(lines2[i]);
+                        $(this).drawLine(lines2[i]);
                     }
 
                     line_obj2 = {};
                     pts2 = [];
                     isDown2 = false;
-                },
-                mouseout: function (layer) {
-                    console.log(lines2);
-
-                    for (var i = 0; i < lines2.length; i++) {
-                        $canvas2.drawLine(lines2[i]);
-                    }
+//                },
+//                mouseout: function (layer) {
+//                    console.log(lines2);
+//
+//                    for (var i = 0; i < lines2.length; i++) {
+//                        $(this).drawLine(lines2[i]);
+//                    }
                 }
             });
 

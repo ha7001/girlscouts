@@ -1,0 +1,207 @@
+{% extends 'base.twig' %}
+
+{% block title %}Test 1{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>API TEST</h1>
+            </div>
+            <div class="col-md-12">
+                <p>Create a participant</p>
+                <form method="post" action="http://api.girlscouts.harryatwal.com/participant">
+                    <input name="id" type="text" class="required form-control" />
+                    <input name="dob" type="date" class="required form-control" placeholder="Date of Birth" />
+                    <select name="gender" class="required form-control">
+                        <option value="" selected>Select One</option>
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button type="submit" class="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>Update a participant</p>
+                <form id="hand" method="post" action="">
+                    <fieldset>
+                    <input name="id" type="text" class="required form-control" />
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-8">
+                            <label>Left</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <label>Right</label>
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Writing</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="writinghand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="writinghand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Drawing</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="drawinghand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="drawinghand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Throwing a ball</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="throwinghand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="throwinghand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Using scissors</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="scissorshand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="scissorshand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Using a toothbrush</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="toothbrushhand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="toothbrushhand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Cutting with a knife</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="knifehand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="knifehand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Eating with a spoon</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="spoonhand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="spoonhand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Using a broom (upper hand)</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="broomhand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="broomhand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Striking a match (hand with the match)</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="matchhand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="matchhand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <div class="row stretch">
+                        <div class="col-xs-8">
+                            <h4>Opening the lid of a box</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="openinghand" type="radio" class="check_radio" value="l">
+                        </div>
+                        <div class="col-xs-2">
+                            <input name="openinghand" type="radio" class="check_radio" value="r">
+                        </div>
+                    </div>
+                    <button type="button" class="submit">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+        function generateUUID() {
+            var d = new Date().getTime();
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = (d + Math.random()*16)%16 | 0;
+                d = Math.floor(d/16);
+                return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+            });
+            return uuid;
+        }
+
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++)
+            {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+
+        $(document).ready(function() {
+            var uuid = generateUUID();
+
+            $('input[name="id"]').val(uuid);
+
+            $('#hand .submit').click(function() {
+                console.log($('#hand').serialize());
+                $.ajax({
+                    method: "POST",
+                    type: "POST",
+                    crossDomain: true,
+                    url: "http://api.girlscouts.harryatwal.com/participant/2D3447BF-E448-4268-85",
+                    dataType: "json",
+                    data: $('#hand').serialize(),
+                    success: function(data) {
+                        console.log('success');
+                    },
+                    error: function (url) {
+                        console.log('error');
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,493 @@
+{% extends 'base.twig' %}
+
+{% block title %}Comprehension Test{% endblock %}
+{% block css %}
+    <style type="text/css">
+        img.img-responsive {
+            margin: 0 auto;
+        }
+
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!--
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 main-title">
+                <h1>{{ ComprehensionTitle }}</h1>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <section class="container" id="main">
+
+        <!-- Start Survey container -->
+        <div id="survey_container">
+
+            <div id="top-wizard">
+                <!--Dummy span used to hold the audio output -->
+                <audio id="audio" src=""></audio>
+                <!--
+                <strong>Progress <span id="location"></span></strong>
+                <div id="progressbar"></div>
+                <div class="shadow"></div>
+                -->
+            </div>
+
+            <form name="comprehensionTest" id="wrapped" action="" method="POST">
+                <!-- Eye Test start -->
+                <div id="middle-wizard">
+                    <div class="step" style="text-align: center">
+                        <h4>
+                            {{ ComprehensionInstructions | raw }}
+                        </h4>
+                    </div>
+
+                    <!-- Comprehension question through javascript example -->
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension1" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension1Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension2" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension2Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension3" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension3Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension4" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension4Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension5" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension5Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension6" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension6Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension7" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension7Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension8" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension8Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension9" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension9Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension10" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension10Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension11" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension11Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension12" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension12Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension13" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension13Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension14" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension14Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension15" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension15Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension16" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension16Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension17" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension17Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension17" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension17Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension18" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension18Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension19" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension19Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension20" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension20Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="col-xs-12" style="text-align: center">
+                            <canvas id="comprehension21" width="700" height="560" style="border:1px solid #000000;"></canvas>
+                            <input hidden="True" type="text" name="comprehension1"/>
+                            <br>
+                            <button id="comprehension21Button" type="button" class="btn center-block"><b>Click here for the Question</b></button>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="submit step" id="complete">
+                        <i class="icon-check"></i>
+                        <h3>Very Nice!</h3>
+                        <button type="button" name="process" class="submit">Complete!</button>
+                    </div><!-- end submit step -->
+                </div>
+
+                <div id="bottom-wizard">
+                    <!--<button id="backwardButton" type="button" name="backward" class="backward" >Backward</button>-->
+                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                </div><!-- end bottom-wizard -->
+            </form>
+        </div><!-- end Survey container -->
+    </section>
+{% endblock %}
+{% block extra %}{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script type="text/javascript">
+        //Each type of test has the ans choices in different places so a different method for each type of test: a,b,c,d,e
+
+        //Choice placement for Images in the A catetory, these are preset since they don't change in the first set of images.
+        var startingXA = 0;
+        var startingYA = 0;
+        var xSpacingA = 140;
+        var ySpacingA = 140;
+        var widthA = 140;
+        var heightA = 140;
+        var rowA = 4
+        var columnA = 5;
+        function setBoardComprehension($canvas, input, imagePath) {
+            $canvas.drawImage({
+                layer: true,
+                x: 0, y: 0,
+                index: 0,
+                source: imagePath,
+                width: 700, height: 560
+
+            }).drawLayers();
+
+            var count = 1;
+
+            for (var y = 0; y < rowA; y++) {
+                for (var x = 0; x < columnA; x++) {
+                    $canvas.addLayer({
+                        type: 'rectangle',
+                        groups: ['questions'],
+                        name: 'step' + count++,
+                        strokeStyle: 'red',
+                        strokeWidth: 0,
+                        x: startingXA + (xSpacingA * x), y: startingYA + (ySpacingA * y),
+                        width: widthA,
+                        height: heightA,
+                        click: function (layer) {
+                            $('input[name="' + input + '"]').val(layer.name.replace('step', ''));
+
+                            $canvas.setLayerGroup('questions', {
+                                strokeWidth: 0
+                            }).drawLayers();
+
+                            $canvas.setLayer(layer.name, {
+                                strokeWidth: 4
+                            }).drawLayers();
+                        }
+                    }).drawLayers();
+                }
+            }
+        }
+
+
+
+
+        $(document).ready(function () {
+            //Define canvases
+            var $comprehension1 = $('#comprehension1');
+            var $comprehension2 = $('#comprehension2');
+            var $comprehension3 = $('#comprehension3');
+            var $comprehension4 = $('#comprehension4');
+            var $comprehension5 = $('#comprehension5');
+            var $comprehension6 = $('#comprehension6');
+            var $comprehension7 = $('#comprehension7');
+            var $comprehension8 = $('#comprehension8');
+            var $comprehension9 = $('#comprehension9');
+            var $comprehension10 = $('#comprehension10');
+            var $comprehension11 = $('#comprehension11');
+            var $comprehension12 = $('#comprehension12');
+            var $comprehension13 = $('#comprehension13');
+            var $comprehension14 = $('#comprehension14');
+            var $comprehension15 = $('#comprehension15');
+            var $comprehension16 = $('#comprehension16');
+            var $comprehension17 = $('#comprehension17');
+            var $comprehension18 = $('#comprehension18');
+            var $comprehension19 = $('#comprehension19');
+            var $comprehension20 = $('#comprehension20');
+            var $comprehension21 = $('#comprehension11');
+
+
+            //Define buttons to play audio
+            var $comprehensionStart1 = $('#comprehension1Button');
+            var $comprehensionStart2 = $('#comprehension2Button');
+            var $comprehensionStart3 = $('#comprehension3Button');
+            var $comprehensionStart4 = $('#comprehension4Button');
+            var $comprehensionStart5 = $('#comprehension5Button');
+            var $comprehensionStart6 = $('#comprehension6Button');
+            var $comprehensionStart7 = $('#comprehension7Button');
+            var $comprehensionStart8 = $('#comprehension8Button');
+            var $comprehensionStart9 = $('#comprehension9Button');
+            var $comprehensionStart10 = $('#comprehension10Button');
+            var $comprehensionStart11 = $('#comprehension11Button');
+            var $comprehensionStart12 = $('#comprehension12Button');
+            var $comprehensionStart13 = $('#comprehension13Button');
+            var $comprehensionStart14 = $('#comprehension14Button');
+            var $comprehensionStart15 = $('#comprehension15Button');
+            var $comprehensionStart16 = $('#comprehension16Button');
+            var $comprehensionStart17 = $('#comprehension17Button');
+            var $comprehensionStart18 = $('#comprehension18Button');
+            var $comprehensionStart19 = $('#comprehension19Button');
+            var $comprehensionStart20 = $('#comprehension20Button');
+            var $comprehensionStart21 = $('#comprehension21Button');
+
+            $.jCanvas.defaults.fromCenter = false;
+
+            //Button click handlers
+            $comprehensionStart1.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-01.mp3")
+                $('#comprehension1Button').remove();
+            });
+            $comprehensionStart2.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-02.mp3")
+                $('#comprehension2Button').remove();
+            });
+            $comprehensionStart3.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-03.mp3")
+                $('#comprehension3Button').remove();
+            });
+            $comprehensionStart4.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-04.mp3")
+                $('#comprehension4Button').remove();
+            });
+            $comprehensionStart5.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-05.mp3")
+                $('#comprehension5Button').remove();
+            });
+            $comprehensionStart6.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-06.mp3")
+                $('#comprehension6Button').remove();
+            });
+            $comprehensionStart7.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-07.mp3")
+                $('#comprehension7Button').remove();
+            });
+            $comprehensionStart8.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-08.mp3")
+                $('#comprehension8Button').remove();
+            });
+            $comprehensionStart9.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-09.mp3")
+                $('#comprehension9Button').remove();
+            });
+            $comprehensionStart10.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-10.mp3")
+                $('#comprehension10Button').remove();
+            });
+            $comprehensionStart11.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-11.mp3")
+                $('#comprehension11Button').remove();
+            });
+            $comprehensionStart12.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-12.mp3")
+                $('#comprehension12Button').remove();
+            });
+            $comprehensionStart13.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-13.mp3")
+                $('#comprehension13Button').remove();
+            });
+            $comprehensionStart14.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-14.mp3")
+                $('#comprehension14Button').remove();
+            });
+            $comprehensionStart15.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-15.mp3")
+                $('#comprehension15Button').remove();
+            });
+            $comprehensionStart16.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-16.mp3")
+                $('#comprehension16Button').remove();
+            });
+            $comprehensionStart17.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-17.mp3")
+                $('#comprehension17Button').remove();
+            });
+            $comprehensionStart18.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-18.mp3")
+                $('#comprehension18Button').remove();
+            });
+            $comprehensionStart19.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-19.mp3")
+                $('#comprehension19Button').remove();
+            });
+            $comprehensionStart20.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-20.mp3")
+                $('#comprehension20Button').remove();
+            });
+            $comprehensionStart21.click(function () {
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-21.mp3")
+                $('#comprehension21Button').remove();
+            });
+
+            //Audio File play function
+            function playSound(soundByte) {
+                var audio = document.getElementById("audio");
+                $('audio').attr('src', soundByte);
+                audio.play();
+
+            }
+
+
+            //Set all the Comprehension Test boards with the same parameters.
+            setBoardComprehension($comprehension1, 'comprehension1', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension2, 'comprehension2', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension3, 'comprehension3', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension4, 'comprehension4', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension5, 'comprehension5', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension6, 'comprehension6', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension7, 'comprehension7', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension8, 'comprehension8', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension9, 'comprehension9', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension10, 'comprehension10', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension11, 'comprehension11', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension12, 'comprehension12', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension13, 'comprehension13', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension14, 'comprehension14', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension15, 'comprehension15', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension16, 'comprehension16', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension17, 'comprehension16', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension18, 'comprehension17', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension19, 'comprehension18', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension20, 'comprehension20', '/assets/img/comprehensionStimuli.jpg');
+            setBoardComprehension($comprehension21, 'comprehension11', '/assets/img/comprehensionStimuli.jpg');
+
+
+        });
+    </script>
+{% endblock %}

@@ -30,8 +30,8 @@ $message["INDEX_CANCELLATION_TEST_TITLE"] = "Cancellation Test";
 $message["INDEX_CANCELLATION_TEST_INSTRUCTIONS_1"] = "The objective now is to identify specific numbers hidden in a block of characters. <br><br>Work through the lines, from left to right. When you see a 5 or a 9, click on it and it will be marked. If you click something incorrect, it cannot be changed. <br>";
 $message["INDEX_CANCELLATION_TEST_INSTRUCTIONS_2"] = "The goal is to cross out every 5 and 9 that you see hidden in the lines as fast as you can, without committing any errors. <br><br> You cannot work backwards (towards the left); you must continue moving forwards (left to right) at all times, even if you realize later that you missed something. <br><br> You will have 15 seconds for each block. <br> ";
 $message["INDEX_CANCELLATION_TEST_INSTRUCTIONS_3"] = "There will be a 3 second countdown before each block of characters appears. <br><br> After 15 seconds, the screen will clear and another 3 second countdown will begin. <br><br> We will start with a sample <br><br> When you are ready, tap the button START to start the task ";
-$message["INDEX_CANCELLATION_STARTPRACTICETEST"] = "Start Practice Test";
-$message["INDEX_CANCELLATION_STARTTEST"] = "Start Test";
+$message["INDEX_CANCELLATION_STARTPRACTICETEST"] = "<b>Start Practice Test</b>";
+$message["INDEX_CANCELLATION_STARTTEST"] = "<b>Start Test</b>";
 
 //Eye Test Variables
 $message ["INDEX_EYE_TEST_INSTRUCTIONS"] = "In the next task you will be seeing different images of eyes sets. <br><br> For each set of eyes, please choose which word best describes what the person in the picture is <u>thinking or feeling</u>. <br> <br> You may feel that more than one word is applicable but please choose <u>just one word</u>, the word that you consider to be most suitable. <br> <br>Before making your choice, make sure that you have <u>read all 4 words</u>. <br> <br> You should try to do the task as quickly as possible but you will not be timed. <br> <br> If you really do not know what a word means please check the information button ";
@@ -322,9 +322,9 @@ $message ["INDEX_TRAIL_MAKING_DONE"] = "When you are complete, click the forward
 
 //Motor Task / Pegboard Test
 $message ["INDEX_TRAIL_MOTORTEST_TITLE"] = "Motor Test / Pegboard";
-$message ["INDEX_TRAIL_MOTORTEST_Task1"] = "In this task you will see a maze. <br><br>Your goal will be to draw a continuous line through this maze passing through the openings and without crossing or touching any line. <br><br> Begin at the STAR and continue through the maze as far as you can. <br> <br>You have 30 seconds to get as far as you can.";
-$message ["INDEX_TRAIL_MOTORTEST_Task2"] = "In this task you will see several squares. <br> <br>Your goal will be to tap with your finger THREE TIMES in each square.  <br><br> Start on the left side of each row of squares and move towards the right. <br><br> Do this as quickly as you can.<br><br> You have 30 seconds to get as far as you can.";
-$message ["INDEX_TRAIL_MOTORTEST_Task3"] = "In this task you will see several squares. <br><br> Your goal will be to tap with your finger ONLY ONCE in each square.<br> <br> Follow the arrows and tap each square as you go.<br> <br> Do this as quickly as you can. <br><br> You have 30 seconds to get as far as you can.";
+$message ["INDEX_TRAIL_MOTORTEST_Task1"] = "In this task you will see a maze. <br><br>Your goal will be to draw a continuous line through this maze passing through the openings and without crossing or touching any line. <br><br> Begin at the STAR and continue through the maze as far as you can. <br> <br>You have 15 seconds to get as far as you can.";
+$message ["INDEX_TRAIL_MOTORTEST_Task2"] = "In this task you will see several squares. <br> <br>Your goal will be to tap with your finger THREE TIMES in each square.  <br><br> Start on the left side of each row of squares and move towards the right. <br><br> Do this as quickly as you can.<br><br> You have 15 seconds to get as far as you can.";
+$message ["INDEX_TRAIL_MOTORTEST_Task3"] = "In this task you will see several squares. <br><br> Your goal will be to tap with your finger ONLY ONCE in each square.<br> <br> Follow the arrows and tap each square as you go.<br> <br> Do this as quickly as you can. <br><br> You have 15 seconds to get as far as you can.";
 $message ["INDEX_TRAIL_MOTORTEST_Dominant_Hand"] = "Please only use your <b><font color=\"red\"> DOMINANT  </font></b>hand";
 $message ["INDEX_TRAIL_MOTORTEST_Non_Dominant_Hand"] = "Please only use your <b><font color=\"red\">NON-DOMINANT </font></b>hand";
 
@@ -351,6 +351,16 @@ $message ["INDEX_Matrices_Practice1"] = "Practice. Pick the image that best comp
 //Clock Drawing Test Variables
 $message ["INDEX_CLOCKDRAWING_TEST_TITLE"] = "Clock Test";
 $message ["INDEX_CLOCKDRAWING_TEST_INSTRUCTIONS"] = "Next you will be drawing with your finger. <br> <br> The objective is to draw a big circular clock with all its numbers in the correct position. <br> <br> Make it large enough so that you can add the numbers too. <br><br>  Draw clock hands to make the clock read <u>10</u> past <u>11</u>. <br> <br> When you finish click 'Save and Continue' ";
+
+//Comprehension Test Variables
+$message ["INDEX_COMPREHENSION_TEST_TITLE"] = "Comprehension Test ";
+$message ["INDEX_COMPREHENSION_TEST_INSTRUCTIONS"] = "Next, you will see different shapes of different sizes and colors on the screen. <br><br> You will hear instructions to touch one or more of those shapes.<br><br> Please listen carefully as the instructions will not be repeated";
+$message ["INDEX_COMPREHENSION_QUESTION_1"] = "Touch a square";
+$message ["INDEX_COMPREHENSION_QUESTION_2"] = "Touch a Triangle";
+$message ["INDEX_COMPREHENSION_QUESTION_3"] = "Touch a Yellow Square";
+$message ["INDEX_COMPREHENSION_QUESTION_4"] = "Touch a Red Square";
+
+
 
 //Rey Complex Figure Task Variables
 $message ["INDEX_RCFT_TITLE"] = "Rey Complex Figure Test";

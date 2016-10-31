@@ -65,8 +65,8 @@ jQuery(function($) {
 
 $("#survey_container").wizard({
 	transitions: {
-		race: function( $step, action ) {
-			var branch = $step.find("[name=race]:checked").val();
+		imm: function( $step, action ) {
+			var branch = $step.find("[name=imm]:checked").val();
 
 			if (!branch) {
 				alert("Please select a value to continue.");

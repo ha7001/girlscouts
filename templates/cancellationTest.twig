@@ -60,7 +60,7 @@
                         <div class="col-md-12">
                             <h4>Practice Cancellation:</h4>
                             <canvas id="cancelCanvasPractice1" class="center-block" width="800" height="300" style="border:1px solid #000000;"></canvas><br/>
-                            <button id="startCancellationPracticeButton" type="button" class="btn center-block">{{ cancellationTestStartPracticeTest }}</button>
+                            <button id="startCancellationPracticeButton" type="button" class="btn center-block">{{ cancellationTestStartPracticeTest | raw}}</button>
                         </div>
                     </div>
 
@@ -69,7 +69,7 @@
                         <div class="col-md-12">
                             <h4>Cancellation Testing</h4>
                             <canvas id="cancelCanvas" class="center-block" width="800" height="300" style="border:1px solid #000000;"></canvas><br/>
-                            <button id="startCancellation" type="button" class="btn center-block" id="startCancellation">{{ cancellationTestStartTest }}</button>
+                            <button id="startCancellation" type="button" class="btn center-block" id="startCancellation">{{ cancellationTestStartTest |raw }}</button>
                         </div>
                     </div>
 
@@ -98,7 +98,7 @@
         //Test Blocks
         var blk0 =  [['A','5','W','G','2','5','U','T','L','E','9','N','C','5','P','H','Z','9','Y','F'],
                         ['I','K','1','9','Y','R','T','5','B','L','D','9','T','Y','E','3','1','K','9','5'],
-                        ['9','H','N','P','S','5','V','D','J','9','Q','F','R','9','W','P','L','W','G','S']];
+                        ['9','H','N','P','S','5','V','D','J','9','Q','F','R','9','W','P','L','6','G','S']];
         var blk1 =   [['X','9','O','K','5','J','I','B','L','Z','5','N','1','Z','9','R','G','D','9','B'],
                         ['Y','H','9','N','2','B','5','5','E','R','N','5','T','B','M','R','9','Q','K','H'],
                         ['K','P','J','N','5','A','F','U','V','5','9','H','H','Z','5','N','8','9','U','O']];
@@ -155,12 +155,12 @@
         function startPracticeTesting1(){
             $('#forwardButton').prop('disabled', false);
             $('#backwardButton').prop('disabled', false);
-            $('#startCancellationPracticeButton').html('Click Here for the Second Practice Test'); //Change text in button
+            $('#startCancellationPracticeButton').html('<b>Click Here for the Second Practice Test</b>'); //Change text in button
             createBlkTestPractice(testBlocks[0], '0');
             $('#startCancellationPracticeButton').click(startPracticeTesting2);
         }
         function startPracticeTesting2(){
-            $('#startCancellationPracticeButton').html('I am done practicing'); //Change text in button
+            $('#startCancellationPracticeButton').html('<b>I am done practicing</b>'); //Change text in button
             createBlkTestPractice(testBlocks[1], '0');
             $('#startCancellationPracticeButton').click(practiceTestComplete);
             //$('#startCancellationPracticeButton').prop('disabled', true); //Disable Start button

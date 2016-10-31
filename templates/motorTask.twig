@@ -1,5 +1,4 @@
 {% extends 'base.twig' %}
-
 {% block title %} motorTitle {% endblock %}
 {% block css %}
     <style type="text/css">
@@ -13,6 +12,11 @@
     </style>
 {% endblock %}
 {% block content %}
+    <!-- BIG TODO: The act of forceing the user to the next test seems to interrupt the drawing process. This means the lines the user drawn
+     won't get saved and therefore are lost. Unless the user lifts their finger. Need to find a way to store the points immediatly?  -->
+
+
+
     <!--
     <div class="container">
         <div class="row">
@@ -33,7 +37,7 @@
                 <div class="shadow"></div>
             </div><!-- end top-wizard -->
 
-            <form name="reyComplexFigure1" id="wrapped" action="" method="POST">
+            <form name="motorTask" id="wrapped" action="" method="POST">
                 <div id="middle-wizard">
                     <!-- Motor Task one instructions -->
                     <div class="step row">
@@ -47,12 +51,11 @@
                     <div class="step row">
                         <div class="row">
                             <div class="col-xs-10">
-                                <h4>{{ motorInstructionsDominant | raw}}</h4>
+                                <h4>{{ motorInstructionsDominant | raw }}</h4>
                             </div>
                             <div class="col-xs-2">
-                                <!-- TODO Timer Code -->
                                 <h4>
-                                    <span id="counter">15</span> second(s).
+                                    <span id="counter1a">15</span> second(s).
                                 </h4>
                             </div>
                         </div>
@@ -65,7 +68,15 @@
                     </div>
                     <!-- Motor Task one Non-Dominant -->
                     <div class="step row">
-                        <h4>{{ motorInstructionsNonDominant | raw}}</h4>
+                        <div class="col-xs-10">
+                            <h4>{{ motorInstructionsNonDominant | raw }}</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <h4>
+                                <span id="counter1b">15</span> second(s).
+                            </h4>
+                        </div>
+
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant1b' class="center-block" width="850" height="600" style="border:1px solid #000000;"></canvas>
                             <button id="MotorTask1b" type="button" class="btn center-block">Start Test</button>
@@ -82,7 +93,15 @@
                     </div>
                     <!-- Motor Task two Dominant -->
                     <div class="step row">
-                        <h4>{{ motorInstructionsDominant | raw}}</h4>
+                        <div class="col-xs-10">
+                            <h4>{{ motorInstructionsDominant | raw }}</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <h4>
+                                <span id="counter2a">15</span> second(s).
+                            </h4>
+                        </div>
+
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant2a' class="center-block" width="611" height="542" style="border:1px solid #000000;"></canvas>
                             <button id="MotorTask2a" type="button" class="btn center-block">Start Test</button>
@@ -90,12 +109,21 @@
                     </div>
                     <!-- Motor Task two Non-Dominant -->
                     <div class="step row">
-                        <h4>{{ motorInstructionsNonDominant | raw}}</h4>
+                        <div class="col-xs-10">
+                            <h4>{{ motorInstructionsNonDominant | raw }}</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <h4>
+                                <span id="counter2b">15</span> second(s).
+                            </h4>
+                        </div>
+
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant2b' class="center-block" width="611" height="542" style="border:1px solid #000000;"></canvas>
                             <button id="MotorTask2b" type="button" class="btn center-block">Start Test</button>
                         </div>
                     </div>
+
 
                     <!-- Motor Task three instructions -->
                     <div class="step row">
@@ -107,7 +135,15 @@
                     </div>
                     <!-- Motor Task three Dominant -->
                     <div class="step row">
-                        <h4>{{ motorInstructionsDominant | raw}}</h4>
+                        <div class="col-xs-10">
+                            <h4>{{ motorInstructionsDominant | raw }}</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <h4>
+                                <span id="counter3a">15</span> second(s).
+                            </h4>
+                        </div>
+
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant3a' class="center-block" width="850" height="600" style="border:1px solid #000000;"></canvas>
                             <button id="MotorTask3a" type="button" class="btn center-block">Start Test</button>
@@ -115,7 +151,15 @@
                     </div>
                     <!-- Motor Task three Non-Dominant -->
                     <div class="step row">
-                        <h4>{{ motorInstructionsNonDominant }}</h4>
+                        <div class="col-xs-10">
+                            <h4>{{ motorInstructionsNonDominant | raw }}</h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <h4>
+                                <span id="counter3b">15</span> second(s).
+                            </h4>
+                        </div>
+
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant3b' class="center-block" width="850" height="600" style="border:1px solid #000000;"></canvas>
                             <button id="MotorTask3b" type="button" class="btn center-block">Start Test</button>
@@ -128,12 +172,12 @@
                         <h3>Test complete!</h3>
                         <button type="submit" name="process" class="submit">Submit</button>
                     </div><!-- end submit step -->
-                    </div>
+                </div>
 
-                    <div id="bottom-wizard">
-                        <button id="backwardButton" type="button" name="backward" class="backward">Backward</button>
-                        <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
-                    </div><!-- end bottom-wizard -->
+                <div id="bottom-wizard">
+                     <button id="backwardButton" type="button" name="backward" class="backward" >Backward</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
     </section>
@@ -143,7 +187,12 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
-        var timerId;
+        var timerId1a;
+        var timerId1b;
+        var timerId2a;
+        var timerId2b;
+        var timerId3a;
+        var timerId3b;
 
         $(document).ready(function () {
             //Setup Drawing Steps
@@ -264,7 +313,7 @@
                 width: 800, height: 500,
                 fromCenter: false,
                 mousedown: function (layer) {
-                    $('canvas').addLayer({
+                    $(this).addLayer({
                         type: 'rectangle',
                         fillStyle: '#585',
                         x: layer.eventX, y: layer.eventY,
@@ -282,7 +331,7 @@
                 width: 800, height: 500,
                 fromCenter: false,
                 mousedown: function (layer) {
-                    $('canvas').addLayer({
+                    $(this).addLayer({
                         type: 'rectangle',
                         fillStyle: '#585',
                         x: layer.eventX, y: layer.eventY,
@@ -300,7 +349,7 @@
                 width: 850, height: 600,
                 fromCenter: false,
                 mousedown: function (layer) {
-                    $('canvas').addLayer({
+                    $(this).addLayer({
                         type: 'rectangle',
                         fillStyle: '#585',
                         x: layer.eventX, y: layer.eventY,
@@ -318,7 +367,7 @@
                 width: 850, height: 600,
                 fromCenter: false,
                 mousedown: function (layer) {
-                    $('canvas').addLayer({
+                    $(this).addLayer({
                         type: 'rectangle',
                         fillStyle: '#585',
                         x: layer.eventX, y: layer.eventY,
@@ -331,19 +380,55 @@
             });
 
             //Draw respective images onto canvases.
-            var $select = $('#MotorTask1a');
-            $select.click(function() {
-                setupMotorTask1a();
-                timerId = setInterval(countdown, 1000);
-            });
+            var $motor1a = $('#MotorTask1a');
+            var $motor1b = $('#MotorTask1b');
+            var $motor2a = $('#MotorTask2a');
+            var $motor2b = $('#MotorTask2b');
+            var $motor3a = $('#MotorTask3a');
+            var $motor3b = $('#MotorTask3b');
 
+            $motor1a.click(function () {
+                setupMotorTask1a();
+                var $i = $('#counter1a');
+                $i.text(15);
+                timerId1a = setInterval(countdown1a, 1000);
+
+            });
+            $motor1b.click(function () {
+                setupMotorTask1b();
+                var $i = $('#counter1b');
+                $i.text(15);
+                timerId = setInterval(countdown1b, 1000);
+            });
+            $motor2a.click(function () {
+                setupMotorTask2a();
+                var $i = $('#counter2a');
+                $i.text(15);
+                timerId = setInterval(countdown2a, 1000);
+            });
+            $motor2b.click(function () {
+                setupMotorTask2b();
+                var $i = $('#counter2b');
+                $i.text(15);
+                timerId = setInterval(countdown2b, 1000);
+            });
+            $motor3a.click(function () {
+                setupMotorTask3a();
+                var $i = $('#counter3a');
+                $i.text(15);
+                timerId = setInterval(countdown3a, 1000);
+            });
+            $motor3b.click(function () {
+                setupMotorTask3b();
+                var $i = $('#counter3b');
+                $i.text(15);
+                timerId = setInterval(countdown3b, 1000);
+            });0
         });
 
 
-
-
         //Setup the MotorTask 1 and start the timer
-        function setupMotorTask1a(){
+        function setupMotorTask1a() {
             var $motorTaskOneDominant1a = $("#motorTaskOneDominant1a");
             $motorTaskOneDominant1a.drawImage({
                 layer: true,
@@ -354,7 +439,7 @@
                 fromCenter: false
             }).drawLayers();
         }
-        function setupMotorTask1b(){
+        function setupMotorTask1b() {
             var $motorTaskOneDominant1b = $("#motorTaskOneDominant1b");
             $motorTaskOneDominant1b.drawImage({
                 layer: true,
@@ -365,7 +450,7 @@
                 fromCenter: false
             }).drawLayers();
         }
-        function setupMotorTask2a(){
+        function setupMotorTask2a() {
             var $motorTaskOneDominant2a = $("#motorTaskOneDominant2a");
             $motorTaskOneDominant2a.drawImage({
                 layer: true,
@@ -376,7 +461,7 @@
                 fromCenter: false
             }).drawLayers();
         }
-        function setupMotorTask2b(){
+        function setupMotorTask2b() {
             var $motorTaskOneDominant2b = $("#motorTaskOneDominant2b");
             $motorTaskOneDominant2b.drawImage({
                 layer: true,
@@ -387,7 +472,7 @@
                 fromCenter: false
             }).drawLayers();
         }
-        function setupMotorTask3a(){
+        function setupMotorTask3a() {
             var $motorTaskOneDominant3a = $("#motorTaskOneDominant3a");
             $motorTaskOneDominant3a.drawImage({
                 layer: true,
@@ -398,7 +483,7 @@
                 fromCenter: false
             }).drawLayers();
         }
-        function setupMotorTask3b(){
+        function setupMotorTask3b() {
             var $motorTaskOneDominant3b = $("#motorTaskOneDominant3b");
             $motorTaskOneDominant3b.drawImage({
                 layer: true,
@@ -411,15 +496,60 @@
         }
 
 
-    <!--Timer Stuff -->
-        function countdown() {
-            var $i = $('#counter');
-            console.log($i.text());
-            $i.text(parseInt($i.text())-1);
-            if ($i.text()==0) {
-                clearInterval(timerId);
+        <!--Timer Stuff -->
+        function countdown1a() {
+            var $i = $('#counter1a');
+            $i.text(parseInt($i.text()) - 1);
+            if ($i.text() == 0) {
+                clearInterval(timerId1a);
+                var $forwardButton = $('#forwardButton');
+                $forwardButton.click();
             }
         }
-
+        function countdown1b() {
+            var $i = $('#counter1b');
+            $i.text(parseInt($i.text()) - 1);
+            if ($i.text() == 0) {
+                clearInterval(timerId1b);
+                var $forwardButton = $('#forwardButton');
+                $forwardButton.click();
+            }
+        }
+        function countdown2a() {
+            var $i = $('#counter2a');
+            $i.text(parseInt($i.text()) - 1);
+            if ($i.text() == 0) {
+                clearInterval(timerId2a);
+                var $forwardButton = $('#forwardButton');
+                $forwardButton.click();
+            }
+        }
+        function countdown2b() {
+            var $i = $('#counter2b');
+            $i.text(parseInt($i.text()) - 1);
+            if ($i.text() == 0) {
+                clearInterval(timerId2b);
+                var $forwardButton = $('#forwardButton');
+                $forwardButton.click();
+            }
+        }
+        function countdown3a() {
+            var $i = $('#counter3a');
+            $i.text(parseInt($i.text()) - 1);
+            if ($i.text() == 0) {
+                clearInterval(timerId3a);
+                var $forwardButton = $('#forwardButton');
+                $forwardButton.click();
+            }
+        }
+        function countdown3b() {
+            var $i = $('#counter3b');
+            $i.text(parseInt($i.text()) - 1);
+            if ($i.text() == 0) {
+                clearInterval(timerId3b);
+                var $forwardButton = $('#forwardButton');
+                $forwardButton.click();
+            }
+        }
     </script>
 {% endblock %}
