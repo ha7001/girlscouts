@@ -62,7 +62,7 @@
                     </div>
 
                     <!-- Split screen RCFT -->
-                    <div class="step row">
+                    <div class="step">
                             <div class="container-fluid">
                                 <div class="columns">
                                         <div class="col-sm-5">
@@ -98,6 +98,12 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
+        function redraw($canvas, linesArray) {
+            for (var i = 0; i < linesArray.length; i++) {
+                $canvas.drawLine(linesArray[i]);
+            }
+        }
+
         $(document).ready(function () {
             //Disable the ability to go backwards.
             $('#backwardButton').prop('disabled', true);
@@ -130,6 +136,10 @@
 
                     isDownPractice = true;
                     ptsPractice.push([layer.eventX, layer.eventY]);
+
+                    for (var i = 0; i < linesPractice.length; i++) {
+                        $(this).drawLine(linesPractice[i]);
+                    }
                 },
                 mousemove: function (layer) {
                     if (isDownPractice) {
@@ -138,29 +148,33 @@
                             line_objPractice['x' + (p + 1)] = ptsPractice[p][0];
                             line_objPractice['y' + (p + 1)] = ptsPractice[p][1];
                         }
-                        $canvasPractice.drawLine(line_objPractice);
+                        $(this).drawLine(line_objPractice);
                     }
                     for (var i = 0; i < linesPractice.length; i++) {
-                        $canvasPractice.drawLine(linesPractice[i]);
+                        $(this).drawLine(linesPractice[i]);
                     }
                 },
                 mouseup: function (layer) {
                     linesPractice.push(line_objPractice);
 
                     for (var i = 0; i < linesPractice.length; i++) {
-                        $canvasPractice.drawLine(linesPractice[i]);
+                        $(this).drawLine(linesPractice[i]);
                     }
 
                     line_objPractice = {};
                     ptsPractice = [];
                     isDownPractice = false;
+
                 },
                 mouseout: function (layer) {
-                    console.log(linesPractice);
+                    console.log(layer);
 
                     for (var i = 0; i < linesPractice.length; i++) {
-                        $canvasPractice.drawLine(linesPractice[i]);
+                        $canvasPractice.drawLine(linesPractice[i]).drawLayers();
                     }
+//                    $(this).animateLayer(layer, {
+//                        fillStyle: '#c33'
+//                    }, 500);
                 }
             });
 
@@ -257,7 +271,7 @@
                 console.log('saved');
                 document.getElementById("ForwardButton").click();
             });
-        };
+        }
 
 
 

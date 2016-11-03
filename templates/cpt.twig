@@ -74,22 +74,22 @@
                     }).drawLayers();
 
                     // Send data off to the database
-                    $.post('cpt_submission.php', {record: JSON.stringify(record)}, function (data, status) {
-                    });
+//                    $.post('cpt_submission.php', {record: JSON.stringify(record)}, function (data, status) {
+//                    });
 
                     $('button[name="forward"]').prop('disabled', false);
                 } else {
                     clearInterval(intervalId);
                     $('canvas').setLayer('text', {
                         fillStyle: 'black',
-                        text: ' '
+                        text: ''
                     }).drawLayers();
                     count = 0;
                     blocks--;
 
                     // Send data off to the database
-                    $.post('cpt_submission.php', {record: JSON.stringify(record)}, function (data, status) {
-                    });
+//                    $.post('cpt_submission.php', {record: JSON.stringify(record)}, function (data, status) {
+//                    });
 
                     record.hits = [];
                     record.commissions = 0;
@@ -183,10 +183,10 @@
                 x: 200, y: 175,
                 fontSize: 150,
                 fontFamily: 'Verdana, sans-serif',
-                click: function(layer) {
+                mousedown: function(layer) {
                     //On click turn this letter red.
                     $(this).animateLayer(layer, {
-                        fillStyle: 'rgb( 255,0,0 )'
+                        fillStyle: 'red'
                     },0);
                     var now = new Date().getTime();
                     if (sti[count - 2] == 'X' && sti[count - 1] == 'A') {

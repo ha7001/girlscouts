@@ -28,19 +28,20 @@
         <!-- Start Survey container -->
         <div id="survey_container">
 
-            <div id="top-wizard">
-                <!--Dummy span used to hold the audio output -->
-                <audio id="audio" src=""></audio>
-                <!--
-                <strong>Progress <span id="location"></span></strong>
-                <div id="progressbar"></div>
-                <div class="shadow"></div>
-                -->
-            </div>
+            <!--
+           <div id="top-wizard">
+               <strong>Progress <span id="location"></span></strong>
+               <div id="progressbar"></div>
+               <div class="shadow"></div>
+
+           </div>
+           -->
 
             <form name="comprehensionTest" id="wrapped" action="" method="POST">
                 <!-- Eye Test start -->
                 <div id="middle-wizard">
+                    <!--Dummy span used to hold the audio output -->
+                    <audio id="audio" src=""></audio>
                     <div class="step" style="text-align: center">
                         <h4>
                             {{ ComprehensionInstructions | raw }}

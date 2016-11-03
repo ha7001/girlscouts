@@ -44,6 +44,16 @@
         ul.data-list-2 li.multi-select, .status select.form-control {
             height: 90px;
         }
+        .vertical-center {
+            min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
+
+            display: flex;
+            align-items: center;
+        }
+        ul.long-string li {
+            height: auto;
+        }
     </style>
 {% endblock %}
 
@@ -84,7 +94,6 @@
                             </div>
                         </div>
                     </div><!-- end step-->
-
                     <div class="step">
                         <div class="row">
                             <div class="col-md-6">
@@ -250,16 +259,76 @@
                                 <li><input type="radio" name="race" value="Other" class="check_radio required"/><label>other Hispanic/Latino</label></li>
                                 <li><input type="text" name="other" id="other" class="form-control" placeholder="Specify"></li>
                             </ul>
-                            <ul class="data-list-2">
-                                <h4>What race do you consider yourself to be according to your parentage, ancestry or roots? (You can choose more than one):</h4>
-                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="indian"><label>American Indian or Alaska Native (original from North and South America native
-                                        populations)</label></li>
-                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="asian"><label>Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China,
-                                        India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label></li>
-                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="black"><label>Black or African American</label></li>
-                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="hawaii"><label>Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific
-                                        Islands)</label></li>
-                                <li><input name="ethnicity[]" type="checkbox" class="check_radio" value="white"><label>White (Europe, Middle East or North Africa)</label></li>
+                            <h4>What race do you consider yourself to be according to your parentage, ancestry or roots? (You can choose more than one):</h4>
+                            <ul class="data-list-2 long-string">
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align: middle;">
+                                                <input name="ethnicity[]" type="checkbox" class="" value="indian">
+                                            </td>
+                                            <td>
+                                                <label>American Indian or Alaska Native (original from North and South America native
+                                                    populations)</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align: middle;">
+                                                <input name="ethnicity[]" type="checkbox" class="" value="asian">
+                                            </td>
+                                            <td>
+                                                <label>Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align: middle;">
+                                                <input name="ethnicity[]" type="checkbox" class="" value="black">
+                                            </td>
+                                            <td>
+                                                <label>Black or African American</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align: middle;">
+                                                <input name="ethnicity[]" type="checkbox" class="" value="hawaii">
+                                            </td>
+                                            <td>
+                                                <label>Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific Islands)</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td style="vertical-align: middle;">
+                                                <input name="ethnicity[]" type="checkbox" class="" value="white">
+                                            </td>
+                                            <td>
+                                                <label>White (Europe, Middle East or North Africa)</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+
+                                {#<li><input name="ethnicity[]" type="checkbox" class="vertical-center" value="asian"><label>Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China,#}
+                                        {#India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label></li>#}
+                                {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="black"><label>Black or African American</label></li>#}
+                                {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="hawaii"><label>Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific#}
+                                        {#Islands)</label></li>#}
+                                {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="white"><label>White (Europe, Middle East or North Africa)</label></li>#}
                             </ul>
                         </div>
                     </div><!-- end step -->
@@ -396,7 +465,7 @@
                                     <li><input type="radio" name="current_position" class="check_radio" value="manuallabor"/><label>Manual labor</label>
                                         <a data-toggle="popoverManualLabor"><i class="fa fa-info-circle"></i></a></li>
                                     <li><input type="radio" name="current_position" class="check_radio" value="non-manuallabor"/><label>Non-Manual labor</label>
-                                        <a data-toggle="popoverNonmanualLabor"><i class="fa fa-info-circle"></i></a></li>
+                                        <a data-toggle="popoverNonManualLabor"><i class="fa fa-info-circle"></i></a></li>
                                 </ul>
                                 <ul class="data-list-2">
                                     <h4>Which of these best describes your current position?</h4>
@@ -1462,7 +1531,7 @@
 
                     <div class="step row">
                         <div class="col-md-12">
-                            <h3>Please indicate your preferences in the use of hands in the following activities. Please try to answer all the questions:</h3>
+                            <h3>Please mark the number from the scale that best corresponds to your answer:</h3>
                             <div class="row stretch">
                                 <ul class="data-list-2 acculturation">
                                     <li><h4>I think of myself as being U.S. American.</h4></li>
@@ -1788,7 +1857,7 @@
                                     </ul>
                                 </div>
                                 <div class="row stretch">
-                                    <h4><u>How well do understand English?</u></h4>
+                                    <h4><u>How well do you understand English?</u></h4>
                                     <ul class="data-list-2 acculturation">
                                         <li><h4>on television or in movies</h4></li>
                                         <li>
@@ -2423,7 +2492,7 @@
             }).drawLayers();
 
             $('body').on('click', function (e) {
-                $('[data-toggle="popoverManualLabor"], [data-toggle="popoverNonmanualLabor"]').each(function () {
+                $('[data-toggle="popoverManualLabor"], [data-toggle="popoverNonManualLabor"]').each(function () {
                     //the 'is' for buttons that trigger popups
                     //the 'has' for icons within a button that triggers a popup
                     if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
