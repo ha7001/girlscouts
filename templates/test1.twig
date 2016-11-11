@@ -1,18 +1,527 @@
 {% extends 'base.twig' %}
 
-{% block title %}Test 1{% endblock %}
-{% block css %}{% endblock %}
-{% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 main-title">
-                <h1>Welcome to EMBRACED Project</h1>
-            </div>
-            <div class="col-md-12">
-                <p>We are going to be asking you some questions about yourself. Please remember that you are free to skip any question that may bother you, although we kindly ask you to complete as much of this questionnaire as possible. Thank you for your participation.</p>
-            </div>
-        </div>
-    </div>
+{% block title %}Welcome{% endblock %}
+
+{% block css %}
+    <style type="text/css">
+        #other, #married, #partner, #widow, #separated, #unemployed, .employed, #kids_count, #countOn, #rely, #enjoy, #emotional, .hide {
+            display: none;
+        }
+
+        #married input.form-control, #partner input.form-control, #widow input.form-control, #separated input.form-control, #unemployed input.form-control {
+            margin-bottom: 0;
+        }
+
+        ul.data-list-2 li label.switch-light {
+            margin-left: 0;
+        }
+
+        ul.data-list-2 li.children label {
+            margin-left: 0;
+        }
+
+        ul.data-list-2 li label.subtitle {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .step h3.popover-title {
+            margin-bottom: 0;
+        }
+
+        .stretch {
+            min-height: 44px;
+        }
+
+        ul.acculturation li label {
+            font-size: 13px;
+        }
+
+        fieldset {
+            border: 5px;
+        }
+
+        ul.data-list-2 li.multi-select, .status select.form-control {
+            height: 90px;
+        }
+        .vertical-center {
+            min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
+
+            display: flex;
+            align-items: center;
+        }
+        ul.long-string li {
+            height: auto;
+        }
+    </style>
 {% endblock %}
-{% block extra %}{% endblock %}
-{% block script %}{% endblock %}
+
+{% block content %}
+
+<section class="container" id="main">
+
+    <!-- Start Survey container -->
+    <div id="survey_container">
+        <form name="example-1" id="wrapped" action="/questionnaire.php" method="POST" data-customer-form>
+            <div id="middle-wizard">
+                <div class="step row">
+    <input type="hidden" name="customerId" value="1"/>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" value="David"/>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" value="Maple"/>
+
+    <label for="gender">Gender (Select one or both):</label>
+    <select id="gender" name="gender" multiple>
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+    </select>
+</div>
+                <div class="step row">
+    <label for="preferredBrowser">Favorite Browser:</label>
+    <input type="text" list="browsers" id="preferredBrowser" name="preferredBrowser">
+    <datalist id="browsers">
+        <option value="Internet Explorer">
+        <option value="Firefox">
+        <option value="Chrome">
+        <option value="Opera">
+        <option value="Safari">
+    </datalist>
+
+    <label for="isBilling">Billing</label>
+    <input type="radio" id="isBilling" name="address.type" value="billing" />
+
+    <label for="isShipping">Shipping</label>
+    <input type="radio" id="isShipping" name="address.type" value="shipping" />
+
+    <label for="streetAddress">Street Address:</label>
+    <input type="text" id="streetAddress" name="address.street" value="123 West Main St."/>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="address.city" value="Newtown"/>
+
+    <label for="city">Hidden Field:</label>
+    <input style="display: none;" type="text" id="hiddenField" name="hiddenField" value="You can't see me!"/>
+
+    <label for="city">Hidden Select:</label>
+    <select style="display: none;" id="hiddenSelect" name="hiddenSelect">
+        <option value="I'm a hidden option">Hidden Option</option>
+    </select>
+
+    <label for="state">State:</label>
+    <select id="state" name="address.state">
+        <option value="">&nbsp;</option>
+        <option value="AK">AK</option>
+        <option value="AL">AL</option>
+        <option value="AR">AR</option>
+        <option value="AZ">AZ</option>
+        <option value="CA">CA</option>
+        <option value="CO">CO</option>
+        <option value="CT">CT</option>
+        <option value="DC">DC</option>
+        <option value="DE">DE</option>
+        <option value="FL">FL</option>
+        <option value="GA">GA</option>
+        <option value="HI">HI</option>
+        <option value="IA">IA</option>
+        <option value="ID">ID</option>
+        <option value="IL">IL</option>
+        <option value="IN">IN</option>
+        <option value="KS">KS</option>
+        <option value="KY">KY</option>
+        <option value="LA">LA</option>
+        <option value="MA">MA</option>
+        <option value="MD">MD</option>
+        <option value="ME">ME</option>
+        <option value="MI">MI</option>
+        <option value="MN">MN</option>
+        <option value="MO">MO</option>
+        <option value="MS">MS</option>
+        <option value="MT">MT</option>
+        <option value="NC">NC</option>
+        <option value="ND">ND</option>
+        <option value="NE">NE</option>
+        <option value="NH">NH</option>
+        <option value="NJ">NJ</option>
+        <option value="NM">NM</option>
+        <option value="NV">NV</option>
+        <option value="NY">NY</option>
+        <option value="OH">OH</option>
+        <option value="OK">OK</option>
+        <option value="OR">OR</option>
+        <option value="PA">PA</option>
+        <option value="PR">PR</option>
+        <option value="RI">RI</option>
+        <option value="SC">SC</option>
+        <option value="SD">SD</option>
+        <option value="TN">TN</option>
+        <option value="TX">TX</option>
+        <option value="UT">UT</option>
+        <option value="VA">VA</option>
+        <option value="VI">VI</option>
+        <option value="VT">VT</option>
+        <option value="WA">WA</option>
+        <option value="WI">WI</option>
+        <option value="WV">WV</option>
+        <option value="WY">WY</option>
+    </select>
+
+    <label for="notes">Notes:</label>
+    <textarea id="notes" name="notes"></textarea>
+
+    <input type="checkbox" id="terms" name="legal.terms" value="1" />
+    <label for="terms">I agree that this form is a sample and has no real world value</label>
+
+    <input type="hidden" name="hiddenInput" value="I should be serialized" />
+</div>
+                <div class="submit step" id="complete">
+                    <i class="icon-check"></i>
+                    <p>Now time for the test to begin</p>
+                    <button type="submit" name="process" class="submit">Submit</button>
+                </div><!-- end submit step -->
+
+            </div><!-- end middle-wizard -->
+
+            <div id="bottom-wizard">
+                <button id="backwardButton" type="button" name="backward" class="backward">{{ backward }}</button>
+                <button type="button" name="forward" class="forward">{{ forward }} </button>
+            </div><!-- end bottom-wizard -->
+</form>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra %}
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
+    <script src="/assets/js/jquery-form2json.js"></script>
+    <script type="text/javascript">
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+        $(document).ready(function () {
+            var $other = $('#other');
+            var $married = $('#married');
+            var $partner = $('#partner');
+            var $widow = $('#widow');
+            var $separated = $('#separated');
+            var $unemployed = $('#unemployed');
+            var $employed = $('.employed');
+            var $earn = $('.earn');
+            var $children = $('#kids_count');
+            var kids_count = 0;
+            var $degree = $('input[name="other_highest_degree"]');
+            var $communityLadder = $('#communityLadder');
+            var $countryLadder = $('#countryLadder');
+            var race = '';
+
+            $.validator.setDefaults({
+                ignore: []
+            });
+
+            $('[data-toggle="popoverManualLabor"]').popover({
+                title: '<strong>Manual Labor</strong>',
+                content: '<div>both high and low-skilled work</div>',
+                html: true,
+                placement: 'right'
+            });
+            $('[data-toggle="popoverNonManualLabor"]').popover({
+                title: '<strong>Non-manual Labor</strong>',
+                content: '<div>positions requiring mental work, “white-collar” work, positions associated to college/university degrees, managerial positions, supervisors of manual workers</div>',
+                html: true,
+                placement: 'right'
+            });
+
+            $.jCanvas.defaults.fromCenter = false;
+
+            $communityLadder.drawImage({
+                layer: true,
+                x: 0, y: 0,
+                index: 0,
+                source: '/assets/img/commladder.png',
+                width: 148, height: 441
+            }).drawLayers();
+
+            for (var i = 1; i <= 10; i++) {
+                var x = 8 * (i - 10) + 70;
+                var y = 20 - (40 * (i - 10));
+
+                $communityLadder.addLayer({
+                    type: 'rectangle',
+                    name: 'step' + i,
+                    x: x, y: y,
+                    width: 80,
+                    height: 40,
+                    click: function (layer) {
+                        $('input[name="communityLadder"]').val(layer.name.replace('step', ''));
+
+                        $communityLadder.setLayer('mark', {
+                            x: layer.x + 20,
+                            y: layer.y
+                        }).drawLayers();
+                    }
+                }).drawLayers();
+            }
+
+            $communityLadder.addLayer({
+                type: 'text',
+                name: 'mark',
+                fillStyle: 'red',
+                fontSize: '35pt',
+                fontFamily: 'Arial',
+                text: 'X',
+                x: -100, y: -100
+            }).drawLayers();
+
+            $countryLadder.drawImage({
+                layer: true,
+                x: 0, y: 0,
+                index: 0,
+                source: '/assets/img/commladder.png',
+                width: 148, height: 441
+            }).drawLayers();
+
+            for (var i = 1; i <= 10; i++) {
+                var x = 8 * (i - 10) + 70;
+                var y = 20 - (40 * (i - 10));
+
+                $countryLadder.addLayer({
+                    type: 'rectangle',
+                    name: 'step' + i,
+                    x: x, y: y,
+                    width: 80,
+                    height: 40,
+                    click: function (layer) {
+                        $('input[name="countryLadder"]').val(layer.name.replace('step', ''));
+
+                        $countryLadder.setLayer('mark', {
+                            x: layer.x + 20,
+                            y: layer.y
+                        }).drawLayers();
+                    }
+                }).drawLayers();
+            }
+
+            $countryLadder.addLayer({
+                type: 'text',
+                name: 'mark',
+                fillStyle: 'red',
+                fontSize: '35pt',
+                fontFamily: 'Arial',
+                text: 'X',
+                x: -100, y: -100
+            }).drawLayers();
+
+            $('body').on('click', function (e) {
+                $('[data-toggle="popoverManualLabor"], [data-toggle="popoverNonManualLabor"]').each(function () {
+                    //the 'is' for buttons that trigger popups
+                    //the 'has' for icons within a button that triggers a popup
+                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                        $(this).popover('hide');
+                    }
+                });
+            });
+
+            var lang = getUrlVars()['lang'];
+
+//            if (lang == 'en-us' || lang == 'sp') {
+//                $('button[name="forward"]').trigger('click');
+//                $('button[name="forward"]').trigger('click');
+//            }
+//            $('.language').click(function() {
+//
+//                return false;
+//            });
+
+            $('.race li div ins').click(function () {
+                race = $(this).prev().val();
+
+                if (race == 'No') {
+                    $('#NoH').prop("checked", true);
+                } else {
+                    $('#ImmigrantH').prop("checked", true);
+                }
+
+                race = race.replace('_', ' ');
+
+                if ($(this).prev().val() == 'Other') {
+                    $other.slideDown();
+                } else {
+                    $other.val('');
+                    $other.hide();
+                }
+                $('.nation').text(race);
+            });
+
+            $('#other').on('input', function() {
+                race = $(this).val();
+                $('.nation').text(race);
+            });
+
+            $('.status li div ins').click(function () {
+                if ($(this).prev().val() == 'married') {
+                    $married.slideDown();
+                } else {
+                    $married.val('');
+                    $married.hide();
+                }
+
+                if ($(this).prev().val() == 'partner') {
+                    $partner.slideDown();
+                } else {
+                    $partner.val('');
+                    $partner.hide();
+                }
+
+                if ($(this).prev().val() == 'widow') {
+                    $widow.slideDown();
+                } else {
+                    $widow.val('');
+                    $widow.hide();
+                }
+
+                if ($(this).prev().val() == 'divorced') {
+                    $separated.slideDown();
+                } else {
+                    $separated.val('');
+                    $separated.hide();
+                }
+            });
+
+
+            $('.child li div ins').click(function () {
+                if ($(this).prev().val() == 'yes') {
+                    $children.slideDown();
+                } else {
+                    $('input[name="quantity"]', $children).val(0);
+                    $('li.children').remove();
+                    kids_count = 0;
+                    $children.hide();
+                }
+            });
+
+            $('input[name="quantity"]').click(function () {
+                var count = $(this).val();
+
+                if (count >= kids_count) {
+                    $('.child').append('<li class="children"><div class="col-xs-2"><label>Child ' + count + ':</label></div><div class="col-xs-5"><input type="number" name="age_' + count + '" class="form-control" placeholder="Age" min="0" /></div><div class="col-xs-5"><select class="form-control required" name="gender_' + count + '"><option value="" selected>Select gender</option><option value="male">Male</option><option value="female">Female</option>/select></div></li>');
+                } else {
+                    $('.child li:last').remove();
+                }
+                kids_count = $(this).val();
+            });
+
+            $('.occupation li div ins').click(function () {
+                if ($(this).prev().val() == 'unemployed') {
+                    $unemployed.slideDown();
+                } else {
+                    $unemployed.hide();
+                }
+
+                if ($(this).prev().val() == 'fulltime' || $(this).prev().val() == 'parttime' || $(this).prev().val() == 'contract') {
+                    $employed.slideDown();
+                } else {
+                    $employed.slideUp();
+                }
+            });
+
+            $('.degree li div ins').click(function () {
+                if ($(this).prev().val() == 'other') {
+                    $degree.prop('disabled', false);
+                } else {
+                    $degree.val('');
+                    $degree.prop('disabled', true);
+
+                }
+            });
+
+            $('.countOn li div ins').click(function () {
+                if ($(this).prev().val() == 'yes') {
+                    $('#countOn').slideDown();
+                } else {
+                    $('#countOn').hide();
+
+                }
+            });
+
+            $('.rely li div ins').click(function () {
+                if ($(this).prev().val() == 'yes') {
+                    $('#rely').slideDown();
+                } else {
+                    $('#rely').hide();
+
+                }
+            });
+
+            $('.enjoy li div ins').click(function () {
+                if ($(this).prev().val() == 'yes') {
+                    $('#enjoy').slideDown();
+                } else {
+                    $('#enjoy').hide();
+
+                }
+            });
+
+            $('.emotional li div ins').click(function () {
+                if ($(this).prev().val() == 'yes') {
+                    $('#emotional').slideDown();
+                } else {
+                    $('#emotional').hide();
+                }
+            });
+
+            $('select[name="beliefs"]').change(function () {
+                if ($(this).val() == 'neither') {
+                    $('.reg').hide();
+                } else {
+                    $('.reg').slideDown();
+                }
+            });
+
+            $('button[name="forward"]').click(function () {
+                console.log('do something');
+            });
+
+
+//            var id = getUrlVars()['id'];
+//            $('#wrapped').attr('action', 'http://api.girlscouts.harryatwal.com/participant/' + id);
+            // Form submit
+            $('form').on('submit', function(e) {
+
+                var json = $(this).formToJson({pretty: true, delimiter: '.'});
+                console.log(json);
+                e.preventDefault();
+            });
+
+//            $.fn.serializeObject = function()
+//            {
+//                var o = {};
+//                var a = this.serializeArray();
+//                $.each(a, function() {
+//                    if (o[this.name] !== undefined) {
+//                        if (!o[this.name].push) {
+//                            o[this.name] = [o[this.name]];
+//                        }
+//                        o[this.name].push(this.value || '');
+//                    } else {
+//                        o[this.name] = this.value || '';
+//                    }
+//                });
+//                return o;
+//            };
+        });
+    </script>
+{% endblock %}

@@ -665,6 +665,14 @@
             setBoard($matriceE11, 'matriceE11', '/assets/img/Matrices_stimuli/E11.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
             setBoard($matriceE12, 'matriceE12', '/assets/img/Matrices_stimuli/E12.jpg', 45, 315, 140, 150, 100, 100, 2, 4);
 
+            var id = getUrlVars()['id'];
+
+            // Form submit
+            $('form').on('submit', function(e) {
+                console.log($(this).serialize());
+
+            });
+
         });
     </script>
 {% endblock %}

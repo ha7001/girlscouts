@@ -37,6 +37,7 @@
             <form name="reyComplexFigure1" id="wrapped" action="" method="POST">
                 <!-- RCFT1 -->
                 <div id="middle-wizard">
+
                     <div class="step row">
                         <div class="col-md-12" style="text-align: center">
                             <h4>
@@ -46,13 +47,13 @@
                     </div>
 
                     <div class="step row">
-
                         <div id="canvas-drawing">
-                            <canvas id='RCFTPractice' class="center-block" width="600" height="500" style="border:1px solid #000000;"></canvas>
+                            <canvas id='RCFTPractice' class="center-block" width="800" height="450" style="border:1px solid #000000;"></canvas>
                         </div>
                         <br>
                         <h4>Click Forward Once you are done practicing.</h4>
                     </div>
+
                     <div class="step row">
                         <div class="col-md-12" style="text-align: center">
                             <h4>
@@ -63,16 +64,16 @@
 
                     <!-- Split screen RCFT -->
                     <div class="step">
-                            <div class="container-fluid">
-                                <div class="columns">
-                                        <div class="col-sm-5">
-                                            <img src="/assets/img/RCFT/RCFT%20Copy%20Figure.png" alt="Smiley face" width="493" height="370" class="center-block">
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <canvas id='RCFT1' class="center-block"  width="600" height="470"  style="border:1px solid #000000;"></canvas>
-                                        </div>
-                                </div>
+                        <div class="container-fluid">
+                            <div class="row" >
+                                    <div class="col-sm-6">
+                                        <img src="/assets/img/RCFT/RCFT%20Copy%20Figure.png" alt="Smiley face" width="420" height="310" class="center-block">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <canvas id='RCFT1' class="center-block"  width="460" height="470"  style="border:1px solid #000000;"></canvas>
+                                    </div>
                             </div>
+                        </div>
                         <br>
                         <!-- <button type="button" class="btn center-block" id="par1Submit" onClick="RCFsubmitOne" >Done</button> -->
                     </div>
@@ -123,7 +124,7 @@
             $canvasPractice.drawRect({
                 layer: true,
                 x: 0, y: 0,
-                width: 600, height: 500,
+                width: 800, height: 450,
                 fromCenter: false,
                 mousedown: function (layer) {
                     line_objPractice = {
@@ -156,7 +157,6 @@
                 },
                 mouseup: function (layer) {
                     linesPractice.push(line_objPractice);
-
                     for (var i = 0; i < linesPractice.length; i++) {
                         $(this).drawLine(linesPractice[i]);
                     }
@@ -172,21 +172,20 @@
                     for (var i = 0; i < linesPractice.length; i++) {
                         $canvasPractice.drawLine(linesPractice[i]).drawLayers();
                     }
-//                    $(this).animateLayer(layer, {
-//                        fillStyle: '#c33'
-//                    }, 500);
+                    $canvasPractice.drawLayers();
                 }
             });
 
             $canvas1.drawRect({
                 layer: true,
                 x: 0, y: 0,
-                width: 600, height: 500,
+                width: 460, height: 470,
                 fromCenter: false,
                 mousedown: function (layer) {
                     line_obj1 = {
                         strokeStyle: "#000",
                         strokeWidth: 2,
+
                         data: {
                             joints: 1
                         }
@@ -194,11 +193,15 @@
 
                     isDown1 = true;
                     pts1.push([layer.eventX, layer.eventY]);
+
+                    for (var i = 0; i < lines1.length; i++) {
+                        $(this).drawLine(lines1[i]);
+                    }
                 },
                 mousemove: function (layer) {
                     if (isDown1) {
                         pts1.push([layer.eventX, layer.eventY]);
-                        for (var p = 0; p < ptsPractice.length; p += 1) {
+                        for (var p = 0; p < pts1.length; p += 1) {
                             line_obj1['x' + (p + 1)] = pts1[p][0];
                             line_obj1['y' + (p + 1)] = pts1[p][1];
                         }
@@ -210,18 +213,15 @@
                 },
                 mouseup: function (layer) {
                     lines1.push(line_obj1);
-
                     for (var i = 0; i < lines1.length; i++) {
                         $canvas1.drawLine(lines1[i]);
                     }
-
                     line_obj1 = {};
                     pts1 = [];
                     isDown1 = false;
                 },
                 mouseout: function (layer) {
                     console.log(lines1);
-
                     for (var i = 0; i < lines1.length; i++) {
                         $canvas1.drawLine(lines1[i]);
                     }
@@ -232,7 +232,7 @@
             var $save1 = $('#part1Submit');
 
             //After user clicks saves, save whatever is on the canvas
-            $save1.click(function () {
+            /*$save1.click(function () {
 
                 console.log('Submitted ');
                 var c = document.getElementById("RCFT1");
@@ -248,16 +248,18 @@
                     console.log('saved');
                     document.getElementById("ForwardButton").click();
                 });
-            });
+            });*/
 
             //Scroll down to the bottom of the page.
             var objDiv = document.getElementById("forwardButton");
             objDiv.scrollTop = objDiv.scrollHeight;
         });
 
-        function RCFsubmitOne(){
-            console.log("Submitted \n");
+        //Submission of test
+        $('form').on('submit', function(e) {
 
+            //Grab the submission canvas and save it to the 
+            console.log('Submission Button Clicked at the end of the survey ');
             var c = document.getElementById("RCFT1");
             var dataURL = c.toDataURL("image/png");
 
@@ -268,12 +270,16 @@
                     imgBase64: dataURL
                 }
             }).done(function (o) {
-                console.log('saved');
-                document.getElementById("ForwardButton").click();
+                console.log('Save Command executed');
             });
-        }
 
-
+            /*//Post Path to the API
+            $.post('http://api.girlscouts.harryatwal.com/participant/' + id, $(this).serialize())
+                    .done(function(data) {
+                        /!*$('button[name="forward"]').trigger('click');*!/
+                    });
+            e.preventDefault();*/
+        });
 
 
         //After the user is done practicing, clear the canvas and move to the next screen.
