@@ -10,7 +10,6 @@
     }
   ],
   "require": {
-    "twig/twig": "1.6.5",
-    "stormpath/sdk": "1.13.0"
+    "twig/twig": "1.6.5"
   }
 }

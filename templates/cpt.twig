@@ -74,8 +74,9 @@
                     }).drawLayers();
 
                     // Send data off to the database
-//                    $.post('cpt_submission.php', {record: JSON.stringify(record)}, function (data, status) {
-//                    });
+                    var id = getUrlVars()['id'];
+                    console.log(JSON.stringify(record));
+                    $.post('http://api.girlscouts.harryatwal.com/participant/' + id + '/CPT', JSON.stringify(record));
 
                     $('button[name="forward"]').prop('disabled', false);
                 } else {
@@ -87,13 +88,9 @@
                     count = 0;
                     blocks--;
 
-                    // Send data off to the database
-//                    $.post('cpt_submission.php', {record: JSON.stringify(record)}, function (data, status) {
-//                    });
-
-                    record.hits = [];
-                    record.commissions = 0;
-                    record.omissions = 0;
+//                    record.hits = [];
+//                    record.commissions = 0;
+//                    record.omissions = 0;
 
                     setTimeout(function () {
                         init_game(stimuli, stimuli_timeout, target_percent);
@@ -237,15 +234,15 @@
 
             $start.click(function() {
                 $(this).hide();
-
                 init_game(stimuli, stimuli_timeout, target_percent);
-
                 blocks--;
             });
 
             $('button[name="process"]').click(function() {
                 location.href = '/cancellationTest.php';
             });
+
+
         });
     </script>
 {% endblock %}

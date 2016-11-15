@@ -50,7 +50,7 @@
                         <br>
                         <div class="form-group">
                             <label for="MoCA_MMSE_question1">{{ MoCA_MMSE_Question1 }}</label>
-                            <input type="number" min="4" max="4" class="form-control" id="MoCA_MMSE_Ans1">
+                            <input type="number" min="2000" max="2100" class="form-control" name="MoCA_MMSE_Ans1">
                         </div>
                         <ul class="data-list">
                             <li><label>{{ MoCA_MMSE_Question2 }}</label>
@@ -204,7 +204,7 @@
                                         <option value="58">58</option>
                                         <option value="59">59</option>
                                     </select>
-                                    <select class="form-control" name="MoCA_MMSE_Ans5AM">
+                                    <select class="form-control" name="MoCA_MMSE_Ans5AMPM">
                                         <option value="" selected>Select one</option>
                                         <option value="AM">AM</option>
                                         <option value="PM">PM</option>
@@ -230,23 +230,23 @@
                         <br>
                         <div class="form-group">
                             <label for="MoCA_MMSE_question6">{{ MoCA_MMSE_Question6 }}</label>
-                            <input type="text" class="form-control" id="MoCA_MMSE_Ans6">
+                            <input type="text" class="form-control" name="MoCA_MMSE_Ans6">
                         </div>
                         <div class="form-group">
                             <label for="MoCA_MMSE_question7">{{ MoCA_MMSE_Question7 }}</label>
-                            <input type="text" class="form-control" id="MoCA_MMSE_Ans7">
+                            <input type="text" class="form-control" name="MoCA_MMSE_Ans7">
                         </div>
                         <div class="form-group">
                             <label for="MoCA_MMSE_question8">{{ MoCA_MMSE_Question8 }}</label>
-                            <input type="text" class="form-control" id="MoCA_MMSE_Ans8">
+                            <input type="text" class="form-control" name="MoCA_MMSE_Ans8">
                         </div>
                         <div class="form-group">
                             <label for="MoCA_MMSE_question9">{{ MoCA_MMSE_Question9 }}</label>
-                            <input type="text" class="form-control" id="MoCA_MMSE_Ans9">
+                            <input type="text" class="form-control" name="MoCA_MMSE_Ans9">
                         </div>
                         <div class="form-group">
                             <label for="MoCA_MMSE_question10">{{ MoCA_MMSE_Question10 }}</label>
-                            <input type="text" class="form-control" id="MoCA_MMSE_Ans10">
+                            <input type="text" class="form-control" name="MoCA_MMSE_Ans10">
                         </div>
                     </div>
                 </div>
@@ -272,6 +272,15 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
+        var id = getUrlVars()['id'];
+        // Form submit
+        $('form').on('submit', function(e) {
+            $.post('http://api.girlscouts.harryatwal.com/participant/' + id, $(this).serialize())
+                    .done(function(data) {
+                        /*$('button[name="forward"]').trigger('click');*/
+                    });
+            e.preventDefault();
+        });
 
     </script>
 {% endblock %}

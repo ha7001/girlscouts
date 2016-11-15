@@ -55,7 +55,7 @@
                         <br>
                         <!--<button type="button" class="btn center-block" id="part2Submit" onclick="part2Submit()">Done</button> -->
                     </div>
-
+                    <input type="hidden" id="timer" name="drawingTimes"  value=0>
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
                         <h3>Test complete!</h3>
@@ -84,77 +84,97 @@
 
         $(document).ready(function () {
             var $canvas2 = $("#RCFT2");
-            var pts2 = [];
-            var lines2 = [];
-            var line_obj2 = {};
-            var isDown2 = false;
+            var ptsArray = [];
+            var lineObj= {};
+            var isDown = false;
+            var movingVar = 0;
 
-            //Setup Drawing Surfaces for test
+            //Timers for the drawing stuff
+            var timerStartedYet = 0;
+
+
+            var drawingObject = {
+                mousedown: function (layer) {
+                    movingVar++;
+
+                    //Check to see if this is the users first time drawing, if it is, start time, set bool to true
+                    if(timerStartedYet == 0){
+                        //Set the field to the start value
+                        $("#timer").value = performance.now();
+                        document.getElementById('timer').value = timeStart;
+                        timerStartedYet =1;
+                    }
+
+                    lineObj = {
+                        layer: true,
+                        type: 'line',
+                        name: "practice" + movingVar,
+                        strokeStyle: "#000",
+                        strokeWidth: 2
+                    };
+
+                    isDown = true;
+                    ptsArray.push([layer.eventX, layer.eventY]);
+
+                    $(this).addLayer(lineObj).drawLayers();
+                    $(this).moveLayer("practice" + movingVar, 0);
+                },
+                mousemove: function (layer) {
+                    if (isDown) {
+                        ptsArray.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < ptsArray.length; p += 1) {
+                            lineObj['x' + (p + 1)] = ptsArray[p][0];
+                            lineObj['y' + (p + 1)] = ptsArray[p][1];
+                        }
+                        $(this).drawLine(lineObj);
+                    }
+                },
+                mouseup: function (layer) {
+                    $(this).setLayer("practice" + movingVar, lineObj).drawLayers();
+
+                    lineObj = {};
+                    ptsArray = [];
+                    isDown = false;
+                },
+                mouseout: function (layer) {
+                    $(this).setLayer("practice" + movingVar, lineObj).drawLayers();
+                }
+            };
+
             $canvas2.drawRect({
                 layer: true,
                 x: 0, y: 0,
                 width: 600, height: 470,
                 fromCenter: false,
-                mousedown: function (layer) {
-                    line_obj2 = {
-                        strokeStyle: "#000",
-                        strokeWidth: 2,
-                        data: {
-                            joints: 1
-                        }
-                    };
+                name: 'canvas2'
+            }).setLayer('canvas2', drawingObject);
 
-                    isDown2 = true;
-                    pts2.push([layer.eventX, layer.eventY]);
-                    redraw();
-                },
-                mousemove: function (layer) {
-                    if (isDown2) {
-                        pts2.push([layer.eventX, layer.eventY]);
-                        for (var p = 0; p < pts2.length; p += 1) {
-                            line_obj2['x' + (p + 1)] = pts2[p][0];
-                            line_obj2['y' + (p + 1)] = pts2[p][1];
-                        }
-                        $(this).drawLine(line_obj2);
-                        redraw();
-                    }
-                    redraw();
-                },
-                mouseup: function (layer) {
-                    lines2.push(line_obj2);
-
-                    redraw();
-
-                    line_obj2 = {};
-                    pts2 = [];
-                    isDown2 = false;
-                },
-                mouseout: function (layer) {
-                    console.log(lines2);
-
-                    redraw();
-                }
-            });
-
-
-            //Save Part one
-
-            var $save2 = $('#part2Submit');
-            //After user clicks saves, save whatever is on the canvas
-            $save2.click(function () {
+            //Submission of test
+            $('form').on('submit', function(e) {
                 var c = document.getElementById("RCFT2");
                 var dataURL = c.toDataURL("image/png");
+                /*window.open(c.toDataURL('image/png'));*/
+
+                //Calculate time taken for this test
+                var startTime = document.getElementById('timer').value;
+                var endTime = performance.now();
+                var elapsedTime = endTime - startTime;
+                var userID = getUrlVars()['id'];
+                console.log("Elapsed time = " + elapsedTime);
 
                 $.ajax({
                     type: "POST",
-                    url: "saveImage.php",
+                    url: " http://api.girlscouts.harryatwal.com/participant/" + userID + "/reyComplexFigure2",
                     data: {
-                        imgBase64: dataURL
+                        imgBase64: dataURL,
+                        timeTaken: elapsedTime
                     }
                 }).done(function (o) {
                     console.log('saved');
                 });
             });
+
+
 
         });
         // Will push the page down so that the drawing portion is centered.

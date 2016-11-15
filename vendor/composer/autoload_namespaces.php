@@ -7,11 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
-    'System' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
-    'Net' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
-    'Math' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
-    'Guzzle\\Tests' => array($vendorDir . '/guzzle/guzzle/tests'),
-    'Guzzle' => array($vendorDir . '/guzzle/guzzle/src'),
-    'File' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
-    'Crypt' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
 );

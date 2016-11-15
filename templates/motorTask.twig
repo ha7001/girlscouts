@@ -2,6 +2,9 @@
 {% block title %} motorTitle {% endblock %}
 {% block css %}
     <style type="text/css">
+        #motorTaskOneDominant1a, #motorTaskOneDominant1b, #motorTaskOneDominant2a, #motorTaskOneDominant2b, #motorTaskOneDominant3a, #motorTaskOneDominant3b {
+            display: none;
+        }
         img.img-responsive {
             margin: 0 auto;
         }
@@ -55,7 +58,7 @@
                             </div>
                             <div class="col-xs-2">
                                 <h4>
-                                    <span id="counter1a">15</span> second(s).
+                                    <span class="counter">15</span> second(s).
                                 </h4>
                             </div>
                         </div>
@@ -73,7 +76,7 @@
                         </div>
                         <div class="col-xs-2">
                             <h4>
-                                <span id="counter1b">15</span> second(s).
+                                <span class="counter">15</span> second(s).
                             </h4>
                         </div>
 
@@ -98,7 +101,7 @@
                         </div>
                         <div class="col-xs-2">
                             <h4>
-                                <span id="counter2a">15</span> second(s).
+                                <span class="counter">15</span> second(s).
                             </h4>
                         </div>
 
@@ -114,7 +117,7 @@
                         </div>
                         <div class="col-xs-2">
                             <h4>
-                                <span id="counter2b">15</span> second(s).
+                                <span class="counter">15</span> second(s).
                             </h4>
                         </div>
 
@@ -140,7 +143,7 @@
                         </div>
                         <div class="col-xs-2">
                             <h4>
-                                <span id="counter3a">15</span> second(s).
+                                <span class="counter">15</span> second(s).
                             </h4>
                         </div>
 
@@ -156,7 +159,7 @@
                         </div>
                         <div class="col-xs-2">
                             <h4>
-                                <span id="counter3b">15</span> second(s).
+                                <span class="counter">15</span> second(s).
                             </h4>
                         </div>
 
@@ -175,7 +178,7 @@
                 </div>
 
                 <div id="bottom-wizard">
-                     <button id="backwardButton" type="button" name="backward" class="backward" >Backward</button>
+                    <button id="backwardButton" type="button" name="backward" class="backward" >Backward</button>
                     <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
                 </div><!-- end bottom-wizard -->
             </form>
@@ -187,368 +190,161 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
-        var timerId1a;
-        var timerId1b;
-        var timerId2a;
-        var timerId2b;
-        var timerId3a;
-        var timerId3b;
+        var timer;
+
+        function drawRectangle(layer) {
+            return {
+                type: 'rectangle',
+                fillStyle: '#585',
+                x: layer.eventX, y: layer.eventY,
+                width: 10, height: 10,
+                index: 1
+            };
+        }
+
+        function drawRec(width, height) {
+            return {
+                layer: true,
+                x: 0, y: 0,
+                width: width, height: height,
+                fromCenter: false,
+                mousedown: function (layer) {
+                    $(this).addLayer(drawRectangle(layer)).drawLayers();
+                }
+            };
+        }
+
+        function imageObject(imagePath, width, height) {
+            return {
+                layer: true,
+                x: 0, y: 0,
+                width: width, height: height,
+                index: 0,
+                source: imagePath,
+                fromCenter: false
+            };
+        }
+
+        var $motor1a = $('#MotorTask1a');
+        var $motor1b = $('#MotorTask1b');
+        var $motor2a = $('#MotorTask2a');
+        var $motor2b = $('#MotorTask2b');
+        var $motor3a = $('#MotorTask3a');
+        var $motor3b = $('#MotorTask3b');
+        var $counter = $('.counter');
+        var $forward = $('#forwardButton');
+        var $motorTaskOneDominant1a = $("#motorTaskOneDominant1a");
+        var $motorTaskOneDominant1b = $("#motorTaskOneDominant1b");
+        var $motorTaskOneDominant2a = $("#motorTaskOneDominant2a");
+        var $motorTaskOneDominant2b = $("#motorTaskOneDominant2b");
+        var $motorTaskOneDominant3a = $("#motorTaskOneDominant3a");
+        var $motorTaskOneDominant3b = $("#motorTaskOneDominant3b");
 
         $(document).ready(function () {
+            var ptsPractice = [];
+            var line_objPractice = {};
+            var isDownPractice = false;
+            var practice_name = 0;
+
+            var drawingObject = {
+                mousedown: function (layer) {
+                    practice_name++;
+
+                    line_objPractice = {
+                        layer: true,
+                        type: 'line',
+                        name: "practice" + practice_name,
+                        strokeStyle: "#000",
+                        strokeWidth: 2
+                    };
+
+                    isDownPractice = true;
+                    ptsPractice.push([layer.eventX, layer.eventY]);
+
+                    $(this).addLayer(line_objPractice).drawLayers();
+                    $(this).moveLayer("practice" + practice_name, 1);
+                },
+                mousemove: function (layer) {
+                    if (isDownPractice) {
+                        ptsPractice.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < ptsPractice.length; p += 1) {
+                            line_objPractice['x' + (p + 1)] = ptsPractice[p][0];
+                            line_objPractice['y' + (p + 1)] = ptsPractice[p][1];
+                        }
+                        $(this).drawLine(line_objPractice);
+                    }
+                },
+                mouseup: function (layer) {
+                    $(this).setLayer("practice" + practice_name, line_objPractice).drawLayers();
+
+                    line_objPractice = {};
+                    ptsPractice = [];
+                    isDownPractice = false;
+                },
+                mouseout: function (layer) {
+                    $(this).setLayer("practice" + practice_name, line_objPractice).drawLayers();
+                }
+            };
+
             //Setup Drawing Steps
-            var $motorTaskOneDominant1a = $("#motorTaskOneDominant1a");
-            var $motorTaskOneDominant1b = $("#motorTaskOneDominant1b");
-            var $motorTaskOneDominant2a = $("#motorTaskOneDominant2a");
-            var $motorTaskOneDominant2b = $("#motorTaskOneDominant2b");
-            var $motorTaskOneDominant3a = $("#motorTaskOneDominant3a");
-            var $motorTaskOneDominant3b = $("#motorTaskOneDominant3b");
-            var pts1a = [];
-            var lines1a = [];
-            var line_obj1a = {};
-            var isDown1a = false;
             $motorTaskOneDominant1a.drawRect({
                 layer: true,
                 x: 0, y: 0,
                 width: 850, height: 600,
                 fromCenter: false,
-                mousedown: function (layer) {
-                    line_obj1a = {
-                        strokeStyle: "#000",
-                        strokeWidth: 2,
-                        data: {
-                            joints: 1
-                        }
-                    };
+                name: "mtd1a"
+            }).setLayer("mtd1a", drawingObject);
 
-                    isDown1a = true;
-                    pts1a.push([layer.eventX, layer.eventY]);
-                },
-                mousemove: function (layer) {
-                    if (isDown1a) {
-                        pts1a.push([layer.eventX, layer.eventY]);
-                        for (var p = 0; p < pts1a.length; p += 1) {
-                            line_obj1a['x' + (p + 1)] = pts1a[p][0];
-                            line_obj1a['y' + (p + 1)] = pts1a[p][1];
-                        }
-                        $motorTaskOneDominant1a.drawLine(line_obj1a);
-                    }
-                    for (var i = 0; i < lines1a.length; i++) {
-                        $motorTaskOneDominant1a.drawLine(lines1a[i]);
-                    }
-                },
-                mouseup: function (layer) {
-                    lines1a.push(line_obj1a);
-
-                    for (var i = 0; i < lines1a.length; i++) {
-                        $motorTaskOneDominant1a.drawLine(lines1a[i]);
-                    }
-                    line_obj1a = {};
-                    pts1a = [];
-                    isDown1a = false;
-                },
-                mouseout: function (layer) {
-                    console.log(lines1a);
-
-                    for (var i = 0; i < lines1a.length; i++) {
-                        $motorTaskOneDominant1a.drawLine(lines1a[i]);
-                    }
-                }
-            });
-            var pts1b = [];
-            var lines1b = [];
-            var line_obj1b = {};
-            var isDown1b = false;
             $motorTaskOneDominant1b.drawRect({
                 layer: true,
                 x: 0, y: 0,
                 width: 850, height: 600,
                 fromCenter: false,
-                mousedown: function (layer) {
-                    line_obj1b = {
-                        strokeStyle: "#000",
-                        strokeWidth: 2,
-                        data: {
-                            joints: 1
-                        }
-                    };
+                name: "mtd1b"
+            }).setLayer("mtd1b", drawingObject);
 
-                    isDown1b = true;
-                    pts1b.push([layer.eventX, layer.eventY]);
-                },
-                mousemove: function (layer) {
-                    if (isDown1b) {
-                        pts1b.push([layer.eventX, layer.eventY]);
-                        for (var p = 0; p < pts1b.length; p += 1) {
-                            line_obj1b['x' + (p + 1)] = pts1b[p][0];
-                            line_obj1b['y' + (p + 1)] = pts1b[p][1];
-                        }
-                        $motorTaskOneDominant1b.drawLine(line_obj1b);
-                    }
-                    for (var i = 0; i < lines1b.length; i++) {
-                        $motorTaskOneDominant1b.drawLine(lines1b[i]);
-                    }
-                },
-                mouseup: function (layer) {
-                    lines1b.push(line_obj1b);
-
-                    for (var i = 0; i < lines1b.length; i++) {
-                        $motorTaskOneDominant1b.drawLine(lines1b[i]);
-                    }
-                    line_obj1b = {};
-                    pts1b = [];
-                    isDown1b = false;
-                },
-                mouseout: function (layer) {
-                    console.log(lines1b);
-
-                    for (var i = 0; i < lines1b.length; i++) {
-                        $motorTaskOneDominant1b.drawLine(lines1b[i]);
-                    }
-                }
-            });
-
-            $motorTaskOneDominant2a.drawRect({
-                layer: true,
-                x: 0, y: 0,
-                width: 800, height: 500,
-                fromCenter: false,
-                mousedown: function (layer) {
-                    $(this).addLayer({
-                        type: 'rectangle',
-                        fillStyle: '#585',
-                        x: layer.eventX, y: layer.eventY,
-                        width: 10, height: 10
-                    }).drawLayers();
-                },
-                mouseup: function (layer) {
-                    drawLayers();
-                }
-            });
-
-            $motorTaskOneDominant2b.drawRect({
-                layer: true,
-                x: 0, y: 0,
-                width: 800, height: 500,
-                fromCenter: false,
-                mousedown: function (layer) {
-                    $(this).addLayer({
-                        type: 'rectangle',
-                        fillStyle: '#585',
-                        x: layer.eventX, y: layer.eventY,
-                        width: 10, height: 10
-                    }).drawLayers();
-                },
-                mouseup: function (layer) {
-                    drawLayers();
-                }
-            });
-
-            $motorTaskOneDominant3a.drawRect({
-                layer: true,
-                x: 0, y: 0,
-                width: 850, height: 600,
-                fromCenter: false,
-                mousedown: function (layer) {
-                    $(this).addLayer({
-                        type: 'rectangle',
-                        fillStyle: '#585',
-                        x: layer.eventX, y: layer.eventY,
-                        width: 10, height: 10
-                    }).drawLayers();
-                },
-                mouseup: function (layer) {
-                    drawLayers();
-                }
-            });
-
-            $motorTaskOneDominant3b.drawRect({
-                layer: true,
-                x: 0, y: 0,
-                width: 850, height: 600,
-                fromCenter: false,
-                mousedown: function (layer) {
-                    $(this).addLayer({
-                        type: 'rectangle',
-                        fillStyle: '#585',
-                        x: layer.eventX, y: layer.eventY,
-                        width: 10, height: 10
-                    }).drawLayers();
-                },
-                mouseup: function (layer) {
-                    drawLayers();
-                }
-            });
+            $motorTaskOneDominant2a.drawRect(drawRec(800, 600));
+            $motorTaskOneDominant2b.drawRect(drawRec(800, 500));
+            $motorTaskOneDominant3a.drawRect(drawRec(850, 600));
+            $motorTaskOneDominant3b.drawRect(drawRec(850, 600));
 
             //Draw respective images onto canvases.
-            var $motor1a = $('#MotorTask1a');
-            var $motor1b = $('#MotorTask1b');
-            var $motor2a = $('#MotorTask2a');
-            var $motor2b = $('#MotorTask2b');
-            var $motor3a = $('#MotorTask3a');
-            var $motor3b = $('#MotorTask3b');
-
             $motor1a.click(function () {
-                setupMotorTask1a();
-                var $i = $('#counter1a');
-                $i.text(15);
-                timerId1a = setInterval(countdown1a, 1000);
-
+                setupMotorTask($motorTaskOneDominant1a, $(this), imageObject("/assets/img/motorTasks/Trazado.png", 850, 600));
             });
             $motor1b.click(function () {
-                setupMotorTask1b();
-                var $i = $('#counter1b');
-                $i.text(15);
-                timerId = setInterval(countdown1b, 1000);
+                setupMotorTask($motorTaskOneDominant1b, $(this), imageObject("/assets/img/motorTasks/Trazado.png", 850, 600));
             });
             $motor2a.click(function () {
-                setupMotorTask2a();
-                var $i = $('#counter2a');
-                $i.text(15);
-                timerId = setInterval(countdown2a, 1000);
+                setupMotorTask($motorTaskOneDominant2a, $(this), imageObject("/assets/img/motorTasks/Marcado.png", 611, 542));
             });
             $motor2b.click(function () {
-                setupMotorTask2b();
-                var $i = $('#counter2b');
-                $i.text(15);
-                timerId = setInterval(countdown2b, 1000);
+                setupMotorTask($motorTaskOneDominant2b, $(this), imageObject("/assets/img/motorTasks/Marcado.png", 611, 542));
             });
             $motor3a.click(function () {
-                setupMotorTask3a();
-                var $i = $('#counter3a');
-                $i.text(15);
-                timerId = setInterval(countdown3a, 1000);
+                setupMotorTask($motorTaskOneDominant3a, $(this), imageObject("/assets/img/motorTasks/Punteado.png", 850, 600));
             });
             $motor3b.click(function () {
-                setupMotorTask3b();
-                var $i = $('#counter3b');
-                $i.text(15);
-                timerId = setInterval(countdown3b, 1000);
-            });0
+                setupMotorTask($motorTaskOneDominant3b, $(this), imageObject("/assets/img/motorTasks/Punteado.png", 850, 600));
+            });
         });
 
 
         //Setup the MotorTask 1 and start the timer
-        function setupMotorTask1a() {
-            var $motorTaskOneDominant1a = $("#motorTaskOneDominant1a");
-            $motorTaskOneDominant1a.drawImage({
-                layer: true,
-                x: 0, y: 0,
-                width: 850, height: 600,
-                index: 0,
-                source: "/assets/img/motorTasks/Trazado.png",
-                fromCenter: false
-            }).drawLayers();
+        function setupMotorTask($canvas, $btn, $image) {
+            $canvas.drawImage($image).drawLayers();
+            $canvas.show();
+            $counter.text(15);
+            timer = setInterval(countdown, 1000);
+            $btn.hide();
         }
-        function setupMotorTask1b() {
-            var $motorTaskOneDominant1b = $("#motorTaskOneDominant1b");
-            $motorTaskOneDominant1b.drawImage({
-                layer: true,
-                x: 0, y: 0,
-                width: 850, height: 600,
-                index: 0,
-                source: "/assets/img/motorTasks/Trazado.png",
-                fromCenter: false
-            }).drawLayers();
-        }
-        function setupMotorTask2a() {
-            var $motorTaskOneDominant2a = $("#motorTaskOneDominant2a");
-            $motorTaskOneDominant2a.drawImage({
-                layer: true,
-                x: 0, y: 0,
-                width: 611, height: 542,
-                index: 0,
-                source: "/assets/img/motorTasks/Marcado.png",
-                fromCenter: false
-            }).drawLayers();
-        }
-        function setupMotorTask2b() {
-            var $motorTaskOneDominant2b = $("#motorTaskOneDominant2b");
-            $motorTaskOneDominant2b.drawImage({
-                layer: true,
-                x: 0, y: 0,
-                width: 611, height: 542,
-                index: 0,
-                source: "/assets/img/motorTasks/Marcado.png",
-                fromCenter: false
-            }).drawLayers();
-        }
-        function setupMotorTask3a() {
-            var $motorTaskOneDominant3a = $("#motorTaskOneDominant3a");
-            $motorTaskOneDominant3a.drawImage({
-                layer: true,
-                x: 0, y: 0,
-                width: 850, height: 600,
-                index: 0,
-                source: "/assets/img/motorTasks/Punteado.png",
-                fromCenter: false
-            }).drawLayers();
-        }
-        function setupMotorTask3b() {
-            var $motorTaskOneDominant3b = $("#motorTaskOneDominant3b");
-            $motorTaskOneDominant3b.drawImage({
-                layer: true,
-                x: 0, y: 0,
-                width: 850, height: 600,
-                index: 0,
-                source: "/assets/img/motorTasks/Punteado.png",
-                fromCenter: false
-            }).drawLayers();
-        }
-
 
         <!--Timer Stuff -->
-        function countdown1a() {
-            var $i = $('#counter1a');
-            $i.text(parseInt($i.text()) - 1);
-            if ($i.text() == 0) {
-                clearInterval(timerId1a);
-                var $forwardButton = $('#forwardButton');
-                $forwardButton.click();
-            }
-        }
-        function countdown1b() {
-            var $i = $('#counter1b');
-            $i.text(parseInt($i.text()) - 1);
-            if ($i.text() == 0) {
-                clearInterval(timerId1b);
-                var $forwardButton = $('#forwardButton');
-                $forwardButton.click();
-            }
-        }
-        function countdown2a() {
-            var $i = $('#counter2a');
-            $i.text(parseInt($i.text()) - 1);
-            if ($i.text() == 0) {
-                clearInterval(timerId2a);
-                var $forwardButton = $('#forwardButton');
-                $forwardButton.click();
-            }
-        }
-        function countdown2b() {
-            var $i = $('#counter2b');
-            $i.text(parseInt($i.text()) - 1);
-            if ($i.text() == 0) {
-                clearInterval(timerId2b);
-                var $forwardButton = $('#forwardButton');
-                $forwardButton.click();
-            }
-        }
-        function countdown3a() {
-            var $i = $('#counter3a');
-            $i.text(parseInt($i.text()) - 1);
-            if ($i.text() == 0) {
-                clearInterval(timerId3a);
-                var $forwardButton = $('#forwardButton');
-                $forwardButton.click();
-            }
-        }
-        function countdown3b() {
-            var $i = $('#counter3b');
-            $i.text(parseInt($i.text()) - 1);
-            if ($i.text() == 0) {
-                clearInterval(timerId3b);
-                var $forwardButton = $('#forwardButton');
-                $forwardButton.click();
+        function countdown() {
+            $counter.text(parseInt($counter.first().text()) - 1);
+            if ($counter.text() == 0) {
+                clearInterval(timer);
+                $forward.trigger('click');
             }
         }
     </script>
