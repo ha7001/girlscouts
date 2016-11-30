@@ -22,8 +22,5 @@ $home = $twig->loadTemplate('comprehension.twig');
 echo $home->render(array(
     'ComprehensionTitle' => $message["INDEX_COMPREHENSION_TEST_TITLE"],
     'ComprehensionInstructions' => $message["INDEX_COMPREHENSION_TEST_INSTRUCTIONS"],
-    'ComprehensionQuestion1' => $message["INDEX_COMPREHENSION_QUESTION_1"],
-    'ComprehensionQuestion2' => $message["INDEX_COMPREHENSION_QUESTION_2"],
-    'ComprehensionQuestion3' => $message["INDEX_COMPREHENSION_QUESTION_3"],
-    'ComprehensionQuestion4' => $message["INDEX_COMPREHENSION_QUESTION_4"],
+
 ));

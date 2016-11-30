@@ -352,6 +352,10 @@ $message ["INDEX_Matrices_Practice1"] = "Practice. Pick the image that best comp
 $message ["INDEX_CLOCKDRAWING_TEST_TITLE"] = "Clock Test";
 $message ["INDEX_CLOCKDRAWING_TEST_INSTRUCTIONS"] = "Next you will be drawing with your finger. <br> The objective is to draw a big circular clock with all its numbers in the correct position. <br>Make it large enough so that you can add the numbers too. <br> Draw clock hands to make the clock read <b>10</b> past <b>11</b>. <br> When you finish click 'Save and Continue' ";
 
+//Comprehension Test Variables
+$message ["INDEX_COMPREHENSION_TEST_TITLE"] = "Comprehension Test";
+$message ["INDEX_COMPREHENSION_TEST_INSTRUCTIONS"] = "Next, you will see different shapes of different sizes and colors on the screen. <br> You will hear instructions to touch one or more of those shapes. <br> Please listen carefully as the instructions will not be repeated";
+
 //Rey Complex Figure Task Variables
 $message ["INDEX_RCFT_TITLE"] = "Rey Complex Figure Test";
 $message ["INDEX_RCFT_Instructions"] = "In this task you are going to be asked to draw with your finger. <br> Before we proceed, please practice drawing with your finger in the sample screen.<Br> Click Forward to continue.";
