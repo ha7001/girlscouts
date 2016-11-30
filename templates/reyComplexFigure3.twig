@@ -140,16 +140,27 @@
                 var userID = getUrlVars()['id'];
                 console.log("Elapsed time = " + elapsedTime);
 
-                $.ajax({
-                    type: "POST",
-                    url: " http://api.girlscouts.harryatwal.com/participant/" + userID + "/reyComplexFigure3",
-                    data: {
-                        imgBase64: dataURL,
-                        timeTaken: elapsedTime
-                    }
-                }).done(function (o) {
-                    console.log('saved');
-                });
+                var data = {
+                    imgBase64: dataURL,
+                    timeTaken: elapsedTime,
+                    name: "reyComplexFigure3"
+                };
+
+                $.post("http://api.girlscouts.harryatwal.com/participant/" + userID + "/reyComplexFigure3", data)
+                        .done(function (o) {
+                            console.log('saved');
+                        });
+
+//                $.ajax({
+//                    type: "POST",
+//                    url: " http://api.girlscouts.harryatwal.com/participant/" + userID + "/reyComplexFigure3",
+//                    data: {
+//                        imgBase64: dataURL,
+//                        timeTaken: elapsedTime
+//                    }
+//                }).done(function (o) {
+//                    console.log('saved');
+//                });
 
             });
 

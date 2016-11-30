@@ -94,6 +94,9 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script>
         var testStartTime = 0;
+        var correctSubmission = 0;
+        var incorrectSubmission = 1;
+        var clickData = [];
 
         //Test Blocks
         var blk0 =  [['A','5','W','G','2','5','U','T','L','E','9','N','C','5','P','H','Z','9','Y','F'],
@@ -153,8 +156,8 @@
 
         //Practice Test kickoff Method
         function startPracticeTesting1(){
-            $('#forwardButton').prop('disabled', false);
-            $('#backwardButton').prop('disabled', false);
+            $('#forwardButton').prop('disabled', true);
+            $('#backwardButton').prop('disabled', true);
             $('#startCancellationPracticeButton').html('<b>Click Here for the Second Practice Test</b>'); //Change text in button
             createBlkTestPractice(testBlocks[0], '0');
             $('#startCancellationPracticeButton').click(startPracticeTesting2);
@@ -344,6 +347,7 @@
         function changeLayer(textToChange){
             $('canvas').setLayer('TestComplete3', {text: textToChange}).drawLayers();
         }
+
         function testComplete() {
             console.log("testCompleteCalled");
             $('#forwardButton').trigger('click');
@@ -351,21 +355,44 @@
 
         function storeClick(block, blockRow, blockCol, blockValue, testNumber, participantId, timeV )
         {
-            console.log('attempting to store data  + The time is : ' + timeV.toString());
+            //Parse through and see what letter was actually clicked. Store incorrect click count and correct click counts
+            if(blockValue == '5' || blockValue == '9'){
+                correctSubmission += 1;
+            }
+            else{
+                incorrectSubmission += 1;
+            }
+            //Add this data to the arrays that will be submitted at the end of the survey. 
             var submissionData = {
                 block: block,
                 blockRow: blockRow,
                 blockCol: blockCol,
                 blockValue: blockValue,
                 testNumber: testNumber,
-                participantId: participantId,
                 timeV: timeV
             };
-
-            $.post('cancellationSubmit.php', { block: JSON.stringify(submissionData)}, function(data, status) {
-                //alert(data);
-            });
+            clickData.add(submissionData);
+            /*$.post('cancellationSubmit.php', { block: JSON.stringify(submissionData)}, function(data, status) {
+                alert(data);
+            });*/
         }
+        //Submission of test
+        $('form').on('submit', function(e) {
+
+            var data = {
+                incorrectSubmissionCount: incorrectSubmission,
+                correctSubmissionCount: correctSubmission,
+                clickData: clickData
+            };
+            var userID = getUrlVars()['id'];
+            $.post("http://api.girlscouts.harryatwal.com/participant/" + userID + "/cancellationTest", data)
+                    .done(function (o) {
+                        console.log('saved');
+                    });
+
+            e.preventDefault();
+        });
+
 
         function returnCodeFromDBstore(data, textStatus, jqXHRobject){
             console.log(data);

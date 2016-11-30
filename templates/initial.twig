@@ -251,7 +251,7 @@
                                 <li><input name="race" type="radio" class="check_radio required" value="Cuban"><label>Cuban</label></li>
                                 <li><input name="race" type="radio" class="check_radio required" value="Central_American"><label>Central America</label></li>
                                 <li><input type="radio" name="race" value="Other" class="check_radio required"/><label>other Hispanic/Latino</label></li>
-                                <li><input type="text" name="other" id="other" class="form-control" placeholder="Specify"></li>
+                                <li><input type="text" name="otherRace" id="other" class="form-control" placeholder="Specify"></li>
                             </ul>
                             <h4>What race do you consider yourself to be according to your parentage, ancestry or roots? (You can choose more than one):</h4>
                             <ul class="data-list-2 long-string">
@@ -332,8 +332,8 @@
                         <div class="col-md-12">
                             <ul class="data-list-2 status clearfix">
                                 <h4>What is your marital Status?</h4>
-                                <li><input name="status" type="radio" class="check_radio" value="single"><label>Single</label></li>
-                                <li><input name="status" type="radio" class="check_radio" value="married"><label>Married</label></li>
+                                <li><input name="mstatus" type="radio" class="check_radio" value="single"><label>Single</label></li>
+                                <li><input name="mstatus" type="radio" class="check_radio" value="married"><label>Married</label></li>
                                 <li id="married">
                                     <div class="col-xs-6">
                                         <label class="subtitle">How long have you been married?</label>
@@ -610,7 +610,7 @@
                             <ul class="data-list-2">
                                 <h4>How old were you when you finished studying?</h4>
                                 <li><input type="number" name="age_study" class="form-control" placeholder="" min="0"/></li>
-                                <li><input type="radio" name="not_finished_school" class="check_radio" value="elementary"/><label>I haven't finished yet</label></li>
+                                <li><input type="radio" name="not_finished_school" class="check_radio" value="not finished"/><label>I haven't finished yet</label></li>
                             </ul>
                             <ul class="data-list-2">
                                 <h4>What is the highest grade (or year) of regular school you have completed?</h4>
@@ -662,17 +662,17 @@
                             </ul>
                             <ul class="data-list-2 reg">
                                 <h4>If so, with which religion do you affiliate?</h4>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="diploma"/><label>Christianity</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="associate"/><label>Judaism</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="bachelor"/><label>Islam</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="master"/><label>Hinduism</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="doctorate"/><label>Buddhism</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional"/><label>Sikhism</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional"/><label>Baha'ism</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional"/><label>Indigenous</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="professional"/><label>Irreligious/Agnostic/Atheist</label></li>
-                                <li><input type="radio" name="highest_degree" class="check_radio" value="other"/><label>Other</label></li>
-                                <li><input type="text" name="other_highest_degree" class="form-control" disabled/></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Christianity"/><label>Christianity</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Judaism"/><label>Judaism</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Islam"/><label>Islam</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Hinduism"/><label>Hinduism</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Buddhism"/><label>Buddhism</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Sikhism"/><label>Sikhism</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Baha'ism"/><label>Baha'ism</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Indigenous"/><label>Indigenous</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="Irreligious/Agnostic/Atheist"/><label>Irreligious/Agnostic/Atheist</label></li>
+                                <li><input type="radio" name="religion" class="check_radio" value="other"/><label>Other</label></li>
+                                <li><input type="text" name="other_religion" class="form-control" disabled/></li>
                             </ul>
                             <ul class="data-list-2 reg">
                                 <h4>How often do you practice?</h4>
@@ -824,49 +824,49 @@
                                 <h4>Do you enjoy being unique and different from the others?</h4>
                                 <li><input type="radio" name="unique" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="unique" class="check_radio" value="no"/><label>No</label></li>
-                                <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>I don´t know</label></li>
+                                <li><input type="radio" name="unique" class="check_radio" value="neither"/><label>I don´t know</label></li>
                             </ul>
                             <ul class="data-list-2">
                                 <h4>Do you believe that competing is law of nature?</h4>
                                 <li><input type="radio" name="law_of_nature" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="law_of_nature" class="check_radio" value="no"/><label>No</label></li>
-                                <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>I don´t know</label></li>
+                                <li><input type="radio" name="law_of_nature" class="check_radio" value="neither"/><label>I don´t know</label></li>
                             </ul>
                             <ul class="data-list-2">
                                 <h4>Are you comfortable in situations involving competition?</h4>
                                 <li><input type="radio" name="competition" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="competition" class="check_radio" value="no"/><label>No</label></li>
-                                <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>Neither</label></li>
+                                <li><input type="radio" name="competition" class="check_radio" value="neither"/><label>Neither</label></li>
                             </ul>
                             <ul class="data-list-2">
                                 <h4>Would you sacrifice an activity you enjoy if your family would not accept it?</h4>
                                 <li><input type="radio" name="sacrifice_activity" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="sacrifice_activity" class="check_radio" value="no"/><label>No</label></li>
-                                <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>I don´t know</label></li>
+                                <li><input type="radio" name="sacrifice_activity" class="check_radio" value="neither"/><label>I don´t know</label></li>
                             </ul>
                             <ul class="data-list-2">
                                 <h4>Would you do something that you detest just because it pleases your family?</h4>
                                 <li><input type="radio" name="detest" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="detest" class="check_radio" value="no"/><label>No</label></li>
-                                <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>I don´t know</label></li>
+                                <li><input type="radio" name="detest" class="check_radio" value="neither"/><label>I don´t know</label></li>
                             </ul>
                             <ul class="data-list-2">
                                 <h4>Would you sacrifice your own interest for the benefit of the group?</h4>
                                 <li><input type="radio" name="sacrifice_interest" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="sacrifice_interest" class="check_radio" value="no"/><label>No</label></li>
-                                <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>I don´t know</label></li>
+                                <li><input type="radio" name="sacrifice_interest" class="check_radio" value="neither"/><label>I don´t know</label></li>
                             </ul>
                             <ul class="data-list-2">
                                 <h4>When performing a task, would you do it fast although you make mistakes?</h4>
                                 <li><input type="radio" name="fast_task" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="fast_task" class="check_radio" value="no"/><label>No</label></li>
-                                <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>I don´t know</label></li>
+                                <li><input type="radio" name="fast_task" class="check_radio" value="neither"/><label>I don´t know</label></li>
                             </ul>
                             <ul class="data-list-2">
                                 <h4>When performing a task, would you use all the time necessary to ensure success?</h4>
                                 <li><input type="radio" name="slow_task" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="slow_task" class="check_radio" value="no"/><label>No</label></li>
-                                <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>I don´t know</label></li>
+                                <li><input type="radio" name="slow_task" class="check_radio" value="neither"/><label>I don´t know</label></li>
                             </ul>
                         </div>
                     </div>
@@ -1073,7 +1073,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <!-- Acculturation -->
                     <div id="acculturation" class="step row">
@@ -1322,584 +1321,584 @@
                                     </li>
                                 </ul>
                             </div>
-                                <div class="row stretch">
-                                    <h4><u>How well do you speak English?</u></h4>
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>at school or work</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>with American friends</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>on the phone</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>with stranger</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>in general</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <h4><u>How well do you understand English?</u></h4>
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>on television or in movies</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>in newspapers and magazines</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>words in songs</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>in general</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <h4><u>How well do you speak your native language?</u></h4>
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>with family</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> with friends from the same country as you</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> on the phone</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>with strangers</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>in general</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <h4><u>How well do you understand your native language?</u></h4>
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>on television or in movies</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> in newspapers and magazines</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>words in songs</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>in general</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <h4><u>How well do you know?</u></h4>
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> American national heroes</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> Popular American television shows</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>Popular American newspapers and magazines</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> Popular American actors and actresses</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> American history</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>American political leaders</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <h4><u>How well do you know?</u></h4>
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> National heroes from your native culture</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> Popular television shows in your native language</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> Popular newspapers and magazines in your native language</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> Popular actors and actresses from your native culture</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4> History of your native culture</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row stretch">
-                                    <ul class="data-list-2 acculturation">
-                                        <li><h4>Political leaders from your native culture</h4></li>
-                                        <li>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="aLittle"><label>A little </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input name="beingOfCultureProud" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="row stretch">
+                                <h4><u>How well do you speak English?</u></h4>
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>at school or work</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishschool" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishschool" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishschool" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishschool" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>with American friends</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishfriends" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishfriends" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishfriends" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishfriends" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>on the phone</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishphone" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishphone" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishphone" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishphone" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>with stranger</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishstranger" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishstranger" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishstranger" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishstranger" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>in general</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishgeneral" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishgeneral" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishgeneral" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishgeneral" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <h4><u>How well do you understand English?</u></h4>
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>on television or in movies</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishtv" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishtv" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishtv" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishtv" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>in newspapers and magazines</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishnewspaper" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishnewspaper" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishnewspaper" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishnewspaper" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>words in songs</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishsongs" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishsongs" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishsongs" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishsongs" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>in general</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="englishugeneral" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishugeneral" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishugeneral" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="englishugeneral" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <h4><u>How well do you speak your native language?</u></h4>
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>with family</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativefamily" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativefamily" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativefamily" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativefamily" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> with friends from the same country as you</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativefriends" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativefriends" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativefriends" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativefriends" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> on the phone</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativephone" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativephone" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativephone" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativephone" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>with strangers</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativestrangers" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativestrangers" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativestrangers" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativestrangers" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>in general</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativegeneral" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativegeneral" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativegeneral" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativegeneral" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <h4><u>How well do you understand your native language?</u></h4>
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>on television or in movies</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativetv" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativetv" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativetv" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativetv" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> in newspapers and magazines</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativenewspaper" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativenewspaper" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativenewspaper" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativenewspaper" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>words in songs</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativesongs" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativesongs" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativesongs" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativesongs" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>in general</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="nativeugeneral" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativeugeneral" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativeugeneral" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="nativeugeneral" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <h4><u>How well do you know?</u></h4>
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> American national heroes</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanHeroes" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanHeroes" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanHeroes" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanHeroes" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> Popular American television shows</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericantv" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericantv" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericantv" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericantv" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>Popular American newspapers and magazines</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanNewspaper" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanNewspaper" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanNewspaper" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanNewspaper" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> Popular American actors and actresses</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanActor" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanActor" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanActor" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanActor" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> American history</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanHistory" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanHistory" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanHistory" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanHistory" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>American political leaders</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanLeader" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanLeader" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanLeader" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowAmericanLeader" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <h4><u>How well do you know?</u></h4>
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> National heroes from your native culture</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeHeroes" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeHeroes" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeHeroes" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeHeroes" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> Popular television shows in your native language</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativetv" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativetv" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativetv" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativetv" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> Popular newspapers and magazines in your native language</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeNewspaper" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeNewspaper" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeNewspaper" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeNewspaper" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> Popular actors and actresses from your native culture</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeActor" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeActor" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeActor" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeActor" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4> History of your native culture</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeHistory" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeHistory" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeHistory" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeHistory" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row stretch">
+                                <ul class="data-list-2 acculturation">
+                                    <li><h4>Political leaders from your native culture</h4></li>
+                                    <li>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeLeader" type="radio" class="check_radio" value="notAtAll"><label>Not at all</label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeLeader" type="radio" class="check_radio" value="aLittle"><label>A little </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeLeader" type="radio" class="check_radio" value="prettyWell"><label>Pretty well </label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input name="knowNativeLeader" type="radio" class="check_radio" value="extremlyWell"><label>Extremely well</label>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                    </div>
 
 
 
@@ -1962,7 +1961,7 @@
             });
             $('[data-toggle="popoverNonManualLabor"]').popover({
                 title: '<strong>Non-manual Labor</strong>',
-                content: '<div>positions requiring mental work, “white-collar” work, positions associated to college/university degrees, managerial positions, supervisors of manual workers</div>',
+                content: '<div>positions requiring mental work, "white-collar" work, positions associated to college/university degrees, managerial positions, supervisors of manual workers</div>',
                 html: true,
                 placement: 'right'
             });
@@ -2139,7 +2138,7 @@
                 var count = $(this).val();
 
                 if (count >= kids_count) {
-                    $('.child').append('<li class="children"><div class="col-xs-2"><label>Child ' + count + ':</label></div><div class="col-xs-5"><input type="number" name="age_' + count + '" class="form-control" placeholder="Age" min="0" /></div><div class="col-xs-5"><select class="form-control required" name="gender_' + count + '"><option value="" selected>Select gender</option><option value="male">Male</option><option value="female">Female</option>/select></div></li>');
+                    $('.child').append('<li class="children"><div class="col-xs-2"><label>Child ' + count + ':</label></div><div class="col-xs-5"><input type="number" name="cage" class="form-control" placeholder="Age" min="0" /></div><div class="col-xs-5"><select class="form-control required" name="cgender"><option value="" selected>Select gender</option><option value="male">Male</option><option value="female">Female</option>/select></div></li>');
                 } else {
                     $('.child li:last').remove();
                 }
@@ -2216,7 +2215,9 @@
 
             var id = getUrlVars()['id'];
             // Form submit
+
             $('form').on('submit', function(e) {
+                console.log($(this).serialize());
                 $.post('http://api.girlscouts.harryatwal.com/participant/' + id, $(this).serialize())
                         .done(function(data) {
                             $('button[name="forward"]').trigger('click');

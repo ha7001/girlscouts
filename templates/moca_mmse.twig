@@ -15,23 +15,24 @@
     </style>
 {% endblock %}
 {% block content %}
-    <div class="container">
+{#    <div class="container">
         <div class="row">
             <div class="col-md-12 main-title">
                 <h2>{{ MoCA_MMSE_Title }}</h2>
             </div>
         </div>
-    </div>
+    </div>#}
+
 
     <section class="container" id="main">
 
         <!-- Start Survey container -->
         <div id="survey_container">
-            <div id="top-wizard">
+{#            <div id="top-wizard">
                 <strong>Progress <span id="location"></span></strong>
                 <div id="progressbar"></div>
                 <div class="shadow"></div>
-            </div><!-- end top-wizard -->
+            </div><!-- end top-wizard -->#}
 
             <form name="MoCA_MMSEForm" id="wrapped" action="" method="POST">
 
@@ -275,7 +276,7 @@
         var id = getUrlVars()['id'];
         // Form submit
         $('form').on('submit', function(e) {
-            $.post('http://api.girlscouts.harryatwal.com/participant/' + id, $(this).serialize())
+            $.post('http://api.girlscouts.harryatwal.com/participant/' + id + '/moca_mmse', $(this).serialize())
                     .done(function(data) {
                         /*$('button[name="forward"]').trigger('click');*/
                     });

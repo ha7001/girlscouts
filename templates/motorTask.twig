@@ -23,7 +23,7 @@
     <!--
     <div class="container">
         <div class="row">
-            <div class="col-md-12 main-title">
+            <div class="col-md-12 text-center main-title">
                 <h1>{{ motorTitle }}</h1>
             </div>
         </div>
@@ -44,7 +44,7 @@
                 <div id="middle-wizard">
                     <!-- Motor Task one instructions -->
                     <div class="step row">
-                        <div class="col-md-12">
+                        <div class="">
                             <h4>
                                 {{ motorInstructions1 | raw }}
                             </h4>
@@ -88,7 +88,7 @@
 
                     <!-- Motor Task two instructions -->
                     <div class="step row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 text-center">
                             <p>
                                 {{ motorInstructions2 | raw }}
                             </p>
@@ -104,7 +104,6 @@
                                 <span class="counter">15</span> second(s).
                             </h4>
                         </div>
-
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant2a' class="center-block" width="611" height="542" style="border:1px solid #000000;"></canvas>
                             <button id="MotorTask2a" type="button" class="btn center-block">Start Test</button>
@@ -130,7 +129,7 @@
 
                     <!-- Motor Task three instructions -->
                     <div class="step row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 text-center">
                             <p>
                                 {{ motorInstructions3 | raw }}
                             </p>
@@ -163,7 +162,7 @@
                             </h4>
                         </div>
 
-                        <div id="canvas-drawing">
+                        <div id="canvas-drawing ">
                             <canvas id='motorTaskOneDominant3b' class="center-block" width="850" height="600" style="border:1px solid #000000;"></canvas>
                             <button id="MotorTask3b" type="button" class="btn center-block">Start Test</button>
                         </div>
@@ -178,7 +177,7 @@
                 </div>
 
                 <div id="bottom-wizard">
-                    <button id="backwardButton" type="button" name="backward" class="backward" >Backward</button>
+                    {#<button id="backwardButton" type="button" name="backward" class="backward" >Backward</button>#}
                     <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
                 </div><!-- end bottom-wizard -->
             </form>
@@ -201,7 +200,6 @@
                 index: 1
             };
         }
-
         function drawRec(width, height) {
             return {
                 layer: true,
@@ -213,7 +211,6 @@
                 }
             };
         }
-
         function imageObject(imagePath, width, height) {
             return {
                 layer: true,
@@ -245,6 +242,15 @@
             var line_objPractice = {};
             var isDownPractice = false;
             var practice_name = 0;
+
+            //Timer variables for part 1, each array will contain the duration of each finger down, up.
+            var timer1 = 0;
+            var timer2 = 0;
+            var startTime1 = 0;
+            var startTime2 = 0;
+            var timerValues1 = [];
+            var timerValues2 = [];
+
 
             var drawingObject = {
                 mousedown: function (layer) {
@@ -292,17 +298,130 @@
                 x: 0, y: 0,
                 width: 850, height: 600,
                 fromCenter: false,
-                name: "mtd1a"
-            }).setLayer("mtd1a", drawingObject);
+                mousedown: function (layer) {
+                    if(timer1 == 0){
+                        startTime1 = performance.now()
+                        timer1 = 1;
+                        console.log("Started Timer");
+                    }
+                    practice_name++;
+                    line_objPractice = {
+                        layer: true,
+                        type: 'line',
+                        name: "practice" + practice_name,
+                        strokeStyle: "#000",
+                        strokeWidth: 2
+                    };
 
+                    isDownPractice = true;
+                    ptsPractice.push([layer.eventX, layer.eventY]);
+
+                    $(this).addLayer(line_objPractice).drawLayers();
+                    $(this).moveLayer("practice" + practice_name, 1);
+                },
+                mousemove: function (layer) {
+                    if (isDownPractice) {
+                        ptsPractice.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < ptsPractice.length; p += 1) {
+                            line_objPractice['x' + (p + 1)] = ptsPractice[p][0];
+                            line_objPractice['y' + (p + 1)] = ptsPractice[p][1];
+                        }
+                        $(this).drawLine(line_objPractice);
+                    }
+                },
+                mouseup: function (layer) {
+                    // finger lifted up, stop the timer and add to the array, time is in milliseconds, check to see if the timer was already started though
+                    if(timer1 == 1){
+                        var elapsedTime = performance.now() - startTime1;
+                        console.log("Timer ended, pushing: " + elapsedTime);
+                        timerValues1.push(elapsedTime);
+                        //Set the hidden input to this value so we have something to hook onto during test submission
+                        document.getElementById("timer1").value = timerValues1;
+                        timer1 = 0; //Reset timer start variable if the user decides to put their finger down again
+                    }
+                    $(this).setLayer("practice" + practice_name, line_objPractice).drawLayers();
+
+                    line_objPractice = {};
+                    ptsPractice = [];
+                    isDownPractice = false;
+                },
+                mouseout: function (layer) {
+                    // finger lifted up, stop the timer and add to the array, time is in milliseconds, check to see if the timer was already started though
+                    if(timer1 == 1){
+                        var elapsedTime = performance.now() - startTime1;
+                        console.log("Timer ended, pushing: " + elapsedTime);
+                        timerValues1.push(elapsedTime);
+                        //Set the hidden input to this value so we have something to hook onto during test submission
+                        document.getElementById("timer1").value = timerValues1;
+                        timer1 = 0; //Reset timer start variable if the user decides to put their finger down again
+                    }
+                    $(this).setLayer("practice" + practice_name, line_objPractice).drawLayers();
+                }
+            });
             $motorTaskOneDominant1b.drawRect({
                 layer: true,
                 x: 0, y: 0,
-                width: 850, height: 600,
+                width: 610, height: 753,
                 fromCenter: false,
-                name: "mtd1b"
-            }).setLayer("mtd1b", drawingObject);
+                mousedown: function (layer) {
+                    if(timer2 == 0){
+                        startTime2 = performance.now()
+                        timer2 = 1;
+                        console.log("Started Timer");
+                    }
+                    practice_name++;
 
+                    line_objPractice = {
+                        layer: true,
+                        type: 'line',
+                        name: "practice" + practice_name,
+                        strokeStyle: "#000",
+                        strokeWidth: 2
+                    };
+
+                    isDownPractice = true;
+                    ptsPractice.push([layer.eventX, layer.eventY]);
+
+                    $(this).addLayer(line_objPractice).drawLayers();
+                    $(this).moveLayer("practice" + practice_name, 1);
+                },
+                mousemove: function (layer) {
+                    if (isDownPractice) {
+                        ptsPractice.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < ptsPractice.length; p += 1) {
+                            line_objPractice['x' + (p + 1)] = ptsPractice[p][0];
+                            line_objPractice['y' + (p + 1)] = ptsPractice[p][1];
+                        }
+                        $(this).drawLine(line_objPractice);
+                    }
+                },
+                mouseup: function (layer) {
+                    if(timer2 == 1){
+                        var elapsedTime = performance.now() - startTime2;
+                        console.log("Timer ended, pushing: " + elapsedTime);
+                        timerValues2.push(elapsedTime);
+                        //Set the hidden input to this value so we have something to hook onto during test submission
+                        document.getElementById("timer1").value = timerValues2;
+                        timer2 = 0; //Reset timer start variable if the user decides to put their finger down again
+                    }
+                    $(this).setLayer("practice" + practice_name, line_objPractice).drawLayers();
+
+                    line_objPractice = {};
+                    ptsPractice = [];
+                    isDownPractice = false;
+                },
+                mouseout: function (layer) {
+                    if(timer2 == 1){
+                        var elapsedTime = performance.now() - startTime2;
+                        console.log("Timer ended, pushing: " + elapsedTime);
+                        timerValues2.push(elapsedTime);
+                        //Set the hidden input to this value so we have something to hook onto during test submission
+                        document.getElementById("timer1").value = timerValues2;
+                        timer2 = 0; //Reset timer start variable if the user decides to put their finger down again
+                    }
+                    $(this).setLayer("practice" + practice_name, line_objPractice).drawLayers();
+                }
+            });
             $motorTaskOneDominant2a.drawRect(drawRec(800, 600));
             $motorTaskOneDominant2b.drawRect(drawRec(800, 500));
             $motorTaskOneDominant3a.drawRect(drawRec(850, 600));
@@ -311,21 +430,27 @@
             //Draw respective images onto canvases.
             $motor1a.click(function () {
                 setupMotorTask($motorTaskOneDominant1a, $(this), imageObject("/assets/img/motorTasks/Trazado.png", 850, 600));
+                $('button[name="forward"]').prop('disabled', true);
             });
             $motor1b.click(function () {
                 setupMotorTask($motorTaskOneDominant1b, $(this), imageObject("/assets/img/motorTasks/Trazado.png", 850, 600));
+                $('button[name="forward"]').prop('disabled', true);
             });
             $motor2a.click(function () {
                 setupMotorTask($motorTaskOneDominant2a, $(this), imageObject("/assets/img/motorTasks/Marcado.png", 611, 542));
+                $('button[name="forward"]').prop('disabled', true);
             });
             $motor2b.click(function () {
                 setupMotorTask($motorTaskOneDominant2b, $(this), imageObject("/assets/img/motorTasks/Marcado.png", 611, 542));
+                $('button[name="forward"]').prop('disabled', true);
             });
             $motor3a.click(function () {
                 setupMotorTask($motorTaskOneDominant3a, $(this), imageObject("/assets/img/motorTasks/Punteado.png", 850, 600));
+                $('button[name="forward"]').prop('disabled', true);
             });
             $motor3b.click(function () {
                 setupMotorTask($motorTaskOneDominant3b, $(this), imageObject("/assets/img/motorTasks/Punteado.png", 850, 600));
+                $('button[name="forward"]').prop('disabled', true);
             });
         });
 
@@ -347,5 +472,47 @@
                 $forward.trigger('click');
             }
         }
+
+        //Submission
+        $('form').on('submit', function(e) {
+            //Grab the canvases to submit
+            var c = document.getElementById("motorTaskOneDominant1a");
+            var dataURL1 = c.toDataURL("image/png");
+            var c1 = document.getElementById("motorTaskOneDominant1b");
+            var dataURL2 = c1.toDataURL("image/png");
+            var c3 = document.getElementById("motorTaskOneDominant2a");
+            var dataURL3 = c3.toDataURL("image/png");
+            var c4 = document.getElementById("motorTaskOneDominant2b");
+            var dataURL4 = c4.toDataURL("image/png");
+            var c5 = document.getElementById("motorTaskOneDominant3a");
+            var dataURL5 = c.toDataURL("image/png");
+            var c6 = document.getElementById("motorTaskOneDominant3b");
+            var dataURL6 = c1.toDataURL("image/png");
+            var timerValues1 = document.getElementById("timer1");
+            var timerValues2 = document.getElementById("timer2");
+            /*window.open(c.toDataURL('image/png'));*/
+
+            //Calculate time taken for this test
+            var endTime = console.time('r');
+
+            $.ajax({
+                type: "POST",
+                url: " http://api.girlscouts.harryatwal.com/participant/" + id + "/motorTask",
+                data: {
+                    motorTask1a: dataURL1, //TMT1
+                    timesTMT1: timerValues1, //This is an array
+                    motorTask1a: dataURL2, //TMT2
+                    timesTMT2: timerValues2, //This is an array
+                    motorTask2a: dataURL3,
+                    motorTask2b: dataURL4,
+                    motorTask3a: dataURL5,
+                    motorTask3b: dataURL6
+                }
+            }).done(function (o) {
+                console.log(endTime);
+                console.log('saved');
+            });
+        });
+
     </script>
 {% endblock %}

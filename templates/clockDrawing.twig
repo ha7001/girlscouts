@@ -53,7 +53,7 @@
                         <i class="icon-check"></i>
                         <h3>Test complete!</h3>
                         <p>On to the next test</p>
-                        <button type="button" name="process" class="submit">Submit</button>
+                        <button type="submit" name="process" class="submit">Submit</button>
                     </div><!-- end submit step -->
                 </div>
                 <input type="hidden" id="timer" name="drawingTimes"  value=0>
@@ -125,29 +125,36 @@
                 name: 'clockTest'
             }).setLayer('clockTest', drawingObject);
 
-            $('form').on('submit', function(e) {
-                var c = document.getElementById("RCFT1");
-                var dataURL = c.toDataURL("image/png");
-                /*window.open(c.toDataURL('image/png'));*/
-
 
                 //Submission of test
                 $('form').on('submit', function(e) {
                     var c = document.getElementById("clockTest");
+                    var userID = getUrlVars()['id'];
                     var dataURL = c.toDataURL("image/png");
                     /*window.open(c.toDataURL('image/png'));*/
 
-                    $.ajax({
-                        type: "POST",
-                        url: " http://api.girlscouts.harryatwal.com/participant/" + id + "/clockDrawing",
-                        data: {
-                            imgBase64: dataURL
-                        }
-                    }).done(function (o) {
-                        console.log('saved');
-                    });
+                    var data = {
+                        imgBase64: dataURL,
+                        name: "clockDrawing"
+                    };
+console.log('submit');
+                    $.post("http://api.girlscouts.harryatwal.com/participant/" + userID + "/clockDrawing", data)
+                            .done(function (o) {
+                                console.log('saved');
+                            });
+
+                    e.preventDefault();
+
+//                    $.ajax({
+//                        type: "POST",
+//                        url: " http://api.girlscouts.harryatwal.com/participant/" + id + "/clockDrawing",
+//                        data: {
+//                            imgBase64: dataURL
+//                        }
+//                    }).done(function (o) {
+//                        console.log('saved');
+//                    });
                 });
-            });
 
         });
 

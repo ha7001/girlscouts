@@ -257,7 +257,7 @@
 
                 <div id="bottom-wizard">
                     <!--<button id="backwardButton" type="button" name="backward" class="backward" >Backward</button>-->
-                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward" disabled>Forward</button>
                 </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -285,8 +285,8 @@
                 index: 0,
                 source: imagePath,
                 width: 700, height: 560
-
             }).drawLayers();
+
 
             var count = 1;
 
@@ -303,6 +303,7 @@
                         height: heightA,
                         click: function (layer) {
                             $('input[name="' + input + '"]').val(layer.name.replace('step', ''));
+                            $('#forwardButton').prop('disabled', false);
 
                             $canvas.setLayerGroup('questions', {
                                 strokeWidth: 0
@@ -372,87 +373,108 @@
 
             //Button click handlers
             $comprehensionStart1.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-01.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-01.mp3");
                 $('#comprehension1Button').remove();
+                $('#forwardButton').prop('disabled', true);
             });
             $comprehensionStart2.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-02.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-02.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension2Button').remove();
             });
             $comprehensionStart3.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-03.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-03.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension3Button').remove();
             });
             $comprehensionStart4.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-04.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-04.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension4Button').remove();
             });
             $comprehensionStart5.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-05.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-05.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension5Button').remove();
             });
             $comprehensionStart6.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-06.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-06.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension6Button').remove();
             });
             $comprehensionStart7.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-07.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-07.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension7Button').remove();
             });
             $comprehensionStart8.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-08.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-08.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension8Button').remove();
             });
             $comprehensionStart9.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-09.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-09.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension9Button').remove();
             });
             $comprehensionStart10.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-10.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-10.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension10Button').remove();
             });
             $comprehensionStart11.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-11.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-11.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension11Button').remove();
             });
             $comprehensionStart12.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-12.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-12.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension12Button').remove();
             });
             $comprehensionStart13.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-13.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-13.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension13Button').remove();
             });
             $comprehensionStart14.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-14.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-14.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension14Button').remove();
             });
             $comprehensionStart15.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-15.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-15.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension15Button').remove();
             });
             $comprehensionStart16.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-16.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-16.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension16Button').remove();
             });
             $comprehensionStart17.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-17.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-17.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension17Button').remove();
             });
             $comprehensionStart18.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-18.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-18.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension18Button').remove();
             });
             $comprehensionStart19.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-19.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-19.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension19Button').remove();
             });
             $comprehensionStart20.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-20.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-20.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension20Button').remove();
             });
             $comprehensionStart21.click(function () {
-                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-21.mp3")
+                playSound("/assets/audio/TOKEN_ENG/TOKEN-ENG-21.mp3");
+                $('#forwardButton').prop('disabled', true);
                 $('#comprehension21Button').remove();
             });
 
