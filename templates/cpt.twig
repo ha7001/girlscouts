@@ -94,7 +94,7 @@
 
                     setTimeout(function () {
                         init_game(stimuli, stimuli_timeout, target_percent);
-                    }, 1500);
+                    }, 0);
                 }
             } else {
 
@@ -197,9 +197,9 @@
             intervalId = setInterval(timedDisplay, length);
         }
 
-        var blocks = 3;
-        var stimuli = 10;
-        var stimuli_timeout = 1500;
+        var blocks = 1;
+        var stimuli = 30;
+        var stimuli_timeout = 1500; //used to be 1500 12/6/15 harry, inma wanted zero break inbetween
         var letter_length = 750;
         var target_percent = 20;
         var commission = 0;
@@ -222,10 +222,10 @@
         $(document).ready(function() {
             $forward = $('button[name="forward"]');
 
-            $forward.html('Start');
+            $forward.html('Forward ');
 
             $forward.click(function() {
-                if ($forward.html() == "Start") {
+                if ($forward.html() == "Forward ") {
                     $forward.html('Forward');
                     $forward.prop('disabled', true);
                 }
@@ -233,13 +233,17 @@
             });
 
             $start.click(function() {
+                $forward.prop('disabled', true);
                 $(this).hide();
                 init_game(stimuli, stimuli_timeout, target_percent);
                 blocks--;
             });
 
-            $('button[name="process"]').click(function() {
-                location.href = '/cancellationTest.php';
+            $('form').on('submit', function(e) {
+                var id = getUrlVars()['id'];
+                console.log(JSON.stringify(record));
+                $.post('http://api.girlscouts.harryatwal.com/participant/' + id + '/CPT', JSON.stringify(record));
+                e.preventDefault();
             });
 
 

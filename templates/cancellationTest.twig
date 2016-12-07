@@ -23,14 +23,7 @@
 
         <!-- Start Survey container -->
         <div id="survey_container">
-            {#<div id="top-wizard">#}
-                {#<strong>Progress <span id="location"></span></strong>#}
-                {#<div id="progressbar"></div>#}
-                {#<div class="shadow"></div>#}
-            {#</div><!-- end top-wizard -->#}
-
-
-            <form name="cancellationTest" id="wrapped" action="" method="POST">
+            <form name="cancellationTest" id="wrapped" >
                 <!-- Eye Test start -->
                 <div id="middle-wizard">
                     <div class="step">
@@ -77,7 +70,7 @@
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
                         <h3>Cancellation practice assessment complete!</h3>
-                        <button type="button" name="process" class="submit">Complete!</button>
+                        <button type="submit" name="process" class="submit">Complete!</button>
                     </div><!-- end submit step -->
                 </div>
 
@@ -97,43 +90,54 @@
         var correctSubmission = 0;
         var incorrectSubmission = 1;
         var clickData = [];
+        var userID = getUrlVars()['id'];
 
         //Test Blocks
-        var blk0 =  [['A','5','W','G','2','5','U','T','L','E','9','N','C','5','P','H','Z','9','Y','F'],
-                        ['I','K','1','9','Y','R','T','5','B','L','D','9','T','Y','E','3','1','K','9','5'],
-                        ['9','H','N','P','S','5','V','D','J','9','Q','F','R','9','W','P','L','5','G','S']];
-        var blk1 =   [['X','9','O','K','5','J','I','B','L','Z','5','N','1','Z','9','R','G','D','9','B'],
-                        ['Y','H','9','N','2','B','5','5','E','R','N','5','T','B','M','R','9','Q','K','H'],
-                        ['K','P','J','N','5','A','F','U','V','5','9','H','H','Z','5','N','8','9','U','O']];
-        var blk2 =   [['P','5','9','R','C','A','D','5','V','K','P','5','V','P','V','O','Y','S','B','9'],
-                        ['9','N','L','5','W','L','I','F','G','5','W','2','S','H','9','9','E','1','Q','Q'],
-                        ['E','Y','D','9','Q','I','L','9','M','E','9','C','3','F','5','Z','Z','9','N','K']];
-        var blk3 =   [['9','9','5','G','A','E','Z','A','9','J','A','F','R','W','5','C','A','S','A','I'],
-                        ['N','5','F','V','2','X','F','X','V','9','5','Q','K','9','L','M','U','L','G','5'],
-                        ['M','9','B','1','9','O','N','9','W','V','T','9','E','H','8','S','9','R','Z','G']];
-        var blk4 =   [['P','D','5','V','9','F','I','9','R','5','K','5','H','Q','E','P','N','U','K','S'],
-                        ['R','F','9','C','D','W','F','5','J','P','N','5','7','C','Q','C','B','9','Y','9'],
-                        ['M','G','5','H','9','O','5','D','1','G','2','T','G','9','H','V','Y','5','Q','B']];
-        var blk5 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
-                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
-                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
-        var blk6 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
-                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
-                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
-        var blk7 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
-                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
-                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
-        var blk8 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
-                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
-                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
-        var blk9 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
-                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
-                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
-        var blk10 =   [['Q','O','Z','5','A','G','M','9','S','9','V','D','Z','5','J','I','G','S','5','E'],
-                        ['U','L','S','9','3','R','9','9','O','L','M','N','H','9','K','G','2','Z','V','5'],
-                        ['B','1','O','S','J','5','M','M','R','X','9','M','M','5','5','Q','J','5','W','X']];
+        var blk0 =   [['5', 'X', 'N', 'W', 'A', 'W', 'V', '0', 'Q', 'N', '5', '9', 'C', '2', 'B', 'Y', 'V', 'E', '5', 'Q'],
+                        ['P', '8', 'V', '9', 'J', '9', '2', '7', '5', '2', 'C', 'A', '1', 'C', 'W', '9', '6', 'R', '0', 'D'],
+                        ['G', 'R', '5', '6', 'Q', 'F', 'L', '9', '8', 'G', '9', 'Y', '2', 'Z', 'T', 'G', '5', '1', 'H', '2']];
+        var blk1 =   [['B', 'A', '1', '3', 'R', '3', 'Q', '6', '2', '9', 'N', 'W', 'V', 'W', 'I', 'H', '9', '5', '1', '5'],
+                        ['B', '9', 'C', '9', 'E', 'V', 'E', 'S', '5', '0', '7', 'F', '7', 'L', 'C', 'V', 'Q', '9', 'T', '6'],
+                        ['W', 'T', '5', 'H', 'H', 'C', 'C', '5', 'B', 'J', '5', 'Z', 'L', 'X', '5', 'T', 'J', '8', 'Y', 'X']];
+        var blk2 =   [['8', '3', '8', 'V', 'Y', 'G', '9', '6', 'K', '9', 'V', '5', 'C', '9', 'D', 'I', '3', 'G', '6', 'T'],
+                        ['J', 'A', 'P', '5', 'A', 'C', '9', 'M', '6', 'L', 'D', '9', '8', 'X', '6', '0', 'F', 'I', 'J', '5'],
+                        ['9', '9', 'V', '5', 'X', '0', 'W', '3', '9', '6', '1', 'C', '2', '2', '6', '6', 'A', '4', 'P', '4']];
+        var blk3 =  [['5', '2', 'I', '5', 'S', 'G', '2', 'R', '1', 'G', 'V', 'D', 'K', '9', '9', '7', 'M', 'R', 'E', 'B'],
+                        ['U', 'M', '6', '7', 'Y', '5', 'W', 'P', 'T', '9', 'X', '2', '0', 'C', 'A', 'B', '9', 'L', '6', '5'],
+                        ['R', 'D', 'F', '7', 'D', 'K', '4', '9', 'F', 'I', '2', 'M', '9', 'Y', '9', 'N', 'K', 'T', '5', '2']];
+        var blk4 =   [['9', 'R', 'X', '7', 'W', 'F', '7', '5', 'P', 'F', '9', 'D', 'Q', '1', '8', 'R', 'P', '5', '8', 'X'],
+                        ['E', '4', 'N', 'D', 'R', 'Z', 'D', '3', '3', '9', '5', '3', 'R', '0', '9', 'U', '3', '9', 'E', 'P'],
+                        ['G', '8', '8', '2', '5', 'A', '1', '0', '9', 'T', '5', '1', '6', 'S', '4', '0', 'X', 'B', '3', '5']];
+        var blk5 =   [['7', '5', 'X', 'H', '5', '4', '8', '9', 'R', 'J', '6', '9', 'P', 'Y', 'S', 'A', '0', 'F', 'Q', '1'],
+                        ['M', '9', '2', '3', '3', '9', '6', '5', '2', 'C', 'W', 'S', '7', '6', '4', '6', '9', '2', '1', '8'],
+                        ['P', 'C', '5', '9', '6', '5', 'Q', 'Z', '8', '3', '2', 'L', '1', 'A', 'R', 'D', '5', '1', 'Q', 'S']];
+        var blk6 =   [['H', '5', '3', '7', 'W', '8', '9', 'M', 'S', '5', '9', 'I', '3', 'D', 'T', 'I', 'F', 'J', 'G', '0'],
+                        ['2', 'K', 'H', 'U', 'S', '7', 'P', 'G', '1', '4', '9', '5', 'A', '9', '5', 'F', 'G', '3', '3', 'K'],
+                        ['I', '2', '9', 'Q', 'L', '2', '1', '9', 'X', '8', 'D', 'B', '2', 'P', '9', '9', 'N', '1', 'V', 'Y']];
+        var blk7 =   [['9', 'Z', 'X', '7', 'A', 'L', '8', 'B', 'F', 'A', '5', '5', '9', 'L', '7', 'V', '1', 'G', 'J', 'W'],
+                        ['N', 'L', 'Q', '2', 'U', 'A', 'D', 'Y', 'B', 'Q', '5', '4', 'Z', '9', 'F', 'G', '5', 'L', 'Z', '5'],
+                        ['0', '9', '6', '0', 'M', '9', 'I', 'H', '2', 'D', 'A', '1', 'Y', '7', '5', 'F', 'M', '9', '7', 'Q']];
+        var blk8 =   [['H', 'N', '9', 'Z', '8', 'K', 'U', 'P', '9', 'Z', 'F', '9', '8', 'L', 'T', '0', 'F', '5', 'M', '1'],
+                        ['1', 'B', 'D', '9', 'A', 'A', 'T', 'E', 'R', 'R', 'P', 'J', 'A', '5', '7', '9', 'H', '5', 'S', '3'],
+                        ['K', '9', '0', 'F', 'H', 'Y', '7', 'K', 'D', 'X', 'G', '9', '5', '5', 'A', '0', '8', 'A', '2', '7']];
+        var blk9 =   [['Y', '6', 'K', 'M', '9', 'H', 'T', 'M', '9', '0', 'Y', 'K', 'L', 'A', '9', '4', 'R', '8', '2', '9'],
+                        ['X', '3', '1', 'M', 'K', 'U', 'D', 'X', 'L', '9', 'T', 'Y', 'L', '5', 'Q', 'T', 'G', '5', 'V', '5'],
+                        ['7', 'M', '0', '2', 'X', '6', '4', '6', 'D', '7', 'C', 'P', 'R', '9', '5', '9', 'L', 'A', '9', 'W']];
+        var blk10 =   [['I', 'N', 'F', '5', '5', 'T', '4', 'H', '9', 'Y', 'K', 'W', 'F', 'W', '6', 'G', '4', 'Q', 'V', '5'],
+                        ['M', 'F', 'B', '9', '8', '9', 'N', '1', '8', 'A', 'V', 'V', '9', 'E', '8', 'T', '9', 'V', 'U', '1'],
+                        ['W', 'D', 'Q', 'D', 'Z', 'T', '4', 'D', 'M', '3', '3', '9', '2', '9', '2', 'T', '9', '3', '9', '7']];
+        var blk11 =   [['5', 'Y', '7', '4', 'G', 'K', '9', '8', 'J', '3', 'F', 'E', '5', 'I', '6', 'V', '5', 'F', 'S', 'A'],
+                        ['5', 'D', '5', 'M', '0', 'P', 'P', 'T', 'I', '7', 'M', '9', '9', 'V', '3', '0', 'V', '4', '6', 'H'],
+                        ['T', 'D', '9', '5', '8', '0', 'Z', 'Q', 'D', 'K', 'U', '9', 'Y', '4', 'K', 'A', 'X', '1', '9', '1']];
+        //Extra block
+        var blk12 =   [['C', '6', 'Q', 'R', 'I', '8', 'T', '7', 'T', '2', '5', 'I', '6', 'P', '0', 'B', '9', '9', '9', 'C'],
+                        ['5', 'U', '3', '5', 'C', '7', 'R', 'Z', '6', 'M', '1', 'T', '9', 'Q', '5', '8', 'F', 'I', 'N', 'X'],
+                        ['8', 'P', 'J', '9', '9', 'P', '5', 'I', 'C', '0', '5', 'U', '7', 'U', 'Z', 'C', '3', 'B', '4', '6']];
 
-        var testBlocks = [blk0, blk1, blk2, blk3, blk4, blk5, blk6, blk7, blk8, blk9, blk10];
+
+
+
+        var testBlocks = [blk0, blk1, blk2, blk3, blk4, blk5, blk6, blk7, blk8, blk9, blk10, blk11, blk12];
 
         //Display start button for practice test
         $(document).ready(function() {
@@ -149,8 +153,21 @@
                 $('#backwardButton').prop('disabled', true);
             });
 
-            $('button[name="process"]').click(function() {
-                location.href = "/eyeTest.php";
+            //Submission of test
+            $('form').on('submit', function(e) {
+
+                var data = {
+                    incorrectSubmissionCount: incorrectSubmission,
+                    correctSubmissionCount: correctSubmission,
+                    clickData: clickData
+                };
+
+                $.post("http://api.girlscouts.harryatwal.com/participant/" + userID + "/cancellationTest", data)
+                        .done(function (o) {
+                            console.log('saved');
+                        });
+
+                e.preventDefault();
             });
         });
 
@@ -180,25 +197,25 @@
         function startTesting(){
             //The timeing for this method is preset. Once the test begins, all the test blocks will automatically display
             $('#startCancellation').remove();
-            createBlkTest(testBlocks[1], '1');
+            createBlkTest(testBlocks[2], '1');
             resultsCompleteVar = setTimeout(completeMessage, 15000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[2], '2');}, 18000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[3], '2');}, 18000);
             resultsCompleteVar = setTimeout(completeMessage, 33000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[3], '3');}, 36000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[4], '3');}, 36000);
             resultsCompleteVar = setTimeout(completeMessage, 51000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[4], '4');}, 54000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[5], '4');}, 54000);
             resultsCompleteVar = setTimeout(completeMessage, 69000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[5], '5');}, 72000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[6], '5');}, 72000);
             resultsCompleteVar = setTimeout(completeMessage, 87000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[6], '6');}, 90000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[7], '6');}, 90000);
             resultsCompleteVar = setTimeout(completeMessage, 105000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[7], '7');}, 108000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[8], '7');}, 108000);
             resultsCompleteVar = setTimeout(completeMessage, 123000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[8], '8');}, 126000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[9], '8');}, 126000);
             resultsCompleteVar = setTimeout(completeMessage, 141000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[9], '9');}, 144000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[10], '9');}, 144000);
             resultsCompleteVar = setTimeout(completeMessage, 159000);
-            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[10], '10');}, 162000);
+            resultsCompleteVar = setTimeout(function(){createBlkTest(testBlocks[11], '10');}, 162000);
             resultsCompleteVar = setTimeout(testComplete, 177000);
 
         }
@@ -228,10 +245,16 @@
                         text: TestBlock[row][i],
                         click: function (layer) {
                             if(layer.fillStyle != 'rgb( 255,0,0 )') {
-                                console.log("Fill style is " + layer.fillStyle);
-                                storeClick(testBlockNumber.toString(), layer.data.testBlockRow, layer.data.testBlockCol, layer.text, 0, "Harry", Math.abs(testStartTime - (new Date).getTime()))
-                            }
+                                //console.log("Fill style is " + layer.fillStyle);
+//                                console.log("Storage variables: " );
+//                                console.log("Test Block Number: " + testBlockNumber.toString());
+//                                console.log("Test row: " + layer.data.testBlockRow);
+//                                console.log("Test col: " + layer.data.testBlockCol);
+//                                console.log("Test click variable: " + layer.text);
+//                                console.log("Test block variable: " + testBlockNumber);
+                                storeClick(testBlockNumber.toString(), layer.data.testBlockRow, layer.data.testBlockCol, layer.text, Math.abs(testStartTime - (new Date).getTime()));
 
+                            }
                             $(this).animateLayer(layer, {
                                 fillStyle: 'rgb( 255,0,0 )',
                                 scale: 1.5
@@ -353,7 +376,7 @@
             $('#forwardButton').trigger('click');
         }
 
-        function storeClick(block, blockRow, blockCol, blockValue, testNumber, participantId, timeV )
+        function storeClick(block, blockRow, blockCol, blockValue, timeV )
         {
             //Parse through and see what letter was actually clicked. Store incorrect click count and correct click counts
             if(blockValue == '5' || blockValue == '9'){
@@ -368,30 +391,11 @@
                 blockRow: blockRow,
                 blockCol: blockCol,
                 blockValue: blockValue,
-                testNumber: testNumber,
                 timeV: timeV
             };
-            clickData.add(submissionData);
-            /*$.post('cancellationSubmit.php', { block: JSON.stringify(submissionData)}, function(data, status) {
-                alert(data);
-            });*/
+            clickData.push(submissionData);
         }
-        //Submission of test
-        $('form').on('submit', function(e) {
 
-            var data = {
-                incorrectSubmissionCount: incorrectSubmission,
-                correctSubmissionCount: correctSubmission,
-                clickData: clickData
-            };
-            var userID = getUrlVars()['id'];
-            $.post("http://api.girlscouts.harryatwal.com/participant/" + userID + "/cancellationTest", data)
-                    .done(function (o) {
-                        console.log('saved');
-                    });
-
-            e.preventDefault();
-        });
 
 
         function returnCodeFromDBstore(data, textStatus, jqXHRobject){

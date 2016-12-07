@@ -29,9 +29,11 @@
                 <!-- RCFT1 -->
                 <div id="middle-wizard">
                     <div class="step row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 ">
                             <h4>
-                                {{ RCFTInsructions3 | raw }}
+                                <center>
+                                    {{ RCFTInsructions3 | raw }}
+                                </center>
                             </h4>
                         </div>
                     </div>
@@ -41,7 +43,6 @@
                             <canvas id='RCFT3' class="center-block" width="600" height="470" style="border:1px solid #000000;"></canvas>
                         </div>
                         <br>
-                        <button type="button" class="btn center-block" id="part3Submit" onclick="part3Submit()">Done</button>
                     </div>
                     <input type="hidden" id="timer" name="drawingTimes"  value=0>
                     <div class="submit step" id="complete">
@@ -151,6 +152,7 @@
                             console.log('saved');
                         });
 
+                e.preventDefault();
 //                $.ajax({
 //                    type: "POST",
 //                    url: " http://api.girlscouts.harryatwal.com/participant/" + userID + "/reyComplexFigure3",

@@ -44,13 +44,15 @@
         ul.data-list-2 li.multi-select, .status select.form-control {
             height: 90px;
         }
+
         .vertical-center {
-            min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+            min-height: 100%; /* Fallback for browsers do NOT support vh unit */
             min-height: 100vh; /* These two lines are counted as one :-)       */
 
             display: flex;
             align-items: center;
         }
+
         ul.long-string li {
             height: auto;
         }
@@ -65,6 +67,7 @@
         <div id="survey_container">
             <form name="example-1" id="wrapped" action="/questionnaire.php" method="POST" data-customer-form>
                 <div id="middle-wizard">
+                    <!--
                     {#<div class="step">#}
                         {#<div class="row">#}
                             {#<div class="col-md-12 main-title">#}
@@ -87,20 +90,21 @@
                             {#</div>#}
                         {#</div>#}
                     {#</div><!-- end step-->#}
+                    -->
 
                     <div class="step">
                         <div class="row">
                             <div class="col-md-6">
                                 <ul class="data-list">
                                     <li>
-                                        <label>{{ question_1_title }}:</label>
+                                        <h4>{{ question_1_title }}</h4>
                                         <input type="date" name="dob" id="dob" class="required form-control" placeholder="Date of Birth"></li>
                                     <input id="website" name="website" type="text" value=""><!-- Leave for security protection, read docs for details -->
                                 </ul>
                             </div><!-- end col-md-6 -->
                             <div class="col-md-6">
                                 <ul class="data-list">
-                                    <li><label>{{ question_2_title }}:</label>
+                                    <li><h4>{{ question_2_title }}</h4>
                                         <div class="styled-select">
                                             <select class="form-control required" name="gender">
                                                 <option value="" selected>{{ question_2_option_1 }}</option>
@@ -118,7 +122,7 @@
                     <!-- Dominate Hand -->
                     <div class="step row hand">
                         <div class="col-md-12">
-                            <h3>Please indicate your preferences in the use of hands in the following activities. Please try to answer all the questions:</h3>
+                            <h3>Please indicate which hand you prefer for the following activities. Please answer all the questions:</h3>
                             <div class="row">
                                 <div class="col-xs-2 col-xs-offset-8">
                                     <label>Left</label>
@@ -251,7 +255,7 @@
                                 <li><input name="race" type="radio" class="check_radio required" value="Cuban"><label>Cuban</label></li>
                                 <li><input name="race" type="radio" class="check_radio required" value="Central_American"><label>Central America</label></li>
                                 <li><input type="radio" name="race" value="Other" class="check_radio required"/><label>other Hispanic/Latino</label></li>
-                                <li><input type="text" name="otherRace" id="other" class="form-control" placeholder="Specify"></li>
+                                <li><input type="text" name="other" id="other" class="form-control" placeholder="Specify"></li>
                             </ul>
                             <h4>What race do you consider yourself to be according to your parentage, ancestry or roots? (You can choose more than one):</h4>
                             <ul class="data-list-2 long-string">
@@ -318,10 +322,10 @@
                                 </li>
 
                                 {#<li><input name="ethnicity[]" type="checkbox" class="vertical-center" value="asian"><label>Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China,#}
-                                        {#India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label></li>#}
+                                {#India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label></li>#}
                                 {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="black"><label>Black or African American</label></li>#}
                                 {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="hawaii"><label>Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific#}
-                                        {#Islands)</label></li>#}
+                                {#Islands)</label></li>#}
                                 {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="white"><label>White (Europe, Middle East or North Africa)</label></li>#}
                             </ul>
                         </div>
@@ -445,6 +449,7 @@
                                 <li><input type="radio" name="daily_activities" class="check_radio" value="looking"/><label>Looking for work</label></li>
                                 <li><input type="radio" name="daily_activities" class="check_radio" value="keepinghouse"/><label>Keeping house or raising children full time</label></li>
                                 <li><input type="radio" name="daily_activities" class="check_radio" value="retired"/><label>Retired</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="student"/><label>Student</label></li>
                             </ul>
                             <div class="employed">
                                 <ul class="data-list-2">
@@ -552,7 +557,7 @@
                                 <li><input type="radio" name="home_status" class="check_radio" value="owned"/><label>Owned or being bought by you (or someone in the household)?</label></li>
                                 <li><input type="radio" name="home_status" class="check_radio" value="rent"/><label>Rented for money?</label></li>
                                 <li><input type="radio" name="home_status" class="check_radio" value="nonrent"/><label>Occupied without payment of money or rent?</label></li>
-                                <li><input type="radio" name="home_status" class="check_radio" value="other"/><label>Other (specify)</label></li>
+                                <li><input type="radio" name="home_status" class="check_radio" value="other"/><label>Other (i.e. live wih parents, campus housing, dormitory, residence hall, nursing home, retirement home, ...)</label></li>
                                 <li><input type="text" name="other_home_status" class="form-control"/></li>
                             </ul>
                             <ul class="data-list-2">
@@ -577,24 +582,25 @@
                     <!-- Subjective Social Status -->
                     <div class="step row">
                         <div class="col-md-12">
-                            <h4>Think of this ladder as representing where people stand in their <u>communities.</u></h4>
-                            <p>People define community in different ways; please define it in whatever way is most meaningful to you. At the <strong>top</strong> of the ladder are the people who have
-                                the highest standing in their community. At the <strong>bottom</strong> are the people who have the lowest standing in their community.</p>
-                            <h4>Where would you place yourself on this ladder?</h4>
-                            <p>Click on the rung where you think you stand at this time in your life, relative to other people in your community.</p>
+                            <h3>Think of this ladder as representing where people stand in their <u>communities.</u></h3>
+                            <h4>People define community in different ways; please define it in whatever way is most meaningful to you. At the <strong>top</strong> of the ladder are the people who have
+                                the highest standing in their community. At the <strong>bottom</strong> are the people who have the lowest standing in their community.</h4>
+                            <h3>Where would you place yourself on this ladder?</h3>
+                            <h4>Click on the rung where you think you stand at this time in your life, relative to other people in your community.</h4>
                             <canvas id="communityLadder" class="center-block" width="148" height="441" style="border:1px solid #000000;"></canvas>
                             <input type="hidden" name="communityLadder"/>
                         </div>
                     </div>
 
+                    <!-- Ladder -->
                     <div class="step row">
                         <div class="col-md-12">
-                            <h4>Think of this ladder as representing where people stand in the <u>United States.</u></h4>
-                            <p>At the <strong>top</strong> of the ladder are the people who are the best off - those who have the most money, the most education and the most respected jobs. At the
+                            <h3>Think of this ladder as representing where people stand in the <u>United States.</u></h3>
+                            <h4>At the <strong>top</strong> of the ladder are the people who are the best off - those who have the most money, the most education and the most respected jobs. At the
                                 <strong>bottom</strong> are the people who are the worst off - who have the least money, least education and the least respected jobs or no job. The higher up you are
-                                on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom</p>
-                            <h4>Where would you place yourself on this ladder?</h4>
-                            <p>Click on the rung where you think you stand at this time in your life, relative to other people in the United States.</p>
+                                on this ladder, the closer you are to the people at the very top; the lower you are, the closer you are to the people at the very bottom</h4>
+                            <h3>Where would you place yourself on this ladder?</h3>
+                            <h4>Click on the rung where you think you stand at this time in your life, relative to other people in the United States.</h4>
                             <canvas id="countryLadder" class="center-block" width="148" height="441" style="border:1px solid #000000;"></canvas>
                             <input type="hidden" name="countryLadder"/>
                         </div>
@@ -604,7 +610,7 @@
                     <div class="step row">
                         <div class="col-md-12">
                             <ul class="data-list-2">
-                                <h4>How many years did you study?</h4>
+                                <h4>How many years of study did you complete? (including elementary school, high school, college and postgraduate)</h4>
                                 <li><input type="number" name="years_study" class="form-control" placeholder="0" min="0"/></li>
                             </ul>
                             <ul class="data-list-2">
@@ -649,7 +655,7 @@
                         <div class="col-md-12">
                             <ul class="data-list">
                                 <li>
-                                    <h4>1.	Do you consider yourself religious or spiritual?</h4>
+                                    <h4>1. Do you consider yourself religious or spiritual?</h4>
                                     <div class="styled-select">
                                         <select class="form-control" name="beliefs">
                                             <option value="" selected>Select one</option>
@@ -685,7 +691,8 @@
                         </div>
                     </div>
 
-                    <!-- Gender roles -->
+                    <!-- Gender roles dropdown version, backup -->
+                    <!--
                     <div class="step row">
                         <div class="col-md-12">
                             <ul class="data-list">
@@ -712,6 +719,7 @@
                                     <div class="styled-select">
                                         <select class="form-control " name="housekeeping_as_current">
                                             <option value="" selected>Select one</option>
+                                            <option value="myself">Myself</option>
                                             <option value="mother">Mother</option>
                                             <option value="father">Father</option>
                                             <option value="grandmother">Grandmother</option>
@@ -804,6 +812,148 @@
                             </ul>
                         </div>
                     </div>
+                    -->
+
+                    <!-- Gender roles -->
+                    <div class="step row">
+                        <div class="col-md-12">
+                            <ul class="data-list">
+                                <li><h4>Who was in charge of housekeeping when you were a child?</h4>
+                                    <div class="styled-select">
+                                        <select class="form-control" multiple name="housekeeping_as_child">
+                                            <option value="" selected>Me/Myself</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="father">Father</option>
+                                            <option value="grandmother">Grandmother</option>
+                                            <option value="grandfather">Grandfather</option>
+                                            <option value="aunt">Aunt</option>
+                                            <option value="uncle">Uncle</option>
+                                            <option value="sister">Sister</option>
+                                            <option value="brother">Brother</option>
+                                            <option value="male_cousin">Cousin (male)</option>
+                                            <option value="female_cousin">Cousin (female)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="data-list">
+                                <h4>Who was in charge of housekeeping in your current home?</h4>
+                                <div class="styled-select">
+                                    <select class="form-control" multiple name="housekeeping_as_current">
+                                        <option value="" selected>Me/Myself</option>
+                                        <option value="mother">Mother</option>
+                                        <option value="father">Father</option>
+                                        <option value="grandmother">Grandmother</option>
+                                        <option value="grandfather">Grandfather</option>
+                                        <option value="aunt">Aunt</option>
+                                        <option value="uncle">Uncle</option>
+                                        <option value="sister">Sister</option>
+                                        <option value="brother">Brother</option>
+                                        <option value="male_cousin">Cousin (male)</option>
+                                        <option value="female_cousin">Cousin (female)</option>
+                                    </select>
+                                </div>
+                                <ul class="data-list">
+                                    <li><h4>Who took care of you when you were a child?</h4>
+                                        <div class="styled-select">
+                                            <select class="form-control" multiple name="housekeeping_as_child">
+                                                <option value="" selected>Me/Myself</option>
+                                                <option value="mother">Mother</option>
+                                                <option value="father">Father</option>
+                                                <option value="grandmother">Grandmother</option>
+                                                <option value="grandfather">Grandfather</option>
+                                                <option value="aunt">Aunt</option>
+                                                <option value="uncle">Uncle</option>
+                                                <option value="sister">Sister</option>
+                                                <option value="brother">Brother</option>
+                                                <option value="male_cousin">Cousin (male)</option>
+                                                <option value="female_cousin">Cousin (female)</option>
+                                            </select>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                                <ul class="data-list">
+                                    <li><h4>Who takes care of children, sick relatives or elderly relatives?</h4>
+                                        <div class="styled-select">
+                                            <select class="form-control" multiple name="caretaker">
+                                                <option value="" selected>Me/Myself</option>
+                                                <option value="mother">Mother</option>
+                                                <option value="father">Father</option>
+                                                <option value="grandmother">Grandmother</option>
+                                                <option value="grandfather">Grandfather</option>
+                                                <option value="aunt">Aunt</option>
+                                                <option value="uncle">Uncle</option>
+                                                <option value="sister">Sister</option>
+                                                <option value="brother">Brother</option>
+                                                <option value="male_cousin">Cousin (male)</option>
+                                                <option value="female_cousin">Cousin (female)</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="data-list">
+                                    <li><h4>Who takes care of children, sick relatives or elderly relatives?</h4>
+                                        <div class="styled-select">
+                                            <select class="form-control " multiple name="caretaker">
+                                                <option value="" selected>Me/Myself</option>
+                                                <option value="" selected>Select one</option>
+                                                <option value="mother">Mother</option>
+                                                <option value="father">Father</option>
+                                                <option value="grandmother">Grandmother</option>
+                                                <option value="grandfather">Grandfather</option>
+                                                <option value="aunt">Aunt</option>
+                                                <option value="uncle">Uncle</option>
+                                                <option value="sister">Sister</option>
+                                                <option value="brother">Brother</option>
+                                                <option value="male_cousin">Cousin (male)</option>
+                                                <option value="female_cousin">Cousin (female)</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="data-list">
+                                    <li><h4>If you have children, who makes the decisions relative to their upbringing?</h4>
+                                        <div class="styled-select">
+                                            <select class="form-control " multiple name="child_upbringing">
+                                                <option value="" selected>Me/Myself</option>
+                                                <option value="mother">Mother</option>
+                                                <option value="father">Father</option>
+                                                <option value="grandmother">Grandmother</option>
+                                                <option value="grandfather">Grandfather</option>
+                                                <option value="aunt">Aunt</option>
+                                                <option value="uncle">Uncle</option>
+                                                <option value="sister">Sister</option>
+                                                <option value="brother">Brother</option>
+                                                <option value="male_cousin">Cousin (male)</option>
+                                                <option value="female_cousin">Cousin (female)</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="data-list">
+                                    <li><h4>Who makes the important decisions in your current home?</h4>
+                                        <div class="styled-select">
+                                            <select class="form-control " multiple name="important_decisions_current">
+                                                <option value="" selected>Me/Myself</option>
+                                                <option value="mother">Mother</option>
+                                                <option value="father">Father</option>
+                                                <option value="grandmother">Grandmother</option>
+                                                <option value="grandfather">Grandfather</option>
+                                                <option value="aunt">Aunt</option>
+                                                <option value="uncle">Uncle</option>
+                                                <option value="sister">Sister</option>
+                                                <option value="brother">Brother</option>
+                                                <option value="male_cousin">Cousin (male)</option>
+                                                <option value="female_cousin">Cousin (female)</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Cultural values -->
                     <div class="step row">
@@ -821,7 +971,7 @@
                                 <li><input type="radio" name="capabilities" class="check_radio" value="neither"/><label>I don´t know</label></li>
                             </ul>
                             <ul class="data-list-2">
-                                <h4>Do you enjoy being unique and different from the others?</h4>
+                                <h4>Do you enjoy being unique and different from others?</h4>
                                 <li><input type="radio" name="unique" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="unique" class="check_radio" value="no"/><label>No</label></li>
                                 <li><input type="radio" name="unique" class="check_radio" value="neither"/><label>I don´t know</label></li>
@@ -1901,7 +2051,6 @@
                     </div>
 
 
-
                     <div class="submit step" id="complete">
                         <p>Submit your answers</p>
                         <button type="submit" name="process" class="submit">Submit</button>
@@ -2087,7 +2236,7 @@
                 $('.nation').text(race);
             });
 
-            $('#other').on('input', function() {
+            $('#other').on('input', function () {
                 race = $(this).val();
                 $('.nation').text(race);
             });
@@ -2216,10 +2365,10 @@
             var id = getUrlVars()['id'];
             // Form submit
 
-            $('form').on('submit', function(e) {
+            $('form').on('submit', function (e) {
                 console.log($(this).serialize());
                 $.post('http://api.girlscouts.harryatwal.com/participant/' + id, $(this).serialize())
-                        .done(function(data) {
+                        .done(function (data) {
                             $('button[name="forward"]').trigger('click');
                         });
                 e.preventDefault();

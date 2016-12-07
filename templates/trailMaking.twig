@@ -2,39 +2,22 @@
 
 {% block title %}Trail Making Test{% endblock %}
 {% block css %}
-    <style type="text/css">
-        img.img-responsive {
-            margin: 0 auto;
-        }
+    {#<style type="text/css">#}
+    {#img.img-responsive {#}
+    {#margin: 0 auto;#}
+    {#}#}
 
-        .step h3.popover-title {
-            margin-bottom: 0;
-        }
-    </style>
+    {#.step h3.popover-title {#}
+    {#margin-bottom: 0;#}
+    {#}#}
+    {#</style>#}
 {% endblock %}
 {% block content %}
-    <!--
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 main-title">
-                <h1>{{ TrailMakingTest }}</h1>
-            </div>
-        </div>
-    </div>
-    -->
     <section class="container" id="main">
 
         <!-- Start Survey container -->
         <div id="survey_container">
-            <!--
-            <div id="top-wizard">
-                <strong>Progress <span id="location"></span></strong>
-                <div id="progressbar"></div>
-                <div class="shadow"></div>
-            </div>
-            end top-wizard -->
-
-            <form name="trailMaking" id="wrapped" action="" method="POST">
+            <form name="trailMaking" id="wrapped">
                 <!-- RCFT1 -->
                 <div id="middle-wizard">
 
@@ -97,11 +80,7 @@
                         <button type="submit" name="process" class="submit">Submit</button>
                     </div><!-- end submit step -->
                 </div>
-                <!-- Hidden divs to keep track of fingerdown times -->
-                <input type="hidden" id="timer1" name="drawingTimes1"  value=0>
-                <input type="hidden" id="timer2" name="drawingTimes2"  value=0>
                 <div id="bottom-wizard">
-                    {#<button type="button" name="backward" class="backward">Backward</button>#}
                     <button type="button" name="forward" class="forward">Forward</button>
                 </div><!-- end bottom-wizard -->
             </form>
@@ -113,24 +92,79 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
-
-        //automatically scroll down to center drawing board.
-        function pageScroll() {
-            window.scrollBy(0, 50); // horizontal and vertical scroll increments
-        }
-
-
         $(document).ready(function () {
             var $TMT1 = $("#TMT1"); //Practice Canvas
             var $TMT2 = $("#TMT2"); //Practice Canvas
             var pts = [];
-            var ptsTM = [];
-            var lines = [];
-            var linesTM = [];
             var line_obj = {};
-            var line_objTM = {};
             var isDown = false;
-            var isDownTM = false;
+            var trail_name = 0;
+            var timerStartedYet = false;
+            var timeStart = 0;
+            var $forward = $('button[name="forward"]');
+            var tmt1_time = 0;
+            var tmt2_time = 0;
+
+            var drawingObject = {
+                mousedown: function (layer) {
+                    //Check to see if this is the users first time drawing, if it is, start time, set bool to true
+                    if(!timerStartedYet){
+                        //Set the field to the start value
+                        timeStart = performance.now();
+                        timerStartedYet = true;
+                    }
+                    trail_name++;
+                    line_obj = {
+                        layer: true,
+                        type: 'line',
+                        name: "trail" + trail_name,
+                        strokeStyle: "#000",
+                        strokeWidth: 2
+                    };
+
+                    isDown = true;
+                    pts.push([layer.eventX, layer.eventY]);
+
+                    $(this).addLayer(line_obj).drawLayers();
+                    $(this).moveLayer("trail" + trail_name, 1);
+                },
+                mousemove: function (layer) {
+                    if (isDown) {
+                        pts.push([layer.eventX, layer.eventY]);
+                        for (var p = 0; p < pts.length; p += 1) {
+                            line_obj['x' + (p + 1)] = pts[p][0];
+                            line_obj['y' + (p + 1)] = pts[p][1];
+                        }
+                        $(this).drawLine(line_obj);
+                    }
+                },
+                mouseup: function (layer) {
+                    $(this).setLayer("trail" + trail_name, line_obj).drawLayers();
+
+                    line_obj = {};
+                    pts = [];
+                    isDown = false;
+                },
+                mouseout: function (layer) {
+                    $(this).setLayer("trail" + trail_name, line_obj).drawLayers();
+                }
+            };
+
+            $TMT1.drawRect({
+                layer: true,
+                x: 0, y: 0,
+                width: 605, height: 753,
+                fromCenter: false,
+                name: 'tmt1'
+            }).setLayer('tmt1', drawingObject);
+
+            $TMT2.drawRect({
+                layer: true,
+                x: 0, y: 0,
+                width: 620, height: 745,
+                fromCenter: false,
+                name: 'tmt2'
+            }).setLayer('tmt2', drawingObject);
 
             //Place Trail Images onto board.
             $TMT1.drawImage({
@@ -140,6 +174,7 @@
                 source: "/assets/img/trail_Making/TrailPartA.png",
                 fromCenter: false
             }).drawLayers();
+
             $TMT2.drawImage({
                 layer: true,
                 x: 0, y: 0,
@@ -148,186 +183,43 @@
                 fromCenter: false
             }).drawLayers();
 
-            //Timer variable, each array will contain the duraction of each finger down, up.
-            var timer1 = 0;
-            var timer2 = 0;
-            var startTime1 = 0;
-            var startTime2 = 0;
-            var timerValues1 = [];
-            var timerValues2 = [];
-
-            //Setup drawing surfaces
-            $TMT1.drawRect({
-                layer: true,
-                x: 0, y: 0,
-                width: 610, height: 753,
-                fromCenter: false,
-                mousedown: function (layer) {
-                    if(timer1 == 0){
-                        startTime1 = performance.now()
-                        timer1 = 1;
-                        console.log("Started Timer");
+            $forward.on('click', function() {
+                if (timerStartedYet) {
+                    if (tmt1_time == 0) {
+                        tmt1_time = performance.now() - timeStart;
+                    } else {
+                        tmt2_time = performance.now() - timeStart;
                     }
 
-                    line_obj = {
-                        strokeStyle: "#000",
-                        strokeWidth: 2,
-                        data: {
-                            joints: 1
-                        }
-                    };
-
-                    isDown = true;
-                    pts.push([layer.eventX, layer.eventY]);
-                },
-                mousemove: function (layer) {
-                    if (isDown) {
-                        pts.push([layer.eventX, layer.eventY]);
-                        for (var p = 0; p < pts.length; p += 1) {
-                            line_obj['x' + (p + 1)] = pts[p][0];
-                            line_obj['y' + (p + 1)] = pts[p][1];
-                        }
-                        $TMT1.drawLine(line_obj);
-                    }
-                    for (var i = 0; i < lines.length; i++) {
-                        $TMT1.drawLine(lines[i]);
-                    }
-                },
-                mouseup: function (layer) {
-                    // finger lifted up, stop the timer and add to the array, time is in milliseconds, check to see if the timer was already started though
-                    if(timer1 == 1){
-                        var elapsedTime = performance.now() - startTime1;
-                        console.log("Timer ended, pushing: " + elapsedTime);
-                        timerValues1.push(elapsedTime);
-                        //Set the hidden input to this value so we have something to hook onto during test submission
-                        document.getElementById("timer1").value = timerValues1;
-                        timer1 = 0; //Reset timer start variable if the user decides to put their finger down again
-                    }
-                    lines.push(line_obj);
-                    for (var i = 0; i < lines.length; i++) {
-                        $TMT1.drawLine(lines[i]);
-                    }
-
-                    line_obj = {};
-                    pts = [];
-                    isDown = false;
-                },
-                mouseout: function (layer) {
-                    if(timer1 == 1){
-                        var elapsedTime = performance.now() - startTime1;
-                        console.log("Timer ended, pushing: " + elapsedTime);
-                        timerValues1.push(elapsedTime);
-                        //Set the hidden input to this value so we have something to hook onto during test submission
-                        document.getElementById("timer1").value = timerValues1;
-                        timer1 = 0; //Reset timer start variable if the user decides to put their finger down again
-                    }
-                    console.log(lines);
-
-                    for (var i = 0; i < lines.length; i++) {
-                        $TMT1.drawLine(lines[i]);
-                    }
+                    timerStartedYet = false;
                 }
-            }).drawLayers();
-            $TMT2.drawRect({
-                layer: true,
-                x: 0, y: 0,
-                width: 620, height: 747,
-                fromCenter: false,
-                mousedown: function (layer) {
-                    if(timer2 == 0){
-                        startTime2 = performance.now()
-                        timer2 = 1;
-                        console.log("Started Timer");
-                    }
-                    line_objTM = {
-                        strokeStyle: "#000",
-                        strokeWidth: 2,
-                        data: {
-                            joints: 1
-                        }
-                    };
+            });
 
-                    isDownTM = true;
-                    ptsTM.push([layer.eventX, layer.eventY]);
-                },
-                mousemove: function (layer) {
-                    if (isDownTM) {
-                        ptsTM.push([layer.eventX, layer.eventY]);
-                        for (var p = 0; p < ptsTM.length; p += 1) {
-                            line_objTM['x' + (p + 1)] = ptsTM[p][0];
-                            line_objTM['y' + (p + 1)] = ptsTM[p][1];
-                        }
-                        $TMT2.drawLine(line_objTM);
-                    }
-                    for (var i = 0; i < linesTM.length; i++) {
-                        $TMT2.drawLine(linesTM[i]);
-                    }
-                },
-                mouseup: function (layer) {
-                    if(timer2 == 1){
-                        var elapsedTime = performance.now() - startTime2;
-                        console.log("Timer ended, pushing: " + elapsedTime);
-                        timerValues2.push(elapsedTime);
-                        //Set the hidden input to this value so we have something to hook onto during test submission
-                        document.getElementById("timer1").value = timerValues2;
-                        timer2 = 0; //Reset timer start variable if the user decides to put their finger down again
-                    }
-                    linesTM.push(line_objTM);
-                    for (var i = 0; i < linesTM.length; i++) {
-                        $TMT2.drawLine(linesTM[i]);
-                    }
+            //Submission of test
+            $('form').on('submit', function(e) {
+                //Grab the two canvases to submit
+                var c = document.getElementById("TMT1");
+                var dataURL1 = c.toDataURL("image/png");
+                var c1 = document.getElementById("TMT2");
+                var dataURL2 = c1.toDataURL("image/png");
 
-                    line_objTM = {};
-                    ptsTM = [];
-                    isDownTM = false;
-                },
-                mouseout: function (layer) {
-                    console.log(linesTM);
-                    if(timer2 == 1){
-                        var elapsedTime = performance.now() - startTime2;
-                        console.log("Timer ended, pushing: " + elapsedTime);
-                        timerValues2.push(elapsedTime);
-                        //Set the hidden input to this value so we have something to hook onto during test submission
-                        document.getElementById("timer1").value = timerValues2;
-                        timer2 = 0; //Reset timer start variable if the user decides to put their finger down again
-                    }
-                    for (var i = 0; i < linesTM.length; i++) {
-                        $TMT2.drawLine(linesTM[i]);
-                    }
-                }
-            }).drawLayers();
-
-
-        });
-        //Submission of test
-        $('form').on('submit', function(e) {
-            //Grab the two canvases to submit
-            var c = document.getElementById("TMT1");
-            var dataURL1 = c.toDataURL("image/png");
-            var c1 = document.getElementById("TMT2");
-            var dataURL2 = c1.toDataURL("image/png");
-            var timerValues1 = document.getElementById("timer1");
-            var timerValues2 = document.getElementById("timer2");
-            /*window.open(c.toDataURL('image/png'));*/
-
-            //Calculate time taken for this test
-            var endTime = console.time('r');
-
-            $.ajax({
-                type: "POST",
-                url: " http://api.girlscouts.harryatwal.com/participant/" + id + "/trailMaking",
-                data: {
+                var data = {
                     TMTCanvas1: dataURL1, //TMT1
-                    timesTMT1: timerValues1, //This is an array
+                    timesTMT1: tmt1_time, //This is an array
                     TMTCanvas2: dataURL2, //TMT2
-                    timesTMT2: timerValues2 //This is an array
-                }
-            }).done(function (o) {
-                console.log(endTime);
-                console.log('saved');
+                    timesTMT2: tmt2_time //This is an array
+                };
+
+                var id = getUrlVars()['id'];
+                console.log(data);
+                $.post('http://api.girlscouts.harryatwal.com/participant/' + id + '/trailMaking', data)
+                        .done(function (o) {
+                            console.log('saved');
+                        });
+
+                e.preventDefault();
             });
         });
-
 
     </script>
 {% endblock %}

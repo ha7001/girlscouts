@@ -1247,6 +1247,20 @@
                 placement: 'right',
                 trigger: 'hover'
             });
+
+
+            //Submission of test
+            $('form').on('submit', function(e) {
+                var userID = getUrlVars()['id'];
+                console.log($(this).serialize());
+
+                $.post("http://api.girlscouts.harryatwal.com/participant/" + userID + "/eyeTest", $(this).serialize())
+                        .done(function (o) {
+                            console.log('saved');
+                        });
+
+                e.preventDefault();
+            });
         });
     </script>
 {% endblock %}

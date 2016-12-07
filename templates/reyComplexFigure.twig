@@ -48,7 +48,7 @@
 
                     <div class="step row">
                         <div id="canvas-drawing">
-                            <canvas id='RCFTPractice' class="center-block" width="800" height="450" style="border:1px solid #000000;"></canvas>
+                            <canvas id='RCFTPractice' class="center-block" width="600" height="450" style="border:1px solid #000000;"></canvas>
                         </div>
                         <br>
                         <h4>Click Forward Once you are done practicing.</h4>
@@ -69,6 +69,7 @@
                                     <div class="col-sm-6">
                                         <img src="/assets/img/RCFT/RCFT%20Copy%20Figure.png" alt="Smiley face" width="420" height="310" class="center-block">
                                     </div>
+                                &nbsp;
                                     <div class="col-sm-6">
                                         <canvas id='RCFT1' class="center-block"  width="460" height="470"  style="border:1px solid #000000;"></canvas>
                                     </div>
@@ -103,6 +104,8 @@
         $(document).ready(function () {
             //Disable the ability to go backwards.
             $('#backwardButton').prop('disabled', true);
+
+
             var $canvasPractice = $("#RCFTPractice");
             var ptsPractice = [];
             var line_objPractice = {};
@@ -164,7 +167,7 @@
             $canvasPractice.drawRect({
                 layer: true,
                 x: 0, y: 0,
-                width: 800, height: 450,
+                width: 600, height: 450,
                 fromCenter: false,
                 name: 'practice'
             }).setLayer('practice', drawingObject);

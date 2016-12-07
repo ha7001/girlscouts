@@ -15,24 +15,10 @@
     </style>
 {% endblock %}
 {% block content %}
-{#    <div class="container">
-        <div class="row">
-            <div class="col-md-12 main-title">
-                <h2>{{ MoCA_MMSE_Title }}</h2>
-            </div>
-        </div>
-    </div>#}
-
-
     <section class="container" id="main">
 
         <!-- Start Survey container -->
         <div id="survey_container">
-{#            <div id="top-wizard">
-                <strong>Progress <span id="location"></span></strong>
-                <div id="progressbar"></div>
-                <div class="shadow"></div>
-            </div><!-- end top-wizard -->#}
 
             <form name="MoCA_MMSEForm" id="wrapped" action="" method="POST">
 
@@ -50,11 +36,11 @@
                     <div class="col-md-11">
                         <br>
                         <div class="form-group">
-                            <label for="MoCA_MMSE_question1">{{ MoCA_MMSE_Question1 }}</label>
+                            <h4 for="MoCA_MMSE_question1">{{ MoCA_MMSE_Question1 }}</h4>
                             <input type="number" min="2000" max="2100" class="form-control" name="MoCA_MMSE_Ans1">
                         </div>
                         <ul class="data-list">
-                            <li><label>{{ MoCA_MMSE_Question2 }}</label>
+                            <li><h4>{{ MoCA_MMSE_Question2 }}</h4>
                                 <div class="styled-select">
                                     <select class="form-control" name="MoCA_MMSE_Ans2">
                                         <option value="" selected>Select one</option>
@@ -75,7 +61,7 @@
                             </li>
                         </ul>
                         <ul class="data-list">
-                            <li><label>{{ MoCA_MMSE_Question3 }}</label>
+                            <li><h4>{{ MoCA_MMSE_Question3 }}</h4>
                                 <div class="styled-select">
                                     <select class="form-control" name="MoCA_MMSE_Ans3">
                                         <option value="" selected>Select one</option>
@@ -115,7 +101,7 @@
                             </li>
                         </ul>
                         <ul class="data-list">
-                            <li><label>{{ MoCA_MMSE_Question4 }}</label>
+                            <li><h4>{{ MoCA_MMSE_Question4 }}</h4>
                                 <div class="styled-select">
                                     <select class="form-control" name="MoCA_MMSE_Ans4">
                                         <option value="" selected>Select one</option>
@@ -133,11 +119,11 @@
 
 
                         <div class="container-fluid">
-                            <label for="usr">{{ MoCA_MMSE_Question5 }}</label>
+                            <h4 for="usr">{{ MoCA_MMSE_Question5 }}</h4>
                             <div class="row">
                                 <div class="col-xs-3">
                                     <select class="form-control" name="MoCA_MMSE_Ans5H">
-                                        <option value="" selected>Select one</option>
+                                        <option value="" selected>Hour</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -152,7 +138,7 @@
                                         <option value="12">12</option>
                                     </select>
                                     <select class="form-control" name="MoCA_MMSE_Ans5M">
-                                        <option value="" selected>Select one</option>
+                                        <option value="" selected>Minutes</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -206,7 +192,7 @@
                                         <option value="59">59</option>
                                     </select>
                                     <select class="form-control" name="MoCA_MMSE_Ans5AMPM">
-                                        <option value="" selected>Select one</option>
+                                        <option value="" selected>AM/PM</option>
                                         <option value="AM">AM</option>
                                         <option value="PM">PM</option>
                                     </select>
@@ -230,36 +216,33 @@
                     <div class="col-md-11">
                         <br>
                         <div class="form-group">
-                            <label for="MoCA_MMSE_question6">{{ MoCA_MMSE_Question6 }}</label>
+                            <h4 for="MoCA_MMSE_question6">{{ MoCA_MMSE_Question6 }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans6">
                         </div>
                         <div class="form-group">
-                            <label for="MoCA_MMSE_question7">{{ MoCA_MMSE_Question7 }}</label>
+                            <h4 for="MoCA_MMSE_question7">{{ MoCA_MMSE_Question7 }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans7">
                         </div>
                         <div class="form-group">
-                            <label for="MoCA_MMSE_question8">{{ MoCA_MMSE_Question8 }}</label>
+                            <h4 for="MoCA_MMSE_question8">{{ MoCA_MMSE_Question8 }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans8">
                         </div>
                         <div class="form-group">
-                            <label for="MoCA_MMSE_question9">{{ MoCA_MMSE_Question9 }}</label>
+                            <h4 for="MoCA_MMSE_question9">{{ MoCA_MMSE_Question9 }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans9">
                         </div>
                         <div class="form-group">
-                            <label for="MoCA_MMSE_question10">{{ MoCA_MMSE_Question10 }}</label>
+                            <h4 for="MoCA_MMSE_question10">{{ MoCA_MMSE_Question10 }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans10">
                         </div>
                     </div>
                 </div>
                 <div class="submit step" id="complete">
                     <i class="icon-check"></i>
-                    <h3>Personal assessment complete!</h3>
-                    <p>Now time for the test to begin</p>
+                    <h3>Nice Job! </h3>
                     <button type="submit" name="process" class="submit">Submit</button>
                 </div><!-- end submit step -->
 
-
-                <!-- Eye Test start -->
                 <div id="bottom-wizard">
                     <button type="button" name="backward" class="backward">Backward</button>
                     <button type="button" name="forward" class="forward">Forward</button>

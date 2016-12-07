@@ -23,7 +23,7 @@ $message["INDEX_BACKWARD"] = "Backward";
 $message["INDEX_FORWARD"] = "Forward";
 
 // CPT
-$message['CPT_INSTRUCTIONS'] = "In this task you will see a series of letters in the screen, one at a time.<br/>Please tap the screen <b>ONLY</b> when a letter <u>\"A\" appears right after a letter \"X\"</u>.<br/>Otherwise, do nothing.";
+$message['CPT_INSTRUCTIONS'] = "In this task you will see a series of letters in the screen, one at a time.<br/>Please TAP on the CHARACTER <u>ONLY</u> when a letter <u>\"A\" appears right after a letter \"X\"</u>.<br/>Otherwise, do nothing. <br/> Click Start to being the test";
 
 //Cancellation test Variables
 $message["INDEX_CANCELLATION_TEST_TITLE"] = "Cancellation Test";
@@ -316,15 +316,15 @@ $message ["INDEX_EYE_TEST_WORRIED _EXMP"] = "When her cat went missing, the girl
 
 //Trail Making Test
 $message ["INDEX_TRAIL_MAKING_TITLE"] = "Trail Making Test";
-$message ["INDEX_TRAIL_MAKING_Instructions"] = "Please rotate the iPad to protrait mode. On the next page are some numbers. <br>Begin at number 1 and draw a line from 1 to 2, 2 to 3 , 3 to 4 , and so on, in ascending order, until you reach the end. <br> Draw the lines as fast as you can. <br> Click 'Forward' for a demonstration.";
-$message ["INDEX_TRAIL_MAKING_Instructions1"] = "On the next page are some numbers and letters. <br> Begin at number 1 and draw a line from 1 to A, A to 2, 2 to B, B to 3, 3 to C so on, in order, until you reach the circle marked “end”.<br> Remember, first you have a number, then a letter, then a number, then a letter, and so on. <br> Draw the lines as fast as you can. <br> Click 'Forward' for a demonstration. ";
+$message ["INDEX_TRAIL_MAKING_Instructions"] = "In the next task you are going to see some numbers on the screen. <br> Begin at number 1 and draw a line from 1 to 2, 2 to 3, 3 to 4 and so on, in ascending order, until you reach the end.<br> Draw the lines as fast as you can without lifting your finger from the screen. <br>Click 'forward' for a demonstration.";
+$message ["INDEX_TRAIL_MAKING_Instructions1"] = "On the next page you will see some numbers and letters on the screen. <br> Begin at number 1 and draw a line from 1 to A, A to 2, 2 to B, B to 3, 3 to C so on, in order, until you reach the circle marked “end”.<br>  Draw the lines as fast as you can without lifting your finger from the screen. <br> Remember, first you have a number, then a letter, then a number, then a letter, and so on. <br> Draw the lines as fast as you can. <br> Click 'Forward' for a demonstration. ";
 $message ["INDEX_TRAIL_MAKING_DONE"] = "When you are complete, click the forward button";
 
 //Motor Task / Pegboard Test
 $message ["INDEX_TRAIL_MOTORTEST_TITLE"] = "Motor Test / Pegboard";
-$message ["INDEX_TRAIL_MOTORTEST_Task1"] = "In this task you will see a maze. <br>Your goal will be to draw a continuous line through this maze passing through the openings and without crossing or touching any line. <br> Begin at the STAR and continue through the maze as far as you can. <br> You have 30 seconds to get as far as you can.";
-$message ["INDEX_TRAIL_MOTORTEST_Task2"] = "In this task you will see several squares. <br> Your goal will be to tap with your finger THREE TIMES in each square.  <br> Start on the left side of each row of squares and move towards the right. <br> Do this as quickly as you can.<br> You have 30 seconds to get as far as you can.";
-$message ["INDEX_TRAIL_MOTORTEST_Task3"] = "In this task you will see several squares. <br> Your goal will be to tap with your finger ONLY ONCE in each square. <br> Follow the arrows and tap each square as you go. <br> Do this as quickly as you can. <br> You have 30 seconds to get as far as you can.";
+$message ["INDEX_TRAIL_MOTORTEST_Task1"] = "In this task you will see a maze. <br>Your goal will be to draw a continuous line through this maze passing through the openings and without crossing or touching any line. <br> Begin at the STAR and continue through the maze as far as you can. <br> You have 15 seconds to get as far as you can.";
+$message ["INDEX_TRAIL_MOTORTEST_Task2"] = "In this task you will see several squares. <br> Your goal will be to tap with your finger THREE TIMES in each square.  <br> Start on the left side of each row of squares and move towards the right. <br> Do this as quickly as you can.<br> You have 15 seconds to get as far as you can.";
+$message ["INDEX_TRAIL_MOTORTEST_Task3"] = "In this task you will see several squares. <br> Your goal will be to tap with your finger ONLY ONCE in each square. <br> Follow the arrows and tap each square as you go. <br> Do this as quickly as you can. <br> You have 15 seconds to get as far as you can.";
 $message ["INDEX_TRAIL_MOTORTEST_Dominant_Hand"] = "Please only use your <b><font color=\"red\"> DOMINANT  </font></b>hand";
 $message ["INDEX_TRAIL_MOTORTEST_Non_Dominant_Hand"] = "Please only use your <b><font color=\"red\">NON-DOMINANT </font></b>hand";
 
@@ -350,7 +350,7 @@ $message ["INDEX_Matrices_Practice1"] = "Practice. Pick the image that best comp
 
 //Clock Drawing Test Variables
 $message ["INDEX_CLOCKDRAWING_TEST_TITLE"] = "Clock Test";
-$message ["INDEX_CLOCKDRAWING_TEST_INSTRUCTIONS"] = "Next you will be drawing with your finger. <br> The objective is to draw a big circular clock with all its numbers in the correct position. <br>Make it large enough so that you can add the numbers too. <br> Draw clock hands to make the clock read <b>10</b> past <b>11</b>. <br> When you finish click 'Save and Continue' ";
+$message ["INDEX_CLOCKDRAWING_TEST_INSTRUCTIONS"] = "Now the objective is to draw a big circular clock with its hands in the correct positions. <br>Make it large enough so that you can add the numbers too. <br> Draw clock hands to make the clock read <b>10</b> past <b>11</b>. <br> When you have finished click 'Forward' to continue ";
 
 //Comprehension Test Variables
 $message ["INDEX_COMPREHENSION_TEST_TITLE"] = "Comprehension Test";
@@ -358,12 +358,10 @@ $message ["INDEX_COMPREHENSION_TEST_INSTRUCTIONS"] = "Next, you will see differe
 
 //Rey Complex Figure Task Variables
 $message ["INDEX_RCFT_TITLE"] = "Rey Complex Figure Test";
-$message ["INDEX_RCFT_Instructions"] = "In this task you are going to be asked to draw with your finger. <br> Before we proceed, please practice drawing with your finger in the sample screen.<Br> Click Forward to continue.";
-$message ["INDEX_RCFT_Instructions2"] = "Now please draw the figure you saw before again, but this time from memory.";
-$message ["INDEX_RCFT_Instructions3"] = "A short time ago you draw a figure with your finger. <br> Please draw that figure again from memory.";
+$message ["INDEX_RCFT_Instructions"] = "In this task you are going to be asked to draw with your finger. <br> Before we proceed, please practice drawing with your finger in the sample screen.<Br> Click 'Forward' to continue.";
+$message ["INDEX_RCFT_Instructions2"] = "A few minutes ago you copied a <u>COMPLEX</u> figure. Now please draw the <u> COMPLEX </u> figure you drew before again, but this time from memory. <br> Click 'Forward' when you are done.";
+$message ["INDEX_RCFT_Instructions3"] = "A short time ago you draw from memory a <u>COMPLEX</u> figure with your finger. <br>Now please draw that COMPLEX figure from memory again";
 $message ["INDEX_RCFT_Instructions4"] = "Some of the designs that you are going to see now are part of the larger figure that you copied earlier and some of them are not. <br> Please press ‘yes’ when the design shown was part of the larger figure and ‘no’ when it was not part of the larger figure. <br> The designs are facing the same direction as in the original, complete design. <br> Please press 'Forward' to continue.";
-$message ["INDEX_RCFT_Instructions1"] = "Now you will be shown a figure. <br>Please copy the figure with your finger on the blank space below the figure. <br> Press 'DONE' when you finish copying the figure.;
+$message ["INDEX_RCFT_Instructions1"] = "Now you will be shown a <u>COMPLEX</u> figure. <br>Please copy the figure with your finger on the blank space below the figure. <br> Press 'DONE' when you finish copying the figure.";
 
 
-
-";
