@@ -53,16 +53,16 @@
                             </h4>
                             &nbsp;
                             &nbsp;
-                            <button id="MotorTaskStartInstructions1" type="button" class="btn center-block"><b>NEXT</b></button>
+                            <button id="MotorTaskStartInstructions1" type="button" class="btn center-block"><b>FORWARD</b></button>
                         </div>
                     </div>
                     <!-- Motor Task one Dominant -->
                     <div class="step row">
                         <div class="row">
-                            <div class="col-xs-10">
+                            <div class="col-xs-9">
                                 <h4>{{ motorInstructionsDominant | raw }}</h4>
                             </div>
-                            <div class="col-xs-2">
+                            <div class="col-xs-3">
                                 <h4>
                                     <span class="counter">15</span> second(s).
                                 </h4>
@@ -77,10 +77,10 @@
                     </div>
                     <!-- Motor Task one Non-Dominant -->
                     <div class="step row">
-                        <div class="col-xs-10">
+                        <div class="col-xs-9">
                             <h4>{{ motorInstructionsNonDominant | raw }}</h4>
                         </div>
-                        <div class="col-xs-2">
+                        <div class="col-xs-3">
                             <h4>
                                 <span class="counter">15</span> second(s).
                             </h4>
@@ -100,15 +100,15 @@
                             </h4>
                             &nbsp;
                             &nbsp;
-                            <button id="MotorTaskStartInstructions2" type="button" class="btn center-block"><b>NEXT</b></button>
+                            <button id="MotorTaskStartInstructions2" type="button" class="btn center-block"><b>FORWARD</b></button>
                         </div>
                     </div>
                     <!-- Motor Task two Dominant -->
                     <div class="step row">
-                        <div class="col-xs-10">
+                        <div class="col-xs-9">
                             <h4>{{ motorInstructionsDominant | raw }}</h4>
                         </div>
-                        <div class="col-xs-2">
+                        <div class="col-xs-3">
                             <h4>
                                 <span class="counter">15</span> second(s).
                             </h4>
@@ -120,10 +120,10 @@
                     </div>
                     <!-- Motor Task two Non-Dominant -->
                     <div class="step row">
-                        <div class="col-xs-10">
+                        <div class="col-xs-9">
                             <h4>{{ motorInstructionsNonDominant | raw }}</h4>
                         </div>
-                        <div class="col-xs-2">
+                        <div class="col-xs-3">
                             <h4>
                                 <span class="counter">15</span> second(s).
                             </h4>
@@ -144,15 +144,15 @@
                             </h4>
                             &nbsp;
                             &nbsp;
-                            <button id="MotorTaskStartInstructions3" type="button" class="btn center-block"><b>NEXT</b></button>
+                            <button id="MotorTaskStartInstructions3" type="button" class="btn center-block"><b>FORWARD</b></button>
                         </div>
                     </div>
                     <!-- Motor Task three Dominant -->
                     <div class="step row">
-                        <div class="col-xs-10">
+                        <div class="col-xs-9">
                             <h4>{{ motorInstructionsDominant | raw }}</h4>
                         </div>
-                        <div class="col-xs-2">
+                        <div class="col-xs-3">
                             <h4>
                                 <span class="counter">15</span> second(s).
                             </h4>
@@ -344,26 +344,32 @@
             $motor1a.click(function () {
                 setupMotorTask($motorTaskOneDominant1a, $(this), imageObject("/assets/img/motorTasks/Trazado.png", 850, 600));
                 $('button[name="forward"]').prop('disabled', true);
+                window.scrollBy(0,45);
             });
             $motor1b.click(function () {
                 setupMotorTask($motorTaskOneDominant1b, $(this), imageObject("/assets/img/motorTasks/Trazado.png", 850, 600));
                 $('button[name="forward"]').prop('disabled', true);
+                window.scrollBy(0,45);
             });
             $motor2a.click(function () {
                 setupMotorTask($motorTaskOneDominant2a, $(this), imageObject("/assets/img/motorTasks/Marcado.png", 611, 542));
                 $('button[name="forward"]').prop('disabled', true);
+                window.scrollBy(0,45);
             });
             $motor2b.click(function () {
                 setupMotorTask($motorTaskOneDominant2b, $(this), imageObject("/assets/img/motorTasks/Marcado.png", 611, 542));
                 $('button[name="forward"]').prop('disabled', true);
+                window.scrollBy(0,45);
             });
             $motor3a.click(function () {
                 setupMotorTask($motorTaskOneDominant3a, $(this), imageObject("/assets/img/motorTasks/Punteado.png", 850, 600));
                 $('button[name="forward"]').prop('disabled', true);
+                window.scrollBy(0,45);
             });
             $motor3b.click(function () {
                 setupMotorTask($motorTaskOneDominant3b, $(this), imageObject("/assets/img/motorTasks/Punteado.png", 850, 600));
                 $('button[name="forward"]').prop('disabled', true);
+                window.scrollBy(0,45);
             });
         });
 
