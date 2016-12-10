@@ -2,8 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f29b0d8f-e727-47e8-9954-ec1292962067" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-01.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-01.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-02.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-02.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-03.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-03.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-04.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-04.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-05.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-05.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-06.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-06.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-07.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-07.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-08.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-08.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-09.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-09.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-10.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-10.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-11.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-11.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-12.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-12.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-13.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-13.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-14.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-14.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-15.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-15.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-16.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-16.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-17.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-17.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-18.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-18.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-19.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-19.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-20.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-20.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-21.mp3" afterPath="$PROJECT_DIR$/assets/audio/TOKEN_ENG/TOKEN-ENG-21.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/functions.js" afterPath="$PROJECT_DIR$/assets/js/functions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/initial.php" afterPath="$PROJECT_DIR$/initial.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/languages/english_us.php" afterPath="$PROJECT_DIR$/languages/english_us.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/cancellationTest.twig" afterPath="$PROJECT_DIR$/templates/cancellationTest.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/clockDrawing.twig" afterPath="$PROJECT_DIR$/templates/clockDrawing.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/comprehension.twig" afterPath="$PROJECT_DIR$/templates/comprehension.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/cpt.twig" afterPath="$PROJECT_DIR$/templates/cpt.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/eyeTest.twig" afterPath="$PROJECT_DIR$/templates/eyeTest.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/initial.twig" afterPath="$PROJECT_DIR$/templates/initial.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/matrices.twig" afterPath="$PROJECT_DIR$/templates/matrices.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/moca_mmse.twig" afterPath="$PROJECT_DIR$/templates/moca_mmse.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/motorTask.twig" afterPath="$PROJECT_DIR$/templates/motorTask.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reyComplexFigure.twig" afterPath="$PROJECT_DIR$/templates/reyComplexFigure.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reyComplexFigure2.twig" afterPath="$PROJECT_DIR$/templates/reyComplexFigure2.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reyComplexFigure3.twig" afterPath="$PROJECT_DIR$/templates/reyComplexFigure3.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reyComplexFigure4.twig" afterPath="$PROJECT_DIR$/templates/reyComplexFigure4.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/trailMaking.twig" afterPath="$PROJECT_DIR$/templates/trailMaking.twig" />
     </list>
     <ignored path="Embraced.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,18 +61,7 @@
     <favorites_list name="Embraced" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="motorTask.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/motorTask.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="77" column="31" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,12 +85,13 @@
         <option value="$PROJECT_DIR$/templates/moca_mmse.twig" />
         <option value="$PROJECT_DIR$/templates/reyComplexFigure3.twig" />
         <option value="$PROJECT_DIR$/templates/reyComplexFigure4.twig" />
-        <option value="$PROJECT_DIR$/languages/english_us.php" />
-        <option value="$PROJECT_DIR$/templates/cpt.twig" />
         <option value="$PROJECT_DIR$/templates/cancellationTest.twig" />
         <option value="$PROJECT_DIR$/templates/comprehension.twig" />
-        <option value="$PROJECT_DIR$/templates/initial.twig" />
         <option value="$PROJECT_DIR$/templates/motorTask.twig" />
+        <option value="$PROJECT_DIR$/templates/cpt.twig" />
+        <option value="$PROJECT_DIR$/initial.php" />
+        <option value="$PROJECT_DIR$/languages/english_us.php" />
+        <option value="$PROJECT_DIR$/templates/initial.twig" />
       </list>
     </option>
   </component>
@@ -171,46 +198,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Embraced" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Embraced" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Embraced" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Embraced" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RCFT" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -287,7 +274,8 @@
       <workItem from="1478707101090" duration="4130000" />
       <workItem from="1478873177736" duration="64510000" />
       <workItem from="1479391756984" duration="13658000" />
-      <workItem from="1481043952156" duration="15627000" />
+      <workItem from="1481043952156" duration="26778000" />
+      <workItem from="1481387882364" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="Domonique's changes to the index file, fix for the rey complex figure&#10;">
       <created>1478197561393</created>
@@ -314,7 +302,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188030000" />
+    <option name="totallyTimeSpent" value="199217000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -327,27 +315,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14552239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108208954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09100758" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09090909" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -372,13 +360,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/cpt.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2992">
-          <caret line="176" column="28" selection-start-line="176" selection-start-column="28" selection-end-line="176" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -566,7 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="22" column="68" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -588,7 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
           <caret line="688" column="43" selection-start-line="688" selection-start-column="43" selection-end-line="688" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -596,10 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
           <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-          <folding>
-            <element signature="e#4171#7502#0#HTML" expanded="false" />
-            <element signature="e#7579#8464#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -607,7 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,9 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
-          <folding>
-            <element signature="e#2826#4797#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -636,47 +607,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure4.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="361" column="50" selection-start-line="361" selection-start-column="50" selection-end-line="361" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cancellationTest.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="119" column="105" selection-start-line="94" selection-start-column="0" selection-end-line="130" selection-end-column="126" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/comprehension.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="226" column="69" selection-start-line="226" selection-start-column="69" selection-end-line="226" selection-end-column="69" />
-          <folding>
-            <marker date="1481054158909" expanded="true" signature="290:14275" placeholder="{% block content ...%}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cpt.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="83" column="41" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
-          <folding>
-            <element signature="e#6011#7021#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/languages/english_us.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="318" column="362" selection-start-line="318" selection-start-column="362" selection-end-line="318" selection-end-column="362" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,31 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/initial.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="593" column="0" selection-start-line="593" selection-start-column="0" selection-end-line="593" selection-end-column="0" />
-          <folding>
-            <element signature="e#3030#4770#0#HTML" expanded="false" />
-            <element signature="e#4851#11992#0#HTML" expanded="false" />
-            <element signature="e#12065#18377#0#HTML" expanded="false" />
-            <element signature="e#18460#23691#0#HTML" expanded="false" />
-            <element signature="e#23799#25670#0#HTML" expanded="false" />
-            <element signature="e#25749#36007#0#HTML" expanded="false" />
-            <element signature="e#36082#42683#0#HTML" expanded="false" />
-            <element signature="e#42776#43857#0#HTML" expanded="false" />
-            <element signature="e#43915#45192#0#HTML" expanded="false" />
-            <element signature="e#45253#49492#0#HTML" expanded="false" />
-            <element signature="e#49569#52798#0#HTML" expanded="false" />
-            <element signature="e#52862#63539#0#HTML" expanded="false" />
-            <element signature="e#63606#69762#0#HTML" expanded="false" />
-            <element signature="e#69828#74906#0#HTML" expanded="false" />
-            <element signature="e#74995#77228#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -716,15 +625,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1321">
           <caret line="219" column="74" selection-start-line="219" selection-start-column="74" selection-end-line="219" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/motorTask.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="77" column="31" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="-153">
+          <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure4.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1976">
+          <caret line="361" column="50" selection-start-line="361" selection-start-column="50" selection-end-line="361" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cancellationTest.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="110" column="22" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/initial.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="439" column="113" selection-start-line="439" selection-start-column="113" selection-end-line="439" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cpt.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/initial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="132" column="3" selection-start-line="132" selection-start-column="2" selection-end-line="132" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/languages/english_us.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="95" column="64" selection-start-line="95" selection-start-column="64" selection-end-line="95" selection-end-column="64" />
         </state>
       </provider>
     </entry>

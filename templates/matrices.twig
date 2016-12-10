@@ -689,16 +689,9 @@ console.log(data);
                         .done(function(data) {
                             console.log('saved');
                         });
+                callNativeApp();
                 e.preventDefault();
             });
-
-/*            // Form submit
-            $('form').on('submit', function(e) {
-                var id = getUrlVars()['id'];
-                $.post('http://api.girlscouts.harryatwal.com/participant/' + id + '/Matrices', answers);
-                e.preventDefault();
-            });*/
-
         });
     </script>
 {% endblock %}

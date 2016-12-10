@@ -122,18 +122,18 @@
                     <!-- Dominate Hand -->
                     <div class="step row hand">
                         <div class="col-md-12">
-                            <h3>Please indicate which hand you prefer for the following activities. Please answer all the questions:</h3>
+                            <h3>{{ dominantHand1 }}</h3>
                             <div class="row">
                                 <div class="col-xs-2 col-xs-offset-8">
-                                    <label>Left</label>
+                                    <label>{{ dominantHandLeft }}</label>
                                 </div>
                                 <div class="col-xs-2">
-                                    <label>Right</label>
+                                    <label>{{ dominantHandRight }}</label>
                                 </div>
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Writing</h4>
+                                    <h4>{{ dominantHandWriting }}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="writinghand" type="radio" class="check_radio" value="l">
@@ -144,7 +144,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Drawing</h4>
+                                    <h4>{{ dominantHandDrawing }}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="drawinghand" type="radio" class="check_radio" value="l">
@@ -155,7 +155,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Throwing a ball</h4>
+                                    <h4>{{ dominantHandBallThrowing }}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="throwinghand" type="radio" class="check_radio" value="l">
@@ -166,7 +166,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Using scissors</h4>
+                                    <h4>{{ dominantHandScissors }}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="scissorshand" type="radio" class="check_radio" value="l">
@@ -177,7 +177,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Using a toothbrush</h4>
+                                    <h4>{{ dominantHandToothbrush }}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="toothbrushhand" type="radio" class="check_radio" value="l">
@@ -188,7 +188,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Cutting with a knife</h4>
+                                    <h4>{{ dominantHandKnifeCutting }}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="knifehand" type="radio" class="check_radio" value="l">
@@ -199,7 +199,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Eating with a spoon</h4>
+                                    <h4>{{ dominantHandSpoon }}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="spoonhand" type="radio" class="check_radio" value="l">
@@ -210,7 +210,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Using a broom (upper hand)</h4>
+                                    <h4>{{dominantHandBroom}}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="broomhand" type="radio" class="check_radio" value="l">
@@ -221,7 +221,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Striking a match (hand with the match)</h4>
+                                    <h4>{{ dominantHandMatchStrike }})</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="matchhand" type="radio" class="check_radio" value="l">
@@ -232,7 +232,7 @@
                             </div>
                             <div class="row stretch">
                                 <div class="col-xs-8">
-                                    <h4>Opening the lid of a box</h4>
+                                    <h4>{{ dominantHandBoxLid }}</h4>
                                 </div>
                                 <div class="col-xs-2">
                                     <input name="openinghand" type="radio" class="check_radio" value="l">
@@ -247,17 +247,17 @@
                     <!-- Race -->
                     <div class="step row">
                         <div class="col-md-12">
-                            <h4>Do you consider yourself Hispanic/Latino?</h4>
+                            <h4>{{ raceQuestion1 }}</h4>
                             <ul class="data-list-2 race">
-                                <li><input name="race" type="radio" class="check_radio required" value="No"><label>No, not Hispanic/Latino</label></li>
-                                <li><input name="race" type="radio" class="check_radio required" value="Mexican"><label>Mexican, Mexican American, Chicano</label></li>
-                                <li><input name="race" type="radio" class="check_radio required" value="Puerto_Rican"><label>Puerto Rican</label></li>
-                                <li><input name="race" type="radio" class="check_radio required" value="Cuban"><label>Cuban</label></li>
-                                <li><input name="race" type="radio" class="check_radio required" value="Central_American"><label>Central America</label></li>
-                                <li><input type="radio" name="race" value="Other" class="check_radio required"/><label>other Hispanic/Latino</label></li>
-                                <li><input type="text" name="other" id="other" class="form-control" placeholder="Specify"></li>
+                                <li><input name="race" type="radio" class="check_radio required" value="No"><label></label>{{ raceQuestion1a | raw}}</li>
+                                <li><input name="race" type="radio" class="check_radio required" value="Mexican"><label></label>{{ raceQuestion1b | raw}}</li>
+                                <li><input name="race" type="radio" class="check_radio required" value="Puerto_Rican"><label>{{ raceQuestion1c | raw}}</label></li>
+                                <li><input name="race" type="radio" class="check_radio required" value="Cuban"><label>{{ raceQuestion1d | raw}}</label></li>
+                                <li><input name="race" type="radio" class="check_radio required" value="Central_American"><label>{{ raceQuestion1e | raw }}</label></li>
+                                <li><input type="radio" name="race" value="Other" class="check_radio required"/><label>{{ raceQuestion1f | raw}}</label></li>
+                                <li><input type="text" name="other" id="other" class="form-control" placeholder="{{ raceQuestion1g | raw }}"></li>
                             </ul>
-                            <h4>What race do you consider yourself to be according to your parentage, ancestry or roots? (You can choose more than one):</h4>
+                            <h4>{{ raceQuestion2 }}</h4>
                             <ul class="data-list-2 long-string">
                                 <li>
                                     <table>
@@ -266,8 +266,7 @@
                                                 <input name="ethnicity" type="checkbox" class="" value="indian">
                                             </td>
                                             <td>
-                                                <label>American Indian or Alaska Native (original from North and South America native
-                                                    populations)</label>
+                                                <label>{{ raceQuestion2a }}</label>
                                             </td>
                                         </tr>
                                     </table>
@@ -279,7 +278,7 @@
                                                 <input name="ethnicity" type="checkbox" class="" value="asian">
                                             </td>
                                             <td>
-                                                <label>Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label>
+                                                <label>{{ raceQuestion2b }}</label>
                                             </td>
                                         </tr>
                                     </table>
@@ -291,7 +290,7 @@
                                                 <input name="ethnicity" type="checkbox" class="" value="black">
                                             </td>
                                             <td>
-                                                <label>Black or African American</label>
+                                                <label>{{ raceQuestion2c }}</label>
                                             </td>
                                         </tr>
                                     </table>
@@ -303,7 +302,7 @@
                                                 <input name="ethnicity" type="checkbox" class="" value="hawaii">
                                             </td>
                                             <td>
-                                                <label>Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific Islands)</label>
+                                                <label>{{ raceQuestion2d }}</label>
                                             </td>
                                         </tr>
                                     </table>
@@ -315,18 +314,11 @@
                                                 <input name="ethnicity" type="checkbox" class="" value="white">
                                             </td>
                                             <td>
-                                                <label>White (Europe, Middle East or North Africa)</label>
+                                                <label>{{ raceQuestion2e }}</label>
                                             </td>
                                         </tr>
                                     </table>
                                 </li>
-
-                                {#<li><input name="ethnicity[]" type="checkbox" class="vertical-center" value="asian"><label>Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China,#}
-                                {#India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)</label></li>#}
-                                {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="black"><label>Black or African American</label></li>#}
-                                {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="hawaii"><label>Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific#}
-                                {#Islands)</label></li>#}
-                                {#<li><input name="ethnicity[]" type="checkbox" class="check_radio" value="white"><label>White (Europe, Middle East or North Africa)</label></li>#}
                             </ul>
                         </div>
                     </div><!-- end step -->
@@ -335,93 +327,92 @@
                     <div class="step row">
                         <div class="col-md-12">
                             <ul class="data-list-2 status clearfix">
-                                <h4>What is your marital Status?</h4>
-                                <li><input name="mstatus" type="radio" class="check_radio" value="single"><label>Single</label></li>
-                                <li><input name="mstatus" type="radio" class="check_radio" value="married"><label>Married</label></li>
+                                <h4>{{ maritalQuestion1 }}</h4>
+                                <li><input name="mstatus" type="radio" class="check_radio" value="single"><label>{{ maritalQuestion1a }}</label></li>
+                                <li><input name="mstatus" type="radio" class="check_radio" value="married"><label>{{ maritalQuestion1b }}</label></li>
                                 <li id="married">
                                     <div class="col-xs-6">
-                                        <label class="subtitle">How long have you been married?</label>
+                                        <label class="subtitle">{{ maritalQuestion2 }}</label>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="married_years" id="married_years" class="form-control" placeholder="Years" min="0"/>
+                                        <input type="number" name="married_years" id="married_years" class="form-control" placeholder="{{ years }}" min="0"/>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="married_months" id="married_months" class="form-control" placeholder="Months" min="0"/>
+                                        <input type="number" name="married_months" id="married_months" class="form-control" placeholder="{{ months }}" min="0"/>
                                     </div>
                                 </li>
-                                <li><input name="status" type="radio" class="check_radio" value="partner"><label>Living with partner</label></li>
+                                <li><input name="status" type="radio" class="check_radio" value="partner"><label>{{ maritalQuestion3 }}</label></li>
                                 <li id="partner">
                                     <div class="col-xs-6">
-                                        <label class="subtitle">How long have you been together with your partner?</label>
+                                        <label class="subtitle">{{ maritalQuestion3 }}</label>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="partner_years" id="partner_years" class="form-control" placeholder="Years" min="0"/>
+                                        <input type="number" name="partner_years" id="partner_years" class="form-control" placeholder="{{ years }}" min="0"/>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="partner_months" id="partner_months" class="form-control" placeholder="Months" min="0"/>
+                                        <input type="number" name="partner_months" id="partner_months" class="form-control" placeholder="{{ months }}" min="0"/>
                                     </div>
                                 </li>
                                 <li><input name="status" type="radio" class="check_radio" value="widow"><label>Widow(ed)</label></li>
                                 <li id="widow">
                                     <div class="col-xs-6">
-                                        <label class="subtitle">How long ago did you become a widow(ed)?</label>
+                                        <label class="subtitle">{{ maritalQuestion4 }}</label>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="widow_years" id="widow_years" class="form-control" placeholder="Years" min="0"/>
+                                        <input type="number" name="widow_years" id="widow_years" class="form-control" placeholder="{{ years }}" min="0"/>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="widow_months" id="widow_months" class="form-control" placeholder="Months" min="0"/>
+                                        <input type="number" name="widow_months" id="widow_months" class="form-control" placeholder="{{ months }}" min="0"/>
                                     </div>
                                 </li>
-                                <li><input name="status" type="radio" class="check_radio" value="divorced"><label>Separated/Divorced</label></li>
+                                <li><input name="status" type="radio" class="check_radio" value="divorced"><label>{{ maritalSeperated }}</label></li>
                                 <li id="separated">
                                     <div class="col-xs-6">
-                                        <label class="subtitle">How long ago did you divorce/separate from your partner?</label>
+                                        <label class="subtitle">{{ maritalQuestion5 }}</label>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="separated_years" id="separated_years" class="form-control" placeholder="Years" min="0"/>
+                                        <input type="number" name="separated_years" id="separated_years" class="form-control" placeholder="{{ years }}" min="0"/>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="separated_months" id="separated_months" class="form-control" placeholder="Months" min="0"/>
+                                        <input type="number" name="separated_months" id="separated_months" class="form-control" placeholder="{{ months }}" min="0"/>
                                     </div>
                                 </li>
                             </ul>
                             <ul class="data-list-2 child">
-                                <h4>Do you have children?</h4>
+                                <h4>{{ maritalQuestion6 }}</h4>
                                 <li><input type="radio" name="kids" class="check_radio" value="yes"/><label>Yes</label></li>
                                 <li><input type="radio" name="kids" class="check_radio" value="no"/><label>No</label></li>
                                 <li id="kids_count">
                                     <div class="qty-buttons">
                                         <input type="button" value="-" class="qtyminus" name="quantity">
                                         <input type="text" name="quantity" value="0" class="qty form-control">
-                                        <input type="button" value="+" class="qtyplus" name="quantity"><span>How many children do you have?</span>
+                                        <input type="button" value="+" class="qtyplus" name="quantity"><span>{{ maritalQuestion7 }}</span>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <!-- end step -->
+                    </div><!-- end step -->
 
                     <!-- Place of residence -->
                     <div id="residence" class="step row">
                         <div class="col-md-10">
                             <ul class="data-list-2">
-                                <h4>Where do you live?</h4>
-                                <li><input name="city" type="text" class="form-control" placeholder="City"></li>
-                                <li><input name="state" type="text" class="form-control" placeholder="State"></li>
-                                <li><input name="country" type="text" class="form-control" placeholder="Country"></li>
+                                <h4>{{ residenceLive }}</h4>
+                                <li><input name="city" type="text" class="form-control" placeholder="{{ city }}"></li>
+                                <li><input name="state" type="text" class="form-control" placeholder="{{ state }}"></li>
+                                <li><input name="country" type="text" class="form-control" placeholder="{{ country }}"></li>
                             </ul>
                             <ul class="data-list-2">
-                                <h4>How many inhabitants does your place of residence have?</h4>
-                                <li><input type="radio" name="inhabitants" class="check_radio" value="<5000"/><label>Less than 5,000</label></li>
-                                <li><input type="radio" name="inhabitants" class="check_radio" value="5000=50000"/><label>Between 5,000 and 50,000</label></li>
-                                <li><input type="radio" name="inhabitants" class="check_radio" value=">50000"/><label>More than 50,000</label></li>
+                                <h4>{{ residenceInhabitants }}</h4>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="<5000"/><label>{{ residenceInhabitants1 }}</label></li>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value="5000=50000"/><label>{{ residenceInhabitants2}}</label></li>
+                                <li><input type="radio" name="inhabitants" class="check_radio" value=">50000"/><label>{{ residenceInhabitants3}}</label></li>
                             </ul>
                             <ul class="data-list-2">
-                                <h4>How can you best describe the place where you live?</h4>
-                                <li><input type="radio" name="geography" class="check_radio" value="rural"/><label>Rural</label></li>
-                                <li><input type="radio" name="geography" class="check_radio" value="intermediate"/><label>Intermediate</label></li>
-                                <li><input type="radio" name="geography" class="check_radio" value="urban"/><label>Urban</label></li>
+                                <h4>{{ residenceDescribe }}</h4>
+                                <li><input type="radio" name="geography" class="check_radio" value="rural"/><label>{{ residenceRural }}</label></li>
+                                <li><input type="radio" name="geography" class="check_radio" value="intermediate"/><label>{{ residenceIntermediate }}</label></li>
+                                <li><input type="radio" name="geography" class="check_radio" value="urban"/><label>{{ residenceUrban }}</label></li>
                             </ul>
                         </div>
                     </div><!-- end step -->
@@ -430,55 +421,55 @@
                     <div class="step row">
                         <div class="col-md-12">
                             <ul class="data-list-2 clearfix occupation">
-                                <h4>Which of the following best describes your current main daily activities and/or responsibilities?</h4>
-                                <li><input type="radio" name="daily_activities" class="check_radio" value="fulltime"/><label>Working full time</label></li>
-                                <li><input type="radio" name="daily_activities" class="check_radio" value="parttime"/><label>Working part-time</label></li>
-                                <li><input type="radio" name="daily_activities" class="check_radio" value="contract"/><label>Seasonal/Contract worker</label></li>
-                                <li><input type="radio" name="daily_activities" class="check_radio" value="unemployed"/><label>Unemployed or laid off</label></li>
+                                <h4>{{ occupation1 }}</h4>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="fulltime"/><label>{{ occupation1a }}</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="parttime"/><label>{{ occupation1b }}</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="contract"/><label>{{ occupation1c }}</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="unemployed"/><label>{{ occupation1d }}</label></li>
                                 <li id="unemployed">
                                     <div class="col-xs-6">
-                                        <label class="subtitle">How long have you been unemployed?</label>
+                                        <label class="subtitle">{{ occupation2 }}</label>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="unemployed_years" class="form-control" placeholder="Years" min="0"/>
+                                        <input type="number" name="unemployed_years" class="form-control" placeholder="{{ years }}" min="0"/>
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="unemployed_months" class="form-control" placeholder="Months" min="0" max="11"/>
+                                        <input type="number" name="unemployed_months" class="form-control" placeholder="{{ months }}" min="0" max="11"/>
                                     </div>
                                 </li>
-                                <li><input type="radio" name="daily_activities" class="check_radio" value="looking"/><label>Looking for work</label></li>
-                                <li><input type="radio" name="daily_activities" class="check_radio" value="keepinghouse"/><label>Keeping house or raising children full time</label></li>
-                                <li><input type="radio" name="daily_activities" class="check_radio" value="retired"/><label>Retired</label></li>
-                                <li><input type="radio" name="daily_activities" class="check_radio" value="student"/><label>Student</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="looking"/><label>{{ occupation2a }}</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="keepinghouse"/><label>{{ occupation2b }}</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="retired"/><label>{{ occupation2c }}</label></li>
+                                <li><input type="radio" name="daily_activities" class="check_radio" value="student"/><label>{{ occupation2d }}</label></li>
                             </ul>
                             <div class="employed">
                                 <ul class="data-list-2">
-                                    <h4>What kind of job do you have?</h4>
-                                    <li><input type="radio" name="job_type" class="check_radio" value="work_for_someone"/><label>You work for somebody else</label></li>
-                                    <li><input type="radio" name="job_type" class="check_radio" value="selfemployed"/><label>You are self-employed</label></li>
-                                    <li><input type="radio" name="job_type" class="check_radio" value="own<10"/><label>You own a company with less than 10 employees</label></li>
-                                    <li><input type="radio" name="job_type" class="check_radio" value="own>10"/><label>You own a company with more than 10 employees</label></li>
+                                    <h4>{{ occupation3 }}</h4>
+                                    <li><input type="radio" name="job_type" class="check_radio" value="work_for_someone"/><label>{{ occupation3a }}</label></li>
+                                    <li><input type="radio" name="job_type" class="check_radio" value="selfemployed"/><label>{{ occupation3b }}</label></li>
+                                    <li><input type="radio" name="job_type" class="check_radio" value="own<10"/><label>{{ occupation3c }}</label></li>
+                                    <li><input type="radio" name="job_type" class="check_radio" value="own>10"/><label>{{ occupation3d }}</label></li>
                                 </ul>
                                 <ul class="data-list-2">
-                                    <h4>How would you best describe your current position?</h4>
-                                    <li><input type="radio" name="current_position" class="check_radio" value="manuallabor"/><label>Manual labor</label>
+                                    <h4>{{ occupation4 }}</h4>
+                                    <li><input type="radio" name="current_position" class="check_radio" value="manuallabor"/><label>{{ occupation4a }}</label>
                                         <a data-toggle="popoverManualLabor"><i class="fa fa-info-circle"></i></a></li>
-                                    <li><input type="radio" name="current_position" class="check_radio" value="non-manuallabor"/><label>Non-Manual labor</label>
+                                    <li><input type="radio" name="current_position" class="check_radio" value="non-manuallabor"/><label>{{ occupation4b }}</label>
                                         <a data-toggle="popoverNonManualLabor"><i class="fa fa-info-circle"></i></a></li>
                                 </ul>
                                 <ul class="data-list-2">
-                                    <h4>Which of these best describes your current position?</h4>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="management"/><label>Management</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="businessfinancial"/><label>Business and Financial Operations</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="computer"/><label>Computer and Mathematical</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="architecture"/><label>Architecture and Engineering</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="life"/><label>Life, Physical, and Social Science</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="community"/><label>Community and Social Service</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="legal"/><label>Legal</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="education"/><label>Education, Training, and Library</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="arts"/><label>Arts, Design, Entertainment, Sports, and Media</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="health"/><label>Healthcare Practitioners and Technical</label></li>
-                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="healthcare"/><label>Healthcare Support</label></li>
+                                    <h4>{{ occupation5 }}</h4>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="management"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="businessfinancial"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="computer"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="architecture"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="life"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="community"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="legal"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="education"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="arts"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="health"/><label></label></li>
+                                    <li><input type="radio" name="current_position_desc" class="check_radio" value="healthcare"/><label></label></li>
                                     <li><input type="radio" name="current_position_desc" class="check_radio" value="protective"/><label>Protective Service</label></li>
                                     <li><input type="radio" name="current_position_desc" class="check_radio" value="food"/><label>Food Preparation and Serving Related</label></li>
                                     <li><input type="radio" name="current_position_desc" class="check_radio" value="building"/><label>Building and Grounds Cleaning and Maintenance</label></li>
@@ -2084,6 +2075,11 @@
 
             var lang = getUrlVars()['lang'];
 
+            // Scroll up on forward click
+            $('button[name="forward"]').on('click', function() {
+                $('body,html').animate({scrollTop:0},500);
+            });
+
 //            if (lang == 'en-us' || lang == 'sp') {
 //                $('button[name="forward"]').trigger('click');
 //                $('button[name="forward"]').trigger('click');
@@ -2248,6 +2244,8 @@
                         .done(function (data) {
                             $('button[name="forward"]').trigger('click');
                         });
+
+                callNativeApp();
                 e.preventDefault();
             });
         });

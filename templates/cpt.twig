@@ -33,6 +33,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="step">
                         <div class="row">
                             <div class="col-md-12">
@@ -197,8 +198,8 @@
             intervalId = setInterval(timedDisplay, length);
         }
 
-        var blocks = 1;
-        var stimuli = 30;
+        var blocks = 3;
+        var stimuli = 100;
         var stimuli_timeout = 1500; //used to be 1500 12/6/15 harry, inma wanted zero break inbetween
         var letter_length = 750;
         var target_percent = 20;
@@ -243,6 +244,7 @@
                 var id = getUrlVars()['id'];
                 console.log(JSON.stringify(record));
                 $.post('http://api.girlscouts.harryatwal.com/participant/' + id + '/CPT', JSON.stringify(record));
+                callNativeApp();
                 e.preventDefault();
             });
 

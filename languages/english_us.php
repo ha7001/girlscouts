@@ -8,7 +8,7 @@
 
 global $message;
 
-// Questionnaire
+// Questionaire
 $message["INDEX_WELCOME"] = "WELCOME TO EMBRACED PROJECT";
 $message["INDEX_PARA_1"] = "We are going to be asking you some questions about yourself. Please remember that you are free to skip any question that may bother you, although we kindly ask you to complete as much of this questionnaire as possible. Thank you for your participation.";
 $message["INDEX_PROGRESS"] = "Progress";
@@ -21,6 +21,173 @@ $message["INDEX_QUESTION_2_OPTION_3"] = "Female";
 $message["INDEX_QUESTION_2_OPTION_4"] = "Other";
 $message["INDEX_BACKWARD"] = "Backward";
 $message["INDEX_FORWARD"] = "Forward";
+$message["INDEX_dominantHandQuestion"] = "Please indicate which hand you prefer for the following activities. Please answer all the questions:";
+$message["INDEX_dominantHandLeft"] = "Left";
+$message["INDEX_dominantHandRight"] = "Right";
+$message["INDEX_dominantHandWriting"] = "Writing";
+$message["INDEX_dominantHandDrawing"] = "Drawing";
+$message["INDEX_dominantHandBallThrowing"] = "Throwing a ball";
+$message["INDEX_dominantHandScissors"] = "Using scissors";
+$message["INDEX_dominantHandToothbrush"] = "Using a toothbrush";
+$message["INDEX_dominantHandKnifeCutting"] = "Cutting with a knife";
+$message["INDEX_dominantHandSpoon"] = "Eating with a spoon";
+$message["INDEX_dominantHandBroom"] = "Using a broom (upper hand)";
+$message["INDEX_dominantHandMatchStrike"] = "Striking a match (hand with the match)";
+$message["INDEX_dominantHandBoxLid"] = "Opening the lid of a box";
+$message["INDEX_raceQuestion1"] = "Do you consider yourself Hispanic/Latino?";
+$message["INDEX_raceQuestion1a"] = "No, not Hispanic/Latino";
+$message["INDEX_raceQuestion1b"] = "Mexican, Mexican American, Chicano";
+$message["INDEX_raceQuestion1c"] = "Puerto Rican";
+$message["INDEX_raceQuestion1d"] = "Cuban";
+$message["INDEX_raceQuestion1e"] = "Central America";
+$message["INDEX_raceQuestion1f"] = "other Hispanic/Latino";
+$message["INDEX_raceQuestion1g"] = "Specify";
+$message["INDEX_raceQuestion2"] = "What race do you consider yourself to be according to your parentage, ancestry or roots? (You can choose more than one):";
+$message["INDEX_raceQuestion2a"] = "American Indian or Alaska Native (original from North and South America native populations)";
+$message["INDEX_raceQuestion2b"] = "Asian (far East, Southeast Asia, Indian subcontinent including Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, Philippine Islands, Thailand & Vietnam)";
+$message["INDEX_raceQuestion2c"] = "Black or African American";
+$message["INDEX_INDEX_raceQuestion2d"] = "Native Hawaiian or Other Pacific Islander (Hawaii, Guam, Samoa or other Pacific Islands)";
+$message["INDEX_raceQuestion2e"] = "White (Europe, Middle East or North Africa)";
+$message["INDEX_maritalQuestion1"] = "What is your marital Status?";
+$message["INDEX_maritalQuestion1a"] = "Single";
+$message["INDEX_maritalQuestion1b"] = "Married";
+$message["INDEX_maritalQuestion2"] = "How long have you been married?";
+$message["INDEX_years"] = "Years";
+$message["INDEX_months"] = "Months";
+$message["INDEX_maritalQuestionPartnerLabel"] = "Living with partner";
+$message["INDEX_maritalQuestion3"] = "How long have you been together with your partner?";
+$message["INDEX_maritalQuestion4"] = "How long ago did you become a widow(ed)?";
+$message["INDEX_martialQuestionSeperated"] = "Separated/Divorced";
+$message["INDEX_maritalQuestion5"] = "How long ago did you divorce/separate from your partner?";
+$message["INDEX_maritalQuestion6"] = "Do you have children?";
+$message["INDEX_yes"] = "Yes";
+$message["INDEX_no"] = "No";
+$message["INDEX_maritalQuestion7"] = "How many children do you have?";
+$message["INDEX_residenceLive"] = "Where do you live?";
+$message["INDEX_city"] = "City";
+$message["INDEX_state"] = "State";
+$message["INDEX_country"] = "Country";
+$message["INDEX_residenceInhabitants"] = "How many inhabitants does your place of residence have?";
+$message["INDEX_residenceInhabitants1"] = "Less than 5,000";
+$message["INDEX_residenceInhabitants2"] = "Between 5,000 and 50,000";
+$message["INDEX_residenceInhabitants3"] = "More than 50,000";
+$message["INDEX_residenceDescribe"] = "How can you best describe the place where you live?";
+$message["INDEX_residenceRural"] = "Rural";
+$message["INDEX_residenceIntermediate"] = "Intermediate";
+$message["INDEX_residenceUrban"] = "Urban";
+$message["INDEX_occupation1"] = "Which of the following best describes your current main daily activities and/or responsibilities?";
+$message["INDEX_occupation1a"] = "Working full time";
+$message["INDEX_occupation1b"] = "Working part-time";
+$message["INDEX_occupation1c"] = "Seasonal/Contract worker";
+$message["INDEX_occupation1d"] = "Unemployed or laid off";
+$message["INDEX_occupation2"] = "How long have you been unemployed?";
+$message["INDEX_occupation2a"] = "Looking for work";
+$message["INDEX_occupation2b"] = "Keeping house or raising children full time";
+$message["INDEX_occupation2c"] = "Retired";
+$message["INDEX_occupation2d"] = "Student";
+$message["INDEX_occupation3"] = "What kind of job do you have?";
+$message["INDEX_occupation3a"] = "You work for somebody else";
+$message["INDEX_occupation3b"] = "You are self-employed";
+$message["INDEX_occupation3c"] = "You own a company with less than 10 employees";
+$message["INDEX_occupation3d"] = "You own a company with more than 10 employees";
+$message["INDEX_occupation4"] = "How would you best describe your current position?";
+$message["INDEX_occupation4a"] = "Manual labor";
+$message["INDEX_occupation4b"] = "Non-Manual labor";
+$message["INDEX_occupation5"] = "Which of these best describes your current position?";
+$message["INDEX_occupation5a"] = "Management";
+$message["INDEX_occupation5b"] = "Business and Financial Operations";
+$message["INDEX_occupation5c"] = "Computer and Mathematical";
+$message["INDEX_occupation5d"] = "Architecture and Engineering";
+$message["INDEX_occupation5e"] = "Life, Physical, and Social Science";
+$message["INDEX_occupation5f"] = "Community and Social Service";
+$message["INDEX_occupation5g"] = "Legal";
+$message["INDEX_occupation5h"] = "Education, Training, and Library";
+$message["INDEX_occupation5i"] = "Arts, Design, Entertainment, Sports, and Media";
+$message["INDEX_occupation5j"] = "Healthcare Practitioners and Technical";
+$message["INDEX_occupation5k"] = "Healthcare Support";
+$message["INDEX_occupation5l"] = "";
+$message["INDEX_occupation5m"] = "";
+$message["INDEX_occupation5n"] = "";
+$message["INDEX_occupation5o"] = "";
+$message["INDEX_occupation5p"] = "";
+$message["INDEX_occupation5q"] = "";
+$message["INDEX_occupation5r"] = "";
+$message["INDEX_occupation5s"] = "";
+$message["INDEX_occupation5t"] = "";
+$message["INDEX_occupation5u"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+$message["INDEX_"] = "";
+
+
+
+
+
+
+
+
+
+
+
+
 
 // CPT
 $message['CPT_INSTRUCTIONS'] = "In this task you will see a series of letters in the screen, one at a time.<br/>Please TAP on the CHARACTER <u>ONLY</u> when a letter <u>\"A\" appears right after a letter \"X\"</u>.<br/>Otherwise, do nothing. <br/> Click Start to being the test";

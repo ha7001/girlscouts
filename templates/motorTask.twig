@@ -412,24 +412,46 @@
             /*window.open(c.toDataURL('image/png'));*/
 
             //Calculate time taken for this test
-            var endTime = console.time('r');
+//            var endTime = console.time('r');
+//
+//            $.ajax({
+//                type: "POST",
+//                url: " http://api.girlscouts.harryatwal.com/participant/" + id + "/motorTask",
+//                data: {
+//                    motorTask1a: dataURL1,
+//                    timesTMT1: timerValues1,
+//                    motorTask1a: dataURL2,
+//                    timesTMT2: timerValues2,
+//                    motorTask2a: dataURL3,
+//                    motorTask2b: dataURL4,
+//                    motorTask3a: dataURL5,
+//                    motorTask3b: dataURL6
+//                }
+//            }).done(function (o) {
+//                console.log(endTime);
+//                console.log('saved');
+//            });
 
-            $.ajax({
-                type: "POST",
-                url: " http://api.girlscouts.harryatwal.com/participant/" + id + "/motorTask",
-                data: {
+            $('form').on('submit', function(e) {
+
+                var data = {
                     motorTask1a: dataURL1,
                     timesTMT1: timerValues1,
-                    motorTask1a: dataURL2,
+                    motorTask1b: dataURL2,
                     timesTMT2: timerValues2,
                     motorTask2a: dataURL3,
                     motorTask2b: dataURL4,
                     motorTask3a: dataURL5,
                     motorTask3b: dataURL6
-                }
-            }).done(function (o) {
-                console.log(endTime);
-                console.log('saved');
+                };
+
+                $.post("http://api.girlscouts.harryatwal.com/participant/" + userID + "/motorTask", data)
+                    .done(function (o) {
+                        console.log('saved');
+                    });
+
+                callNativeApp();
+                e.preventDefault();
             });
         });
 
