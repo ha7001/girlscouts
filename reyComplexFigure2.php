@@ -22,10 +22,10 @@ $home = $twig->loadTemplate('reyComplexFigure2.twig');
 
 echo $home->render(array(
     //TODO Instructions for rey complex figure
-    'RCFT' => $message["INDEX_RCFT_TITLE"],
-    'RCFTInstructions' => $message["INDEX_RCFT_Instructions"],
-    'RCFTInsructions1' => $message["INDEX_RCFT_Instructions1"],
     'RCFTInsructions2' => $message["INDEX_RCFT_Instructions2"],
-    'RCFTInsructions3' => $message["INDEX_RCFT_Instructions3"],
-    'RCFTInsructions4' => $message["INDEX_RCFT_Instructions4"],
+    'RCFTSubmit' => $message["INDEX_SUBMIT"],
+    'RCFTForward' => $message["INDEX_FORWARD"],
+    'RCFTBackward' => $message["INDEX_BACKWARD"],
+    'RCFTTestComplete' => $message["INDEX_TestComplete"],
+    
 ));

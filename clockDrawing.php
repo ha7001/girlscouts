@@ -21,5 +21,10 @@ $home = $twig->loadTemplate('clockDrawing.twig');
 
 echo $home->render(array(
     'clockDrawingTest' => $message["INDEX_CLOCKDRAWING_TEST_TITLE"],
-    'clockDrawingTestInstructions' => $message["INDEX_CLOCKDRAWING_TEST_INSTRUCTIONS"]
+    'clockDrawingTestInstructions' => $message["INDEX_CLOCKDRAWING_TEST_INSTRUCTIONS"],
+
+    'UniversalTestComplete' => $message["INDEX_TestComplete"],
+    'UniversalSubmit' => $message["INDEX_SUBMIT"],
+    'UniversalForward' => $message["INDEX_FORWARD"],
+    'UniversalBackward' => $message["INDEX_BACKWARD"],
 ));

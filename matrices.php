@@ -24,6 +24,9 @@ echo $home->render(array(
     //TODO Instructions for rey complex figure
     'Matrices_Title' => $message["INDEX_Matrices_Title"],
     'Matrices_Practice_Instructions' => $message["INDEX_Matrices_Practice_Instructions"],
-    'Matrices_Practice1' => $message["INDEX_Matrices_Practice1"]
-
+    
+    'UniversalTestComplete' => $message["INDEX_TestComplete"],
+    'UniversalSubmit' => $message["INDEX_SUBMIT"],
+    'UniversalForward' => $message["INDEX_FORWARD"],
+    'UniversalBackward' => $message["INDEX_BACKWARD"],
 ));

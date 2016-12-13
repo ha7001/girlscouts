@@ -76,12 +76,12 @@
                     </div>
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
-                        <h3>Nice!</h3>
-                        <button type="submit" name="process" class="submit">Submit</button>
+                        <h3>{{ UniversalTestComplete }}</h3>
+                        <button type="submit" name="process" class="submit">{{ UniversalSubmit }}</button>
                     </div><!-- end submit step -->
                 </div>
                 <div id="bottom-wizard">
-                    <button type="button" name="forward" class="forward">Forward</button>
+                    <button type="button" name="forward" class="forward">{{ UniversalForward | raw }}</button>
                 </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -92,6 +92,14 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
+        function callNativeApp () {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         $(document).ready(function () {
             var $TMT1 = $("#TMT1"); //Practice Canvas
             var $TMT2 = $("#TMT2"); //Practice Canvas

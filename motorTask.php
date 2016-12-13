@@ -27,5 +27,12 @@ echo $home->render(array(
     'motorInstructions2' => $message["INDEX_TRAIL_MOTORTEST_Task2"],
     'motorInstructions3' => $message["INDEX_TRAIL_MOTORTEST_Task3"],
     'motorInstructionsDominant' => $message["INDEX_TRAIL_MOTORTEST_Dominant_Hand"],
-    'motorInstructionsNonDominant' => $message["INDEX_TRAIL_MOTORTEST_Non_Dominant_Hand"]
+    'motorInstructionsNonDominant' => $message["INDEX_TRAIL_MOTORTEST_Non_Dominant_Hand"],
+    'motorSecond' => $message["INDEX_TRAIL_MOTORTEST_Second"],
+    'motorStart' => $message["INDEX_TRAIL_MOTORTEST_Start"],
+
+    'UniversalTestComplete' => $message["INDEX_TestComplete"],
+    'UniversalSubmit' => $message["INDEX_SUBMIT"],
+    'UniversalForward' => $message["INDEX_FORWARD"],
+    'UniversalBackward' => $message["INDEX_BACKWARD"]
 ));

@@ -51,7 +51,7 @@
                     <!-- Practice Block Test -->
                     <div class="step row">
                         <div class="col-md-12">
-                            <h4>Practice Cancellation:</h4>
+                            <h4>{{ cancellationTestPractice | raw }}</h4>
                             <canvas id="cancelCanvasPractice1" class="center-block" width="800" height="300" style="border:1px solid #000000;"></canvas><br/>
                             <button id="startCancellationPracticeButton" type="button" class="btn center-block">{{ cancellationTestStartPracticeTest | raw}}</button>
                         </div>
@@ -60,7 +60,7 @@
                     <!--Actual Testing -->
                     <div class="step row">
                         <div class="col-md-12">
-                            <h4>Cancellation Testing</h4>
+                            <h4>{{ cancellationTestTesting | raw }}</h4>
                             <canvas id="cancelCanvas" class="center-block" width="800" height="300" style="border:1px solid #000000;"></canvas><br/>
                             <button id="startCancellation" type="button" class="btn center-block" id="startCancellation">{{ cancellationTestStartTest |raw }}</button>
                         </div>
@@ -69,14 +69,14 @@
 
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
-                        <h3>Cancellation practice assessment complete!</h3>
-                        <button type="submit" name="process" class="submit">Complete!</button>
+                        <h3>{{ UniversalTestComplete | raw }}</h3>
+                        <button type="submit" name="process" class="submit">{{ UniversalSubmit | raw }}</button>
                     </div><!-- end submit step -->
                 </div>
 
                 <div id="bottom-wizard">
-                    <button id="backwardButton" type="button" name="backward" class="backward">Backward</button>
-                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                    <button id="backwardButton" type="button" name="backward" class="backward">{{ UniversalBackward | raw }}</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward">{{ UniversalForward | raw }}</button>
                 </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -86,6 +86,14 @@
 {% block script %}
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script>
+        function callNativeApp () {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         var testStartTime = 0;
         var correctSubmission = 0;
         var incorrectSubmission = 1;
@@ -176,12 +184,12 @@
         function startPracticeTesting1(){
             $('#forwardButton').prop('disabled', true);
             $('#backwardButton').prop('disabled', true);
-            $('#startCancellationPracticeButton').html('<b>Click Here for the Second Practice Test</b>'); //Change text in button
+            $('#startCancellationPracticeButton').html('{{ cancellationTestPractice2 | raw }}'); //Change text in button
             createBlkTestPractice(testBlocks[0], '0');
             $('#startCancellationPracticeButton').click(startPracticeTesting2);
         }
         function startPracticeTesting2(){
-            $('#startCancellationPracticeButton').html('<b>I am done practicing</b>'); //Change text in button
+            $('#startCancellationPracticeButton').html('{{ cancellationTestPractice3 | raw }}'); //Change text in button
             createBlkTestPractice(testBlocks[1], '0');
             $('#startCancellationPracticeButton').click(practiceTestComplete);
             //$('#startCancellationPracticeButton').prop('disabled', true); //Disable Start button

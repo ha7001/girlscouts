@@ -26,7 +26,7 @@
                     <div class="col-md-12" style="text-align: center">
                         <br>
                         <br>
-                        <h4> {{ MoCA_MMSE_Question_Briefing | raw }} </h4>
+                        <h4> {{ MoCA_MMSE_Question_Briefing| raw }} </h4>
                         <br>
                         <br>
                     </div>
@@ -36,35 +36,35 @@
                     <div class="col-md-11">
                         <br>
                         <div class="form-group">
-                            <h4 for="MoCA_MMSE_question1">{{ MoCA_MMSE_Question1 }}</h4>
+                            <h4 for="MoCA_MMSE_question1">{{ MoCA_MMSE_Question1 | raw }}</h4>
                             <input type="number" min="2000" max="2100" class="form-control" name="MoCA_MMSE_Ans1">
                         </div>
                         <ul class="data-list">
-                            <li><h4>{{ MoCA_MMSE_Question2 }}</h4>
+                            <li><h4>{{ MoCA_MMSE_Question2 | raw }}</h4>
                                 <div class="styled-select">
                                     <select class="form-control" name="MoCA_MMSE_Ans2">
                                         <option value="" selected>Select one</option>
-                                        <option value="January">January</option>
-                                        <option value="February">February</option>
-                                        <option value="March">March</option>
-                                        <option value="April">April</option>
-                                        <option value="May">May</option>
-                                        <option value="June">June</option>
-                                        <option value="July">July</option>
-                                        <option value="August">August</option>
-                                        <option value="September">September</option>
-                                        <option value="October">October</option>
-                                        <option value="November">November</option>
-                                        <option value="December">December</option>
+                                        <option value="January">{{ MoCA_MMSE_January | raw }}</option>
+                                        <option value="February">{{ MoCA_MMSE_February | raw }}</option>
+                                        <option value="March">{{ MoCA_MMSE_March  | raw }}</option>
+                                        <option value="April">{{ MoCA_MMSE_April | raw }}</option>
+                                        <option value="May">{{ MoCA_MMSE_May | raw }}</option>
+                                        <option value="June">{{ MoCA_MMSE_June | raw }}</option>
+                                        <option value="July">{{ MoCA_MMSE_July | raw }}</option>
+                                        <option value="August">{{ MoCA_MMSE_August | raw }}</option>
+                                        <option value="September">{{ MoCA_MMSE_September | raw }}</option>
+                                        <option value="October">{{ MoCA_MMSE_October | raw }}</option>
+                                        <option value="November">{{ MoCA_MMSE_November | raw }}</option>
+                                        <option value="December">{{ MoCA_MMSE_December | raw }}</option>
                                     </select>
                                 </div>
                             </li>
                         </ul>
                         <ul class="data-list">
-                            <li><h4>{{ MoCA_MMSE_Question3 }}</h4>
+                            <li><h4>{{ MoCA_MMSE_Question3 | raw }}</h4>
                                 <div class="styled-select">
                                     <select class="form-control" name="MoCA_MMSE_Ans3">
-                                        <option value="" selected>Select one</option>
+                                        <option value="" selected>{{ MoCA_MMSE_SelectOne | raw }}</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -101,17 +101,17 @@
                             </li>
                         </ul>
                         <ul class="data-list">
-                            <li><h4>{{ MoCA_MMSE_Question4 }}</h4>
+                            <li><h4>{{ MoCA_MMSE_Question4 | raw }}</h4>
                                 <div class="styled-select">
                                     <select class="form-control" name="MoCA_MMSE_Ans4">
                                         <option value="" selected>Select one</option>
-                                        <option value="Monday">Monday</option>
-                                        <option value="Tuesday">Tuesday</option>
-                                        <option value="Wednesday">Wednesday</option>
-                                        <option value="Thursday">Thursday</option>
-                                        <option value="Friday">Friday</option>
-                                        <option value="Saturday">Saturday</option>
-                                        <option value="Sunday">Sunday</option>
+                                        <option value="Monday">{{ MoCA_MMSE_Monday | raw }}</option>
+                                        <option value="Tuesday">{{ MoCA_MMSE_Tuesday | raw }}</option>
+                                        <option value="Wednesday">{{ MoCA_MMSE_Wednesday | raw }}</option>
+                                        <option value="Thursday">{{ MoCA_MMSE_Thursday | raw }}</option>
+                                        <option value="Friday">{{ MoCA_MMSE_Friday | raw }}</option>
+                                        <option value="Saturday">{{ MoCA_MMSE_Saturday | raw }}</option>
+                                        <option value="Sunday">{{ MoCA_MMSE_Sunday | raw }}</option>
                                     </select>
                                 </div>
                             </li>
@@ -119,11 +119,11 @@
 
 
                         <div class="container-fluid">
-                            <h4 for="usr">{{ MoCA_MMSE_Question5 }}</h4>
+                            <h4 for="usr">{{ MoCA_MMSE_Question5 | raw }}</h4>
                             <div class="row">
                                 <div class="col-xs-3">
                                     <select class="form-control" name="MoCA_MMSE_Ans5H">
-                                        <option value="" selected>Hour</option>
+                                        <option value="" selected>{{ MoCA_MMSE_Month}}</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -138,7 +138,7 @@
                                         <option value="12">12</option>
                                     </select>
                                     <select class="form-control" name="MoCA_MMSE_Ans5M">
-                                        <option value="" selected>Minutes</option>
+                                        <option value="" selected>{{ MoCA_MMSE_Minutes | raw }}</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -216,23 +216,23 @@
                     <div class="col-md-11">
                         <br>
                         <div class="form-group">
-                            <h4 for="MoCA_MMSE_question6">{{ MoCA_MMSE_Question6 }}</h4>
+                            <h4 for="MoCA_MMSE_question6">{{ MoCA_MMSE_Question6 | raw }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans6">
                         </div>
                         <div class="form-group">
-                            <h4 for="MoCA_MMSE_question7">{{ MoCA_MMSE_Question7 }}</h4>
+                            <h4 for="MoCA_MMSE_question7">{{ MoCA_MMSE_Question7 | raw }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans7">
                         </div>
                         <div class="form-group">
-                            <h4 for="MoCA_MMSE_question8">{{ MoCA_MMSE_Question8 }}</h4>
+                            <h4 for="MoCA_MMSE_question8">{{ MoCA_MMSE_Question8 | raw }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans8">
                         </div>
                         <div class="form-group">
-                            <h4 for="MoCA_MMSE_question9">{{ MoCA_MMSE_Question9 }}</h4>
+                            <h4 for="MoCA_MMSE_question9">{{ MoCA_MMSE_Question9 | raw }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans9">
                         </div>
                         <div class="form-group">
-                            <h4 for="MoCA_MMSE_question10">{{ MoCA_MMSE_Question10 }}</h4>
+                            <h4 for="MoCA_MMSE_question10">{{ MoCA_MMSE_Question10 | raw }}</h4>
                             <input type="text" class="form-control" name="MoCA_MMSE_Ans10">
                         </div>
                     </div>
@@ -240,12 +240,12 @@
                 <div class="submit step" id="complete">
                     <i class="icon-check"></i>
                     <h3>Nice Job! </h3>
-                    <button type="submit" name="process" class="submit">Submit</button>
+                    <button type="submit" name="process" class="submit">{{ MoCA_MMSE_Submit | raw }}</button>
                 </div><!-- end submit step -->
 
                 <div id="bottom-wizard">
-                    <button type="button" name="backward" class="backward">Backward</button>
-                    <button type="button" name="forward" class="forward">Forward</button>
+                    <button type="button" name="backward" class="backward">{{ Backward | raw }}</button>
+                    <button type="button" name="forward" class="forward">{{ Forward | raw }}</button>
                 </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -256,6 +256,14 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
+        function callNativeApp () {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         var id = getUrlVars()['id'];
         // Form submit
         $('form').on('submit', function(e) {

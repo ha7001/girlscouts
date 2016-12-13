@@ -12,41 +12,21 @@
     </style>
 {% endblock %}
 {% block content %}
-    <!--
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 main-title">
-                <h1>{{Matrices_Title}}</h1>
-            </div>
-        </div>
-    </div>
-    -->
-
     <section class="container" id="main">
 
         <!-- Start Survey container -->
         <div id="survey_container">
-            <!--
-            <div id="top-wizard">
-                <strong>Progress <span id="location"></span></strong>
-                <div id="progressbar"></div>
-                <div class="shadow"></div>
-            </div>
-            end top-wizard -->
-
-
             <form name="matricesTest" id="matricesResponse" action="" method="POST">
                 <!-- Eye Test start -->
                 <div id="middle-wizard">
 
                     <div class="step row" style="text-align: center">
-                            <h4>
-                                    {{Matrices_Practice_Instructions | raw}}
-                            </h4>
+                        <h4>
+                            {{Matrices_Practice_Instructions | raw}}
+                        </h4>
                     </div>
 
-                    <!-- Matrices question through javascript example -->
-
+                    <!-- Matrices question through javascript  -->
                     <div class="step row">
                         <div class="col-xs-12 text-center">
                             <canvas id="matriceA1" width="600" height="600" style="border:1px solid #000000;"></canvas>
@@ -416,13 +396,13 @@
 
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
-                        <h3>Cancellation practice assessment complete!</h3>
-                        <button type="submit" name="process" class="submit">Complete!</button>
+                        <h3>{{ UniversalTestComplete | raw }}</h3>
+                        <button type="submit" name="process" class="submit">{{ UniversalSubmit | raw }}</button>
                     </div><!-- end submit step -->
                 </div>
                 <div id="bottom-wizard">
-                    <button id="backwardButton" type="button" name="backward" class="backward">Backward</button>
-                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                    <button id="backwardButton" type="button" name="backward" class="backward">{{ UniversalBackward | raw }}</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward">{{ UniversalForward | raw }}</button>
                 </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -435,6 +415,15 @@
         //Each type of test has the ans choices in different places so a different method for each type of test: a,b,c,d,e
 
         //Choice placement for Images in the A catetory, these are preset since they don't change in the first set of images.
+
+        function callNativeApp () {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         var startingXA = 115;
         var startingYA = 370;
         var xSpacingA = 125;

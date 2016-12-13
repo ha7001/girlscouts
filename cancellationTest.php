@@ -25,5 +25,14 @@ echo $home->render(array(
     'cancellationTestInstructions2' => $message["INDEX_CANCELLATION_TEST_INSTRUCTIONS_2"],
     'cancellationTestInstructions3' => $message["INDEX_CANCELLATION_TEST_INSTRUCTIONS_3"],
     'cancellationTestStartPracticeTest' => $message["INDEX_CANCELLATION_STARTPRACTICETEST"],
-    'cancellationTestStartTest' => $message["INDEX_CANCELLATION_STARTTEST"]
+    'cancellationTestStartTest' => $message["INDEX_CANCELLATION_STARTTEST"],
+    'cancellationTestPractice' => $message["INDEX_CANCELLATION_Practice"],
+    'cancellationTestPractice2' => $message["INDEX_CANCELLATION_Practice2"],
+    'cancellationTestPractice3' => $message["INDEX_CANCELLATION_Practice3"],
+    'cancellationTestTesting' => $message["INDEX_CANCELLATION_Testing"],
+
+    'UniversalTestComplete' => $message["INDEX_TestComplete"],
+    'UniversalSubmit' => $message["INDEX_SUBMIT"],
+    'UniversalForward' => $message["INDEX_FORWARD"],
+    'UniversalBackward' => $message["INDEX_BACKWARD"],
 ));

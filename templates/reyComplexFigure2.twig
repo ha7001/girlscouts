@@ -58,14 +58,14 @@
                     <input type="hidden" id="timer" name="drawingTimes"  value=0>
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
-                        <h3>Test complete!</h3>
-                        <button type="submit" name="process" class="submit">Submit</button>
+                        <h3>{{ RCFTTestComplete | raw }}</h3>
+                        <button type="submit" name="process" class="submit">{{ RCFTSubmit | raw }}</button>
                     </div><!-- end submit step -->
                 </div>
 
                 <div id="bottom-wizard">
-                    <button id="backwardButton" type="button" name="backward" class="backward">Backward</button>
-                    <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                    <button id="backwardButton" type="button" name="backward" class="backward">{{ RCFTBackward | raw}}</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward">{{ RCFTForward | raw }}</button>
                 </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -76,6 +76,14 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
+        function callNativeApp () {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         function redraw() {
             for (var i = 0; i < lines2.length; i++) {
                 $(this).drawLine(lines2[i]);

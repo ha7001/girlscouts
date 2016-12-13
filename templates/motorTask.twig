@@ -19,31 +19,12 @@
 {% endblock %}
 {% block content %}
     <!-- BIG TODO: The act of forceing the user to the next test seems to interrupt the drawing process. This means the lines the user drawn
-     won't get saved and therefore are lost. Unless the user lifts their finger. Need to find a way to store the points immediatly?  -->
+     won't get saved and therefore are lost. Unless the user lifts their finger. Need to find a way to store the points immediatly?  -Dom Fixed, need to verify this -->
 
-
-
-    <!--
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center main-title">
-                <h1>{{ motorTitle }}</h1>
-            </div>
-        </div>
-    </div>
-    -->
     <section class="container" id="main">
-
         <!-- Start Survey container -->
         <div id="survey_container">
-            <!--
-            <div id="top-wizard">
-                <strong>Progress <span id="location"></span></strong>
-                <div id="progressbar"></div>
-                <div class="shadow"></div>
-            </div><!-- end top-wizard -->
-
-            <form name="motorTask" id="wrapped" action="" method="POST">
+            <form name="motorTask" id="wrapped">
                 <div id="middle-wizard">
                     <!-- Motor Task one instructions -->
                     <div class="step row">
@@ -64,14 +45,14 @@
                             </div>
                             <div class="col-xs-3">
                                 <h4>
-                                    <span class="counter">15</span> second(s).
+                                    <span class="counter">15</span> {{ motorSecond | raw }}
                                 </h4>
                             </div>
                         </div>
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant1a' class="center-block" width="850" height="600" style="border:1px solid #000000;"></canvas>
                             <!-- Button to start the motor task -->
-                            <button id="MotorTask1a" type="button" class="btn center-block">Start Test</button>
+                            <button id="MotorTask1a" type="button" class="btn center-block">{{ motorStart | raw}}</button>
                             <!--setInterval(countdown(), 10) -->
                         </div>
                     </div>
@@ -82,13 +63,13 @@
                         </div>
                         <div class="col-xs-3">
                             <h4>
-                                <span class="counter">15</span> second(s).
+                                <span class="counter">15</span> {{ motorSecond | raw }}
                             </h4>
                         </div>
 
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant1b' class="center-block" width="850" height="600" style="border:1px solid #000000;"></canvas>
-                            <button id="MotorTask1b" type="button" class="btn center-block">Start Test</button>
+                            <button id="MotorTask1b" type="button" class="btn center-block">{{ motorStart | raw}}</button>
                         </div>
                     </div>
 
@@ -110,12 +91,12 @@
                         </div>
                         <div class="col-xs-3">
                             <h4>
-                                <span class="counter">15</span> second(s).
+                                <span class="counter">15</span> {{ motorSecond | raw }}
                             </h4>
                         </div>
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant2a' class="center-block" width="611" height="542" style="border:1px solid #000000;"></canvas>
-                            <button id="MotorTask2a" type="button" class="btn center-block">Start Test</button>
+                            <button id="MotorTask2a" type="button" class="btn center-block">{{ motorStart | raw}}</button>
                         </div>
                     </div>
                     <!-- Motor Task two Non-Dominant -->
@@ -125,13 +106,13 @@
                         </div>
                         <div class="col-xs-3">
                             <h4>
-                                <span class="counter">15</span> second(s).
+                                <span class="counter">15</span> {{ motorSecond | raw }}
                             </h4>
                         </div>
 
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant2b' class="center-block" width="611" height="542" style="border:1px solid #000000;"></canvas>
-                            <button id="MotorTask2b" type="button" class="btn center-block">Start Test</button>
+                            <button id="MotorTask2b" type="button" class="btn center-block">{{ motorStart | raw}}</button>
                         </div>
                     </div>
 
@@ -144,7 +125,7 @@
                             </h4>
                             &nbsp;
                             &nbsp;
-                            <button id="MotorTaskStartInstructions3" type="button" class="btn center-block"><b>FORWARD</b></button>
+                            <button id="MotorTaskStartInstructions3" type="button" class="btn center-block"><b>{{ UniversalForward | raw }}</b></button>
                         </div>
                     </div>
                     <!-- Motor Task three Dominant -->
@@ -154,13 +135,13 @@
                         </div>
                         <div class="col-xs-3">
                             <h4>
-                                <span class="counter">15</span> second(s).
+                                <span class="counter">15</span> {{ motorSecond | raw }}
                             </h4>
                         </div>
 
                         <div id="canvas-drawing">
                             <canvas id='motorTaskOneDominant3a' class="center-block" width="850" height="600" style="border:1px solid #000000;"></canvas>
-                            <button id="MotorTask3a" type="button" class="btn center-block">Start Test</button>
+                            <button id="MotorTask3a" type="button" class="btn center-block">{{ motorStart | raw }}</button>
                         </div>
                     </div>
                     <!-- Motor Task three Non-Dominant -->
@@ -170,27 +151,26 @@
                         </div>
                         <div class="col-xs-2">
                             <h4>
-                                <span class="counter">15</span> second(s).
+                                <span class="counter">15</span> {{ motorSecond | raw }}
                             </h4>
                         </div>
 
                         <div id="canvas-drawing ">
                             <canvas id='motorTaskOneDominant3b' class="center-block" width="850" height="600" style="border:1px solid #000000;"></canvas>
-                            <button id="MotorTask3b" type="button" class="btn center-block">Start Test</button>
+                            <button id="MotorTask3b" type="button" class="btn center-block">{{ motorStart | raw }}</button>
                         </div>
                     </div>
 
 
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
-                        <h3>Test complete!</h3>
-                        <button type="submit" name="process" class="submit">Submit</button>
+                        <h3>{{ UniversalTestComplete | raw }}</h3>
+                        <button type="submit" name="process" class="submit">{{ UniversalSubmit | raw }}</button>
                     </div><!-- end submit step -->
                 </div>
 
                 <div id="bottom-wizard">
-                    {#<button id="backwardButton" type="button" name="backward" class="backward" >Backward</button>#}
-                    <button id="forwardButton" type="button" name="forward" class="forward" hidden>Forward</button>
+                    <button id="forwardButton" type="button" name="forward" class="forward" hidden>{{ UniversalForward }}</button>
                 </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -201,6 +181,14 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
+        function callNativeApp() {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         var timer;
 
         function drawRectangle(layer) {
@@ -261,14 +249,20 @@
             //Timer variables for part 1, each array will contain the duration of each finger down, up.
             var timer1 = 0;
             var timer2 = 0;
-            var startTime1 = 0;
-            var startTime2 = 0;
-            var timerValues1 = [];
-            var timerValues2 = [];
+            var timeStart = 0;
+            var tmt1_time = 0;
+            var tmt2_time = 0;
+            var timerStartedYet = false;
 
 
             var drawingObject = {
                 mousedown: function (layer) {
+                    if(!timerStartedYet){
+                        //Set the field to the start value
+                        timeStart = performance.now();
+                        timerStartedYet = true;
+                    }
+
                     practice_name++;
 
                     line_objPractice = {
@@ -371,6 +365,56 @@
                 $('button[name="forward"]').prop('disabled', true);
                 window.scrollBy(0,45);
             });
+
+            $forward.on('click', function() {
+                if (timerStartedYet) {
+                    if (tmt1_time == 0) {
+                        tmt1_time = performance.now() - timeStart;
+                    } else if (tmt2_time == 0) {
+                        tmt2_time = performance.now() - timeStart;
+                    }
+
+                    timerStartedYet = false;
+                }
+            });
+
+            //Submission
+            $('form').on('submit', function(e) {
+                var id = getUrlVars()['id'];
+                //Grab the canvases to submit
+                var c = document.getElementById("motorTaskOneDominant1a");
+                var dataURL1 = c.toDataURL("image/png");
+                var c1 = document.getElementById("motorTaskOneDominant1b");
+                var dataURL2 = c1.toDataURL("image/png");
+                var c3 = document.getElementById("motorTaskOneDominant2a");
+                var dataURL3 = c3.toDataURL("image/png");
+                var c4 = document.getElementById("motorTaskOneDominant2b");
+                var dataURL4 = c4.toDataURL("image/png");
+                var c5 = document.getElementById("motorTaskOneDominant3a");
+                var dataURL5 = c5.toDataURL("image/png");
+                var c6 = document.getElementById("motorTaskOneDominant3b");
+                var dataURL6 = c6.toDataURL("image/png");
+
+                var data = {
+                    motorTask1a: dataURL1,
+                    timesTMT1: tmt1_time,
+                    motorTask1b: dataURL2,
+                    timesTMT2: tmt2_time,
+                    motorTask2a: dataURL3,
+                    motorTask2b: dataURL4,
+                    motorTask3a: dataURL5,
+                    motorTask3b: dataURL6
+                };
+
+                $.post("http://api.girlscouts.harryatwal.com/participant/" + id + "/motorTask", data)
+                    .done(function (o) {
+                        console.log('saved');
+                    });
+
+
+                callNativeApp();
+                e.preventDefault();
+            });
         });
 
 
@@ -392,68 +436,7 @@
             }
         }
 
-        //Submission
-        $('form').on('submit', function(e) {
-            //Grab the canvases to submit
-            var c = document.getElementById("motorTaskOneDominant1a");
-            var dataURL1 = c.toDataURL("image/png");
-            var c1 = document.getElementById("motorTaskOneDominant1b");
-            var dataURL2 = c1.toDataURL("image/png");
-            var c3 = document.getElementById("motorTaskOneDominant2a");
-            var dataURL3 = c3.toDataURL("image/png");
-            var c4 = document.getElementById("motorTaskOneDominant2b");
-            var dataURL4 = c4.toDataURL("image/png");
-            var c5 = document.getElementById("motorTaskOneDominant3a");
-            var dataURL5 = c.toDataURL("image/png");
-            var c6 = document.getElementById("motorTaskOneDominant3b");
-            var dataURL6 = c1.toDataURL("image/png");
-            var timerValues1 = document.getElementById("timer1");
-            var timerValues2 = document.getElementById("timer2");
-            /*window.open(c.toDataURL('image/png'));*/
 
-            //Calculate time taken for this test
-//            var endTime = console.time('r');
-//
-//            $.ajax({
-//                type: "POST",
-//                url: " http://api.girlscouts.harryatwal.com/participant/" + id + "/motorTask",
-//                data: {
-//                    motorTask1a: dataURL1,
-//                    timesTMT1: timerValues1,
-//                    motorTask1a: dataURL2,
-//                    timesTMT2: timerValues2,
-//                    motorTask2a: dataURL3,
-//                    motorTask2b: dataURL4,
-//                    motorTask3a: dataURL5,
-//                    motorTask3b: dataURL6
-//                }
-//            }).done(function (o) {
-//                console.log(endTime);
-//                console.log('saved');
-//            });
-
-            $('form').on('submit', function(e) {
-
-                var data = {
-                    motorTask1a: dataURL1,
-                    timesTMT1: timerValues1,
-                    motorTask1b: dataURL2,
-                    timesTMT2: timerValues2,
-                    motorTask2a: dataURL3,
-                    motorTask2b: dataURL4,
-                    motorTask3a: dataURL5,
-                    motorTask3b: dataURL6
-                };
-
-                $.post("http://api.girlscouts.harryatwal.com/participant/" + userID + "/motorTask", data)
-                    .done(function (o) {
-                        console.log('saved');
-                    });
-
-                callNativeApp();
-                e.preventDefault();
-            });
-        });
 
     </script>
 {% endblock %}

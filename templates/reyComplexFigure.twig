@@ -51,7 +51,7 @@
                             <canvas id='RCFTPractice' class="center-block" width="600" height="450" style="border:1px solid #000000;"></canvas>
                         </div>
                         <br>
-                        <h4>Click Forward Once you are done practicing.</h4>
+                        <h4>{{ RCFTInstructionsA | raw }}</h4>
                     </div>
 
                     <div class="step row">
@@ -83,14 +83,14 @@
 
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
-                        <h3>Test complete!</h3>
-                        <button type="submit" name="process" class="submit">Submit</button>
+                        <h3>{{ RCFTTestComplete | raw }}</h3>
+                        <button type="submit" name="process" class="submit">{{ RCFTSubmit | raw }}</button>
                     </div><!-- end submit step -->
                     </div>
 
                     <div id="bottom-wizard">
-                        <!-- <button id="backwardButton" type="button" name="backward" class="backward" disabled >Backward</button> -->
-                        <button id="forwardButton" type="button" name="forward" class="forward">Forward</button>
+                        <!-- <button id="backwardButton" type="button" name="backward" class="backward" disabled >{{ RCFTBackward | raw }}</button> -->
+                        <button id="forwardButton" type="button" name="forward" class="forward">{{ RCFTForward | raw }}</button>
                     </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -101,6 +101,14 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
+        function callNativeApp () {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         $(document).ready(function () {
             //Disable the ability to go backwards.
             $('#backwardButton').prop('disabled', true);

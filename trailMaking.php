@@ -26,4 +26,9 @@ echo $home->render(array(
     'TrailMakingInstructions' => $message["INDEX_TRAIL_MAKING_Instructions"],
     'TrailMakingInstructions1' => $message["INDEX_TRAIL_MAKING_Instructions1"],
     'TrailMakingInstructionsDone' => $message["INDEX_TRAIL_MAKING_DONE"],
+    
+    'UniversalTestComplete' => $message["INDEX_TestComplete"],
+    'UniversalSubmit' => $message["INDEX_SUBMIT"],
+    'UniversalForward' => $message["INDEX_FORWARD"],
+    'UniversalBackward' => $message["INDEX_BACKWARD"],
 ));

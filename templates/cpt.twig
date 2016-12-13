@@ -16,14 +16,6 @@
 
         <!-- Start Survey container -->
         <div id="survey_container">
-            <!--
-            <div id="top-wizard">
-                <strong>{{ progress }} <span id="location"></span></strong>
-                <div id="progressbar"></div>
-                <div class="shadow"></div>
-            </div>
-            end top-wizard -->
-
             <form name="cptTest" id="wrapped">
                 <div id="middle-wizard">
                     <div class="step">
@@ -38,23 +30,22 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <canvas id="test" class="center-block" width="400" height="350"></canvas><br/>
-                                <button type="button" class="btn center-block" id="start"><b>Start</b></button>
+                                <button type="button" class="btn center-block" id="start"><b>{{ start }}</b></button>
                             </div><!-- end col-md-6 -->
                         </div><!-- end row -->
                     </div><!-- end step-->
 
                     <div class="submit step" id="complete">
                         <i class="icon-check"></i>
-                        <h3>Test complete!</h3>
-                        <p>On to the next test</p>
-                        <button type="button" name="process" class="submit">Submit</button>
+                        <h3>{{ UniversalTestComplete | raw }}</h3>
+                        <button type="submit" name="process" class="submit">{{ UniversalSubmit | raw }}</button>
                     </div><!-- end submit step -->
 
                 </div><!-- end middle-wizard -->
 
                 <div id="bottom-wizard">
-                    <button type="button" name="backward" class="backward" disabled>Backward</button>
-                    <button type="button" name="forward" class="forward">Forward </button>
+                    <button type="button" name="backward" class="backward" disabled>{{ UniversalBackward | raw }}</button>
+                    <button type="button" name="forward" class="forward">{{ UniversalForward | raw }} </button>
                 </div><!-- end bottom-wizard -->
             </form>
         </div><!-- end Survey container -->
@@ -65,6 +56,14 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.timer.js"></script>
     <script>
+        function callNativeApp() {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         function timedDisplay() {
             if (count == stimuli) {
                 clearInterval(intervalId);
@@ -75,10 +74,10 @@
                     }).drawLayers();
 
                     // Send data off to the database
-                    var id = getUrlVars()['id'];
-                    console.log(JSON.stringify(record));
-                    $.post('http://api.girlscouts.harryatwal.com/participant/' + id + '/CPT', JSON.stringify(record));
-
+//                    var id = getUrlVars()['id'];
+//                    console.log(JSON.stringify(record));
+//                    $.post('http://api.girlscouts.harryatwal.com/participant/' + id + '/CPT', JSON.stringify(record));
+//
                     $('button[name="forward"]').prop('disabled', false);
                 } else {
                     clearInterval(intervalId);

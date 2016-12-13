@@ -45,7 +45,7 @@
                     <div class="step row">
                         <div class="col-md-12"  style="text-align: center">
                             <h4>{{ eyeTest_Instructions|raw }}
-                                <a href="#" data-toggle="popoverHateful"><i class="fa fa-info-circle"></i></a>
+                                <a href="#" data-toggle="popoverSample"><i class="fa fa-info-circle"></i></a>
                             </h4>
                         </div>
                         <input id="website" name="website" type="text" value="">
@@ -58,10 +58,10 @@
                                 <img src="/assets/img/eyeTestImages/0.jpg" class="img-responsive"/>
                                 <br><br>
                                 <ul class="data-list-2">
-                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Hateful" required><label>Hateful <a data-toggle="popoverHateful"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Jealous" required><label>Jealous <a href="#" data-toggle="popoverJealous"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Arrogant" required><label>Arrogant <a href="#" data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Panicked" required><label>Panicked <a href="#" data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a> </label></li>
+                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Hateful" required><label>{{ eyeTest_HATEFUL }} <a data-toggle="popoverHateful"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Jealous" required><label>{{ eyeTest_JEALOUS }} <a href="#" data-toggle="popoverJealous"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Arrogant" required><label>{{ eyeTest_ARROGANT }} <a href="#" data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li ><input name="practiceQuestion" type="radio" class="check_radio" value="Panicked" required><label>{{ eyeTest_PANICKED }} <a href="#" data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a> </label></li>
                                 </ul>
                             </div>
                         </div>
@@ -73,10 +73,10 @@
                                 <img src="/assets/img/eyeTestImages/1.jpg" class="img-responsive"/>
                                 <br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question1" type="radio" class="check_radio" value="Playful" required><label>Playful  <a data-toggle="popoverPlayful"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question1" type="radio" class="check_radio" value="Comforting" required><label>Comforting  <a data-toggle="popoverComforting"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question1" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question1" type="radio" class="check_radio" value="Bored" required><label>Bored <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a> </label> </li>
+                                        <li><input name="question1" type="radio" class="check_radio" value="Playful" required><label>{{ eyeTest_PLAYFUL | raw}}  <a data-toggle="popoverPlayful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question1" type="radio" class="check_radio" value="Comforting" required><label>{{ eyeTest_COMFORTING | raw}} <a data-toggle="popoverComforting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question1" type="radio" class="check_radio" value="Irritated" required><label>{{ eyeTest_IRRITATED | raw}} <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question1" type="radio" class="check_radio" value="Bored" required><label>{{ eyeTest_BORING | raw}} <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a> </label> </li>
                                 </ul>
                             </div>
                         </div>
@@ -88,10 +88,10 @@
                                 <img src="/assets/img/eyeTestImages/2.jpg" class="img-responsive"/>
                                 <ul class="data-list-2">
                                     <br><br>
-                                        <li><input name="question2" type="radio" class="check_radio" value="Arrogant" required><label>Arrogant  <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a> </label> </li>
-                                        <li><input name="question2" type="radio" class="check_radio" value="Annoyed" required><label>Annoyed  <a data-toggle="popoverAnnoyed"><i class="fa fa-info-circle"></i></a> </label></li>
-                                        <li><input name="question2" type="radio" class="check_radio" value="Upset" required><label>Upset  <a data-toggle="popoverUpset"><i class="fa fa-info-circle"></i></a></label> </li>
-                                        <li><input name="question2" type="radio" class="check_radio" value="Terrified" required><label>Terrified  <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a> </label> </li>
+                                        <li><input name="question2" type="radio" class="check_radio" value="Arrogant" required><label>{{ eyeTest_ARROGANT | raw}} <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a> </label> </li>
+                                        <li><input name="question2" type="radio" class="check_radio" value="Annoyed" required><label>{{ eyeTest_ANNOYED | raw}} <a data-toggle="popoverAnnoyed"><i class="fa fa-info-circle"></i></a> </label></li>
+                                        <li><input name="question2" type="radio" class="check_radio" value="Upset" required><label>{{ eyeTest_UPSET | raw}} <a data-toggle="popoverUpset"><i class="fa fa-info-circle"></i></a></label> </li>
+                                        <li><input name="question2" type="radio" class="check_radio" value="Terrified" required><label>{{ eyeTest_TERRIFIED | raw}} <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a> </label> </li>
                                 </ul>
                             </div>
                         </div>
@@ -102,10 +102,10 @@
                                 <img src="/assets/img/eyeTestImages/3.jpg" class="img-responsive"/>
                                 <ul class="data-list-2">
                                     <br><br>
-                                    <li><input name="question3" type="radio" class="check_radio" value="Convinced" required><label>Convinced  <a data-toggle="popoverConvinced"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question3" type="radio" class="check_radio" value="Flustered" required><label>Flustered  <a data-toggle="popoverFlustered"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question3" type="radio" class="check_radio" value="Desire" required><label>Desire  <a data-toggle="popoverDesire"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question3" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question3" type="radio" class="check_radio" value="Convinced" required><label>{{ eyeTest_CONVINCED | raw}} <a data-toggle="popoverConvinced"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question3" type="radio" class="check_radio" value="Flustered" required><label>{{ eyeTest_FLUSTERED | raw}} <a data-toggle="popoverFlustered"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question3" type="radio" class="check_radio" value="Desire" required><label>{{ eyeTest_DESIRE | raw}} <a data-toggle="popoverDesire"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question3" type="radio" class="check_radio" value="Joking" required><label>{{ eyeTest_JOKING | raw}} <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -116,10 +116,10 @@
                             <img src="/assets/img/eyeTestImages/4.jpg" class="img-responsive"/>
                             <br/><br/>
                             <ul class="data-list-2">
-                                <li><input name="question4" type="radio" class="check_radio" value="Amused" required><label>Amused  <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
-                                <li><input name="question4" type="radio" class="check_radio" value="Relaxed" required><label>Relaxed  <a data-toggle="popoverRelaxed"><i class="fa fa-info-circle"></i></a></label></li>
-                                <li><input name="question4" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
-                                <li><input name="question4" type="radio" class="check_radio" value="Insisting" required><label>Insisting  <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
+                                <li><input name="question4" type="radio" class="check_radio" value="Amused" required><label>{{ eyeTest_AMUSED | raw}} <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
+                                <li><input name="question4" type="radio" class="check_radio" value="Relaxed" required><label>{{ eyeTest_RELAXED | raw}} <a data-toggle="popoverRelaxed"><i class="fa fa-info-circle"></i></a></label></li>
+                                <li><input name="question4" type="radio" class="check_radio" value="Joking" required><label>{{ eyeTest_JOKING | raw}} <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                <li><input name="question4" type="radio" class="check_radio" value="Insisting" required><label>{{ eyeTest_INSISTING | raw}} <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
                             </ul>
                         </div>
                             </div>
@@ -130,10 +130,10 @@
                                 <img src="/assets/img/eyeTestImages/5.jpg" class="img-responsive"/>
                                 <br><br>
                                 <ul class="data-list-2">
-                                    <li><input name="question5" type="radio" class="check_radio" value="Friendly" required><label>Friendly  <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question5" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question5" type="radio" class="check_radio" value="Worried" required><label>Worried  <a data-toggle="popoverWorried"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question5" type="radio" class="check_radio" value="Sarcastic" required><label>Sarcastic  <a data-toggle="popoverSarcastic"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question5" type="radio" class="check_radio" value="Friendly" required><label>{{ eyeTest_FRIENDLY | raw}} <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question5" type="radio" class="check_radio" value="Irritated" required><label>{{ eyeTest_IRRITATED | raw}} <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question5" type="radio" class="check_radio" value="Worried" required><label>{{ eyeTest_WORRIED | raw}} <a data-toggle="popoverWorried"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question5" type="radio" class="check_radio" value="Sarcastic" required><label>{{ eyeTest_SARCASTIC | raw}} <a data-toggle="popoverSarcastic"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -144,10 +144,10 @@
                                 <img src="/assets/img/eyeTestImages/6.jpg" class="img-responsive"/>
                                 <br><br>
                                 <ul class="data-list-2">
-                                    <li><input name="question6" type="radio" class="check_radio" value="Fantasizing" required><label>Fantasizing  <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question6" type="radio" class="check_radio" value="Alarmed" required><label>Alarmed  <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question6" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question6" type="radio" class="check_radio" value="Impatient" required><label>Impatient  <a data-toggle="popoverImpatient"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question6" type="radio" class="check_radio" value="Fantasizing" required><label>{{ eyeTest_FANTASIZING | raw}} <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question6" type="radio" class="check_radio" value="Alarmed" required><label>{{ eyeTest_ALARMED | raw}} <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question6" type="radio" class="check_radio" value="Aghast" required><label>{{ eyeTest_AGHAST | raw}}  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question6" type="radio" class="check_radio" value="Impatient" required><label>{{ eyeTest_IMPATIENT | raw}} <a data-toggle="popoverImpatient"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -158,10 +158,10 @@
                                 <img src="/assets/img/eyeTestImages/7.jpg" class="img-responsive"/>
                                 <br><br>
                                 <ul class="data-list-2">
-                                    <li><input name="question7" type="radio" class="check_radio" value="Uneasy" required><label>Uneasy  <a data-toggle="popoverUneasy"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question7" type="radio" class="check_radio" value="Friendly" required><label>Friendly  <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question7" type="radio" class="check_radio" value="Apologetic" required><label>Apologetic  <a data-toggle="popoverApologetic"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question7" type="radio" class="check_radio" value="Dispirited" required><label>Dispirited  <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question7" type="radio" class="check_radio" value="Uneasy" required><label>{{ eyeTest_UNEASY | raw}} <a data-toggle="popoverUneasy"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question7" type="radio" class="check_radio" value="Friendly" required><label>{{ eyeTest_FRIENDLY | raw}} <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question7" type="radio" class="check_radio" value="Apologetic" required><label>{{ eyeTest_APOLOGETIC | raw}} <a data-toggle="popoverApologetic"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question7" type="radio" class="check_radio" value="Dispirited" required><label>{{ eyeTest_DISPIRITED | raw}} <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -172,10 +172,10 @@
                                 <img src="/assets/img/eyeTestImages/8.jpg" class="img-responsive"/>
                                 <br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question8" type="radio" class="check_radio" value="Excited" required><label>Excited  <a data-toggle="popoverExcited"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question8" type="radio" class="check_radio" value="Relieved" required><label>Relieved  <a data-toggle="popoverRelieved"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question8" type="radio" class="check_radio" value="Shy" required><label>Shy  <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question8" type="radio" class="check_radio" value="Despondent" required><label>Despondent  <a data-toggle="popoverDespondent"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question8" type="radio" class="check_radio" value="Excited" required><label>{{ eyeTest_EXCITED | raw}} <a data-toggle="popoverExcited"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question8" type="radio" class="check_radio" value="Relieved" required><label>{{ eyeTest_RELIEVED | raw}} <a data-toggle="popoverRelieved"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question8" type="radio" class="check_radio" value="Shy" required><label>{{ eyeTest_SHY | raw}} <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question8" type="radio" class="check_radio" value="Despondent" required><label>{{ INDEX_EYE_TEST_DESPONDENT | raw }} <a data-toggle="popoverDespondent"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -185,10 +185,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/9.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question9" type="radio" class="check_radio" value="Annoyed" required><label>Annoyed  <a data-toggle="popoverAnnoyed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question9" type="radio" class="check_radio" value="Hostile" required><label>Hostile  <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question9" type="radio" class="check_radio" value="Horrified" required><label>Horrified  <a data-toggle="popoverHorrified"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question9" type="radio" class="check_radio" value="Preoccupied" required><label>Preoccupied  <a data-toggle="popoverPreoccupied"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question9" type="radio" class="check_radio" value="Annoyed" required><label>{{ eyeTest_ANNOYED | raw}} <a data-toggle="popoverAnnoyed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question9" type="radio" class="check_radio" value="Hostile" required><label>{{ eyeTest_HOSTILE | raw}} <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question9" type="radio" class="check_radio" value="Horrified" required><label>{{ eyeTest_HORRIFIED | raw}} <a data-toggle="popoverHorrified"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question9" type="radio" class="check_radio" value="Preoccupied" required><label>{{ eyeTest_PREOCCUPIED | raw}} <a data-toggle="popoverPreoccupied"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -198,10 +198,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/10.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question10" type="radio" class="check_radio" value="Cautious" required><label>Cautious  <a data-toggle="popoverCautious"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question10" type="radio" class="check_radio" value="Bored" required><label>Bored  <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question10" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question10" type="radio" class="check_radio" value="Insisting" required><label>Insisting  <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question10" type="radio" class="check_radio" value="Cautious" required><label>{{ eyeTest_CAUTIOUS | raw}} <a data-toggle="popoverCautious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question10" type="radio" class="check_radio" value="Bored" required><label>{{ eyeTest_BORING | raw}}  <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question10" type="radio" class="check_radio" value="Aghast" required><label>{{ eyeTest_AGHAST | raw}} <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question10" type="radio" class="check_radio" value="Insisting" required><label>{{ eyeTest_INSISTING | raw}} <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -211,10 +211,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/11.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question11" type="radio" class="check_radio" value="Terrified" required><label>Terrified  <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question11" type="radio" class="check_radio" value="Flirtatious" required><label>Flirtatious  <a data-toggle="popoverFlirtatious"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question11" type="radio" class="check_radio" value="Amused" required><label>Amused  <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question11" type="radio" class="check_radio" value="Regretful" required><label>Regretful  <a data-toggle="popoverRegretful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question11" type="radio" class="check_radio" value="Terrified" required><label>{{ eyeTest_TERRIFIED | raw}} <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question11" type="radio" class="check_radio" value="Flirtatious" required><label>{{ eyeTest_FLIRTATIOUS | raw}} <a data-toggle="popoverFlirtatious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question11" type="radio" class="check_radio" value="Amused" required><label>{{ eyeTest_AMUSED | raw}} <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question11" type="radio" class="check_radio" value="Regretful" required><label>{{ eyeTest_REGRETFUL | raw}} <a data-toggle="popoverRegretful"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -224,10 +224,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/12.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                    <li><input name="question12" type="radio" class="check_radio" value="Skeptical" required><label>Skeptical  <a data-toggle="popoverSkeptical"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question12" type="radio" class="check_radio" value="Embarrassed" required><label>Embarrassed  <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question12" type="radio" class="check_radio" value="Dispirited" required><label>Dispirited  <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question12" type="radio" class="check_radio" value="Indifferent" required><label>Indifferent  <a data-toggle="popoverIndifferent"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question12" type="radio" class="check_radio" value="Skeptical" required><label>{{ eyeTest_SKEPTICAL | raw}} <a data-toggle="popoverSkeptical"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question12" type="radio" class="check_radio" value="Embarrassed" required><label>{{ eyeTest_EMBARRASSED | raw}} <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question12" type="radio" class="check_radio" value="Dispirited" required><label>{{ eyeTest_DISPIRITED | raw}} <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question12" type="radio" class="check_radio" value="Indifferent" required><label>{{ eyeTest_INDIFFERENT | raw}} <a data-toggle="popoverIndifferent"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -237,10 +237,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/13.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question13" type="radio" class="check_radio" value="Shy" required><label>Shy  <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question13" type="radio" class="check_radio" value="Decisive" required><label>Decisive  <a data-toggle="popoverDecisive"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question13" type="radio" class="check_radio" value="Threatening" required><label>Threatening  <a data-toggle="popoverThreatening"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question13" type="radio" class="check_radio" value="Anticipating" required><label>Anticipating  <a data-toggle="popoverAnticipating"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question13" type="radio" class="check_radio" value="Shy" required><label>{{ eyeTest_SHY | raw}} <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question13" type="radio" class="check_radio" value="Decisive" required><label>{{ eyeTest_DECISIVE | raw}} <a data-toggle="popoverDecisive"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question13" type="radio" class="check_radio" value="Threatening" required><label>{{ eyeTest_THREATENING | raw}} <a data-toggle="popoverThreatening"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question13" type="radio" class="check_radio" value="Anticipating" required><label>{{ eyeTest_ANTICIPATING | raw}} <a data-toggle="popoverAnticipating"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -250,10 +250,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/14.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question14" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question14" type="radio" class="check_radio" value="Disappointed" required><label>Disappointed  <a data-toggle="popoverDisappointed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question14" type="radio" class="check_radio" value="Depressed" required><label>Depressed  <a data-toggle="popoverDepressed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question14" type="radio" class="check_radio" value="Accusing" required><label>Accusing  <a data-toggle="popoverAccusing"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question14" type="radio" class="check_radio" value="Irritated" required><label>{{ eyeTest_IRRITATED | raw}} <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question14" type="radio" class="check_radio" value="Disappointed" required><label>{{ eyeTest_DISAPPOINTED | raw}} <a data-toggle="popoverDisappointed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question14" type="radio" class="check_radio" value="Depressed" required><label>{{ eyeTest_DEPRESSED | raw}} <a data-toggle="popoverDepressed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question14" type="radio" class="check_radio" value="Accusing" required><label>{{ eyeTest_ACCUSING | raw}} <a data-toggle="popoverAccusing"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -263,10 +263,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/15.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question15" type="radio" class="check_radio" value="Encouraging" required><label>Encouraging  <a data-toggle="popoverEncouraging"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question15" type="radio" class="check_radio" value="Amused" required><label>Amused  <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question15" type="radio" class="check_radio" value="Flustered" required><label>Flustered  <a data-toggle="popoverFlustered"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question15" type="radio" class="check_radio" value="Contemplative" required><label>Contemplative  <a data-toggle="popoverContemplative"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question15" type="radio" class="check_radio" value="Encouraging" required><label>{{ eyeTest_ENCOURAGING | raw}} <a data-toggle="popoverEncouraging"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question15" type="radio" class="check_radio" value="Amused" required><label>{{ eyeTest_AMUSED | raw}} <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question15" type="radio" class="check_radio" value="Flustered" required><label>{{ eyeTest_FLUSTERED | raw}} <a data-toggle="popoverFlustered"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question15" type="radio" class="check_radio" value="Contemplative" required><label>{{ eyeTest_CONTEMPLATIVE | raw}} <a data-toggle="popoverContemplative"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -276,10 +276,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/16.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question16" type="radio" class="check_radio" value="Thoughtful" required><label>Thoughtful  <a data-toggle="popoverThoughtful"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question16" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question16" type="radio" class="check_radio" value="Encouraging" required><label>Encouraging  <a data-toggle="popoverEncouraging"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question16" type="radio" class="check_radio" value="Sympathetic" required><label>Sympathetic  <a data-toggle="popoverSympathetic"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question16" type="radio" class="check_radio" value="Thoughtful" required><label>{{ eyeTest_THOUGHTFUL | raw}} <a data-toggle="popoverThoughtful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question16" type="radio" class="check_radio" value="Irritated" required><label>{{ eyeTest_IRRITATED | raw}} <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question16" type="radio" class="check_radio" value="Encouraging" required><label>{{ eyeTest_ENCOURAGING | raw}} <a data-toggle="popoverEncouraging"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question16" type="radio" class="check_radio" value="Sympathetic" required><label>{{ eyeTest_SYMPATHETIC | raw}} <a data-toggle="popoverSympathetic"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -288,10 +288,10 @@
                         <div class="col-md-12">
                             <img src="/assets/img/eyeTestImages/17.jpg" class="img-responsive"/><br><br>
                             <ul class="data-list-2">
-                                    <li><input name="question17" type="radio" class="check_radio" value="Playful" required><label>Playful  <a data-toggle="popoverPlayful"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question17" type="radio" class="check_radio" value="Affectionate" required><label>Affectionate  <a data-toggle="popoverAffectionate"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question17" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
-                                    <li><input name="question17" type="radio" class="check_radio" value="Doubtful" required><label>Doubtful  <a data-toggle="popoverDoubtful"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question17" type="radio" class="check_radio" value="Playful" required><label>{{ eyeTest_PLAYFUL | raw}} <a data-toggle="popoverPlayful"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question17" type="radio" class="check_radio" value="Affectionate" required><label>{{ eyeTest_AFEECTIONATE | raw}} <a data-toggle="popoverAffectionate"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question17" type="radio" class="check_radio" value="Aghast" required><label>{{ eyeTest_AGHAST | raw}} <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                    <li><input name="question17" type="radio" class="check_radio" value="Doubtful" required><label>{{ eyeTest_DOUBTFUL | raw}} <a data-toggle="popoverDoubtful"><i class="fa fa-info-circle"></i></a></label></li>
                             </ul>
                         </div>
                     </div><!-- Question Seventeen -->
@@ -300,10 +300,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/18.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question18" type="radio" class="check_radio" value="Amused" required><label>Amused  <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question18" type="radio" class="check_radio" value="Bored" required><label>Bored  <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question18" type="radio" class="check_radio" value="Decisive" required><label>Decisive  <a data-toggle="popoverDecisive"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question18" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question18" type="radio" class="check_radio" value="Amused" required><label>{{ eyeTest_AMUSED | raw}} <a data-toggle="popoverAmused"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question18" type="radio" class="check_radio" value="Bored" required><label>{{ eyeTest_BORING | raw}} <a data-toggle="popoverBored"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question18" type="radio" class="check_radio" value="Decisive" required><label>{{ eyeTest_DECISIVE | raw}} <a data-toggle="popoverDecisive"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question18" type="radio" class="check_radio" value="Aghast" required><label>{{ eyeTest_AGHAST | raw}} <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -313,10 +313,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/19.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question19" type="radio" class="check_radio" value="Arrogant" required><label>Arrogant  <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question19" type="radio" class="check_radio" value="Grateful" required><label>Grateful  <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question19" type="radio" class="check_radio" value="Tentative" required><label>Tentative  <a data-toggle="popoverTentative"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question19" type="radio" class="check_radio" value="Sarcastic" required><label>Sarcastic  <a data-toggle="popoverSarcastic"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question19" type="radio" class="check_radio" value="Arrogant" required><label>{{ eyeTest_ARROGANT | raw}} <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question19" type="radio" class="check_radio" value="Grateful" required><label>{{ eyeTest_GRATEFUL | raw}} <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question19" type="radio" class="check_radio" value="Tentative" required><label>{{ eyeTest_TENTATIVE | raw}} <a data-toggle="popoverTentative"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question19" type="radio" class="check_radio" value="Sarcastic" required><label>{{ eyeTest_SARCASTIC | raw}} <a data-toggle="popoverSarcastic"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -326,10 +326,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/20.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question20" type="radio" class="check_radio" value="Friendly" required><label>Friendly  <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question20" type="radio" class="check_radio" value="Horrified" required><label>Horrified  <a data-toggle="popoverHorrified"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question20" type="radio" class="check_radio" value="Guilty" required><label>Guilty  <a data-toggle="popoverGuilty"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question20" type="radio" class="check_radio" value="Dominant" required><label>Dominant  <a data-toggle="popoverDominant"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question20" type="radio" class="check_radio" value="Friendly" required><label>{{ eyeTest_FRIENDLY | raw}} <a data-toggle="popoverFriendly"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question20" type="radio" class="check_radio" value="Horrified" required><label>{{ eyeTest_HORRIFIED | raw}} <a data-toggle="popoverHorrified"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question20" type="radio" class="check_radio" value="Guilty" required><label>{{ eyeTest_GUILTY | raw}} <a data-toggle="popoverGuilty"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question20" type="radio" class="check_radio" value="Dominant" required><label>{{ eyeTest_DOMINANT | raw}} <a data-toggle="popoverDominant"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -339,10 +339,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/21.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question21" type="radio" class="check_radio" value="Panicked" required><label>Panicked  <a data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question21" type="radio" class="check_radio" value="Fantasizing" required><label>Fantasizing  <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question21" type="radio" class="check_radio" value="Confused" required><label>Confused  <a data-toggle="popoverConfused"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question21" type="radio" class="check_radio" value="Embarrassed" required><label>Embarrassed  <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question21" type="radio" class="check_radio" value="Panicked" required><label>{{ eyeTest_PANICKED | raw}} <a data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question21" type="radio" class="check_radio" value="Fantasizing" required><label>{{ eyeTest_FANTASIZING | raw}} <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question21" type="radio" class="check_radio" value="Confused" required><label>{{ eyeTest_CONFUSED | raw}} <a data-toggle="popoverConfused"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question21" type="radio" class="check_radio" value="Embarrassed" required><label>{{ eyeTest_EMBARRASSED | raw}} <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -352,10 +352,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/22.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question22" type="radio" class="check_radio" value="Preoccupied" required><label>Preoccupied  <a data-toggle="popoverPreoccupied"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question22" type="radio" class="check_radio" value="Insisting" required><label>Insisting  <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question22" type="radio" class="check_radio" value="Imploring" required><label>Imploring  <a data-toggle="popoverImploring"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question22" type="radio" class="check_radio" value="Grateful" required><label>Grateful  <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question22" type="radio" class="check_radio" value="Preoccupied" required><label>{{ eyeTest_PREOCCUPIED | raw}} <a data-toggle="popoverPreoccupied"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question22" type="radio" class="check_radio" value="Insisting" required><label>{{ eyeTest_INSISTING | raw}} <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question22" type="radio" class="check_radio" value="Imploring" required><label>{{ eyeTest_IMPLORING | raw}} <a data-toggle="popoverImploring"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question22" type="radio" class="check_radio" value="Grateful" required><label>{{ eyeTest_GRATEFUL | raw}} <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -365,10 +365,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/23.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question23" type="radio" class="check_radio" value="Curious" required><label>Curious  <a data-toggle="popoverCurious"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question23" type="radio" class="check_radio" value="Apologetic" required><label>Apologetic  <a data-toggle="popoverApologetic"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question23" type="radio" class="check_radio" value="Contended" required><label>Contended  <a data-toggle="popoverContented"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question23" type="radio" class="check_radio" value="Defiant" required><label>Defiant  <a data-toggle="popoverDefiant"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question23" type="radio" class="check_radio" value="Curious" required><label>{{ eyeTest_CURIOUS | raw}} <a data-toggle="popoverCurious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question23" type="radio" class="check_radio" value="Apologetic" required><label>{{ eyeTest_APOLOGETIC | raw}} <a data-toggle="popoverApologetic"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question23" type="radio" class="check_radio" value="Contended" required><label>{{ eyeTest_CONTENDED | raw}} <a data-toggle="popoverContented"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question23" type="radio" class="check_radio" value="Defiant" required><label>{{ eyeTest_DEFIANT | raw}} <a data-toggle="popoverDefiant"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -378,10 +378,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/24.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question24" type="radio" class="check_radio" value="Pensive" required><label>Pensive  <a data-toggle="popoverPensive"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question24" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question24" type="radio" class="check_radio" value="Excited" required><label>Excited  <a data-toggle="popoverExcited"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question24" type="radio" class="check_radio" value="Hostile" required><label>Hostile  <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question24" type="radio" class="check_radio" value="Pensive" required><label>{{ eyeTest_PENSIVE | raw}} <a data-toggle="popoverPensive"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question24" type="radio" class="check_radio" value="Irritated" required><label>{{ eyeTest_IRRITATED | raw}} <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question24" type="radio" class="check_radio" value="Excited" required><label>{{ eyeTest_EXCITED | raw}} <a data-toggle="popoverExcited"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question24" type="radio" class="check_radio" value="Hostile" required><label>{{ eyeTest_HOSTILE | raw}} <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -391,10 +391,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/25.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question25" type="radio" class="check_radio" value="Incredulous" required><label>Incredulous  <a data-toggle="popoverIncredulous"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question25" type="radio" class="check_radio" value="Panicked" required><label>Panicked  <a data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question25" type="radio" class="check_radio" value="Interested" required><label>Interested  <a data-toggle="popoverInteresting"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question25" type="radio" class="check_radio" value="Despondent" required><label>Despondent  <a data-toggle="popoverDespondent"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question25" type="radio" class="check_radio" value="Incredulous" required><label>{{ eyeTest_INCREDULOUS | raw}} <a data-toggle="popoverIncredulous"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question25" type="radio" class="check_radio" value="Panicked" required><label>{{ eyeTest_PANICKED | raw}} <a data-toggle="popoverPanicked"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question25" type="radio" class="check_radio" value="Interested" required><label>{{ eyeTest_INTERESTED | raw}} <a data-toggle="popoverInteresting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question25" type="radio" class="check_radio" value="Despondent" required><label>{{ eyeTest_DESPONDENT | raw}} <a data-toggle="popoverDespondent"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -404,10 +404,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/26.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question26" type="radio" class="check_radio" value="Alarmed" required><label>Alarmed  <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question26" type="radio" class="check_radio" value="Anxious" required><label>Anxious <a data-toggle="popoverAnxious"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question26" type="radio" class="check_radio" value="Shy" required><label>Shy   <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question26" type="radio" class="check_radio" value="Hostile" required><label>Hostile  <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question26" type="radio" class="check_radio" value="Alarmed" required><label>{{ eyeTest_ALARMED | raw}} <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question26" type="radio" class="check_radio" value="Anxious" required><label>{{ eyeTest_ANXIOUS | raw}} <a data-toggle="popoverAnxious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question26" type="radio" class="check_radio" value="Shy" required><label>{{ eyeTest_SHY | raw}} <a data-toggle="popoverShy"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question26" type="radio" class="check_radio" value="Hostile" required><label>{{ eyeTest_HOSTILE | raw}} <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -417,10 +417,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/27.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question27" type="radio" class="check_radio" value="Arrogant" required><label>Arrogant  <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question27" type="radio" class="check_radio" value="Cautious" required><label>Cautious  <a data-toggle="popoverCautious"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question27" type="radio" class="check_radio" value="Reassuring" required><label>Reassuring  <a data-toggle="popoverReassuring"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question27" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question27" type="radio" class="check_radio" value="Arrogant" required><label>{{ eyeTest_ARROGANT | raw}} <a data-toggle="popoverArrogant"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question27" type="radio" class="check_radio" value="Cautious" required><label>{{ eyeTest_CAUTIOUS | raw}} <a data-toggle="popoverCautious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question27" type="radio" class="check_radio" value="Reassuring" required><label>{{ eyeTest_REASSURING | raw}} <a data-toggle="popoverReassuring"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question27" type="radio" class="check_radio" value="Joking" required><label>{{ eyeTest_JOKING | raw}} <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -430,10 +430,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/28.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question28" type="radio" class="check_radio" value="Affectionate" required><label>Affectionate  <a data-toggle="popoverAffectionate"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question28" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question28" type="radio" class="check_radio" value="Interested" required><label>Interested  <a data-toggle="popoverInteresting"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question28" type="radio" class="check_radio" value="Contented" required><label>Contented  <a data-toggle="popoverContented"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question28" type="radio" class="check_radio" value="Affectionate" required><label>{{ eyeTest_AFEECTIONATE | raw}} <a data-toggle="popoverAffectionate"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question28" type="radio" class="check_radio" value="Joking" required><label>{{ eyeTest_JOKING | raw}} <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question28" type="radio" class="check_radio" value="Interested" required><label>{{ eyeTest_INTERESTED | raw}} <a data-toggle="popoverInteresting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question28" type="radio" class="check_radio" value="Contented" required><label>{{ eyeTest_CONTENDED | raw}} <a data-toggle="popoverContented"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -443,10 +443,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/29.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question29" type="radio" class="check_radio" value="Impatient" required><label>Impatient  <a data-toggle="popoverImpatient"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question29" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question29" type="radio" class="check_radio" value="Irritated" required><label>Irritated  <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question29" type="radio" class="check_radio" value="Reflective" required><label>Reflective  <a data-toggle="popoverReflective"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question29" type="radio" class="check_radio" value="Impatient" required><label>{{ eyeTest_IMPATIENT | raw}} <a data-toggle="popoverImpatient"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question29" type="radio" class="check_radio" value="Aghast" required><label>{{ eyeTest_AGHAST | raw}} <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question29" type="radio" class="check_radio" value="Irritated" required><label>{{ eyeTest_IRRITATED | raw}} <a data-toggle="popoverIrritated"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question29" type="radio" class="check_radio" value="Reflective" required><label>{{ eyeTest_REFLECTIVE | raw}} <a data-toggle="popoverReflective"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -456,10 +456,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/30.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question30" type="radio" class="check_radio" value="Flirtatious" required><label>Flirtatious  <a data-toggle="popoverFlirtatious"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question30" type="radio" class="check_radio" value="Disappointed" required><label>Disappointed  <a data-toggle="popoverDisappointed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question30" type="radio" class="check_radio" value="Hostile" required><label>Hostile  <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question30" type="radio" class="check_radio" value="Grateful" required><label>Grateful  <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question30" type="radio" class="check_radio" value="Flirtatious" required><label>{{ eyeTest_FLIRTATIOUS | raw}} <a data-toggle="popoverFlirtatious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question30" type="radio" class="check_radio" value="Disappointed" required><label>{{ eyeTest_DISAPPOINTED | raw}} <a data-toggle="popoverDisappointed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question30" type="radio" class="check_radio" value="Hostile" required><label>{{ eyeTest_HOSTILE | raw}} <a data-toggle="popoverHostile"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question30" type="radio" class="check_radio" value="Grateful" required><label>{{ eyeTest_GRATEFUL | raw}} <a data-toggle="popoverGrateful"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -469,10 +469,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/31.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question31" type="radio" class="check_radio" value="Joking" required><label>Joking  <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question31" type="radio" class="check_radio" value="Ashamed" required><label>Ashamed  <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question31" type="radio" class="check_radio" value="Confident" required><label>Confident  <a data-toggle="popoverConfident"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question31" type="radio" class="check_radio" value="Dispirited" required><label>Dispirited  <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question31" type="radio" class="check_radio" value="Joking" required><label>{{ eyeTest_JOKING | raw}} <a data-toggle="popoverJoking"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question31" type="radio" class="check_radio" value="Ashamed" required><label>{{ eyeTest_ASHAMED | raw}} <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question31" type="radio" class="check_radio" value="Confident" required><label>{{ eyeTest_CONFIDENT | raw}} <a data-toggle="popoverConfident"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question31" type="radio" class="check_radio" value="Dispirited" required><label>{{ eyeTest_DISPIRITED | raw}} <a data-toggle="popoverDispirited"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -482,10 +482,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/32.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question32" type="radio" class="check_radio" value="Ashamed" required><label>Ashamed  <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question32" type="radio" class="check_radio" value="Bewildered" required><label>Bewildered  <a data-toggle="popoverBewildered"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question32" type="radio" class="check_radio" value="Alarmed" required><label>Alarmed  <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question32" type="radio" class="check_radio" value="Serious" required><label>Serious  <a data-toggle="popoverSerious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question32" type="radio" class="check_radio" value="Ashamed" required><label>{{ eyeTest_ASHAMED | raw}} <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question32" type="radio" class="check_radio" value="Bewildered" required><label>{{ eyeTest_BEWILDERED | raw}} <a data-toggle="popoverBewildered"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question32" type="radio" class="check_radio" value="Alarmed" required><label>{{ eyeTest_ALARMED | raw}} <a data-toggle="popoverAlarmed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question32" type="radio" class="check_radio" value="Serious" required><label>{{ eyeTest_SERIOUS | raw}} <a data-toggle="popoverSerious"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -495,10 +495,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/33.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question33" type="radio" class="check_radio" value="Concerned" required><label>Concerned  <a data-toggle="popoverConcerned"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question33" type="radio" class="check_radio" value="Embarrassed" required><label>Embarrassed  <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question33" type="radio" class="check_radio" value="Guilty" required><label>Guilty  <a data-toggle="popoverGuilty"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question33" type="radio" class="check_radio" value="Fantasizing" required><label>Fantasizing  <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question33" type="radio" class="check_radio" value="Concerned" required><label>{{ eyeTest_CONCERNED | raw}} <a data-toggle="popoverConcerned"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question33" type="radio" class="check_radio" value="Embarrassed" required><label>{{ eyeTest_EMBARRASSED | raw}} <a data-toggle="popoverEmbarrassed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question33" type="radio" class="check_radio" value="Guilty" required><label>{{ eyeTest_GUILTY | raw}} <a data-toggle="popoverGuilty"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question33" type="radio" class="check_radio" value="Fantasizing" required><label>{{ eyeTest_FANTASIZING | raw}} <a data-toggle="popoverFantasizing"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -508,10 +508,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/34.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question34" type="radio" class="check_radio" value="Aghast" required><label>Aghast  <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question34" type="radio" class="check_radio" value="Baffled" required><label>Baffled  <a data-toggle="popoverBaffled"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question34" type="radio" class="check_radio" value="Terrified" required><label>Terrified  <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question34" type="radio" class="check_radio" value="Distrustful" required><label>Distrustful  <a data-toggle="popoverDistrustful"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question34" type="radio" class="check_radio" value="Aghast" required><label>{{ eyeTest_AGHAST | raw}} <a data-toggle="popoverAghast"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question34" type="radio" class="check_radio" value="Baffled" required><label>{{ eyeTest_BAFFLED | raw}} <a data-toggle="popoverBaffled"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question34" type="radio" class="check_radio" value="Terrified" required><label>{{ eyeTest_TERRIFIED | raw}} <a data-toggle="popoverTerrified"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question34" type="radio" class="check_radio" value="Distrustful" required><label>{{ eyeTest_DISTRUSTFUL | raw}} <a data-toggle="popoverDistrustful"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -521,10 +521,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/35.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question35" type="radio" class="check_radio" value="Nervous" required><label>Nervous  <a data-toggle="popoverNervous"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question35" type="radio" class="check_radio" value="Contemplative" required><label>Contemplative  <a data-toggle="popoverContemplative"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question35" type="radio" class="check_radio" value="Insisting" required><label>Insisting  <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question35" type="radio" class="check_radio" value="Puzzled" required><label>Puzzled  <a data-toggle="popoverPuzzled"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question35" type="radio" class="check_radio" value="Nervous" required><label>{{ eyeTest_NERVOUS | raw}} <a data-toggle="popoverNervous"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question35" type="radio" class="check_radio" value="Contemplative" required><label>{{ eyeTest_CONTEMPLATIVE | raw}} <a data-toggle="popoverContemplative"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question35" type="radio" class="check_radio" value="Insisting" required><label>{{ eyeTest_INSISTING | raw}} <a data-toggle="popoverInsisting"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question35" type="radio" class="check_radio" value="Puzzled" required><label>{{ eyeTest_PUZZLED | raw}} <a data-toggle="popoverPuzzled"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                             </div>
@@ -534,10 +534,10 @@
                             <div class="col-md-12">
                                 <img src="/assets/img/eyeTestImages/36.jpg" class="img-responsive"/><br><br>
                                 <ul class="data-list-2">
-                                        <li><input name="question36" type="radio" class="check_radio" value="Suspicious" required><label>Suspicious  <a data-toggle="popoverSuspicious"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question36" type="radio" class="check_radio" value="Nervous" required><label>Nervous  <a data-toggle="popoverNervous"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question36" type="radio" class="check_radio" value="Ashamed" required><label>Ashamed  <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
-                                        <li><input name="question36" type="radio" class="check_radio" value="Indecisive" required><label>Indecisive  <a data-toggle="popoverIndecisive"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question36" type="radio" class="check_radio" value="Suspicious" required><label>{{ eyeTest_SUSPICIOUS | raw}} <a data-toggle="popoverSuspicious"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question36" type="radio" class="check_radio" value="Nervous" required><label>{{ eyeTest_NERVOUS | raw}} <a data-toggle="popoverNervous"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question36" type="radio" class="check_radio" value="Ashamed" required><label>{{ eyeTest_ASHAMED | raw}} <a data-toggle="popoverAshamed"><i class="fa fa-info-circle"></i></a></label></li>
+                                        <li><input name="question36" type="radio" class="check_radio" value="Indecisive" required><label>In{{ eyeTest_DECISIVE | raw}} <a data-toggle="popoverIndecisive"><i class="fa fa-info-circle"></i></a></label></li>
                                 </ul>
                             </div>
                         </div>
@@ -562,6 +562,14 @@
 {% block extra %}{% endblock %}
 {% block script %}
     <script>
+        function callNativeApp () {
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage("camera");
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+
         $(document).ready(function () {
             $.validator.setDefaults({
                 ignore: []
@@ -576,70 +584,70 @@
                 trigger: 'hover'
             });
             $('[data-toggle="popoverAccusing"]').popover({
-                title: '<strong>Accusing</strong>',
+                title: '<strong>{{ eyeTest_ACCUSING | raw }}</strong>',
                 content: '<strong>blaming </strong><div>The policeman was accusing the man of stealing a wallet.</div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverAffectionate"]').popover({
-                title: '<strong>Affectionate</strong>',
+                title: '<strong>{{ eyeTest_AFEECTIONATE }}</strong>',
                 content: '<strong>showing fondness towards someone </strong><div>Most mothers are affectionate to their babies by giving them lots of kisses and cuddles.</div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverAghast"]').popover({
-                title: '<strong>Aghast</strong>',
+                title: '<strong>{{ eyeTest_AGHAST  }}</strong>',
                 content: '<strong>horrified, astonished, alarmed </strong><div>Jane was aghast when she discovered her house had been burgled</div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverAlarmed"]').popover({
-                title: '<strong>Alarmed</strong>',
+                title: '<strong>{{ eyeTest_ALARMED }}</strong>',
                 content: '<strong>fearful, worried, filled with anxiety </strong><div>Claire was alarmed when she thought she was being followed home.</div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverAmused"]').popover({
-                title: '<strong>Amused</strong>',
+                title: '<strong>{{ eyeTest_AMUSED }}</strong>',
                 content: '<strong>finding something funny </strong><div>I was amused by a funny joke someone told me.</div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverAnnoyed"]').popover({
-                title: '<strong>Annoyed </strong>',
+                title: '<strong>{{ eyeTest_ANNOYED }} </strong>',
                 content: '<strong>irritated, displeased </strong><div>Jack was annoyed when he found out he had missed the last bus home </div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverAnticipating"]').popover({
-                title: '<strong>Anticipating </strong>',
+                title: '<strong>{{ eyeTest_ANTICIPATING }} </strong>',
                 content: '<strong>expecting </strong><div>At the start of the football mat h, the fans were anticipating a quick goal  </div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverAnxious"]').popover({
-                title: '<strong>Anxious </strong>',
+                title: '<strong>{{ eyeTest_ANXIOUS }} </strong>',
                 content: '<strong>worried, tense, uneasy </strong><div>The student was feeling anxious before taking her final exams.  </div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverApologetic"]').popover({
-                title: '<strong>Apologetic </strong>',
+                title: '<strong>{{ eyeTest_APOLOGETIC }} </strong>',
                 content: '<strong>feeling sorry </strong><div> The waiter was ver apologetic when he spilt soup all over the customer </div>',
                 html: true,
                 placement: 'right',
                 trigger: 'hover'
             });
             $('[data-toggle="popoverArrogant"]').popover({
-                title: '<strong>Arrogant',
+                title: '<strong>{{ eyeTest_ARROGANT }}</strong>',
                 content: '<strong>conceited, self-important, having a big opinion of oneself </strong><div>The arrogant man thought he knew more about politics than everyone else in the room.</div>',
                 html: true,
                 placement: 'right',

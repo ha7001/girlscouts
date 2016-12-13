@@ -22,5 +22,11 @@ $home = $twig->loadTemplate('comprehension.twig');
 echo $home->render(array(
     'ComprehensionTitle' => $message["INDEX_COMPREHENSION_TEST_TITLE"],
     'ComprehensionInstructions' => $message["INDEX_COMPREHENSION_TEST_INSTRUCTIONS"],
+    'ComprehensionClickHere' => $message["INDEX_COMPREHENSION_TEST_ClickHere"],
+    
 
+    'UniversalTestComplete' => $message["INDEX_TestComplete"],
+    'UniversalSubmit' => $message["INDEX_SUBMIT"],
+    'UniversalForward' => $message["INDEX_FORWARD"],
+    'UniversalBackward' => $message["INDEX_BACKWARD"],
 ));
