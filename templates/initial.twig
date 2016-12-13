@@ -249,8 +249,8 @@
                         <div class="col-md-12">
                             <h4>{{ raceQuestion1 | raw }}</h4>
                             <ul class="data-list-2 race">
-                                <li><input name="race" type="radio" class="check_radio required" value="No"><label></label>{{ raceQuestion1a | raw}}</li>
-                                <li><input name="race" type="radio" class="check_radio required" value="Mexican"><label></label>{{ raceQuestion1b | raw}}</li>
+                                <li><input name="race" type="radio" class="check_radio required" value="No"><label>{{ raceQuestion1a | raw}}</label></li>
+                                <li><input name="race" type="radio" class="check_radio required" value="Mexican"><label>{{ raceQuestion1b | raw}}</label></li>
                                 <li><input name="race" type="radio" class="check_radio required" value="Puerto_Rican"><label>{{ raceQuestion1c | raw}}</label></li>
                                 <li><input name="race" type="radio" class="check_radio required" value="Cuban"><label>{{ raceQuestion1d | raw}}</label></li>
                                 <li><input name="race" type="radio" class="check_radio required" value="Central_American"><label>{{ raceQuestion1e | raw }}</label></li>
@@ -1896,10 +1896,6 @@
                         <button type="submit" name="process" class="submit">{{ submit | raw }}</button>
                     </div><!-- end submit step -->
 
-                    <div class="submit step" id="complete">
-                        <i class="icon-check"></i>
-                        <p>{{ TestStart | raw }}</p>
-                    </div><!-- end submit step -->
 
                 </div><!-- end middle-wizard -->
 

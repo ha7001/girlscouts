@@ -110,6 +110,13 @@
         }
 
         $(document).ready(function () {
+
+            // Scroll up on forward click
+            $('button[name="forward"]').on('click', function() {
+                $('body,html').stop();
+                $('body,html').animate({scrollTop:0},500);
+            });
+
             //Disable the ability to go backwards.
             $('#backwardButton').prop('disabled', true);
 

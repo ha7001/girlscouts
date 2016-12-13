@@ -149,6 +149,13 @@
 
         //Display start button for practice test
         $(document).ready(function() {
+
+            // Scroll up on forward click
+            $('button[name="forward"]').on('click', function() {
+                $('body,html').stop();
+                $('body,html').animate({scrollTop:0},500);
+            });
+
             var $select = $('#startCancellationPracticeButton');
             $select.click(function() {
                 startPracticeTesting1();

@@ -256,11 +256,19 @@
     <script type="text/javascript" src="/assets/js/jcanvas.min.js"></script>
     <script type="text/javascript" src="/assets/js/jTimer.js"></script>
     <script>
-        function callNativeApp () {
-            try {
-                webkit.messageHandlers.callbackHandler.postMessage("camera");
-            } catch(err) {
-                console.log('The native context does not exist yet');
+
+        // Scroll up on forward click
+        $('button[name="forward"]').on('click', function() {
+            $('body,html').stop();
+            $('body,html').animate({scrollTop:0},500);
+        });
+        $(document).ready(function () {
+            function callNativeApp() {
+                try {
+                    webkit.messageHandlers.callbackHandler.postMessage("camera");
+                } catch (err) {
+                    console.log('The native context does not exist yet');
+                }
             }
         }
 

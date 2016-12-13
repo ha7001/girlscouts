@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f29b0d8f-e727-47e8-9954-ec1292962067" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MoCA_MMSE.php" afterPath="$PROJECT_DIR$/MoCA_MMSE.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cancellationTest.php" afterPath="$PROJECT_DIR$/cancellationTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clockDrawing.php" afterPath="$PROJECT_DIR$/clockDrawing.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comprehension.php" afterPath="$PROJECT_DIR$/comprehension.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cpt.php" afterPath="$PROJECT_DIR$/cpt.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eyeTest.php" afterPath="$PROJECT_DIR$/eyeTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/initial.php" afterPath="$PROJECT_DIR$/initial.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/languages/english_us.php" afterPath="$PROJECT_DIR$/languages/english_us.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/matrices.php" afterPath="$PROJECT_DIR$/matrices.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorTask.php" afterPath="$PROJECT_DIR$/motorTask.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reyComplexFigure.php" afterPath="$PROJECT_DIR$/reyComplexFigure.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reyComplexFigure2.php" afterPath="$PROJECT_DIR$/reyComplexFigure2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reyComplexFigure3.php" afterPath="$PROJECT_DIR$/reyComplexFigure3.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reyComplexFigure4.php" afterPath="$PROJECT_DIR$/reyComplexFigure4.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/cancellationTest.twig" afterPath="$PROJECT_DIR$/templates/cancellationTest.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/clockDrawing.twig" afterPath="$PROJECT_DIR$/templates/clockDrawing.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/comprehension.twig" afterPath="$PROJECT_DIR$/templates/comprehension.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/cpt.twig" afterPath="$PROJECT_DIR$/templates/cpt.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/eyeTest.twig" afterPath="$PROJECT_DIR$/templates/eyeTest.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/initial.twig" afterPath="$PROJECT_DIR$/templates/initial.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/matrices.twig" afterPath="$PROJECT_DIR$/templates/matrices.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/moca_mmse.twig" afterPath="$PROJECT_DIR$/templates/moca_mmse.twig" />
@@ -31,7 +15,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reyComplexFigure3.twig" afterPath="$PROJECT_DIR$/templates/reyComplexFigure3.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reyComplexFigure4.twig" afterPath="$PROJECT_DIR$/templates/reyComplexFigure4.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/trailMaking.twig" afterPath="$PROJECT_DIR$/templates/trailMaking.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trailMaking.php" afterPath="$PROJECT_DIR$/trailMaking.php" />
     </list>
     <ignored path="Embraced.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,8 +38,8 @@
             <file leaf-file-name="english_us.php" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/languages/english_us.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="448">
-                    <caret line="216" column="33" selection-start-line="216" selection-start-column="10" selection-end-line="216" selection-end-column="33" />
+                  <state relative-caret-position="3604">
+                    <caret line="227" column="85" selection-start-line="227" selection-start-column="85" selection-end-line="227" selection-end-column="85" />
                     <folding>
                       <element signature="e#6#94#0#PHP" expanded="true" />
                     </folding>
@@ -87,15 +70,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="initial.twig" pinned="false" current-in-tab="true">
+          <file leaf-file-name="initial.twig" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/initial.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="559">
-                  <caret line="1932" column="39" selection-start-line="1932" selection-start-column="39" selection-end-line="1932" selection-end-column="39" />
+                <state relative-caret-position="167">
+                  <caret line="1928" column="39" selection-start-line="1928" selection-start-column="8" selection-end-line="1928" selection-end-column="39" />
                   <folding>
                     <element signature="e#2994#4770#0#HTML" expanded="false" />
                     <element signature="e#4851#12093#0#HTML" expanded="false" />
-                    <element signature="e#12166#17156#0#HTML" expanded="false" />
                     <element signature="e#17239#22570#0#HTML" expanded="false" />
                     <element signature="e#22657#24619#0#HTML" expanded="false" />
                     <element signature="e#24698#34775#0#HTML" expanded="false" />
@@ -104,6 +86,7 @@
                     <element signature="e#41589#42156#0#HTML" expanded="false" />
                     <element signature="e#42217#46295#0#HTML" expanded="false" />
                     <element signature="e#46372#49727#0#HTML" expanded="false" />
+                    <element signature="e#49791#59718#0#HTML" expanded="false" />
                     <element signature="e#59785#65807#0#HTML" expanded="false" />
                     <element signature="e#65873#71002#0#HTML" expanded="false" />
                     <element signature="e#71091#73295#0#HTML" expanded="false" />
@@ -111,6 +94,36 @@
                     <element signature="e#85886#86429#0#HTML" expanded="false" />
                     <element signature="e#86451#148877#0#HTML" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="motorTask.twig" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/motorTask.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="593">
+                  <caret line="248" column="15" selection-start-line="248" selection-start-column="15" selection-end-line="248" selection-end-column="15" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="cancellationTest.twig" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/cancellationTest.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="321">
+                  <caret line="156" column="15" selection-start-line="156" selection-start-column="15" selection-end-line="156" selection-end-column="15" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="comprehension.twig" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/comprehension.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="695">
+                  <caret line="382" column="15" selection-start-line="382" selection-start-column="15" selection-end-line="382" selection-end-column="15" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -132,7 +145,7 @@
           <file leaf-file-name="initial.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/initial.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="624">
+                <state relative-caret-position="3786">
                   <caret line="240" column="47" selection-start-line="240" selection-start-column="47" selection-end-line="240" selection-end-column="47" />
                   <folding />
                 </state>
@@ -154,35 +167,35 @@
         <option value="$PROJECT_DIR$/saveImage.php" />
         <option value="$PROJECT_DIR$/templates/harrySaveImage.php" />
         <option value="$PROJECT_DIR$/harrySaveImage.php" />
-        <option value="$PROJECT_DIR$/templates/initial.twig" />
-        <option value="$PROJECT_DIR$/templates/moca_mmse.twig" />
         <option value="$PROJECT_DIR$/MoCA_MMSE.php" />
         <option value="$PROJECT_DIR$/reyComplexFigure2.php" />
-        <option value="$PROJECT_DIR$/templates/reyComplexFigure2.twig" />
         <option value="$PROJECT_DIR$/reyComplexFigure3.php" />
         <option value="$PROJECT_DIR$/reyComplexFigure.php" />
-        <option value="$PROJECT_DIR$/templates/reyComplexFigure.twig" />
-        <option value="$PROJECT_DIR$/templates/reyComplexFigure3.twig" />
         <option value="$PROJECT_DIR$/reyComplexFigure4.php" />
-        <option value="$PROJECT_DIR$/templates/reyComplexFigure4.twig" />
         <option value="$PROJECT_DIR$/clockDrawing.php" />
-        <option value="$PROJECT_DIR$/templates/clockDrawing.twig" />
         <option value="$PROJECT_DIR$/trailMaking.php" />
-        <option value="$PROJECT_DIR$/templates/trailMaking.twig" />
         <option value="$PROJECT_DIR$/cpt.php" />
-        <option value="$PROJECT_DIR$/templates/cpt.twig" />
         <option value="$PROJECT_DIR$/matrices.php" />
-        <option value="$PROJECT_DIR$/templates/matrices.twig" />
         <option value="$PROJECT_DIR$/motorTask.php" />
-        <option value="$PROJECT_DIR$/templates/motorTask.twig" />
         <option value="$PROJECT_DIR$/cancellationTest.php" />
-        <option value="$PROJECT_DIR$/templates/cancellationTest.twig" />
         <option value="$PROJECT_DIR$/comprehension.php" />
-        <option value="$PROJECT_DIR$/templates/comprehension.twig" />
         <option value="$PROJECT_DIR$/languages/english_us.php" />
         <option value="$PROJECT_DIR$/eyeTest.php" />
         <option value="$PROJECT_DIR$/templates/eyeTest.twig" />
         <option value="$PROJECT_DIR$/initial.php" />
+        <option value="$PROJECT_DIR$/templates/initial.twig" />
+        <option value="$PROJECT_DIR$/templates/moca_mmse.twig" />
+        <option value="$PROJECT_DIR$/templates/reyComplexFigure.twig" />
+        <option value="$PROJECT_DIR$/templates/reyComplexFigure2.twig" />
+        <option value="$PROJECT_DIR$/templates/reyComplexFigure3.twig" />
+        <option value="$PROJECT_DIR$/templates/reyComplexFigure4.twig" />
+        <option value="$PROJECT_DIR$/templates/clockDrawing.twig" />
+        <option value="$PROJECT_DIR$/templates/trailMaking.twig" />
+        <option value="$PROJECT_DIR$/templates/cpt.twig" />
+        <option value="$PROJECT_DIR$/templates/matrices.twig" />
+        <option value="$PROJECT_DIR$/templates/motorTask.twig" />
+        <option value="$PROJECT_DIR$/templates/cancellationTest.twig" />
+        <option value="$PROJECT_DIR$/templates/comprehension.twig" />
       </list>
     </option>
   </component>
@@ -339,7 +352,7 @@
       <workItem from="1479391756984" duration="13658000" />
       <workItem from="1481043952156" duration="26778000" />
       <workItem from="1481387882364" duration="19212000" />
-      <workItem from="1481643575693" duration="1624000" />
+      <workItem from="1481643575693" duration="3743000" />
     </task>
     <task id="LOCAL-00001" summary="Domonique's changes to the index file, fix for the rey complex figure&#10;">
       <created>1478197561393</created>
@@ -366,7 +379,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220017000" />
+    <option name="totallyTimeSpent" value="222136000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -567,13 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/moca_mmse.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="250" column="43" selection-start-line="250" selection-start-column="43" selection-end-line="250" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MoCA_MMSE.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -582,40 +588,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="85" column="61" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reyComplexFigure.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reyComplexFigure2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure2.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure3.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -635,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure4.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5132">
-          <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clockDrawing.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -650,32 +620,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/clockDrawing.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="44" column="54" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trailMaking.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/trailMaking.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cpt.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -692,30 +641,6 @@
         <state relative-caret-position="357">
           <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/matrices.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="392" column="30" selection-start-line="392" selection-start-column="30" selection-end-line="392" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/motorTask.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-590">
-          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cancellationTest.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="63" column="62" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
-          <folding>
-            <element signature="e#3795#21808#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -743,18 +668,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/comprehension.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3382">
-          <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eyeTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/initial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3786">
+          <caret line="240" column="47" selection-start-line="240" selection-start-column="47" selection-end-line="240" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/languages/english_us.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3604">
+          <caret line="227" column="85" selection-start-line="227" selection-start-column="85" selection-end-line="227" selection-end-column="85" />
+          <folding>
+            <element signature="e#6#94#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -766,32 +702,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/languages/english_us.php">
+    <entry file="file://$PROJECT_DIR$/templates/moca_mmse.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="216" column="33" selection-start-line="216" selection-start-column="10" selection-end-line="216" selection-end-column="33" />
-          <folding>
-            <element signature="e#6#94#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="437">
+          <caret line="265" column="0" selection-start-line="265" selection-start-column="0" selection-end-line="271" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/initial.php">
+    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="240" column="47" selection-start-line="240" selection-start-column="47" selection-end-line="240" selection-end-column="47" />
+        <state relative-caret-position="136">
+          <caret line="117" column="15" selection-start-line="113" selection-start-column="12" selection-end-line="117" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure2.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="98" column="41" selection-start-line="98" selection-start-column="41" selection-end-line="98" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure3.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reyComplexFigure2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/reyComplexFigure4.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="393" column="15" selection-start-line="393" selection-start-column="15" selection-end-line="393" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/clockDrawing.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="68" column="15" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/trailMaking.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="103" column="12" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/matrices.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="540" column="15" selection-start-line="540" selection-start-column="15" selection-end-line="540" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cpt.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="223" column="29" selection-start-line="223" selection-start-column="28" selection-end-line="223" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/initial.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="1932" column="39" selection-start-line="1932" selection-start-column="39" selection-end-line="1932" selection-end-column="39" />
+        <state relative-caret-position="167">
+          <caret line="1928" column="39" selection-start-line="1928" selection-start-column="8" selection-end-line="1928" selection-end-column="39" />
           <folding>
             <element signature="e#2994#4770#0#HTML" expanded="false" />
             <element signature="e#4851#12093#0#HTML" expanded="false" />
-            <element signature="e#12166#17156#0#HTML" expanded="false" />
             <element signature="e#17239#22570#0#HTML" expanded="false" />
             <element signature="e#22657#24619#0#HTML" expanded="false" />
             <element signature="e#24698#34775#0#HTML" expanded="false" />
@@ -800,6 +797,7 @@
             <element signature="e#41589#42156#0#HTML" expanded="false" />
             <element signature="e#42217#46295#0#HTML" expanded="false" />
             <element signature="e#46372#49727#0#HTML" expanded="false" />
+            <element signature="e#49791#59718#0#HTML" expanded="false" />
             <element signature="e#59785#65807#0#HTML" expanded="false" />
             <element signature="e#65873#71002#0#HTML" expanded="false" />
             <element signature="e#71091#73295#0#HTML" expanded="false" />
@@ -807,6 +805,30 @@
             <element signature="e#85886#86429#0#HTML" expanded="false" />
             <element signature="e#86451#148877#0#HTML" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/motorTask.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="248" column="15" selection-start-line="248" selection-start-column="15" selection-end-line="248" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cancellationTest.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="156" column="15" selection-start-line="156" selection-start-column="15" selection-end-line="156" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/comprehension.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="382" column="15" selection-start-line="382" selection-start-column="15" selection-end-line="382" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>

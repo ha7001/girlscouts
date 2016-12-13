@@ -101,6 +101,13 @@
         }
 
         $(document).ready(function () {
+
+            // Scroll up on forward click
+            $('button[name="forward"]').on('click', function() {
+                $('body,html').stop();
+                $('body,html').animate({scrollTop:0},500);
+            });
+
             var $TMT1 = $("#TMT1"); //Practice Canvas
             var $TMT2 = $("#TMT2"); //Practice Canvas
             var pts = [];

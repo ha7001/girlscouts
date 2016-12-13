@@ -220,6 +220,13 @@
         var $start = $('#start');
 
         $(document).ready(function() {
+            // Scroll up on forward click
+            $('button[name="forward"]').on('click', function() {
+                $('body,html').stop();
+                $('body,html').animate({scrollTop:0},500);
+            });
+
+
             $forward = $('button[name="forward"]');
 
             $forward.html('Forward ');

@@ -241,6 +241,13 @@
         var $motorTaskOneDominant3b = $("#motorTaskOneDominant3b");
 
         $(document).ready(function () {
+
+            // Scroll up on forward click
+            $('button[name="forward"]').on('click', function() {
+                $('body,html').stop();
+                $('body,html').animate({scrollTop:0},500);
+            });
+
             var ptsPractice = [];
             var line_objPractice = {};
             var isDownPractice = false;
